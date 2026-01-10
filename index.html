@@ -1,15 +1,26 @@
  <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edgar De León | IT Consulting & Business Continuity</title>
+  
+  <title>Edgar De León | Consultoría y Continuidad Operativa TI</title>
+  <meta name="description" content="Edgar De León - Especialista en Infraestructura TI, Redes Cisco y Soporte Nivel 2/3 en Guatemala. Implementación de soluciones tecnológicas y continuidad operativa.">
+  <meta name="keywords" content="Infraestructura TI, Redes, Telecomunicaciones, Soporte Técnico, Cisco CCNA, Windows Server, Big Data, Guatemala, Edgar De Leon, Logística">
+  <meta name="author" content="Edgar De León">
+  
+  <meta property="og:title" content="Edgar De León | Consultoría y Continuidad Operativa TI">
+  <meta property="og:description" content="Soluciones integrales de TI, Redes y Soporte Especializado en Guatemala.">
+  <meta property="og:type" content="website">
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root { --primary: #2563eb; --secondary: #0f172a; --accent: #3b82f6; --bg: #f8fafc; --text: #334155; }
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
     
+    /* Barra de Idioma */
     .nav-lang { background: white; padding: 10px 0; border-bottom: 1px solid #e2e8f0; text-align: right; }
     .btn-lang { background: none; border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 5px; cursor: pointer; font-weight: 600; margin-left: 10px; transition: 0.3s; }
     .btn-lang:hover { background: var(--primary); color: white; }
@@ -39,7 +50,28 @@
     form button { background: var(--primary); color: white; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; }
     form button:hover { background: var(--secondary); }
 
-    @media (max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; } h1 { font-size: 2.2rem; } }
+    /* Botón de WhatsApp Flotante */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50px;
+      padding: 12px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      transition: 0.3s ease;
+      font-size: 0.9rem;
+    }
+    .whatsapp-btn:hover { background-color: #128c7e; transform: scale(1.05); color: white; }
+    .whatsapp-btn svg { width: 22px; height: 22px; fill: white; margin-right: 10px; }
+
+    @media (max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; } h1 { font-size: 2.2rem; } .whatsapp-btn span { display: none; } .whatsapp-btn { padding: 15px; border-radius: 50%; } .whatsapp-btn svg { margin-right: 0; } }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
@@ -54,76 +86,76 @@
 
 <header>
   <div class="container">
-    <span class="badge-top" id="badge-text">IT Consulting & Business Continuity</span>
+    <span class="badge-top" id="badge-text">Consultoría y Continuidad Operativa TI</span>
     <h1 id="hero-title">Edgar De León</h1>
-    <p class="hero-p" id="hero-desc">Implementation of technology solutions and high-level support designed to mitigate operational risks in organizations of any scale.</p>
+    <p class="hero-p" id="hero-desc">Implementación de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos en organizaciones de cualquier escala.</p>
   </div>
 </header>
 
 <div class="container" style="margin-top: 60px;">
   <div class="section-title">
-    <h2 id="services-title">Technical Specialties</h2>
+    <h2 id="services-title">Especialidades Técnicas</h2>
   </div>
 
   <div class="grid-services">
     <div class="card">
-      <h3 id="s1-t">IT Infrastructure & Operations</h3>
-      <p id="s1-p">Ensuring the availability of digital assets through proactive management of critical systems and environments.</p>
+      <h3 id="s1-t">Infraestructura TI y Operaciones</h3>
+      <p id="s1-p">Asegurar la disponibilidad de los activos digitales mediante una gestión proactiva de sistemas y entornos críticos.</p>
       <ul id="s1-list">
-        <li>Directory administration and access policies.</li>
-        <li>Management of Virtual Learning Environments (LMS).</li>
-        <li>Advanced preventive maintenance cycles.</li>
+        <li>Administración de directorios y políticas de acceso.</li>
+        <li>Gestión de ambientes virtuales de aprendizaje (LMS).</li>
+        <li>Ciclos de mantenimiento preventivo avanzado.</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3 id="s2-t">Networking & Telecoms</h3>
-      <p id="s2-p">Robust interconnection based on engineering standards and secure data segmentation.</p>
+      <h3 id="s2-t">Redes y Telecomunicaciones</h3>
+      <p id="s2-p">Interconexión robusta basada en estándares de ingeniería y segmentación de datos segura.</p>
       <ul id="s2-list">
-        <li>Cloud Computing and hybrid integration.</li>
-        <li>Physical infrastructure assembly and certification.</li>
-        <li>Network link and hardware monitoring.</li>
+        <li>Cómputo en la nube e integración híbrida.</li>
+        <li>Montaje y certificación de infraestructura física.</li>
+        <li>Monitoreo de enlaces y hardware de red.</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3 id="s3-t">Tier 2 & 3 Support</h3>
-      <p id="s3-p">Advanced complex incident resolution and logistics assistance with an operational security focus.</p>
+      <h3 id="s3-t">Soporte Nivel 2 y 3</h3>
+      <p id="s3-p">Resolución avanzada de incidentes complejos y asistencia logística con enfoque en seguridad operacional.</p>
       <ul id="s3-list">
-        <li>Big Data analysis for technical diagnostics.</li>
-        <li>Private Driving and Logistics Assistance.</li>
-        <li>Tiered support with a strategic vision.</li>
+        <li>Análisis de datos masivos (Big Data) para diagnóstico.</li>
+        <li>Asistencia en Conducción y Logística Privada.</li>
+        <li>Soporte escalado con visión estratégica.</li>
       </ul>
     </div>
   </div>
 
   <div class="certs-bar">
-    <h3 id="certs-title">Professional Training & Skills</h3>
+    <h3 id="certs-title">Formación Profesional y Habilidades</h3>
     <div class="certs-grid" id="certs-list">
       <span>• Cisco CCNA</span>
-      <span>• Accounting Software Advisory</span>
+      <span>• Asesoría en Software Contable</span>
       <span>• Google Campaign Manager 360</span>
-      <span>• Cloud Computing</span>
+      <span>• Cómputo en la Nube</span>
       <span>• Big Data</span>
-      <span>• Private Logistics</span>
+      <span>• Logística Privada</span>
     </div>
   </div>
 
   <div class="contact-wrapper">
     <div class="contact-info">
-      <h2 id="form-h">Start a Technical Inquiry</h2>
-      <p id="form-p">Available for infrastructure projects, specialized support, or professional logistics requirements.</p>
+      <h2 id="form-h">Inicie una Consulta Técnica</h2>
+      <p id="form-p">Disponible para proyectos de infraestructura, soporte especializado o requerimientos de logística profesional.</p>
     </div>
 
     <div>
       <form id="contact-form">
-        <input type="text" name="name" id="user_name" placeholder="Full Name" required>
-        <input type="email" name="email" id="user_email" placeholder="Email Address" required>
-        <textarea name="message" id="user_message" rows="5" placeholder="Describe your requirement" required></textarea>
-        <button type="submit" id="button">Send Request</button>
+        <input type="text" name="name" id="user_name" placeholder="Nombre completo" required>
+        <input type="email" name="email" id="user_email" placeholder="Correo electrónico" required>
+        <textarea name="message" id="user_message" rows="5" placeholder="Describa su requerimiento" required></textarea>
+        <button type="submit" id="button">Enviar Solicitud</button>
       </form>
       <div id="success-msg" style="display:none; color: #166534; background: #f0fdf4; padding: 15px; border-radius: 10px; margin-top: 15px; text-align: center; border: 1px solid #bbf7d0;">
-        <strong id="success-text">Message sent successfully!</strong>
+        <strong id="success-text">¡Mensaje enviado con éxito!</strong>
       </div>
     </div>
   </div>
@@ -131,26 +163,30 @@
 
 <footer>
   <div class="container" style="padding: 40px 0; text-align: center; color: #94a3b8; font-size: 0.9rem;">
-    © <span id="year"></span> Edgar Francisco de León Hernández | Professional Services
+    © <span id="year"></span> Edgar Francisco de León Hernández | Servicios Profesionales
   </div>
 </footer>
+
+<a href="https://wa.me/50200000000?text=Hola%20Edgar,%20vi%20tu%20portafolio%20y%20me%20gustaría%20consultarte%20sobre%20un%20proyecto" class="whatsapp-btn" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.52.909 3.012 1.388 4.414 1.388 5.4 0 9.792-4.393 9.795-9.793.001-2.613-1.015-5.07-2.863-6.918s-4.305-2.864-6.92-2.864c-5.4 0-9.792 4.392-9.795 9.794-.001 1.614.404 3.109 1.171 4.316l-.993 3.626 3.737-.98c.157.085.31.164.461.24z"/></svg>
+  <span id="wa-text">WhatsApp</span>
+</a>
 
 <script>
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
   const btn = document.getElementById('button');
-
   document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    btn.innerText = 'Sending...';
+    btn.innerText = 'Enviando...';
     emailjs.sendForm('service_k6odtq8', 'template_53hovkj', this)
       .then(() => {
-        btn.innerText = 'Send Request';
+        btn.innerText = 'Enviar Solicitud';
         document.getElementById('success-msg').style.display = 'block';
         this.reset();
       }, (err) => {
         btn.innerText = 'Error';
-        alert("Connection error.");
+        alert("Error de conexión.");
       });
   });
 
@@ -171,9 +207,7 @@
       fp: "Disponible para proyectos de infraestructura, soporte especializado o requerimientos de logística profesional.",
       btn: "Enviar Solicitud",
       ok: "¡Mensaje enviado con éxito!",
-      p_name: "Nombre completo",
-      p_email: "Correo electrónico",
-      p_msg: "Describa su requerimiento"
+      wa: "WhatsApp"
     },
     en: {
       badge: "IT Consulting & Business Continuity",
@@ -191,9 +225,7 @@
       fp: "Available for infrastructure projects, specialized support, or professional logistics requirements.",
       btn: "Send Request",
       ok: "Message sent successfully!",
-      p_name: "Full Name",
-      p_email: "Email Address",
-      p_msg: "Describe your requirement"
+      wa: "Contact via WhatsApp"
     }
   };
 
@@ -211,10 +243,11 @@
     document.getElementById('form-p').innerText = t.fp;
     document.getElementById('button').innerText = t.btn;
     document.getElementById('success-text').innerText = t.ok;
+    document.getElementById('wa-text').innerText = t.wa;
     
-    document.getElementById('user_name').placeholder = t.p_name;
-    document.getElementById('user_email').placeholder = t.p_email;
-    document.getElementById('user_message').placeholder = t.p_msg;
+    document.getElementById('user_name').placeholder = lang === 'es' ? "Nombre completo" : "Full Name";
+    document.getElementById('user_email').placeholder = lang === 'es' ? "Correo electrónico" : "Email Address";
+    document.getElementById('user_message').placeholder = lang === 'es' ? "Describa su requerimiento" : "Describe your requirement";
   }
 
   document.getElementById("year").textContent = new Date().getFullYear();
