@@ -2,10 +2,56 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>DeLeonNet</title>
+  <title>DeLeonNet | Perfil Profesional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Perfil profesional en tecnologías de la información.">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Bienvenido a DeLeonNet</h1>
-  <p>Mi sitio web personal.</p>
+  <main class="container">
+
+    <h1>DeLeonNet</h1>
+    <p>
+      Profesional en Tecnologías de la Información con experiencia en soporte técnico,
+      infraestructura TI y entornos corporativos.
+    </p>
+
+    <h2>Perfil</h2>
+    <p>
+      Especialista en soporte técnico, sistemas y operación tecnológica.
+      Orientado a la estabilidad, seguridad y continuidad operativa.
+    </p>
+
+    <h2>Servicios</h2>
+    <ul>
+      <li>• Soporte técnico y mantenimiento de equipos</li>
+      <li>• Configuración de sistemas y entornos básicos</li>
+      <li>• Páginas web simples y funcionales</li>
+      <li>• Asistencia tecnológica remota</li>
+    </ul>
+
+    <h2>Contacto</h2>
+    <p>
+      Si deseas contactarme por motivos profesionales, puedes enviarme un mensaje.
+      Mi información personal no se muestra públicamente.
+    </p>
+
+    <!-- Contacto sin exponer email -->
+    <a class="button" href="mailto:contacto&#64;example.com?subject=Contacto%20Profesional">
+      Contactar
+    </a>
+
+    <footer>
+      <p>
+        © <span id="year"></span> DeLeonNet · Sitio personal
+      </p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
