@@ -45,49 +45,49 @@
   <div class="container">
     <span class="badge-top">Especialista en Continuidad Operativa TI</span>
     <h1>Edgar De León</h1>
-    <p class="hero-p">Soluciones avanzadas en soporte técnico, infraestructura y redes LAN/WAN para el sector corporativo y financiero.</p>
+    <p class="hero-p">Soluciones tecnológicas integrales y soporte técnico especializado para organizaciones de todo nivel, garantizando eficiencia, estabilidad y crecimiento digital.</p>
   </div>
 </header>
 
 <div class="container" style="margin-top: 60px;">
   <div class="section-title">
-    <h2>Servicios Especializados</h2>
+    <h2>Servicios Profesionales</h2>
   </div>
 
   <div class="grid-services">
     <div class="card">
-      <h3>Infraestructura TI y Operaciones</h3>
-      <p>Gestión integral de hardware y software bajo estándares de alta disponibilidad.</p>
+      <h3>Gestión de Infraestructura</h3>
+      <p>Administración y optimización de recursos tecnológicos para asegurar la operatividad diaria del negocio.</p>
       <ul>
-        <li>Administración de Windows y Windows Server</li>
-        <li>Soporte y gestión de Active Directory</li>
-        <li>Mantenimiento de infraestructura crítica en sucursales</li>
+        <li>Configuración de estaciones de trabajo y servidores</li>
+        <li>Implementación de sistemas Windows y Linux</li>
+        <li>Mantenimiento preventivo de hardware crítico</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3>Redes y Telecomunicaciones</h3>
-      <p>Configuración y monitoreo de conectividad robusta para asegurar la operación del negocio.</p>
+      <h3>Redes y Conectividad</h3>
+      <p>Diseño y despliegue de soluciones de red escalables y seguras para cualquier entorno de trabajo.</p>
       <ul>
-        <li>Instalación de Routers y Switches (Entorno Cisco)</li>
-        <li>Diseño de redes LAN/WAN y VLANs</li>
-        <li>Cableado estructurado y telefonía IP</li>
+        <li>Instalación y soporte de equipos Cisco</li>
+        <li>Optimización de redes LAN/WAN y enlaces de Internet</li>
+        <li>Cableado estructurado y gestión de VLANs</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3>Soporte Nivel 2 y 3</h3>
-      <p>Resolución de incidencias complejas con altos indicadores de satisfacción y cumplimiento de SLA.</p>
+      <h3>Soporte Técnico Especializado</h3>
+      <p>Resolución avanzada de incidencias mediante diagnósticos estructurados y atención de alta calidad.</p>
       <ul>
-        <li>Diagnóstico y análisis de causa raíz</li>
-        <li>Administración de sistemas SaaS (CRM/EDU)</li>
-        <li>Capacitación técnica a usuarios finales</li>
+        <li>Soporte remoto y presencial (Niveles 2 y 3)</li>
+        <li>Gestión de plataformas SaaS y herramientas digitales</li>
+        <li>Documentación de procesos y capacitación técnica</li>
       </ul>
     </div>
   </div>
 
   <div class="certs-bar">
-    <h3 style="margin-bottom: 25px;">Formación y Certificaciones Industriales</h3>
+    <h3 style="margin-bottom: 25px;">Formación y Respaldo Técnico</h3>
     <div class="certs-grid">
       <span>• Cisco CCNA</span>
       <span>• INTECAP (Soporte de Sistemas)</span>
@@ -98,23 +98,23 @@
 
   <div class="contact-wrapper" id="contacto">
     <div class="contact-info">
-      <h2 style="color: var(--secondary);">Inicie una Consulta Técnica</h2>
-      <p>Describa sus necesidades operativas para recibir una propuesta de soporte profesional personalizada.</p>
+      <h2 style="color: var(--secondary);">¿Cómo puedo ayudar a su organización?</h2>
+      <p>Estoy listo para asesorarle en proyectos de infraestructura, soporte técnico o implementación de nuevas tecnologías.</p>
       <div style="margin-top: 30px;">
         <p><strong>Ubicación:</strong> Ciudad de Guatemala</p>
-        <p><strong>Experiencia:</strong> Trayectoria consolidada en entornos corporativos</p>
+        <p><strong>Disponibilidad:</strong> Presencial y Remoto</p>
       </div>
     </div>
 
     <div>
       <form id="contact-form">
         <input type="text" name="name" placeholder="Nombre completo" required>
-        <input type="email" name="email" placeholder="Correo electrónico institucional o personal" required>
-        <textarea name="message" rows="5" placeholder="Describa el requerimiento o problema técnico" required></textarea>
-        <button type="submit" id="button">Enviar Solicitud de Servicio</button>
+        <input type="email" name="email" placeholder="Correo electrónico de contacto" required>
+        <textarea name="message" rows="5" placeholder="¿Qué solución técnica requiere para su empresa o proyecto?" required></textarea>
+        <button type="submit" id="button">Enviar Solicitud de Información</button>
       </form>
       <div id="success-msg" style="display:none; color: #166534; background: #f0fdf4; padding: 15px; border-radius: 10px; margin-top: 15px; text-align: center; border: 1px solid #bbf7d0;">
-        <strong>¡Solicitud enviada!</strong> He recibido sus datos y le contactaré a la brevedad.
+        <strong>¡Mensaje enviado!</strong> Revisaré su requerimiento y le contactaré a la brevedad.
       </div>
     </div>
   </div>
@@ -122,7 +122,7 @@
 
 <footer>
   <div class="container" style="padding: 40px 0; text-align: center; color: #94a3b8; font-size: 0.9rem;">
-    © <span id="year"></span> Edgar Francisco de León Hernández | Consultoría e Infraestructura TI
+    © <span id="year"></span> Edgar Francisco de León Hernández | Consultoría y Servicios de TI
   </div>
 </footer>
 
@@ -134,12 +134,12 @@
     btn.innerText = 'Enviando...';
     emailjs.sendForm('service_k6odtq8', 'template_53hovkj', this)
       .then(() => {
-        btn.innerText = 'Enviar Solicitud de Servicio';
+        btn.innerText = 'Enviar Solicitud de Información';
         document.getElementById('success-msg').style.display = 'block';
         this.reset();
       }, (err) => {
-        btn.innerText = 'Enviar Solicitud de Servicio';
-        alert("Error de comunicación. Verifique su conexión.");
+        btn.innerText = 'Enviar Solicitud de Información';
+        alert("Hubo un problema al enviar. Por favor verifique su conexión.");
       });
   });
   document.getElementById("year").textContent = new Date().getFullYear();
