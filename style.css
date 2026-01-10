@@ -1,77 +1,120 @@
-/* Reset básico */
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Tipografía y fondo */
+/* Base */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
-  color: #222;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2933;
   line-height: 1.6;
 }
 
-/* Contenedor principal */
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-/* Encabezados */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-h2 {
-  font-size: 1.4rem;
-  margin-top: 40px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
-}
-
-/* Párrafos */
-p {
-  margin-bottom: 15px;
-}
-
-/* Listas */
-ul {
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-li {
-  margin-bottom: 8px;
-}
-
-/* Selector de idioma */
+/* Selector idioma */
 .language-switch {
-  max-width: 900px;
-  margin: 20px auto 0 auto;
+  max-width: 1000px;
+  margin: 20px auto;
   padding: 0 20px;
   text-align: right;
 }
 
 .language-switch button {
   background: none;
-  border: 1px solid #444;
-  padding: 5px 10px;
-  margin-left: 5px;
+  border: 1px solid #334155;
+  color: #334155;
+  padding: 6px 12px;
+  margin-left: 6px;
   font-size: 0.8rem;
+  border-radius: 4px;
   cursor: pointer;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Tarjetas */
+.lang-section {
+  background: #ffffff;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
+
+/* Encabezado principal */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Títulos sección */
+h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 6px;
+}
+
+/* Texto */
+p {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+/* Listas */
+ul {
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
 }
 
 /* Formularios */
 form {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 input,
 textarea {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Botón */
+button.button {
+  background-color: #334155;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 0.8rem;
+  color: #64748b;
+}
