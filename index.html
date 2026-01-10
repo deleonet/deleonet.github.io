@@ -1,11 +1,103 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DeLeonNet | Perfil Profesional</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Fuente profesional -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos base -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f9fc;
+      color: #1f2933;
+      line-height: 1.6;
+    }
+
+    .language-switch {
+      text-align: right;
+      padding: 15px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .language-switch button {
+      background: none;
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+      margin-left: 10px;
+      color: #2563eb;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: #ffffff;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      margin-top: 0;
+      color: #0f172a;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    form button {
+      margin-top: 15px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .success {
+      background: #ecfdf5;
+      color: #065f46;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+  </style>
 </head>
 
 <body>
@@ -23,8 +115,8 @@
       <h1>DeLeonNet</h1>
       <p>
         Profesional en Tecnologías de la Información con experiencia en soporte técnico,
-        operación de sistemas y entornos corporativos. Enfocado en soluciones prácticas,
-        estabilidad operativa y uso responsable de la tecnología.
+        operación de sistemas e infraestructuras corporativas.
+        Enfocado en soluciones prácticas, continuidad operativa y uso responsable de la tecnología.
       </p>
     </section>
 
@@ -33,54 +125,38 @@
       <h1>DeLeonNet</h1>
       <p>
         Information Technology professional with experience in technical support,
-        systems operations, and corporate environments. Focused on practical solutions,
-        operational stability, and responsible use of technology.
+        systems operations, and corporate infrastructure.
+        Focused on practical solutions, operational continuity, and responsible technology use.
       </p>
     </section>
 
     <!-- SERVICIOS ESPAÑOL -->
     <section id="services-es" class="lang-section">
       <h2>Servicios</h2>
-      <p>
-        Provisión de servicios profesionales en Tecnologías de la Información,
-        enfocados en la continuidad operativa, soporte técnico avanzado y
-        estabilidad de infraestructuras en entornos corporativos.
-      </p>
-
       <ul>
-        <li>• Soporte técnico presencial y remoto (Tier 2 & Tier 3)</li>
-        <li>• Troubleshooting de hardware, software y conectividad</li>
-        <li>• Mantenimiento preventivo y correctivo de estaciones de trabajo y periféricos</li>
-        <li>• Administración básica de sistemas Windows y Linux</li>
-        <li>• Soporte y configuración de redes LAN/WAN, VLANs y cableado estructurado</li>
-        <li>• Configuración y soporte de impresoras de red y dispositivos periféricos</li>
-        <li>• Documentación técnica y procedimientos operativos</li>
-        <li>• Capacitación a usuarios finales y soporte operativo continuo</li>
-        <li>• Soporte a plataformas empresariales y soluciones SaaS</li>
-        <li>• Asistencia técnica en sitio y remota bajo estándares ITIL</li>
+        <li>Soporte técnico presencial y remoto (Tier 2 & Tier 3)</li>
+        <li>Diagnóstico y resolución de incidencias de hardware, software y red</li>
+        <li>Mantenimiento preventivo y correctivo de estaciones de trabajo</li>
+        <li>Administración básica de sistemas Windows y Linux</li>
+        <li>Soporte a redes LAN/WAN, VLANs y cableado estructurado</li>
+        <li>Documentación técnica y procedimientos operativos</li>
+        <li>Capacitación a usuarios finales</li>
+        <li>Soporte a plataformas empresariales y soluciones SaaS</li>
       </ul>
     </section>
 
     <!-- SERVICES ENGLISH -->
     <section id="services-en" class="lang-section" style="display:none;">
       <h2>Services</h2>
-      <p>
-        Professional Information Technology services focused on operational
-        continuity, advanced technical support, and infrastructure stability
-        within corporate environments.
-      </p>
-
       <ul>
-        <li>• On-site and remote technical support (Tier 2 & Tier 3)</li>
-        <li>• Hardware, software, and connectivity troubleshooting</li>
-        <li>• Preventive and corrective maintenance for workstations and peripherals</li>
-        <li>• Basic administration of Windows and Linux systems</li>
-        <li>• LAN/WAN network support, VLAN configuration, and structured cabling</li>
-        <li>• Network printer and peripheral configuration and support</li>
-        <li>• Technical documentation and operational procedures</li>
-        <li>• End-user training and operational support</li>
-        <li>• Support for enterprise platforms and SaaS solutions</li>
-        <li>• On-site and remote IT assistance following ITIL best practices</li>
+        <li>On-site and remote technical support (Tier 2 & Tier 3)</li>
+        <li>Hardware, software, and network troubleshooting</li>
+        <li>Preventive and corrective maintenance of workstations</li>
+        <li>Basic administration of Windows and Linux systems</li>
+        <li>LAN/WAN networks, VLANs, and structured cabling support</li>
+        <li>Technical documentation and operational procedures</li>
+        <li>End-user training</li>
+        <li>Enterprise platforms and SaaS support</li>
       </ul>
     </section>
 
@@ -88,67 +164,81 @@
     <section id="contact-es" class="lang-section">
       <h2>Contacto</h2>
       <p>
-        Para consultas profesionales, propuestas de colaboración o solicitudes de servicio,
-        puedes enviar un mensaje mediante el siguiente formulario.
-        La información será tratada de forma confidencial.
+        Para consultas profesionales o solicitudes de servicio,
+        complete el siguiente formulario. La información es confidencial.
       </p>
 
-      <form action="https://formsubmit.co/de.leonedgargt@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Contacto profesional desde DeLeonNet">
-        <input type="hidden" name="_captcha" value="false">
+      <form action="https://formspree.io/f/maqqwllk" method="POST" onsubmit="showSuccess(event)">
+        <input type="hidden" name="_subject" value="Nuevo contacto profesional - DeLeonNet">
 
-        <p><input type="text" name="name" placeholder="Nombre" required></p>
-        <p><input type="email" name="email" placeholder="Correo de contacto" required></p>
-        <p><textarea name="message" rows="5" placeholder="Mensaje" required></textarea></p>
+        <label>Nombre</label>
+        <input type="text" name="name" required>
 
-        <button class="button" type="submit">Enviar mensaje</button>
+        <label>Correo electrónico</label>
+        <input type="email" name="email" required>
+
+        <label>Mensaje</label>
+        <textarea name="message" rows="5" required></textarea>
+
+        <button type="submit">Enviar solicitud</button>
       </form>
+
+      <div class="success" id="success-es">
+        ✔️ Su mensaje ha sido enviado correctamente.  
+        Me pondré en contacto con usted a la mayor brevedad posible.
+      </div>
     </section>
 
     <!-- CONTACT ENGLISH -->
     <section id="contact-en" class="lang-section" style="display:none;">
       <h2>Contact</h2>
       <p>
-        For professional inquiries, collaboration proposals, or service requests,
-        please use the contact form below.
-        Your information will be handled confidentially.
+        For professional inquiries or service requests,
+        please complete the form below. Your information is handled confidentially.
       </p>
 
-      <form action="https://formsubmit.co/de.leonedgargt@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Professional contact from DeLeonNet">
-        <input type="hidden" name="_captcha" value="false">
+      <form action="https://formspree.io/f/maqqwllk" method="POST" onsubmit="showSuccess(event)">
+        <input type="hidden" name="_subject" value="New professional contact - DeLeonNet">
 
-        <p><input type="text" name="name" placeholder="Name" required></p>
-        <p><input type="email" name="email" placeholder="Contact email" required></p>
-        <p><textarea name="message" rows="5" placeholder="Message" required></textarea></p>
+        <label>Name</label>
+        <input type="text" name="name" required>
 
-        <button class="button" type="submit">Send message</button>
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Message</label>
+        <textarea name="message" rows="5" required></textarea>
+
+        <button type="submit">Send request</button>
       </form>
+
+      <div class="success" id="success-en">
+        ✔️ Your message has been sent successfully.  
+        I will contact you as soon as possible.
+      </div>
     </section>
 
   </main>
 
   <footer>
-    <p>© <span id="year"></span> DeLeonNet · Professional Profile</p>
+    © <span id="year"></span> DeLeonNet · Professional IT Services
   </footer>
 
   <script>
     function setLanguage(lang) {
-      document.querySelectorAll('.lang-section').forEach(section => {
-        section.style.display = 'none';
-      });
-
-      document.querySelectorAll(`[id$="-${lang}"]`).forEach(section => {
-        section.style.display = 'block';
-      });
-
+      document.querySelectorAll('.lang-section').forEach(s => s.style.display = 'none');
+      document.querySelectorAll(`[id$="-${lang}"]`).forEach(s => s.style.display = 'block');
       localStorage.setItem('preferredLanguage', lang);
     }
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    function showSuccess(event) {
+      setTimeout(() => {
+        document.querySelectorAll('.success').forEach(s => s.style.display = 'block');
+      }, 500);
+    }
 
-    const savedLang = localStorage.getItem('preferredLanguage') || 'es';
-    setLanguage(savedLang);
+    document.getElementById("year").textContent = new Date().getFullYear();
+    setLanguage(localStorage.getItem('preferredLanguage') || 'es');
   </script>
 
 </body>
