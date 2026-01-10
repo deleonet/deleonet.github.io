@@ -2,71 +2,153 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DeLeonNet | Perfil Profesional</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Perfil profesional en tecnologías de la información.">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <main class="container">
 
-    <h1>DeLeonNet</h1>
-    <p>
-      Profesional en Tecnologías de la Información con experiencia en soporte técnico,
-      infraestructura TI y entornos corporativos.
-    </p>
+  <!-- Selector de idioma -->
+  <div class="language-switch">
+    <button onclick="setLanguage('es')">Español</button>
+    <button onclick="setLanguage('en')">English</button>
+  </div>
 
-    <h2>Perfil</h2>
-    <p>
-      Especialista en soporte técnico, sistemas y operación tecnológica.
-      Orientado a la estabilidad, seguridad y continuidad operativa.
-    </p>
+  <main>
 
-    <h2>Servicios</h2>
-    <ul>
-      <li>• Soporte técnico y mantenimiento de equipos</li>
-      <li>• Configuración de sistemas y entornos básicos</li>
-      <li>• Páginas web simples y funcionales</li>
-      <li>• Asistencia tecnológica remota</li>
-    </ul>
-
-    <h2>Contacto</h2>
-<p>
-  Si deseas contactarme por motivos profesionales, puedes enviarme un mensaje
-  mediante el siguiente formulario.
-</p>
-
-<form action="https://formsubmit.co/de.leonedgargt@gmail.com" method="POST">
-  <input type="hidden" name="_subject" value="Contacto profesional desde DeLeonNet">
-  <input type="hidden" name="_captcha" value="false">
-
-  <p>
-    <input type="text" name="name" placeholder="Nombre" required>
-  </p>
-
-  <p>
-    <input type="email" name="email" placeholder="Correo de contacto" required>
-  </p>
-
-  <p>
-    <textarea name="message" placeholder="Mensaje" rows="5" required></textarea>
-  </p>
-
-  <button class="button" type="submit">Enviar mensaje</button>
-</form>
-
-
-    <footer>
+    <!-- PERFIL ESPAÑOL -->
+    <section id="profile-es" class="lang-section">
+      <h1>DeLeonNet</h1>
       <p>
-        © <span id="year"></span> DeLeonNet · Sitio personal
+        Profesional en Tecnologías de la Información con experiencia en soporte técnico,
+        operación de sistemas y entornos corporativos. Enfocado en soluciones prácticas,
+        estabilidad operativa y uso responsable de la tecnología.
       </p>
-    </footer>
+    </section>
+
+    <!-- PROFILE ENGLISH -->
+    <section id="profile-en" class="lang-section" style="display:none;">
+      <h1>DeLeonNet</h1>
+      <p>
+        Information Technology professional with experience in technical support,
+        systems operations, and corporate environments. Focused on practical solutions,
+        operational stability, and responsible use of technology.
+      </p>
+    </section>
+
+    <!-- SERVICIOS ESPAÑOL -->
+    <section id="services-es" class="lang-section">
+      <h2>Servicios</h2>
+      <p>
+        Provisión de servicios profesionales en Tecnologías de la Información,
+        enfocados en la continuidad operativa, soporte técnico avanzado y
+        estabilidad de infraestructuras en entornos corporativos.
+      </p>
+
+      <ul>
+        <li>• Soporte técnico presencial y remoto (Tier 2 & Tier 3)</li>
+        <li>• Troubleshooting de hardware, software y conectividad</li>
+        <li>• Mantenimiento preventivo y correctivo de estaciones de trabajo y periféricos</li>
+        <li>• Administración básica de sistemas Windows y Linux</li>
+        <li>• Soporte y configuración de redes LAN/WAN, VLANs y cableado estructurado</li>
+        <li>• Configuración y soporte de impresoras de red y dispositivos periféricos</li>
+        <li>• Documentación técnica y procedimientos operativos</li>
+        <li>• Capacitación a usuarios finales y soporte operativo continuo</li>
+        <li>• Soporte a plataformas empresariales y soluciones SaaS</li>
+        <li>• Asistencia técnica en sitio y remota bajo estándares ITIL</li>
+      </ul>
+    </section>
+
+    <!-- SERVICES ENGLISH -->
+    <section id="services-en" class="lang-section" style="display:none;">
+      <h2>Services</h2>
+      <p>
+        Professional Information Technology services focused on operational
+        continuity, advanced technical support, and infrastructure stability
+        within corporate environments.
+      </p>
+
+      <ul>
+        <li>• On-site and remote technical support (Tier 2 & Tier 3)</li>
+        <li>• Hardware, software, and connectivity troubleshooting</li>
+        <li>• Preventive and corrective maintenance for workstations and peripherals</li>
+        <li>• Basic administration of Windows and Linux systems</li>
+        <li>• LAN/WAN network support, VLAN configuration, and structured cabling</li>
+        <li>• Network printer and peripheral configuration and support</li>
+        <li>• Technical documentation and operational procedures</li>
+        <li>• End-user training and operational support</li>
+        <li>• Support for enterprise platforms and SaaS solutions</li>
+        <li>• On-site and remote IT assistance following ITIL best practices</li>
+      </ul>
+    </section>
+
+    <!-- CONTACTO ESPAÑOL -->
+    <section id="contact-es" class="lang-section">
+      <h2>Contacto</h2>
+      <p>
+        Para consultas profesionales, propuestas de colaboración o solicitudes de servicio,
+        puedes enviar un mensaje mediante el siguiente formulario.
+        La información será tratada de forma confidencial.
+      </p>
+
+      <form action="https://formsubmit.co/de.leonedgargt@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Contacto profesional desde DeLeonNet">
+        <input type="hidden" name="_captcha" value="false">
+
+        <p><input type="text" name="name" placeholder="Nombre" required></p>
+        <p><input type="email" name="email" placeholder="Correo de contacto" required></p>
+        <p><textarea name="message" rows="5" placeholder="Mensaje" required></textarea></p>
+
+        <button class="button" type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+
+    <!-- CONTACT ENGLISH -->
+    <section id="contact-en" class="lang-section" style="display:none;">
+      <h2>Contact</h2>
+      <p>
+        For professional inquiries, collaboration proposals, or service requests,
+        please use the contact form below.
+        Your information will be handled confidentially.
+      </p>
+
+      <form action="https://formsubmit.co/de.leonedgargt@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Professional contact from DeLeonNet">
+        <input type="hidden" name="_captcha" value="false">
+
+        <p><input type="text" name="name" placeholder="Name" required></p>
+        <p><input type="email" name="email" placeholder="Contact email" required></p>
+        <p><textarea name="message" rows="5" placeholder="Message" required></textarea></p>
+
+        <button class="button" type="submit">Send message</button>
+      </form>
+    </section>
 
   </main>
 
+  <footer>
+    <p>© <span id="year"></span> DeLeonNet · Professional Profile</p>
+  </footer>
+
   <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang-section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      document.querySelectorAll(`[id$="-${lang}"]`).forEach(section => {
+        section.style.display = 'block';
+      });
+
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const savedLang = localStorage.getItem('preferredLanguage') || 'es';
+    setLanguage(savedLang);
   </script>
+
 </body>
 </html>
