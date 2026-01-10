@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DeLeonNet | IT Professional Services</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     body { margin: 0; font-family: 'Inter', sans-serif; background-color: #f7f9fc; color: #1f2933; line-height: 1.6; }
     .language-switch { text-align: right; padding: 15px 20px; background: #ffffff; border-bottom: 1px solid #e5e7eb; }
@@ -19,6 +21,7 @@
     form button:hover { background-color: #1d4ed8; }
     .success { background: #ecfdf5; color: #065f46; padding: 15px; border-radius: 6px; margin-top: 15px; display: none; text-align: center; border: 1px solid #10b981; }
     footer { text-align: center; padding: 20px; font-size: 14px; color: #6b7280; }
+    .lang-section { display: none; } /* Ocultar por defecto para la lógica JS */
   </style>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -36,7 +39,7 @@
         <h1>DeLeonNet</h1>
         <p>Profesional en TI con experiencia en soporte técnico, operación de sistemas e infraestructura corporativa.</p>
       </div>
-      <div id="profile-en" class="lang-section" style="display:none;">
+      <div id="profile-en" class="lang-section">
         <h1>DeLeonNet</h1>
         <p>IT Professional with experience in technical support, systems operations, and corporate infrastructure.</p>
       </div>
@@ -46,13 +49,13 @@
       <h2 id="form-title">Contacto / Contact</h2>
       <form id="contact-form">
         <label>Nombre / Name</label>
-        <input type="text" name="name" required>
+        <input type="text" name="name" id="from_name" required>
 
         <label>Correo Electrónico / Email</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" id="user_email" required>
 
         <label>Mensaje / Message</label>
-        <textarea name="message" rows="5" required></textarea>
+        <textarea name="message" id="message" rows="5" required></textarea>
 
         <button type="submit" id="button">Enviar Solicitud / Send Request</button>
       </form>
@@ -69,7 +72,7 @@
 
   <script>
     (function() {
-        // Tu Public Key integrada
+        // Tu Public Key proporcionada
         emailjs.init("xI0INopTtsN4wsLEF"); 
     })();
 
@@ -79,8 +82,8 @@
       event.preventDefault();
       btn.innerText = 'Enviando...';
 
-      // Tus IDs de servicio y plantilla integrados
-      const serviceID = 'service_f5rsw5r';
+      // Tus IDs actualizados
+      const serviceID = 'service_k6odtq8';
       const templateID = 'template_53hovkj'; 
 
       emailjs.sendForm(serviceID, templateID, this)
@@ -90,18 +93,21 @@
           this.reset();
         }, (err) => {
           btn.innerText = 'Enviar Solicitud / Send Request';
-          alert("Error: Por favor verifica la conexión con Gmail en EmailJS (Error 412).");
+          alert("Error en el envío. Revisa la consola para más detalles.");
           console.error(err);
         });
     });
 
+    // Lógica de Idioma
     function setLanguage(lang) {
       document.querySelectorAll('.lang-section').forEach(s => s.style.display = 'none');
       document.querySelectorAll(`[id$="-${lang}"]`).forEach(s => s.style.display = 'block');
+      localStorage.setItem('preferredLanguage', lang);
     }
 
     document.getElementById("year").textContent = new Date().getFullYear();
-    setLanguage('es');
+    // Carga idioma preferido o español por defecto
+    setLanguage(localStorage.getItem('preferredLanguage') || 'es');
   </script>
 </body>
 </html>
