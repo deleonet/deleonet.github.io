@@ -32,15 +32,30 @@
     </ul>
 
     <h2>Contacto</h2>
-    <p>
-      Si deseas contactarme por motivos profesionales, puedes enviarme un mensaje.
-      Mi información personal no se muestra públicamente.
-    </p>
+<p>
+  Si deseas contactarme por motivos profesionales, puedes enviarme un mensaje
+  mediante el siguiente formulario.
+</p>
 
-    <!-- Contacto sin exponer email -->
-   <a class="button" href="mailto:de.leonedgargt&#64;gmail.com?subject=Contacto%20Profesional">
-      Contactar
-    </a>
+<form action="https://formsubmit.co/de.leonedgargt@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="Contacto profesional desde DeLeonNet">
+  <input type="hidden" name="_captcha" value="false">
+
+  <p>
+    <input type="text" name="name" placeholder="Nombre" required>
+  </p>
+
+  <p>
+    <input type="email" name="email" placeholder="Correo de contacto" required>
+  </p>
+
+  <p>
+    <textarea name="message" placeholder="Mensaje" rows="5" required></textarea>
+  </p>
+
+  <button class="button" type="submit">Enviar mensaje</button>
+</form>
+
 
     <footer>
       <p>
