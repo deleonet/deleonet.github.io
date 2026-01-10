@@ -3,102 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeLeonNet | Perfil Profesional</title>
-
+  <title>DeLeonNet | IT Professional Services</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fc;
-      color: #1f2933;
-      line-height: 1.6;
-    }
-
-    .language-switch {
-      text-align: right;
-      padding: 15px 20px;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .language-switch button {
-      background: none;
-      border: none;
-      font-weight: 500;
-      cursor: pointer;
-      margin-left: 10px;
-      color: #2563eb;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    section {
-      background: #ffffff;
-      padding: 30px;
-      margin-bottom: 30px;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
-
-    h1, h2 {
-      margin-top: 0;
-      color: #0f172a;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      font-size: 14px;
-      box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
-    }
-
-    form button {
-      margin-top: 15px;
-      background-color: #2563eb;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 15px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background-color: #1d4ed8;
-    }
-
-    .success {
-      background: #ecfdf5;
-      color: #065f46;
-      padding: 15px;
-      border-radius: 6px;
-      margin-top: 15px;
-      display: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #6b7280;
-    }
+    body { margin: 0; font-family: 'Inter', sans-serif; background-color: #f7f9fc; color: #1f2933; line-height: 1.6; }
+    .language-switch { text-align: right; padding: 15px 20px; background: #ffffff; border-bottom: 1px solid #e5e7eb; }
+    .language-switch button { background: none; border: none; font-weight: 500; cursor: pointer; margin-left: 10px; color: #2563eb; }
+    .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    section { background: #ffffff; padding: 30px; margin-bottom: 30px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+    h1, h2 { margin-top: 0; color: #0f172a; }
+    ul { padding-left: 20px; }
+    form label { display: block; margin-top: 15px; font-weight: 500; font-size: 14px; }
+    form input, form textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; box-sizing: border-box; }
+    form button { margin-top: 20px; background-color: #2563eb; color: white; border: none; padding: 12px 25px; font-size: 15px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: 600; transition: 0.3s; }
+    form button:hover { background-color: #1d4ed8; }
+    .success { background: #ecfdf5; color: #065f46; padding: 15px; border-radius: 6px; margin-top: 15px; display: none; text-align: center; border: 1px solid #10b981; }
+    footer { text-align: center; padding: 20px; font-size: 14px; color: #6b7280; }
   </style>
-</head>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
 <body>
 
   <div class="language-switch">
@@ -107,144 +31,77 @@
   </div>
 
   <main class="container">
-
-    <section id="profile-es" class="lang-section">
-      <h1>DeLeonNet</h1>
-      <p>
-        Profesional en Tecnologías de la Información con experiencia en soporte técnico,
-        operación de sistemas e infraestructuras corporativas.
-        Enfocado en soluciones prácticas, continuidad operativa y uso responsable de la tecnología.
-      </p>
-    </section>
-
-    <section id="profile-en" class="lang-section" style="display:none;">
-      <h1>DeLeonNet</h1>
-      <p>
-        Information Technology professional with experience in technical support,
-        systems operations, and corporate infrastructure.
-        Focused on practical solutions, operational continuity, and responsible technology use.
-      </p>
-    </section>
-
-    <section id="services-es" class="lang-section">
-      <h2>Servicios</h2>
-      <ul>
-        <li>Soporte técnico presencial y remoto (Tier 2 & Tier 3)</li>
-        <li>Diagnóstico y resolución de incidencias de hardware, software y red</li>
-        <li>Mantenimiento preventivo y correctivo de estaciones de trabajo</li>
-        <li>Administración básica de sistemas Windows y Linux</li>
-        <li>Soporte a redes LAN/WAN, VLANs y cableado estructurado</li>
-        <li>Documentación técnica y procedimientos operativos</li>
-        <li>Capacitación a usuarios finales</li>
-        <li>Soporte a plataformas empresariales y soluciones SaaS</li>
-      </ul>
-    </section>
-
-    <section id="services-en" class="lang-section" style="display:none;">
-      <h2>Services</h2>
-      <ul>
-        <li>On-site and remote technical support (Tier 2 & Tier 3)</li>
-        <li>Hardware, software, and network troubleshooting</li>
-        <li>Preventive and corrective maintenance of workstations</li>
-        <li>Basic administration of Windows and Linux systems</li>
-        <li>LAN/WAN networks, VLANs, and structured cabling support</li>
-        <li>Technical documentation and operational procedures</li>
-        <li>End-user training</li>
-        <li>Enterprise platforms and SaaS support</li>
-      </ul>
-    </section>
-
-    <section id="contact-es" class="lang-section">
-      <h2>Contacto</h2>
-      <p>
-        Para consultas profesionales o solicitudes de servicio,
-        complete el siguiente formulario. La información es confidencial.
-      </p>
-
-      <form action="https://api.web3forms.com/submit" method="POST" onsubmit="showSuccess(event)">
-        
-        <input type="hidden" name="access_key" value="12c1d6a0-ec3e-489d-a531-8231d05bbd08">
-        
-        <input type="hidden" name="from_name" value="DeLeonNet · IT Professional Services">
-        <input type="hidden" name="subject" value="Confirmación de Solicitud de Servicio - DeLeonNet">
-        
-        <input type="hidden" name="autoresponder" value="Dear Valued Contact, Thank you for reaching out to DeLeonNet. Your IT service request has been successfully received. I will review the technical specifications provided and get back to you shortly to assist with your inquiry. Sincerely, DeLeonNet.">
-
-        <label>Nombre</label>
-        <input type="text" name="name" required>
-
-        <label>Correo electrónico</label>
-        <input type="email" name="email" required>
-
-        <label>Mensaje</label>
-        <textarea name="message" rows="5" required></textarea>
-
-        <button type="submit">Enviar solicitud</button>
-      </form>
-
-      <div class="success" id="success-es">
-        ✔️ Su mensaje ha sido enviado correctamente.  
-        Me pondré en contacto con usted a la mayor brevedad posible.
+    <section>
+      <div id="profile-es" class="lang-section">
+        <h1>DeLeonNet</h1>
+        <p>Profesional en TI con experiencia en soporte técnico, operación de sistemas e infraestructura corporativa.</p>
+      </div>
+      <div id="profile-en" class="lang-section" style="display:none;">
+        <h1>DeLeonNet</h1>
+        <p>IT Professional with experience in technical support, systems operations, and corporate infrastructure.</p>
       </div>
     </section>
 
-    <section id="contact-en" class="lang-section" style="display:none;">
-      <h2>Contact</h2>
-      <p>
-        For professional inquiries or service requests,
-        please complete the form below. Your information is handled confidentially.
-      </p>
-
-      <form action="https://api.web3forms.com/submit" method="POST" onsubmit="showSuccess(event)">
-        
-        <input type="hidden" name="access_key" value="12c1d6a0-ec3e-489d-a531-8231d05bbd08">
-        <input type="hidden" name="from_name" value="DeLeonNet · IT Professional Services">
-        <input type="hidden" name="subject" value="Service Request Confirmation - DeLeonNet">
-        
-        <input type="hidden" name="autoresponder" value="Dear Valued Contact, Thank you for reaching out to DeLeonNet. Your IT service request has been successfully received. I will review the technical specifications provided and get back to you shortly to assist with your inquiry. Sincerely, DeLeonNet.">
-
-        <label>Name</label>
+    <section id="contact-section">
+      <h2 id="form-title">Contacto / Contact</h2>
+      <form id="contact-form">
+        <label>Nombre / Name</label>
         <input type="text" name="name" required>
 
-        <label>Email</label>
+        <label>Correo Electrónico / Email</label>
         <input type="email" name="email" required>
 
-        <label>Message</label>
+        <label>Mensaje / Message</label>
         <textarea name="message" rows="5" required></textarea>
 
-        <button type="submit">Send request</button>
+        <button type="submit" id="button">Enviar Solicitud / Send Request</button>
       </form>
 
-      <div class="success" id="success-en">
-        ✔️ Your message has been sent successfully.  
-        I will contact you as soon as possible.
+      <div class="success" id="success-msg">
+        ✔️ ¡Mensaje enviado! He recibido tu solicitud y te he enviado una confirmación por correo.
       </div>
     </section>
-
   </main>
 
   <footer>
-    © <span id="year"></span> DeLeonNet · Professional IT Services
+    © <span id="year"></span> DeLeonNet · IT Professional Services
   </footer>
 
   <script>
+    (function() {
+        // Tu Public Key ya integrada
+        emailjs.init("xI0INopTtsN4wsLEF"); 
+    })();
+
+    const btn = document.getElementById('button');
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      btn.innerText = 'Enviando...';
+
+      // REEMPLAZA ÚNICAMENTE EL TEMPLATE_ID CON EL TUYO
+      const serviceID = 'service_f5rsw5r';
+      const templateID = 'TU_TEMPLATE_ID_AQUI'; 
+
+      emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+          btn.innerText = 'Enviar Solicitud / Send Request';
+          document.getElementById('success-msg').style.display = 'block';
+          this.reset();
+        }, (err) => {
+          btn.innerText = 'Enviar Solicitud / Send Request';
+          alert("Error: Por favor verifica la conexión con Gmail en EmailJS.");
+          console.error(err);
+        });
+    });
+
     function setLanguage(lang) {
       document.querySelectorAll('.lang-section').forEach(s => s.style.display = 'none');
       document.querySelectorAll(`[id$="-${lang}"]`).forEach(s => s.style.display = 'block');
-      localStorage.setItem('preferredLanguage', lang);
-    }
-
-    function showSuccess(event) {
-      // Nota: El formulario se enviará a Web3Forms. 
-      // Mostramos el mensaje de éxito después de un pequeño retraso.
-      setTimeout(() => {
-        document.querySelectorAll('.success').forEach(s => s.style.display = 'block');
-      }, 500);
     }
 
     document.getElementById("year").textContent = new Date().getFullYear();
-    setLanguage(localStorage.getItem('preferredLanguage') || 'es');
+    setLanguage('es');
   </script>
-
 </body>
 </html>
