@@ -1,88 +1,77 @@
 /* Reset básico */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 /* Tipografía y fondo */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background-color: #f7f7f7;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
   color: #222;
   line-height: 1.6;
 }
 
-/* Contenedor central */
-.container {
-  max-width: 720px;
-  margin: 60px auto;
-  padding: 0 20px;
+/* Contenedor principal */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* Títulos */
+/* Encabezados */
 h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 15px;
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-top: 40px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #555;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
 }
 
-/* Texto */
+/* Párrafos */
 p {
   margin-bottom: 15px;
 }
 
-/* Lista */
+/* Listas */
 ul {
-  list-style: none;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
-ul li {
+li {
   margin-bottom: 8px;
 }
 
-/* Botón */
-.button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 18px;
-  border: 1px solid #222;
-  color: #222;
-  text-decoration: none;
-  font-size: 0.9rem;
+/* Selector de idioma */
+.language-switch {
+  max-width: 900px;
+  margin: 20px auto 0 auto;
+  padding: 0 20px;
+  text-align: right;
 }
 
-.button:hover {
-  background-color: #222;
-  color: #fff;
-}
-
-/* Footer */
-footer {
-  margin-top: 60px;
-  font-size: 0.8rem;
-  color: #666;
-}
-input, textarea {
-  width: 100%;
-  padding: 8px;
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-textarea {
-  resize: vertical;
-}
-
-button.button {
+.language-switch button {
   background: none;
+  border: 1px solid #444;
+  padding: 5px 10px;
+  margin-left: 5px;
+  font-size: 0.8rem;
   cursor: pointer;
 }
+
+/* Formularios */
+form {
+  margin-top: 20px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
