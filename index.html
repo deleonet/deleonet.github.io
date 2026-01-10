@@ -32,7 +32,7 @@
     .card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
 
     .certs-bar { background: var(--secondary); color: white; padding: 40px 0; text-align: center; border-radius: 15px; margin: 40px 0; }
-    .certs-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.9; font-weight: 500; }
+    .certs-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; opacity: 0.9; font-weight: 500; padding: 0 20px; }
 
     .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background: white; padding: 50px; border-radius: 20px; border: 1px solid #e2e8f0; }
     form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 10px; font-family: inherit; box-sizing: border-box; }
@@ -56,7 +56,7 @@
   <div class="container">
     <span class="badge-top" id="badge-text">Consultoría y Continuidad Operativa TI</span>
     <h1 id="hero-title">Edgar De León</h1>
-    <p class="hero-p" id="hero-desc">Arquitectura de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos en organizaciones de cualquier escala.</p>
+    <p class="hero-p" id="hero-desc">Implementación de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos en organizaciones de cualquier escala.</p>
   </div>
 </header>
 
@@ -68,10 +68,10 @@
   <div class="grid-services">
     <div class="card">
       <h3 id="s1-t">Infraestructura TI y Operaciones</h3>
-      <p id="s1-p">Aseguro la disponibilidad de los activos digitales mediante una gestión proactiva de sistemas y entornos críticos.</p>
+      <p id="s1-p">Asegurar la disponibilidad de los activos digitales mediante una gestión proactiva de sistemas y entornos críticos.</p>
       <ul id="s1-list">
         <li>Administración de directorios y políticas de acceso.</li>
-        <li>Implementación de estaciones con despliegue eficiente.</li>
+        <li>Gestión de ambientes virtuales de aprendizaje (LMS).</li>
         <li>Ciclos de mantenimiento preventivo avanzado.</li>
       </ul>
     </div>
@@ -80,37 +80,39 @@
       <h3 id="s2-t">Redes y Telecomunicaciones</h3>
       <p id="s2-p">Interconexión robusta basada en estándares de ingeniería y segmentación de datos segura.</p>
       <ul id="s2-list">
-        <li>Optimización de tráfico mediante gestión de VLANs.</li>
-        <li>Montaje y certificación de infraestructura de comunicaciones.</li>
+        <li>Cómputo en la nube e integración híbrida.</li>
+        <li>Montaje y certificación de infraestructura física.</li>
         <li>Monitoreo de enlaces y hardware de red.</li>
       </ul>
     </div>
 
     <div class="card">
       <h3 id="s3-t">Soporte Nivel 2 y 3</h3>
-      <p id="s3-p">Resolución avanzada de incidentes complejos, aplicando análisis de causa raíz para mejora continua.</p>
+      <p id="s3-p">Resolución avanzada de incidentes complejos y asistencia logística con enfoque en seguridad operacional.</p>
       <ul id="s3-list">
-        <li>Altos indicadores de resolución en primer contacto.</li>
-        <li>Despliegue y capacitación en plataformas SaaS.</li>
+        <li>Análisis de datos masivos (Big Data) para diagnóstico.</li>
+        <li>Asistencia en Conducción y Logística Privada.</li>
         <li>Soporte escalado con visión estratégica.</li>
       </ul>
     </div>
   </div>
 
   <div class="certs-bar">
-    <h3 id="certs-title">Formación Profesional y Certificaciones</h3>
+    <h3 id="certs-title">Formación Profesional y Habilidades</h3>
     <div class="certs-grid" id="certs-list">
-      <span>• Cisco CCNA (Networking)</span>
-      <span>• Asesoría Contable para Software de Contabilidad</span>
+      <span>• Cisco CCNA</span>
+      <span>• Asesoría en Software Contable</span>
       <span>• Google Campaign Manager 360</span>
-      <span>• Especialista en Big Data e IoT</span>
+      <span>• Cómputo en la Nube</span>
+      <span>• Big Data</span>
+      <span>• Logística Privada</span>
     </div>
   </div>
 
   <div class="contact-wrapper">
     <div class="contact-info">
       <h2 id="form-h">Inicie una Consulta Técnica</h2>
-      <p id="form-p">Estoy listo para colaborar en sus proyectos de infraestructura o soporte técnico especializado.</p>
+      <p id="form-p">Disponible para proyectos de infraestructura, soporte especializado o requerimientos de logística profesional.</p>
     </div>
 
     <div>
@@ -129,7 +131,7 @@
 
 <footer>
   <div class="container" style="padding: 40px 0; text-align: center; color: #94a3b8; font-size: 0.9rem;">
-    © <span id="year"></span> Edgar Francisco de León Hernández | Servicios TI
+    © <span id="year"></span> Edgar Francisco de León Hernández | Servicios Profesionales
   </div>
 </footer>
 
@@ -141,7 +143,6 @@
   document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
     btn.innerText = 'Enviando...';
-
     emailjs.sendForm('service_k6odtq8', 'template_53hovkj', this)
       .then(() => {
         btn.innerText = 'Enviar Solicitud';
@@ -149,7 +150,7 @@
         this.reset();
       }, (err) => {
         btn.innerText = 'Error al enviar';
-        alert("Error de conexión. Intente nuevamente.");
+        alert("Error de conexión.");
       });
   });
 
@@ -157,34 +158,34 @@
     es: {
       badge: "Consultoría y Continuidad Operativa TI",
       title: "Edgar De León",
-      desc: "Arquitectura de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos en organizaciones de cualquier escala.",
+      desc: "Implementación de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos en organizaciones de cualquier escala.",
       st: "Especialidades Técnicas",
       s1t: "Infraestructura TI y Operaciones",
-      s1p: "Aseguro la disponibilidad de los activos digitales mediante una gestión proactiva de sistemas y entornos críticos.",
+      s1p: "Asegurar la disponibilidad de los activos digitales mediante una gestión proactiva de sistemas y entornos críticos.",
       s2t: "Redes y Telecomunicaciones",
       s2p: "Interconexión robusta basada en estándares de ingeniería y segmentación de datos segura.",
       s3t: "Soporte Nivel 2 y 3",
-      s3p: "Resolución avanzada de incidentes complejos, aplicando análisis de causa raíz para mejora continua.",
-      ct: "Formación Profesional y Certificaciones",
+      s3p: "Resolución avanzada de incidentes complejos y asistencia logística con enfoque en seguridad operacional.",
+      ct: "Formación Profesional y Habilidades",
       fh: "Inicie una Consulta Técnica",
-      fp: "Estoy listo para colaborar en sus proyectos de infraestructura o soporte técnico especializado.",
+      fp: "Disponible para proyectos de infraestructura, soporte especializado o requerimientos de logística profesional.",
       btn: "Enviar Solicitud",
       ok: "¡Mensaje enviado con éxito!"
     },
     en: {
       badge: "IT Consulting and Business Continuity",
       title: "Edgar De León",
-      desc: "IT solution architecture and high-level support designed to mitigate operational risks in organizations of any scale.",
+      desc: "Implementation of technology solutions and high-level support designed to mitigate operational risks in organizations of any scale.",
       st: "Technical Specialties",
       s1t: "IT Infrastructure & Operations",
       s1p: "Ensuring digital asset availability through proactive management of critical systems and environments.",
       s2t: "Networking & Telecoms",
       s2p: "Robust interconnection based on engineering standards and secure data segmentation.",
       s3t: "Tier 2 & 3 Support",
-      s3p: "Advanced resolution of complex incidents, applying root cause analysis for continuous improvement.",
-      ct: "Professional Training & Certifications",
+      s3p: "Advanced resolution of complex incidents and logistics assistance with an operational security focus.",
+      ct: "Professional Training & Skills",
       fh: "Start a Technical Inquiry",
-      fp: "I am ready to collaborate on your infrastructure or specialized technical support projects.",
+      fp: "Available for infrastructure projects, specialized support, or professional logistics requirements.",
       btn: "Send Request",
       ok: "Message sent successfully!"
     }
