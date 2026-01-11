@@ -1,20 +1,23 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Edgar Francisco de León Hernández | Consultoría y Continuidad Operativa TI</title>
-  <meta name="description" content="Edgar Francisco de León Hernández - Especialista en Infraestructura TI, Redes Cisco y Soporte Nivel 2/3 en Guatemala. Implementación de soluciones tecnológicas y continuidad operativa.">
-  <meta name="keywords" content="Edgar Francisco de León Hernández, Edgar De Leon, Infraestructura TI, Redes, Telecomunicaciones, Soporte Técnico, Cisco CCNA, Windows Server, Big Data, Guatemala, Logística">
-  <meta name="author" content="Edgar Francisco de León Hernández">
+  <title>Édgar Francisco de León Hernández | Consultoría y Continuidad Operativa TI</title>
+  <meta name="description" content="Édgar Francisco de León Hernández - Especialista en Infraestructura TI, Redes Cisco y Soporte Nivel 2/3 en Guatemala. Implementación de soluciones tecnológicas y continuidad operativa.">
+  <meta name="keywords" content="Édgar Francisco de León Hernández, Edgar De Leon, Infraestructura TI, Redes, Telecomunicaciones, Soporte Técnico, Cisco CCNA, Windows Server, Big Data, Guatemala, Logística">
+  <meta name="author" content="Édgar Francisco de León Hernández">
   <link rel="canonical" href="https://deleonet.github.io/" />
 
-  <meta property="og:title" content="Edgar Francisco de León Hernández | Experto en TI">
+  <meta property="og:title" content="Édgar Francisco de León Hernández | Experto en TI">
   <meta property="og:description" content="Soluciones integrales de TI, Redes y Soporte Especializado en Guatemala.">
   <meta property="og:url" content="https://deleonet.github.io/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Portafolio de Édgar De León">
   
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   
   <style>
@@ -51,79 +54,57 @@
     form button { background: var(--primary); color: white; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; }
     form button:hover { background: var(--secondary); }
 
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50px;
-      padding: 12px 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      z-index: 1000;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      font-weight: 700;
-      transition: 0.3s ease;
-      font-size: 0.9rem;
-    }
+    .whatsapp-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white; border-radius: 50px; padding: 12px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; display: flex; align-items: center; font-weight: 700; transition: 0.3s ease; font-size: 0.9rem; }
     .whatsapp-btn:hover { background-color: #128c7e; transform: scale(1.05); color: white; }
     .whatsapp-btn svg { width: 22px; height: 22px; fill: white; margin-right: 10px; }
 
     @media (max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; } h1 { font-size: 2.2rem; } .whatsapp-btn span { display: none; } .whatsapp-btn { padding: 15px; border-radius: 50%; } .whatsapp-btn svg { margin-right: 0; } }
   </style>
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Edgar Francisco de León Hernández",
-  "image": "https://deleonet.github.io/tu-foto.jpg", 
-  "url": "https://deleonet.github.io/",
-  "telephone": "+50200000000",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Guatemala City",
-    "addressCountry": "GT"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 14.6349,
-    "longitude": -90.5069
-  },
-  "sameAs": [
-    "https://www.linkedin.com/in/tu-perfil",
-    "https://github.com/deleonet"
-  ],
-  "knowsAbout": ["Cisco CCNA", "Infraestructura TI", "Windows Server", "Big Data", "Networking"],
-  "description": "Consultor experto en continuidad operativa y redes en Guatemala."
-}
-</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Édgar Francisco de León Hernández",
+    "url": "https://deleonet.github.io/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Guatemala City",
+      "addressCountry": "GT"
+    },
+    "sameAs": [
+      "https://github.com/deleonet"
+    ],
+    "knowsAbout": ["Cisco CCNA", "Infraestructura TI", "Windows Server", "Big Data", "Networking", "Logística Privada"],
+    "description": "Consultor experto en continuidad operativa y redes TI en Guatemala."
+  }
+  </script>
 </head>
 <body>
 
-<div class="nav-lang">
+<nav class="nav-lang">
   <div class="container">
-    <button class="btn-lang" onclick="setLanguage('es')">Español</button>
-    <button class="btn-lang" onclick="setLanguage('en')">English</button>
+    <button class="btn-lang" onclick="setLanguage('es')" aria-label="Cambiar a Español">Español</button>
+    <button class="btn-lang" onclick="setLanguage('en')" aria-label="Switch to English">English</button>
   </div>
-</div>
+</nav>
 
 <header>
   <div class="container">
     <span class="badge-top" id="badge-text">Consultoría y Continuidad Operativa TI</span>
-    <h1 id="hero-title">Edgar Francisco de León Hernández</h1>
+    <h1 id="hero-title">Édgar Francisco de León Hernández</h1>
     <p class="hero-p" id="hero-desc">Implementación de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos en organizaciones de cualquier escala.</p>
   </div>
 </header>
 
-<div class="container" style="margin-top: 60px;">
-  <div class="section-title">
+<main class="container" style="margin-top: 60px;">
+  <section class="section-title">
     <h2 id="services-title">Especialidades Técnicas</h2>
-  </div>
+  </section>
 
-  <div class="grid-services">
+  <section class="grid-services">
     <div class="card">
       <h3 id="s1-t">Infraestructura TI y Operaciones</h3>
       <p id="s1-p">Asegurar la disponibilidad de los activos digitales mediante una gestión proactiva de sistemas y entornos críticos.</p>
@@ -153,9 +134,9 @@
         <li>Soporte escalado con visión estratégica.</li>
       </ul>
     </div>
-  </div>
+  </section>
 
-  <div class="certs-bar">
+  <section class="certs-bar">
     <h3 id="certs-title">Formación Profesional y Habilidades</h3>
     <div class="certs-grid" id="certs-list">
       <span>• Cisco CCNA</span>
@@ -165,9 +146,9 @@
       <span>• Big Data</span>
       <span>• Logística Privada</span>
     </div>
-  </div>
+  </section>
 
-  <div class="contact-wrapper">
+  <section class="contact-wrapper">
     <div class="contact-info">
       <h2 id="form-h">Inicie una Consulta Técnica</h2>
       <p id="form-p">Disponible para proyectos de infraestructura, soporte especializado o requerimientos de logística profesional.</p>
@@ -175,25 +156,29 @@
 
     <div>
       <form id="contact-form">
-        <input type="text" name="name" id="user_name" placeholder="Nombre completo" required>
-        <input type="email" name="email" id="user_email" placeholder="Correo electrónico" required>
-        <textarea name="message" id="user_message" rows="5" placeholder="Describa su requerimiento" required></textarea>
-        <button type="submit" id="button">Enviar Solicitud</button>
+        <input type="text" name="name" id="user_name" placeholder="Nombre completo" aria-label="Escriba su nombre completo" required>
+        <input type="email" name="email" id="user_email" placeholder="Correo electrónico" aria-label="Escriba su correo electrónico" required>
+        <textarea name="message" id="user_message" rows="5" placeholder="Describa su requerimiento" aria-label="Detalle su requerimiento técnico" required></textarea>
+        <button type="submit" id="button" aria-label="Enviar formulario de contacto">Enviar Solicitud</button>
       </form>
       <div id="success-msg" style="display:none; color: #166534; background: #f0fdf4; padding: 15px; border-radius: 10px; margin-top: 15px; text-align: center; border: 1px solid #bbf7d0;">
         <strong id="success-text">¡Mensaje enviado con éxito!</strong>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
 
 <footer>
   <div class="container" style="padding: 40px 0; text-align: center; color: #94a3b8; font-size: 0.9rem;">
-    © <span id="year"></span> Edgar Francisco de León Hernández | Servicios Profesionales
+    © <span id="year"></span> Édgar Francisco de León Hernández | Servicios Profesionales de TI
   </div>
 </footer>
 
-<a href="https://wa.me/50200000000?text=Hola%20Edgar,%20vi%20tu%20portafolio%20y%20me%20gustaría%20consultarte%20sobre%20un%20proyecto" class="whatsapp-btn" target="_blank">
+<a href="https://wa.me/50200000000?text=Hola%20Edgar,%20vi%20tu%20portafolio%20y%20me%20gustaría%20consultarte%20sobre%20un%20proyecto" 
+   class="whatsapp-btn" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="Contactar a Édgar De León por WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.52.909 3.012 1.388 4.414 1.388 5.4 0 9.792-4.393 9.795-9.793.001-2.613-1.015-5.07-2.863-6.918s-4.305-2.864-6.92-2.864c-5.4 0-9.792 4.392-9.795 9.794-.001 1.614.404 3.109 1.171 4.316l-.993 3.626 3.737-.98c.157.085.31.164.461.24z"/></svg>
   <span id="wa-text">WhatsApp</span>
 </a>
@@ -219,7 +204,7 @@
   const texts = {
     es: {
       badge: "Consultoría y Continuidad Operativa TI",
-      title: "Edgar Francisco de León Hernández",
+      title: "Édgar Francisco de León Hernández",
       desc: "Implementación de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos en organizaciones de cualquier escala.",
       st: "Especialidades Técnicas",
       s1t: "Infraestructura TI y Operaciones",
@@ -237,7 +222,7 @@
     },
     en: {
       badge: "IT Consulting & Business Continuity",
-      title: "Edgar Francisco de León Hernández",
+      title: "Édgar Francisco de León Hernández",
       desc: "Implementation of technology solutions and high-level support designed to mitigate operational risks in organizations of any scale.",
       st: "Technical Specialties",
       s1t: "IT Infrastructure & Operations",
