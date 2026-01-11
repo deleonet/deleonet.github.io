@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -98,7 +98,6 @@
     }
     form button:hover { background: #1e3a8a; transform: translateY(-2px); }
     
-    /* ESTILO VCARD AGREGADO */
     .btn-vcard {
       display: block; width: 100%; max-width: 600px; margin: 20px auto; background: white;
       color: var(--primary); border: 2px solid var(--primary); padding: 15px; font-weight: 800;
@@ -246,9 +245,16 @@
       stat3h: "Ciberseguridad", stat3v: "Protección Activa",
       stat4h: "Continuidad", stat4v: "Standby",
       s1t: "Infraestructura <span class='ti-center'>TI</span>",
+      s1list: `<li>Gestión de Incidentes Críticos (L2/L3).</li><li>Administración estratégica de Ecosistemas SaaS y CRM.</li><li>Gestión de infraestructura TI crítica y servidores.</li><li>Soporte híbrido enfocado en resiliencia operativa.</li><li>Diagnóstico avanzado en entornos de misión crítica.</li><li>Gestión Estratégica de Proveedores y SLAs</li>`,
       s2t: "Redes & Conectividad",
+      s2list: `<li>Diseño e instalación de infraestructura: racks, fibra y cableado estructurado.</li><li>Certificación de nodos y Telefonía IP bajo estándares internacionales.</li><li>Mantenimiento LAN/WAN y monitoreo proactivo para asegurar operatividad.</li><li>Gestión LAN/WAN con monitoreo proactivo </li><li>Planificación de redes escalables e integración Cloud.</li>`,
       s3t: "Movilidad",
+      s3list: `<li>Movilidad corporativa segura y profesional (Licencia Tipo B).</li><li>Coordinación táctica de despliegues técnicos a nivel nacional.</li><li>Soporte técnico inmediato en sitio para sucursales y puntos críticos.</li><li>Gestión de recursos, herramientas y personal en campo.</li>`,
       certTitle: "Certificaciones, Tecnologías y Estándares de Industria",
+      c1h: "Especialización y Marcos",
+      c2h: "Sistemas y Virtualización",
+      c3h: "Monitoreo y Seguridad",
+      c4h: "Logística y Despliegue",
       fh: "Contacto Profesional",
       btn: "Enviar Requerimiento",
       vcard: "Descargar Contacto de Edgar"
@@ -262,9 +268,16 @@
       stat3h: "Cybersecurity", stat3v: "Active Protection",
       stat4h: "Continuity", stat4v: "Standby",
       s1t: "IT <span class='ti-center'>Infrastructure</span>",
+      s1list: `<li>Critical Incident Management (L2/L3).</li><li>Strategic Management of SaaS and CRM Ecosystems.</li><li>Critical IT infrastructure and server management.</li><li>Hybrid support focused on operational resilience.</li><li>Advanced diagnostics in mission-critical environments.</li><li>Strategic Vendor Management and SLAs.</li>`,
       s2t: "Networking & Connectivity",
+      s2list: `<li>Infrastructure design and installation: racks, fiber, and structured cabling.</li><li>Node certification and IP Telephony under international standards.</li><li>LAN/WAN maintenance and proactive monitoring to ensure operability.</li><li>LAN/WAN management with proactive monitoring.</li><li>Scalable network planning and Cloud integration.</li>`,
       s3t: "Mobility",
+      s3list: `<li>Secure and professional corporate mobility (Type B License).</li><li>Tactical coordination of nationwide technical deployments.</li><li>Immediate on-site technical support for branches and critical points.</li><li>Resource, tool, and field personnel management.</li>`,
       certTitle: "Certifications, Technologies and Industry Standards",
+      c1h: "Specialization & Frameworks",
+      c2h: "Systems & Virtualization",
+      c3h: "Monitoring & Security",
+      c4h: "Logistics & Deployment",
       fh: "Professional Contact",
       btn: "Send Requirement",
       vcard: "Download Edgar's Contact"
@@ -288,9 +301,16 @@
     document.getElementById('stat-4-h').innerText = t.stat4h;
     document.getElementById('stat-4-v').innerText = t.stat4v;
     document.getElementById('s1-t').innerHTML = t.s1t;
+    document.getElementById('s1-list').innerHTML = t.s1list;
     document.getElementById('s2-t').innerText = t.s2t;
+    document.getElementById('s2-list').innerHTML = t.s2list;
     document.getElementById('s3-t').innerText = t.s3t;
+    document.getElementById('s3-list').innerHTML = t.s3list;
     document.getElementById('cert-title').innerText = t.certTitle;
+    document.getElementById('c1-h').innerText = t.c1h;
+    document.getElementById('c2-h').innerText = t.c2h;
+    document.getElementById('c3-h').innerText = t.c3h;
+    document.getElementById('c4-h').innerText = t.c4h;
     document.getElementById('f-h').innerText = t.fh;
     document.getElementById('btn-submit').innerText = t.btn;
     document.getElementById('btn-vcard').innerText = t.vcard;
@@ -300,7 +320,7 @@
     e.preventDefault();
     if (document.getElementById('honeypot').value !== "") return;
     const btn = document.getElementById('btn-submit');
-    btn.innerText = 'ENVIANDO...';
+    btn.innerText = (currentLang === 'es') ? 'ENVIANDO...' : 'SENDING...';
     btn.disabled = true;
 
     const templateParams = {
@@ -312,7 +332,7 @@
 
     emailjs.send('service_k6odtq8', 'template_53hovkj', templateParams)
       .then(() => { 
-        btn.innerText = 'SOLICITUD ENVIADA'; 
+        btn.innerText = (currentLang === 'es') ? 'SOLICITUD ENVIADA' : 'REQUEST SENT'; 
         btn.style.background = 'var(--green)';
         this.reset(); 
         setTimeout(() => { 
@@ -321,13 +341,12 @@
           btn.disabled = false;
         }, 4000);
       }, (error) => { 
-        btn.innerText = 'ERROR AL ENVIAR'; 
+        btn.innerText = 'ERROR'; 
         btn.style.background = 'var(--red)';
         btn.disabled = false;
       });
   });
 
-  /* FUNCIÓN VCARD AGREGADA */
   function downloadVCard(e) {
     e.preventDefault();
     const vcardData = [
