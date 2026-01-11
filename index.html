@@ -24,7 +24,6 @@
       --border: #e2e8f0;
     }
 
-    /* MODO OSCURO AUTOMÁTICO */
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #0f172a; 
@@ -43,11 +42,11 @@
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
-    /* BOTÓN WHATSAPP A LA IZQUIERDA (Para no chocar con Crisp) */
+    /* MODIFICACIÓN: WHATSAPP A LA IZQUIERDA PARA DAR ESPACIO A CRISP */
     .whatsapp-btn {
       position: fixed;
       bottom: 20px;
-      left: 20px;
+      left: 20px; /* Posicionado a la izquierda */
       background-color: #25d366;
       color: white;
       padding: 12px 24px;
@@ -63,10 +62,14 @@
     }
     .whatsapp-btn:hover { transform: scale(1.05); background-color: #128c7e; }
 
-    /* FORZAR VISIBILIDAD DE CRISP */
-    #crisp-client { display: block !important; visibility: visible !important; }
+    /* ASEGURAR QUE CRISP NO SEA TAPADO POR OTROS ELEMENTOS */
+    #crisp-client {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
 
-    /* ESTILOS DE ESTRUCTURA */
+    /* ESTILOS DE COMPONENTES */
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
     .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
     .btn-lang:hover { background: var(--primary); color: white; }
@@ -89,26 +92,28 @@
     .border-green { border-top: 5px solid var(--green); }
     .border-yellow { border-top: 5px solid var(--yellow); }
     .border-red { border-top: 5px solid var(--red); }
-    .card h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; color: var(--secondary); }
+    .card h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; color: var(--secondary); line-height: 1.2; }
     .card ul { padding: 0; list-style: none; }
-    .card ul li { margin-bottom: 12px; padding-left: 25px; position: relative; font-weight: 600; font-size: 0.95rem; }
+    .card ul li { margin-bottom: 12px; padding-left: 25px; position: relative; font-weight: 600; font-size: 1rem; }
     .card ul li::before { content: "✔"; position: absolute; left: 0; color: var(--primary); }
 
     .cert-section { background: linear-gradient(180deg, var(--bg) 0%, #0f172a 12%, #0f172a 100%); color: white; padding: 80px 0; }
     .section-title-light { text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 50px; color: white; }
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-    .cert-category { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); }
-    .cert-category h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--green); margin-bottom: 20px; font-weight: 800; }
-    .cert-item { margin-bottom: 12px; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; }
+    .cert-category { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.3s; }
+    .cert-category h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--green); margin-bottom: 20px; letter-spacing: 1.5px; font-weight: 800; }
+    .cert-item { margin-bottom: 12px; font-weight: 500; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; }
 
     .contact-block { padding: 100px 0; background: var(--form-bg); }
-    form { max-width: 600px; margin: 0 auto; padding: 50px; background: #ffffff; border-radius: 16px; border: 1px solid var(--border); }
-    form input, form textarea { width: 100%; padding: 16px; margin-bottom: 20px; border: 2px solid var(--border); border-radius: 10px; box-sizing: border-box; }
-    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 20px; font-weight: 800; cursor: pointer; border-radius: 10px; font-size: 1.1rem; }
-    .btn-vcard { display: block; width: 100%; max-width: 600px; margin: 20px auto; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 15px; font-weight: 800; text-align: center; text-decoration: none; border-radius: 10px; }
+    form { max-width: 600px; margin: 0 auto; padding: 50px; background: #ffffff; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border: 1px solid var(--border); }
+    form h2 { text-align: center; margin-bottom: 30px; color: var(--secondary); font-weight: 800; font-size: 2rem; }
+    form input, form textarea { width: 100%; padding: 16px; margin-bottom: 20px; border: 2px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: all 0.3s ease; background: #fcfcfc; }
+    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 20px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 10px; font-size: 1.1rem; letter-spacing: 1px; transition: all 0.3s ease; }
     
+    .btn-vcard { display: block; width: 100%; max-width: 600px; margin: 20px auto; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 15px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 10px; font-size: 0.9rem; text-align: center; text-decoration: none; transition: all 0.3s ease; }
     .hp-field { display: none !important; }
-    footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; background: #0f172a; }
+
+    footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; background: #0f172a; }
   </style>
 
   <script type="text/javascript">
@@ -135,7 +140,7 @@
   <div class="container">
     <span class="badge-top" id="badge-text">Infraestructura Crítica y Gestión de Continuidad</span>
     <h1 id="hero-title">Edgar Francisco de León Hernández</h1>
-    <p class="hero-p" id="hero-desc">Arquitecturas de red seguras y optimización TI con soporte especializado en campo para el mercado 2026.</p>
+    <p class="hero-p" id="hero-desc">Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa y soporte especializado en campo.</p>
   </div>
 </header>
 
@@ -166,47 +171,49 @@
       <h2 id="s1-t">Infraestructura TI</h2>
       <ul id="s1-list">
         <li>Gestión de Incidentes Críticos (L2/L3).</li>
-        <li>Administración de Ecosistemas SaaS y CRM.</li>
-        <li>Soporte híbrido enfocado en resiliencia.</li>
-        <li>Diagnóstico avanzado misión crítica.</li>
-        <li>Gestión Estratégica de Proveedores y SLAs.</li>
+        <li>Administración estratégica de Ecosistemas SaaS.</li>
+        <li>Gestión de infraestructura TI crítica.</li>
+        <li>Soporte híbrido resiliente.</li>
       </ul>
     </div>
     <div class="card border-yellow">
       <h2 id="s2-t">Redes & Conectividad</h2>
       <ul id="s2-list">
-        <li>Diseño e instalación: Racks, Fibra y Cobre.</li>
+        <li>Diseño de infraestructura: racks y fibra.</li>
         <li>Certificación de nodos y Telefonía IP.</li>
-        <li>Monitoreo proactivo LAN/WAN.</li>
-        <li>Integración Cloud y redes escalables.</li>
+        <li>Mantenimiento LAN/WAN proactivo.</li>
+        <li>Planificación de redes escalables.</li>
       </ul>
     </div>
     <div class="card border-red">
       <h2 id="s3-t">Movilidad & Campo</h2>
       <ul id="s3-list">
         <li>Movilidad corporativa (Licencia Tipo B).</li>
-        <li>Despliegues técnicos nacionales.</li>
+        <li>Coordinación de despliegues nacionales.</li>
         <li>Soporte técnico inmediato en sitio.</li>
-        <li>Gestión de personal y herramientas en campo.</li>
+        <li>Gestión de recursos en campo.</li>
       </ul>
     </div>
   </div>
 
   <section class="cert-section">
     <div class="container">
-      <h2 class="section-title-light" id="cert-title">Certificaciones y Estándares</h2>
+      <h2 class="section-title-light" id="cert-title">Certificaciones y Tecnologías</h2>
       <div class="cert-grid">
         <div class="cert-category">
           <h3 id="c1-h">Especialización</h3>
-          <div class="cert-item">✔ Cisco CCNA - ITIL Foundation</div>
+          <div class="cert-item">✔ Cisco CCNA – Routing & Switching</div>
+          <div class="cert-item">✔ ITIL Foundation – Gestión TI</div>
         </div>
         <div class="cert-category">
           <h3 id="c2-h">Virtualización</h3>
+          <div class="cert-item">✔ Windows Server & Linux Environment</div>
           <div class="cert-item">✔ VMware & Microsoft Hyper-V</div>
         </div>
         <div class="cert-category">
           <h3 id="c3-h">Seguridad</h3>
-          <div class="cert-item">✔ PRTG & Gestión de Datos</div>
+          <div class="cert-item">✔ Monitoreo PRTG & SolarWinds</div>
+          <div class="cert-item">✔ Gestión de Protección de Datos</div>
         </div>
       </div>
     </div>
@@ -219,9 +226,9 @@
       <input type="text" name="user_name" placeholder="Nombre completo" required>
       <input type="email" name="user_email" placeholder="Correo electrónico" required>
       <textarea name="message" rows="4" placeholder="Describa su requerimiento" required></textarea>
-      <button type="submit" id="btn-submit">Enviar Mensaje</button>
+      <button type="submit" id="btn-submit">Enviar Requerimiento</button>
     </form>
-    <a href="#" class="btn-vcard" id="btn-vcard" onclick="downloadVCard(event)">Descargar VCard</a>
+    <a href="#" class="btn-vcard" id="btn-vcard" onclick="downloadVCard(event)">Descargar Contacto</a>
   </section>
 </main>
 
@@ -236,7 +243,7 @@
     es: {
       badge: "Infraestructura Crítica y Gestión de Continuidad",
       title: "Edgar Francisco de León Hernández",
-      desc: "Arquitecturas de red seguras y optimización TI con soporte especializado en campo para el mercado 2026.",
+      desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa y soporte especializado en campo.",
       stat1h: "Redes LAN/WAN", stat1v: "Operativo",
       stat2h: "Servidores", stat2v: "99.9% Uptime",
       stat3h: "Ciberseguridad", stat3v: "Protección Activa",
@@ -244,18 +251,18 @@
       s1t: "Infraestructura TI",
       s2t: "Redes & Conectividad",
       s3t: "Movilidad & Campo",
-      certTitle: "Certificaciones y Estándares",
+      certTitle: "Certificaciones y Tecnologías",
       c1h: "Especialización",
       c2h: "Virtualización",
       c3h: "Seguridad",
       fh: "Contacto Profesional",
-      btn: "Enviar Mensaje",
-      vcard: "Descargar VCard"
+      btn: "Enviar Requerimiento",
+      vcard: "Descargar Contacto"
     },
     en: {
       badge: "Critical Infrastructure & Continuity Management",
       title: "Edgar Francisco de Leon Hernandez",
-      desc: "Secure network architectures and IT optimization with specialized field support for the 2026 market.",
+      desc: "Implementation of robust and secure network architectures, proactive operational continuity management, and specialized field support.",
       stat1h: "LAN/WAN Networks", stat1v: "Operational",
       stat2h: "Servers", stat2v: "99.9% Uptime",
       stat3h: "Cybersecurity", stat3v: "Active Protection",
@@ -263,13 +270,13 @@
       s1t: "IT Infrastructure",
       s2t: "Networking & Connectivity",
       s3t: "Mobility & Field",
-      certTitle: "Certifications & Standards",
+      certTitle: "Certifications & Technologies",
       c1h: "Specialization",
       c2h: "Virtualization",
       c3h: "Security",
       fh: "Professional Contact",
-      btn: "Send Message",
-      vcard: "Download VCard"
+      btn: "Send Requirement",
+      vcard: "Download Contact"
     }
   };
 
@@ -299,7 +306,6 @@
 
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    if (document.getElementById('honeypot').value !== "") return;
     const btn = document.getElementById('btn-submit');
     btn.innerText = (currentLang === 'es') ? 'ENVIANDO...' : 'SENDING...';
     btn.disabled = true;
