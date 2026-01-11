@@ -1,9 +1,13 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edgar Francisco de León Hernández | Acompañamiento tecnológico empresarial</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root { 
@@ -349,19 +353,20 @@
 
   function downloadVCard(e) {
     e.preventDefault();
-    const vcardData = [
+    const vcardContent = [
       "BEGIN:VCARD",
       "VERSION:3.0",
-      "FN:Edgar Francisco de León Hernández",
-      "ORG:DeLeonNet | IT Professional Services",
-      "TITLE:Infrastructure & Continuity Expert",
+      "FN;CHARSET=UTF-8:Edgar Francisco de León Hernández",
+      "N;CHARSET=UTF-8:de León Hernández;Edgar;Francisco;;",
+      "ORG;CHARSET=UTF-8:DeLeonNet | IT Professional Services",
+      "TITLE;CHARSET=UTF-8:Infrastructure & Continuity Expert",
       "EMAIL:de.leonedgargt@gmail.com",
       "URL:https://deleonet.github.io/",
       "REV:" + new Date().toISOString(),
       "END:VCARD"
     ].join("\r\n");
 
-    const blob = new Blob([vcardData], { type: "text/vcard" });
+    const blob = new Blob([new TextEncoder().encode(vcardContent)], { type: "text/vcard;charset=utf-8" });
     const url = window.URL.createObjectURL(blob);
     const newLink = document.createElement("a");
     newLink.download = "Edgar_DeLeon_DeLeonNet.vcf";
