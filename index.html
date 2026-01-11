@@ -41,7 +41,7 @@
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding-top: 40px; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
-    /* BARRA DE NOTICIAS TECNOLÓGICAS (MARQUEE) */
+    /* BARRA DE NOTICIAS */
     .news-bar {
       position: fixed;
       top: 0;
@@ -70,7 +70,7 @@
     .marquee-content {
       display: inline-block;
       white-space: nowrap;
-      animation: marquee 30s linear infinite;
+      animation: marquee 40s linear infinite;
       padding-left: 100%;
     }
     @keyframes marquee {
@@ -78,7 +78,7 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* BURBUJA DE AYUDA TAWK.TO */
+    /* BURBUJA DE AYUDA PERMANENTE */
     .tawk-helper {
       position: fixed;
       bottom: 90px;
@@ -91,8 +91,7 @@
       max-width: 250px;
       font-size: 0.85rem;
       z-index: 1000;
-      border: 1px solid var(--border);
-      animation: fadeIn 1s ease-in-out;
+      border: 2px solid var(--primary);
     }
     .tawk-helper::after {
       content: '';
@@ -103,7 +102,18 @@
       border-style: solid;
       border-color: white transparent transparent transparent;
     }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* SECCIÓN DE SOPORTE ADICIONAL */
+    .support-notice {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #dbeafe;
+      border-radius: 10px;
+      color: var(--primary);
+      font-weight: 700;
+      border: 1px dashed var(--primary);
+    }
 
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
     .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
@@ -172,7 +182,7 @@
 <div class="news-bar">
   <div class="news-title">TECH NEWS</div>
   <div class="marquee-content" id="news-feed">
-    Cargando últimas actualizaciones tecnológicas de la industria... | IA y Computación Cuántica | Seguridad en la Nube | Resiliencia de Infraestructura 2026 | Evolución de redes 6G | Ciberseguridad Proactiva
+    Cargando últimas actualizaciones tecnológicas...
   </div>
 </div>
 
@@ -282,6 +292,9 @@
   </section>
 
   <section class="contact-block">
+    <div id="soporte-text" class="support-notice">
+      Contamos con chat para atención en tiempo real y soporte técnico inmediato.
+    </div>
     <form id="contact-form">
       <h2 id="f-h">Contacto Profesional</h2>
       <div class="hp-field"><input type="text" name="honeypot" id="honeypot"></div>
@@ -301,15 +314,18 @@
 <script>
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
-  // SIMULACIÓN DE FEED DE NOTICIAS (Se puede conectar a una API real de RSS)
-  const news = [
-    "IA Generativa redefine la seguridad perimetral en 2026",
-    "Avance en redes 6G permite latencia cero en entornos industriales",
-    "Nueva vulnerabilidad Zero-Day detectada en sistemas de virtualización críticos",
-    "Sostenibilidad TI: Racks de alta eficiencia reducen consumo en un 40%",
-    "Estrategias de recuperación ante desastres se vuelven prioridad global"
-  ];
-  document.getElementById('news-feed').innerText = news.join(" | ");
+  function updateNews() {
+    const feeds = [
+      "IA y Ciberseguridad: Tendencias 2026 en Infraestructura Crítica",
+      "Nuevos estándares en certificación de Redes de Alta Disponibilidad",
+      "Resiliencia Operativa: Estrategias clave para la continuidad TI",
+      "Evolución de Centros de Datos: Eficiencia y Gestión de Recursos",
+      "Protección de Datos en entornos híbridos y Cloud"
+    ];
+    document.getElementById('news-feed').innerText = feeds.sort(() => 0.5 - Math.random()).join(" | ");
+  }
+  updateNews();
+  setInterval(updateNews, 1800000); 
 
   const texts = {
     es: {
@@ -317,6 +333,7 @@
       title: "Edgar Francisco de León Hernández",
       desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.",
       bubble: "Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.",
+      support: "Contamos con chat para atención en tiempo real y soporte técnico inmediato.",
       stat1h: "Redes LAN/WAN", stat1v: "Operativo",
       stat2h: "Servidores", stat2v: "99.9% Uptime",
       stat3h: "Ciberseguridad", stat3v: "Protección Activa",
@@ -341,6 +358,7 @@
       title: "Edgar Francisco de Leon Hernandez",
       desc: "Implementation of robust and secure network architectures, proactive management of operational continuity under data protection standards, and IT resource optimization with specialized field support.",
       bubble: "To communicate with me you can use the email option in <strong>Personal Contact</strong>, or for live conversations use the <strong>Chat</strong> for real-time inquiries.",
+      support: "We have chat for real-time support and immediate technical assistance.",
       stat1h: "LAN/WAN Networks", stat1v: "Operational",
       stat2h: "Servers", stat2v: "99.9% Uptime",
       stat3h: "Cybersecurity", stat3v: "Active Protection",
@@ -371,6 +389,7 @@
     document.getElementById('hero-title').innerText = t.title;
     document.getElementById('hero-desc').innerText = t.desc;
     document.getElementById('chat-bubble').innerHTML = t.bubble;
+    document.getElementById('soporte-text').innerText = t.support;
     document.getElementById('stat-1-h').innerText = t.stat1h;
     document.getElementById('stat-2-h').innerText = t.stat2h;
     document.getElementById('stat-3-h').innerText = t.stat3h;
