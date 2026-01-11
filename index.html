@@ -1,71 +1,58 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edgar de León | Arquitectura de Infraestructura y Continuidad de Negocio</title>
+  <title>Edgar Francisco de León Hernández | Acompañamiento tecnológico empresarial</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { 
-      --primary: #1e40af; 
-      --secondary: #0f172a; 
-      --bg: #f8fafc; 
-      --text: #1e293b; 
-      --green: #16a34a; 
-      --yellow: #facc15; 
-      --red: #dc2626; 
-    }
-    
-    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; overflow-x: hidden; }
+    :root { --primary: #1e40af; --secondary: #0f172a; --bg: #f8fafc; --text: #1e293b; --green: #16a34a; --yellow: #facc15; --red: #dc2626; }
+    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
-    /* Navegación de Idioma */
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid #e2e8f0; }
     .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
     .btn-lang:hover { background: var(--primary); color: white; }
 
-    /* Header y Hero */
-    header { background: white; padding: 80px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
-    .badge-top { display: inline-block; background: #dbeafe; color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px; }
-    h1 { font-size: 3.5rem; color: var(--secondary); margin: 0; font-weight: 800; letter-spacing: -1px; }
-    .hero-p { font-size: 1.2rem; max-width: 900px; margin: 20px auto 0; color: #475569; font-weight: 500; }
+    header { background: white; padding: 60px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+    .badge-top { display: inline-block; background: #dbeafe; color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    h1 { font-size: 3rem; color: var(--secondary); margin: 0; font-weight: 800; letter-spacing: -1px; }
+    .hero-p { font-size: 1.25rem; max-width: 900px; margin: 15px auto 0; color: #475569; font-weight: 500; }
 
-    /* Grid de Servicios */
-    .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 60px 0; }
-    .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-    .border-green { border-top: 8px solid var(--green); }
-    .border-yellow { border-top: 8px solid var(--yellow); }
-    .border-red { border-top: 8px solid var(--red); }
-    .card h2 { font-size: 1.4rem; margin-bottom: 25px; font-weight: 800; text-transform: uppercase; color: var(--secondary); }
-    .ti-center { color: var(--primary); }
+    .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin: 50px 0; }
+    .card { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    
+    .border-green { border: 5px solid var(--green); }
+    .border-yellow { border: 5px solid var(--yellow); }
+    .border-red { border: 5px solid var(--red); }
+
+    .card h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; color: var(--secondary); line-height: 1.2; }
+    .ti-center { display: block; text-align: center; width: 100%; color: var(--green); margin-top: 5px; }
+    
     .card ul { padding: 0; list-style: none; }
-    .card ul li { margin-bottom: 15px; padding-left: 28px; position: relative; font-weight: 600; font-size: 0.95rem; }
+    .card ul li { margin-bottom: 12px; padding-left: 25px; position: relative; font-weight: 600; font-size: 1rem; }
     .card ul li::before { content: "✔"; position: absolute; left: 0; color: var(--primary); }
 
-    /* Sección de Certificaciones con Integración Visual */
+    /* SECCIÓN CERTIFICACIONES INTEGRADA CON DEGRADADO */
     .cert-section { 
       background: linear-gradient(180deg, var(--bg) 0%, var(--secondary) 12%, var(--secondary) 100%);
-      color: white; 
-      padding: 100px 0; 
+      color: white; padding: 80px 0; 
     }
-    .section-title-light { text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 60px; color: white; }
+    .section-title-light { text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 50px; color: white; }
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
     .cert-category { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.3s; }
-    .cert-category:hover { background: rgba(255, 255, 255, 0.06); transform: translateY(-5px); }
     .cert-category h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--green); margin-bottom: 20px; letter-spacing: 1.5px; font-weight: 800; }
     .cert-item { margin-bottom: 12px; font-weight: 500; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; }
     .cert-item span { color: var(--green); margin-right: 12px; }
 
-    /* Bloque de Contacto */
-    .contact-block { padding: 80px 0; background: white; }
-    form { max-width: 650px; margin: 0 auto; padding: 40px; border: 1px solid #e2e8f0; background: var(--bg); border-radius: 12px; }
-    form h2 { text-align: center; margin-bottom: 30px; font-weight: 800; color: var(--secondary); }
-    form input, form textarea { width: 100%; padding: 16px; margin-bottom: 18px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; font-size: 1rem; box-sizing: border-box; }
-    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 20px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 8px; font-size: 1rem; transition: 0.3s; }
-    form button:hover { opacity: 0.9; }
-    .hp-field { display: none !important; }
+    .contact-block { padding: 60px 0; background: white; }
+    form { max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #e2e8f0; background: var(--bg); border-radius: 8px; }
+    form h2 { text-align: center; margin-bottom: 25px; color: var(--secondary); font-weight: 800; }
+    form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit; font-size: 1rem; box-sizing: border-box; }
+    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 18px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 6px; font-size: 1rem; }
+    .hp-field { display: none !important; visibility: hidden; }
 
-    footer { padding: 40px 0; text-align: center; font-size: 0.85rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; background: var(--secondary); }
+    footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; background: var(--secondary); }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
@@ -80,135 +67,119 @@
 
 <header>
   <div class="container">
-    <span class="badge-top" id="badge-text">Infraestructura Crítica y Gestión de Continuidad</span>
-    <h1 id="hero-title">Edgar de León</h1>
+    <span class="badge-top" id="badge-text">Infraestructura Crítica y Gestión de Continuidad de Alto Desempeño</span>
+    <h1 id="hero-title">Edgar Francisco de León Hernández</h1>
     <p class="hero-p" id="hero-desc">Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.</p>
   </div>
 </header>
 
-<main>
-  <div class="container">
-    <div class="grid-services">
-      <div class="card border-green">
-        <h2 id="s1-t">Infraestructura <span class="ti-center">TI</span></h2>
-        <ul id="s1-list">
-          <li>Gestión de Incidentes Críticos (L2/L3).</li>
-          <li>Administración estratégica de Ecosistemas SaaS y CRM.</li>
-          <li>Gestión de infraestructura TI crítica y servidores.</li>
-          <li>Soporte híbrido enfocado en resiliencia operativa.</li>
-          <li>Diagnóstico avanzado en entornos de misión crítica.</li>
-          <li>Gestión Estratégica de Proveedores y SLAs.</li>
-        </ul>
-      </div>
+<main class="container">
+  <div class="grid-services">
+    <div class="card border-green">
+      <h2 id="s1-t">Infraestructura <span class="ti-center">TI</span></h2>
+      <ul id="s1-list">
+        <li>Soporte técnico Nivel 2 y 3 para la resolución de incidentes críticos.</li>
+        <li>Administración, configuración y despliegue de plataformas SaaS y CRM.</li>
+        <li>Gestión de estaciones de trabajo, servidores e infraestructura TI crítica.</li>
+        <li>Soporte técnico remoto y en sitio, enfocado en continuidad operativa.</li>
+        <li>Diagnóstico y resolución de fallas en entornos productivos.</li>
+        <li>Coordinación con proveedores para la restauración de servicios.</li>
+      </ul>
+    </div>
 
-      <div class="card border-yellow">
-        <h2 id="s2-t">Redes & Conectividad</h2>
-        <ul id="s2-list">
-          <li>Diseño e instalación: Racks, Fibra y Cableado Estructurado.</li>
-          <li>Certificación de nodos y Telefonía IP bajo estándares internacionales.</li>
-          <li>Gestión LAN/WAN con monitoreo proactivo del 99.9%.</li>
-          <li>Seguridad Lógica: Segmentación de red y VLANs seguras.</li>
-          <li>Planificación de redes escalables e integración Cloud.</li>
-        </ul>
-      </div>
+    <div class="card border-yellow">
+      <h2 id="s2-t">Redes & Conectividad</h2>
+      <ul id="s2-list">
+        <li>Diseño e instalación de infraestructura: racks, fibra y cableado estructurado.</li>
+        <li>Certificación de puntos de red y telefonía IP avanzada (estándares internacionales).</li>
+        <li>Mantenimiento LAN/WAN y monitoreo proactivo para asegurar operatividad.</li>
+        <li>Configuración de VLANs, seguridad de red y soporte en tiempo real.</li>
+        <li>Planificación de redes escalables e integración con soluciones cloud.</li>
+      </ul>
+    </div>
 
-      <div class="card border-red">
-        <h2 id="s3-t">Logística Operativa</h2>
-        <ul id="s3-list">
-          <li>Movilidad corporativa segura y profesional (Licencia Tipo B).</li>
-          <li>Coordinación táctica de despliegues técnicos nacionales.</li>
-          <li>Restauración inmediata de servicios en puntos críticos.</li>
-          <li>Gestión de recursos, herramientas y personal en campo.</li>
-        </ul>
-      </div>
+    <div class="card border-red">
+      <h2 id="s3-t">Movilidad</h2>
+      <ul id="s3-list">
+        <li>Conducción profesional y segura de vehículos corporativos (Tipo B).</li>
+        <li>Coordinación de logística y traslados de campo a nivel nacional.</li>
+        <li>Soporte técnico inmediato en sitio para sucursales y puntos críticos.</li>
+        <li>Gestión de equipos, herramientas y personal en operaciones de campo.</li>
+      </ul>
     </div>
   </div>
 
   <section class="cert-section">
     <div class="container">
-      <h2 class="section-title-light" id="cert-title">Certificaciones, Tecnologías y Estándares</h2>
+      <h2 class="section-title-light" id="cert-title">Certificaciones, Tecnologías y Estándares de Industria</h2>
       <div class="cert-grid">
         <div class="cert-category">
           <h3 id="c1-h">Especialización y Marcos</h3>
           <div class="cert-item"><span>✔</span> Cisco CCNA – Routing & Switching</div>
-          <div class="cert-item"><span>✔</span> ITIL® Foundation – Gestión de Servicios</div>
-          <div class="cert-item"><span>✔</span> Estrategias de Continuidad Operativa</div>
+          <div class="cert-item"><span>✔</span> ITIL Foundation – Gestión TI</div>
+          <div class="cert-item"><span>✔</span> Continuidad Operativa</div>
         </div>
         <div class="cert-category">
           <h3 id="c2-h">Sistemas y Virtualización</h3>
-          <div class="cert-item"><span>✔</span> Windows Server & Linux Environment</div>
-          <div class="cert-item"><span>✔</span> VMware & Microsoft Hyper-V</div>
-          <div class="cert-item"><span>✔</span> Google Campaign Manager 360</div>
+          <div class="cert-item"><span>✔</span> Windows Server & Linux</div>
+          <div class="cert-item"><span>✔</span> Virtualización VMware & Hyper-V</div>
+          <div class="cert-item"><span>✔</span> Google CM 360</div>
         </div>
         <div class="cert-category">
           <h3 id="c3-h">Monitoreo y Seguridad</h3>
-          <div class="cert-item"><span>✔</span> PRTG & SolarWinds Monitoring</div>
-          <div class="cert-item"><span>✔</span> Seguridad Perimetral y Redes Seguras</div>
-          <div class="cert-item"><span>✔</span> Gestión de Protección de Datos</div>
+          <div class="cert-item"><span>✔</span> Monitoreo PRTG & SolarWinds</div>
+          <div class="cert-item"><span>✔</span> Seguridad de Red y Segmentación</div>
         </div>
         <div class="cert-category">
-          <h3 id="c4-h">Operaciones y Despliegue</h3>
-          <div class="cert-item"><span>✔</span> Logística de Campo Nacional</div>
-          <div class="cert-item" style="color: #fca5a5;"><span>✔</span> Conducción Profesional Certificada</div>
+          <h3 id="c4-h">Logística y Despliegue</h3>
+          <div class="cert-item"><span>✔</span> Logística de Campo</div>
+          <div class="cert-item" style="color: #fca5a5;"><span>✔</span> Licencia Tipo B</div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="contact-block">
-    <div class="container">
-      <form id="contact-form">
-        <h2 id="f-h">Contacto Profesional</h2>
-        <div class="hp-field"><input type="text" name="honeypot" id="honeypot"></div>
-        <input type="text" name="user_name" placeholder="Nombre completo" required>
-        <input type="email" name="user_email" placeholder="Correo electrónico corporativo" required>
-        <textarea name="message" rows="4" placeholder="Describa su requerimiento técnico o logístico" required></textarea>
-        <button type="submit" id="btn-submit">Enviar Requerimiento Estratégico</button>
-      </form>
-    </div>
+    <form id="contact-form">
+      <h2 id="f-h">Contacto Profesional</h2>
+      <div class="hp-field"><input type="text" name="honeypot" id="honeypot"></div>
+      <input type="text" name="user_name" placeholder="Nombre completo" required>
+      <input type="email" name="user_email" placeholder="Correo electrónico" required>
+      <textarea name="message" rows="4" placeholder="Describa su requerimiento técnico o logístico" required></textarea>
+      <button type="submit" id="btn-submit">Enviar Requerimiento</button>
+    </form>
   </section>
 </main>
 
 <footer>
-  <div class="container">
-    © 2026 Edgar de León | DeLeonNet · IT Professional Services
-  </div>
+  © 2026 Edgar Francisco de León Hernández | Guatemala
 </footer>
 
 <script>
-  // Inicialización con tu Public Key real
-  (function() { 
-    emailjs.init("xI0INopTtsN4wsLEF"); 
-  })();
+  (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
   const texts = {
     es: {
-      badge: "Infraestructura Crítica y Gestión de Continuidad",
-      title: "Edgar de León",
+      badge: "Infraestructura Crítica y Gestión de Continuidad de Alto Desempeño",
+      title: "Edgar Francisco de León Hernández",
       desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.",
       s1t: "Infraestructura <span class='ti-center'>TI</span>",
       s2t: "Redes & Conectividad",
-      s3t: "Logística Operativa",
-      certTitle: "Certificaciones, Tecnologías y Estándares",
+      s3t: "Movilidad",
+      certTitle: "Certificaciones, Tecnologías y Estándares de Industria",
       fh: "Contacto Profesional",
-      btn: "Enviar Requerimiento Estratégico",
-      sending: "ENVIANDO...",
-      success: "SOLICITUD ENVIADA",
-      error: "ERROR AL ENVIAR"
+      btn: "Enviar Requerimiento"
     },
     en: {
-      badge: "Critical Infrastructure & Continuity Management",
-      title: "Edgar de Leon",
+      badge: "Critical Infrastructure & High Performance Continuity Management",
+      title: "Edgar Francisco de Leon Hernandez",
       desc: "Implementation of robust and secure network architectures, proactive management of operational continuity under data protection standards, and IT resource optimization with specialized field support.",
       s1t: "IT <span class='ti-center'>Infrastructure</span>",
       s2t: "Networking & Connectivity",
-      s3t: "Field Logistics",
-      certTitle: "Certifications, Technologies & Standards",
+      s3t: "Mobility",
+      certTitle: "Certifications, Technologies and Industry Standards",
       fh: "Professional Contact",
-      btn: "Send Strategic Requirement",
-      sending: "SENDING...",
-      success: "REQUEST SENT",
-      error: "SEND ERROR"
+      btn: "Send Requirement"
     }
   };
 
@@ -231,13 +202,10 @@
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     if (document.getElementById('honeypot').value !== "") return;
-
     const btn = document.getElementById('btn-submit');
-    const t = texts[currentLang];
-    btn.innerText = t.sending;
+    btn.innerText = 'ENVIANDO...';
     btn.disabled = true;
 
-    // Sincronización exacta con tu plantilla template_53hovkj
     const templateParams = {
       name: this.user_name.value,
       email: this.user_email.value,
@@ -246,17 +214,16 @@
 
     emailjs.send('service_k6odtq8', 'template_53hovkj', templateParams)
       .then(() => { 
-        btn.innerText = t.success; 
+        btn.innerText = 'SOLICITUD ENVIADA'; 
         btn.style.background = 'var(--green)';
         this.reset(); 
         setTimeout(() => { 
-          btn.innerText = t.btn; 
+          btn.innerText = texts[currentLang].btn; 
           btn.style.background = 'var(--primary)';
           btn.disabled = false;
         }, 4000);
       }, (error) => { 
-        console.error('EmailJS Error:', error);
-        btn.innerText = t.error; 
+        btn.innerText = 'ERROR AL ENVIAR'; 
         btn.style.background = 'var(--red)';
         btn.disabled = false;
       });
