@@ -23,7 +23,6 @@
       --border: #e2e8f0;
     }
 
-    /* MEJORA: MODO OSCURO AUTOMÁTICO (NO AFECTA TEXTOS) */
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #0f172a; 
@@ -39,30 +38,72 @@
       .btn-vcard { background: transparent !important; color: white !important; border-color: white !important; }
     }
     
-    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding-top: 40px; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
-    h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; }
-
-    /* ACTUALIZACIÓN TÉCNICA: Botón WhatsApp a la izquierda */
-    .whatsapp-btn {
+    /* BARRA DE NOTICIAS TECNOLÓGICAS (MARQUEE) */
+    .news-bar {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #25d366;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--secondary);
       color: white;
-      padding: 12px 24px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
+      height: 40px;
+      z-index: 2000;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      z-index: 1000;
-      font-size: 14px;
-      transition: 0.3s;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-bottom: 2px solid var(--primary);
     }
-    .whatsapp-btn:hover { transform: scale(1.05); background-color: #128c7e; }
+    .news-title {
+      background: var(--primary);
+      padding: 0 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      z-index: 2001;
+    }
+    .marquee-content {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 30s linear infinite;
+      padding-left: 100%;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* BURBUJA DE AYUDA TAWK.TO */
+    .tawk-helper {
+      position: fixed;
+      bottom: 90px;
+      right: 25px;
+      background: white;
+      color: var(--secondary);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      max-width: 250px;
+      font-size: 0.85rem;
+      z-index: 1000;
+      border: 1px solid var(--border);
+      animation: fadeIn 1s ease-in-out;
+    }
+    .tawk-helper::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: 20px;
+      border-width: 10px 10px 0;
+      border-style: solid;
+      border-color: white transparent transparent transparent;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
     .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
@@ -128,9 +169,16 @@
 </head>
 <body>
 
-<a href="https://wa.me/50242131607" class="whatsapp-btn" target="_blank">
-  <span>WhatsApp Chat</span>
-</a>
+<div class="news-bar">
+  <div class="news-title">TECH NEWS</div>
+  <div class="marquee-content" id="news-feed">
+    Cargando últimas actualizaciones tecnológicas de la industria... | IA y Computación Cuántica | Seguridad en la Nube | Resiliencia de Infraestructura 2026 | Evolución de redes 6G | Ciberseguridad Proactiva
+  </div>
+</div>
+
+<div class="tawk-helper" id="chat-bubble">
+  Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.
+</div>
 
 <div class="nav-lang">
   <div class="container">
@@ -253,11 +301,22 @@
 <script>
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
+  // SIMULACIÓN DE FEED DE NOTICIAS (Se puede conectar a una API real de RSS)
+  const news = [
+    "IA Generativa redefine la seguridad perimetral en 2026",
+    "Avance en redes 6G permite latencia cero en entornos industriales",
+    "Nueva vulnerabilidad Zero-Day detectada en sistemas de virtualización críticos",
+    "Sostenibilidad TI: Racks de alta eficiencia reducen consumo en un 40%",
+    "Estrategias de recuperación ante desastres se vuelven prioridad global"
+  ];
+  document.getElementById('news-feed').innerText = news.join(" | ");
+
   const texts = {
     es: {
       badge: "Infraestructura Crítica y Gestión de Continuidad de Alto Desempeño",
       title: "Edgar Francisco de León Hernández",
       desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.",
+      bubble: "Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.",
       stat1h: "Redes LAN/WAN", stat1v: "Operativo",
       stat2h: "Servidores", stat2v: "99.9% Uptime",
       stat3h: "Ciberseguridad", stat3v: "Protección Activa",
@@ -281,6 +340,7 @@
       badge: "Critical Infrastructure & High Performance Continuity Management",
       title: "Edgar Francisco de Leon Hernandez",
       desc: "Implementation of robust and secure network architectures, proactive management of operational continuity under data protection standards, and IT resource optimization with specialized field support.",
+      bubble: "To communicate with me you can use the email option in <strong>Personal Contact</strong>, or for live conversations use the <strong>Chat</strong> for real-time inquiries.",
       stat1h: "LAN/WAN Networks", stat1v: "Operational",
       stat2h: "Servers", stat2v: "99.9% Uptime",
       stat3h: "Cybersecurity", stat3v: "Active Protection",
@@ -310,14 +370,11 @@
     document.getElementById('badge-text').innerText = t.badge;
     document.getElementById('hero-title').innerText = t.title;
     document.getElementById('hero-desc').innerText = t.desc;
+    document.getElementById('chat-bubble').innerHTML = t.bubble;
     document.getElementById('stat-1-h').innerText = t.stat1h;
-    document.getElementById('stat-1-v').innerText = t.stat1v;
     document.getElementById('stat-2-h').innerText = t.stat2h;
-    document.getElementById('stat-2-v').innerText = t.stat2v;
     document.getElementById('stat-3-h').innerText = t.stat3h;
-    document.getElementById('stat-3-v').innerText = t.stat3v;
     document.getElementById('stat-4-h').innerText = t.stat4h;
-    document.getElementById('stat-4-v').innerText = t.stat4v;
     document.getElementById('s1-t').innerHTML = t.s1t;
     document.getElementById('s1-list').innerHTML = t.s1list;
     document.getElementById('s2-t').innerText = t.s2t;
