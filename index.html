@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edgar Francisco de León Hernández | Consultoría y Continuidad Operativa TI</title>
-  <meta name="description" content="Especialista en Infraestructura TI, Redes Cisco y Soporte Nivel 2/3 en Guatemala.">
+  <title>Edgar Francisco de León Hernández | Continuidad Operativa y Movilidad TI</title>
+  <meta name="description" content="Especialista en Infraestructura, Redes y Logística Técnica segura en Guatemala.">
   <link rel="canonical" href="https://deleonet.github.io/" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -19,16 +19,17 @@
     .hero-p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; color: #64748b; }
     .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
     .card { background: white; padding: 35px; border-radius: 15px; border: 1px solid #e2e8f0; transition: 0.3s; }
-    .card h3 { color: var(--secondary); margin-bottom: 15px; }
+    .card h3 { color: var(--secondary); margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 10px; }
     .card ul { padding: 0; list-style: none; font-size: 0.9rem; }
     .card ul li { margin-bottom: 8px; position: relative; padding-left: 20px; }
     .card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
     .certs-bar { background: var(--secondary); color: white; padding: 40px 0; text-align: center; border-radius: 15px; margin: 40px 0; }
-    .certs-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+    .certs-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .tag { background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 5px; font-size: 0.85rem; }
     .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background: white; padding: 50px; border-radius: 20px; border: 1px solid #e2e8f0; margin-bottom: 60px; }
     form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 10px; box-sizing: border-box; }
     form button { background: var(--primary); color: white; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: 700; cursor: pointer; }
-    .hp-field { display: none !important; visibility: hidden; } /* SEGURIDAD HONEYPOT */
+    .hp-field { display: none !important; visibility: hidden; }
     @media (max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; } }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -44,63 +45,60 @@
 
 <header>
   <div class="container">
-    <span class="badge-top" id="badge-text">Consultoría y Continuidad Operativa TI</span>
+    <span class="badge-top" id="badge-text">Infraestructura Crítica y Continuidad 2026</span>
     <h1 id="hero-title">Edgar Francisco de León Hernández</h1>
-    <p class="hero-p" id="hero-desc">Implementación de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos.</p>
+    <p class="hero-p" id="hero-desc">Arquitecto de soluciones TI especializado en mitigar riesgos operativos, ciber-resiliencia y logística de movilidad técnica segura.</p>
   </div>
 </header>
 
 <main class="container">
   <div class="grid-services">
     <div class="card">
-      <h3 id="s1-t">Infraestructura TI y Operaciones</h3>
+      <h3 id="s1-t">Infraestructura y Cloud</h3>
       <ul id="s1-list">
-        <li>Administración de directorios y políticas.</li>
-        <li>Gestión de ambientes LMS.</li>
-        <li>Mantenimiento preventivo.</li>
+        <li id="li1">Administración de identidades y Zero Trust.</li>
+        <li id="li2">Gestión de ambientes LMS y Virtualización.</li>
+        <li id="li3">Mantenimiento predictivo proactivo.</li>
       </ul>
     </div>
     <div class="card">
-      <h3 id="s2-t">Redes y Telecomunicaciones</h3>
+      <h3 id="s2-t">Redes y Conectividad</h3>
       <ul id="s2-list">
-        <li>Cómputo en la nube.</li>
-        <li>Montaje de infraestructura física.</li>
-        <li>Monitoreo de hardware.</li>
+        <li id="li4">Configuración avanzada Cisco y SD-WAN.</li>
+        <li id="li5">Montaje de infraestructura física de red.</li>
+        <li id="li6">Monitoreo con herramientas de observabilidad.</li>
       </ul>
     </div>
     <div class="card">
-      <h3 id="s3-t">Soporte Nivel 2 y 3</h3>
+      <h3 id="s3-t">Soporte y Movilidad</h3>
       <ul id="s3-list">
-        <li>Análisis de Big Data.</li>
-        <li id="conduccion-li">Movilidad Corporativa y Seguridad.</li>
-        <li>Soporte estratégico.</li>
+        <li id="li7">Análisis de Big Data para diagnóstico.</li>
+        <li id="li8"><strong>Conducción de Seguridad y Movilidad Corporativa.</strong></li>
+        <li id="li9">Logística técnica para activos críticos.</li>
       </ul>
     </div>
   </div>
 
   <div class="certs-bar">
-    <h3 id="certs-title">Habilidades Profesionales</h3>
+    <h3 id="certs-title">Stack Tecnológico</h3>
     <div class="certs-grid">
-      <span>• Cisco CCNA</span>
-      <span>• Google CM 360</span>
-      <span>• Big Data</span>
-      <span>• Conducción Técnica y Seguridad</span>
+      <span class="tag">Cisco CCNA</span> <span class="tag">Google CM 360</span> <span class="tag">Cloud Computing</span> <span class="tag">Cyber-Security</span>
     </div>
   </div>
 
   <div class="contact-wrapper">
     <div>
-      <h2 id="form-h">Inicie una Consulta Técnica</h2>
-      <p id="form-p">Disponible para proyectos de infraestructura.</p>
+      <h2 id="form-h">Consulta Especializada</h2>
+      <p id="form-p">Disponible para proyectos de infraestructura o soporte crítico.</p>
     </div>
     <form id="contact-form">
       <div class="hp-field">
         <input type="text" name="honeypot" id="honeypot" tabindex="-1" autocomplete="off">
       </div>
       <input type="text" name="user_name" id="user_name" placeholder="Nombre completo" required>
-      <input type="email" name="user_email" id="user_email" placeholder="Correo electrónico" required>
-      <textarea name="message" id="user_message" rows="5" placeholder="Mensaje" required></textarea>
-      <button type="submit" id="button">Enviar Solicitud</button>
+      <input type="email" name="user_email" id="user_email" placeholder="Correo corporativo" required>
+      <textarea name="message" id="user_message" rows="5" placeholder="Describa su requerimiento (mín. 10 caracteres)" required></textarea>
+      <button type="submit" id="button">Enviar Solicitud Profesional</button>
     </form>
   </div>
 </main>
@@ -111,18 +109,31 @@
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     if (document.getElementById('honeypot').value !== "") return;
+    
+    const msg = document.getElementById('user_message').value.trim();
+    if (msg.length < 10) {
+      alert("Por favor, detalle más su mensaje (mínimo 10 caracteres).");
+      return;
+    }
+
     const btn = document.getElementById('button');
     btn.innerText = 'Enviando...';
     emailjs.sendForm('service_k6odtq8', 'template_53hovkj', this)
       .then(() => { btn.innerText = '¡Enviado!'; this.reset(); }, () => { btn.innerText = 'Error'; });
   });
 
+  const texts = {
+    es: { title: "Edgar Francisco de León Hernández", badge: "Infraestructura Crítica 2026", desc: "Arquitecto de soluciones TI especializado en riesgos y movilidad.", s3t: "Soporte y Movilidad", fbtn: "Enviar Solicitud Profesional" },
+    en: { title: "Edgar Francisco de Leon Hernandez", badge: "Critical Infrastructure 2026", desc: "IT Solution Architect specialized in risk and mobility.", s3t: "Support & Mobility", fbtn: "Send Professional Request" }
+  };
+
   function setLanguage(lang) {
-    const isEs = lang === 'es';
-    document.getElementById('hero-title').innerText = isEs ? "Edgar Francisco de León Hernández" : "Edgar Francisco de Leon Hernandez";
-    document.getElementById('badge-text').innerText = isEs ? "Consultoría y Continuidad Operativa TI" : "IT Consulting & Business Continuity";
-    document.getElementById('s3-t').innerText = isEs ? "Soporte Nivel 2 y 3" : "Tier 2 & 3 Support";
-    document.getElementById('conduccion-li').innerText = isEs ? "Movilidad Corporativa y Seguridad" : "Security Driving & Logistics";
+    const t = texts[lang];
+    document.getElementById('hero-title').innerText = t.title;
+    document.getElementById('badge-text').innerText = t.badge;
+    document.getElementById('hero-desc').innerText = t.desc;
+    document.getElementById('s3-t').innerText = t.s3t;
+    document.getElementById('button').innerText = t.fbtn;
   }
 </script>
 </body>
