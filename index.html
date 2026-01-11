@@ -18,6 +18,7 @@
       --green: #16a34a; 
       --yellow: #facc15; 
       --red: #dc2626; 
+      --acid-green: #ccff00; 
       --form-bg: #f1f5f9;
       --card-bg: #ffffff;
       --border: #e2e8f0;
@@ -37,6 +38,17 @@
         --helper-text: #f8fafc;
       }
       header, .nav-lang { background: #0f172a !important; border-bottom: 1px solid var(--border) !important; }
+      
+      /* Botones de idioma en modo oscuro - Verde Ácido */
+      .btn-lang { 
+        color: var(--acid-green) !important; 
+        border-color: var(--acid-green) !important; 
+      }
+      .btn-lang:hover { 
+        background: var(--acid-green) !important; 
+        color: #000 !important; 
+      }
+
       .status-card, .card, form { background: var(--card-bg) !important; border: 1px solid var(--border) !important; }
       .hero-p { color: #cbd5e1 !important; }
       .btn-vcard { background: transparent !important; color: white !important; border-color: white !important; }
@@ -402,7 +414,7 @@
       s2list: `<li>Infrastructure design and installation: racks, fiber, and structured cabling.</li><li>Node certification and IP Telephony under international standards.</li><li>LAN/WAN maintenance and proactive monitoring to ensure operability.</li><li>LAN/WAN management with proactive monitoring.</li><li>Scalable network planning and Cloud integration.</li>`,
       s3t: "Mobility",
       s3list: `<li>Secure and professional corporate mobility (Type B License).</li><li>Tactical coordination of nationwide technical deployments.</li><li>Immediate on-site technical support for branches and critical points.</li><li>Resource, tool, and field personnel management.</li>`,
-      certTitle: "Certifications, Technologies and Industry Standards",
+      certTitle: "Certificaciones, Tecnologías y Estándares de Industria",
       c1h: "Specialization & Frameworks",
       c2h: "Systems & Virtualization",
       c3h: "Monitoring & Security",
