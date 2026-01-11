@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -70,7 +70,7 @@
     .marquee-content {
       display: inline-block;
       white-space: nowrap;
-      animation: marquee 40s linear infinite;
+      animation: marquee 60s linear infinite; /* Aumentado a 60s para que se lean mejor los titulares reales */
       padding-left: 100%;
     }
     @keyframes marquee {
@@ -182,7 +182,7 @@
 <div class="news-bar">
   <div class="news-title">TECH NEWS</div>
   <div class="marquee-content" id="news-feed">
-    Cargando últimas actualizaciones tecnológicas...
+    Sintonizando últimas tendencias tecnológicas...
   </div>
 </div>
 
@@ -314,18 +314,28 @@
 <script>
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
-  function updateNews() {
-    const feeds = [
-      "IA y Ciberseguridad: Tendencias 2026 en Infraestructura Crítica",
-      "Nuevos estándares en certificación de Redes de Alta Disponibilidad",
-      "Resiliencia Operativa: Estrategias clave para la continuidad TI",
-      "Evolución de Centros de Datos: Eficiencia y Gestión de Recursos",
-      "Protección de Datos en entornos híbridos y Cloud"
-    ];
-    document.getElementById('news-feed').innerText = feeds.sort(() => 0.5 - Math.random()).join(" | ");
+  // FUNCION DE NOTICIAS REALES (RSS de Wired Science/Tech)
+  async function updateNews() {
+    const newsFeedElement = document.getElementById('news-feed');
+    const rssUrl = 'https://www.wired.com/feed/category/science/latest/rss';
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      if (data.status === 'ok') {
+        const newsTitles = data.items.map(item => item.title.toUpperCase());
+        newsFeedElement.innerText = newsTitles.join(" |  ---  | ");
+      }
+    } catch (error) {
+      console.error("Error al cargar noticias:", error);
+      newsFeedElement.innerText = "IA y Ciberseguridad: Tendencias 2026 | Evolución de Redes de Alta Disponibilidad | Resiliencia Operativa TI";
+    }
   }
+
+  // Inicializar y actualizar cada 5 minutos (300,000 ms)
   updateNews();
-  setInterval(updateNews, 1800000); 
+  setInterval(updateNews, 300000); 
 
   const texts = {
     es: {
@@ -461,4 +471,4 @@
   }
 </script>
 </body>
-</html>
+</html> 
