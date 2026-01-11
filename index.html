@@ -10,10 +10,18 @@
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
+    /* Barra de Idiomas Superior */
+    .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid #e2e8f0; }
+    .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
+    .btn-lang:hover { background: var(--primary); color: white; }
+
+    /* Header con Distintivo Azul */
     header { background: white; padding: 60px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+    .badge-top { display: inline-block; background: #dbeafe; color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
     h1 { font-size: 3rem; color: var(--secondary); margin: 0; font-weight: 800; letter-spacing: -1px; }
     .hero-p { font-size: 1.25rem; max-width: 900px; margin: 15px auto 0; color: #475569; font-weight: 500; }
 
+    /* Grid de Servicios con Márgenes de Color */
     .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin: 50px 0; }
     .card { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
     
@@ -43,18 +51,26 @@
 </head>
 <body>
 
+<div class="nav-lang">
+  <div class="container">
+    <button class="btn-lang" onclick="setLanguage('es')">Español</button>
+    <button class="btn-lang" onclick="setLanguage('en')">English</button>
+  </div>
+</div>
+
 <header>
   <div class="container">
-    <h1>Edgar Francisco de León Hernández</h1>
-    <p class="hero-p">Especialista en Infraestructura TI, Redes y Continuidad Operativa con amplia experiencia en logística de campo.</p>
+    <span class="badge-top" id="badge-text">Infraestructura Crítica y Continuidad 2026</span>
+    <h1 id="hero-title">Edgar Francisco de León Hernández</h1>
+    <p class="hero-p" id="hero-desc">Especialista en Infraestructura TI, Redes y Continuidad Operativa con amplia experiencia en logística de campo nacional.</p>
   </div>
 </header>
 
 <main class="container">
   <div class="grid-services">
     <div class="card border-green">
-      <h2>Infraestructura <span class="ti-center">TI</span></h2>
-      <ul>
+      <h2 id="s1-t">Infraestructura <span class="ti-center">TI</span></h2>
+      <ul id="s1-list">
         <li>Soporte Nivel 2 y 3 para sistemas bancarios y financieros.</li>
         <li>Administración y despliegue de plataformas SaaS y CRM.</li>
         <li>Gestión de estaciones de trabajo, servidores e infraestructura crítica.</li>
@@ -62,20 +78,20 @@
     </div>
 
     <div class="card border-yellow">
-      <h2>redes & conectividad</h2>
-      <ul>
-        <li>Instalación y configuración de racks, fibra óptica y cableado estructurado.</li>
-        <li>Certificación de puntos de red y homologación de servidores de telefonía IP.</li>
-        <li>Mantenimiento preventivo de hardware y conectividad LAN/WAN a nivel nacional.</li>
+      <h2 id="s2-t">redes & conectividad</h2>
+      <ul id="s2-list">
+        <li>Instalación de racks, fibra óptica y cableado estructurado.</li>
+        <li>Certificación de puntos de red y telefonía IP avanzada.</li>
+        <li>Mantenimiento preventivo de hardware LAN/WAN en todo el país.</li>
       </ul>
     </div>
 
     <div class="card border-red">
-      <h2>Movilidad</h2>
-      <ul>
-        <li>Manejo experto de Pickups (Mazda BT-50, Mitsubishi L200) y Camiones (KIA K2700).</li>
-        <li>Coordinación de proyectos de campo y gestión logística a nivel nacional.</li>
-        <li>Respuesta inmediata para soporte en sitio en puntos de servicio y sucursales.</li>
+      <h2 id="s3-t">Movilidad</h2>
+      <ul id="s3-list">
+        <li>Conducción experta de Mazda BT-50, Mitsubishi L200 y KIA K2700.</li>
+        <li>Coordinación de proyectos de campo y traslados logísticos seguros.</li>
+        <li>Soporte en sitio inmediato para sucursales y puntos de servicio.</li>
       </ul>
     </div>
   </div>
@@ -90,7 +106,7 @@
 
   <section class="contact-block">
     <form id="contact-form">
-      <h2 style="text-align: center; margin-bottom: 25px; color: var(--secondary);">Contacto Profesional</h2>
+      <h2 style="text-align: center; margin-bottom: 25px; color: var(--secondary);" id="f-h">Contacto Profesional</h2>
       <div class="hp-field"><input type="text" name="honeypot" id="honeypot"></div>
       <input type="text" name="user_name" placeholder="Nombre completo" required>
       <input type="email" name="user_email" placeholder="Correo electrónico" required>
@@ -107,18 +123,48 @@
 <script>
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
+  const texts = {
+    es: {
+      badge: "Infraestructura Crítica y Continuidad 2026",
+      title: "Edgar Francisco de León Hernández",
+      desc: "Especialista en Infraestructura TI, Redes y Continuidad Operativa con amplia experiencia en logística de campo nacional.",
+      s1t: "Infraestructura <span class='ti-center'>TI</span>",
+      s2t: "redes & conectividad",
+      s3t: "Movilidad",
+      fh: "Contacto Profesional",
+      btn: "Enviar Requerimiento"
+    },
+    en: {
+      badge: "Critical Infrastructure & Continuity 2026",
+      title: "Edgar Francisco de Leon Hernandez",
+      desc: "IT Infrastructure, Networking, and Continuity Specialist with extensive national field logistics experience.",
+      s1t: "IT <span class='ti-center'>Infrastructure</span>",
+      s2t: "networks & connectivity",
+      s3t: "Mobility",
+      fh: "Professional Contact",
+      btn: "Send Requirement"
+    }
+  };
+
+  function setLanguage(lang) {
+    const t = texts[lang];
+    document.getElementById('badge-text').innerText = t.badge;
+    document.getElementById('hero-title').innerText = t.title;
+    document.getElementById('hero-desc').innerText = t.desc;
+    document.getElementById('s1-t').innerHTML = t.s1t;
+    document.getElementById('s2-t').innerText = t.s2t;
+    document.getElementById('s3-t').innerText = t.s3t;
+    document.getElementById('f-h').innerText = t.fh;
+    document.getElementById('btn-submit').innerText = t.btn;
+  }
+
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     if (document.getElementById('honeypot').value !== "") return;
     const btn = document.getElementById('btn-submit');
     btn.innerText = 'ENVIANDO...';
     emailjs.sendForm('service_k6odtq8', 'template_53hovkj', this)
-      .then(() => { 
-        btn.innerText = 'SOLICITUD ENVIADA'; 
-        this.reset(); 
-      }, () => { 
-        btn.innerText = 'ERROR AL ENVIAR'; 
-      });
+      .then(() => { btn.innerText = 'SOLICITUD ENVIADA'; this.reset(); }, () => { btn.innerText = 'ERROR AL ENVIAR'; });
   });
 </script>
 </body>
