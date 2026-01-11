@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -21,6 +21,8 @@
       --form-bg: #f1f5f9;
       --card-bg: #ffffff;
       --border: #e2e8f0;
+      --helper-bg: #ffffff;
+      --helper-text: #0f172a;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -31,11 +33,18 @@
         --form-bg: #1e293b;
         --card-bg: #1e293b;
         --border: #334155;
+        --helper-bg: #1e293b;
+        --helper-text: #f8fafc;
       }
       header, .nav-lang { background: #0f172a !important; border-bottom: 1px solid var(--border) !important; }
       .status-card, .card, form { background: var(--card-bg) !important; border: 1px solid var(--border) !important; }
       .hero-p { color: #cbd5e1 !important; }
       .btn-vcard { background: transparent !important; color: white !important; border-color: white !important; }
+      
+      /* Ajuste específico para visibilidad en modo oscuro */
+      .news-bar { background: #000000 !important; color: #ffffff !important; }
+      .tawk-helper { background: var(--helper-bg) !important; color: var(--helper-text) !important; border-color: var(--primary) !important; }
+      .tawk-helper strong { color: var(--yellow) !important; }
     }
     
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding-top: 40px; }
@@ -66,11 +75,12 @@
       align-items: center;
       position: absolute;
       z-index: 2001;
+      color: white !important;
     }
     .marquee-content {
       display: inline-block;
       white-space: nowrap;
-      animation: marquee 60s linear infinite; /* Aumentado a 60s para que se lean mejor los titulares reales */
+      animation: marquee 60s linear infinite;
       padding-left: 100%;
     }
     @keyframes marquee {
@@ -83,11 +93,11 @@
       position: fixed;
       bottom: 90px;
       right: 25px;
-      background: white;
-      color: var(--secondary);
+      background: var(--helper-bg);
+      color: var(--helper-text);
       padding: 15px;
       border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       max-width: 250px;
       font-size: 0.85rem;
       z-index: 1000;
@@ -100,10 +110,9 @@
       right: 20px;
       border-width: 10px 10px 0;
       border-style: solid;
-      border-color: white transparent transparent transparent;
+      border-color: var(--helper-bg) transparent transparent transparent;
     }
 
-    /* SECCIÓN DE SOPORTE ADICIONAL */
     .support-notice {
       text-align: center;
       margin-bottom: 30px;
@@ -115,6 +124,7 @@
       border: 1px dashed var(--primary);
     }
 
+    /* Resto de estilos base */
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
     .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
     .btn-lang:hover { background: var(--primary); color: white; }
@@ -314,7 +324,6 @@
 <script>
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
-  // FUNCION DE NOTICIAS REALES (RSS de Wired Science/Tech)
   async function updateNews() {
     const newsFeedElement = document.getElementById('news-feed');
     const rssUrl = 'https://www.wired.com/feed/category/science/latest/rss';
@@ -333,7 +342,6 @@
     }
   }
 
-  // Inicializar y actualizar cada 5 minutos (300,000 ms)
   updateNews();
   setInterval(updateNews, 300000); 
 
@@ -471,4 +479,4 @@
   }
 </script>
 </body>
-</html> 
+</html>
