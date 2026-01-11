@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edgar Francisco de León Hernández | Consultoría y Continuidad Operativa TI</title>
+  <title>Édgar Francisco de León Hernández | Consultoría y Continuidad Operativa TI</title>
   <meta name="description" content="Especialista en Infraestructura TI, Redes Cisco y Soporte Nivel 2/3 en Guatemala.">
   <link rel="canonical" href="https://deleonet.github.io/" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -35,9 +35,8 @@
     form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 10px; font-family: inherit; box-sizing: border-box; }
     form button { background: var(--primary); color: white; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; }
     form button:hover { background: var(--secondary); }
-    .hp-field { display: none !important; visibility: hidden; } /* Seguridad Honeypot */
+    .hp-field { display: none !important; visibility: hidden; } 
     .whatsapp-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white; border-radius: 50px; padding: 12px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; display: flex; align-items: center; font-weight: 700; transition: 0.3s ease; }
-    .whatsapp-btn:hover { background-color: #128c7e; transform: scale(1.05); }
     @media (max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; } h1 { font-size: 2.2rem; } }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -54,7 +53,7 @@
 <header>
   <div class="container">
     <span class="badge-top" id="badge-text">Consultoría y Continuidad Operativa TI</span>
-    <h1 id="hero-title">Edgar Francisco de León Hernández</h1>
+    <h1 id="hero-title">Édgar Francisco de León Hernández</h1>
     <p class="hero-p" id="hero-desc">Implementación de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos.</p>
   </div>
 </header>
@@ -85,10 +84,10 @@
     </div>
     <div class="card">
       <h3 id="s3-t">Soporte Nivel 2 y 3</h3>
-      <p id="s3-p">Resolución de incidentes complejos y logística técnica.</p>
+      <p id="s3-p">Resolución de incidentes complejos y Movilidad Corporativa.</p>
       <ul id="s3-list">
         <li>Análisis de Big Data para diagnóstico.</li>
-        <li>Asistencia en Logística Privada.</li>
+        <li>Conducción de Seguridad de Activos.</li>
         <li>Soporte escalado estratégico.</li>
       </ul>
     </div>
@@ -102,7 +101,7 @@
       <span>• Google CM 360</span>
       <span>• Cómputo en la Nube</span>
       <span>• Big Data</span>
-      <span>• Conducción Técnica y Seguridad de Activos</span>
+      <span>• Conducción Técnica y Seguridad</span>
     </div>
   </section>
 
@@ -116,8 +115,8 @@
         <div class="hp-field">
           <input type="text" name="honeypot" id="honeypot" tabindex="-1" autocomplete="off">
         </div>
-        <input type="text" name="name" id="user_name" placeholder="Nombre completo" required>
-        <input type="email" name="email" id="user_email" placeholder="Correo electrónico" required>
+        <input type="text" name="user_name" id="user_name" placeholder="Nombre completo" required>
+        <input type="email" name="user_email" id="user_email" placeholder="Correo electrónico" required>
         <textarea name="message" id="user_message" rows="5" placeholder="Describa su requerimiento" required></textarea>
         <button type="submit" id="button">Enviar Solicitud</button>
       </form>
@@ -130,7 +129,7 @@
 
 <footer>
   <div class="container" style="padding: 40px 0; text-align: center; color: #94a3b8; font-size: 0.9rem;">
-    © <span id="year"></span> Edgar Francisco de León Hernández | Servicios Profesionales
+    © <span id="year"></span> Édgar Francisco de León Hernández | Servicios Profesionales
   </div>
 </footer>
 
@@ -140,28 +139,45 @@
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
   const btn = document.getElementById('button');
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
+  const contactForm = document.getElementById('contact-form');
+
+  contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    if (document.getElementById('honeypot').value !== "") return;
-    
+
+    // 1. Verificación Honeypot
+    if (document.getElementById('honeypot').value !== "") {
+        console.warn("Spam detectado.");
+        return;
+    }
+
+    // 2. Validación Robusta de Datos
     const name = document.getElementById('user_name').value.trim();
-    if (name.length < 3) { alert("Ingrese un nombre válido"); return; }
+    const email = document.getElementById('user_email').value.trim();
+    const message = document.getElementById('user_message').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (name.length < 3 || !emailRegex.test(email) || message.length < 10) {
+        alert("Por favor, complete todos los campos correctamente (Mínimo 10 caracteres en mensaje).");
+        return;
+    }
 
     btn.innerText = 'Enviando...';
+    
+    // 3. Envío Seguro
     emailjs.sendForm('service_k6odtq8', 'template_53hovkj', this)
       .then(() => {
         btn.innerText = 'Enviar Solicitud';
         document.getElementById('success-msg').style.display = 'block';
-        this.reset();
+        contactForm.reset();
       }, (err) => {
         btn.innerText = 'Error';
-        alert("Error de conexión.");
+        alert("Error de conexión. Intente por WhatsApp.");
       });
   });
 
   const texts = {
-    es: { badge: "Consultoría y Continuidad Operativa TI", title: "Edgar Francisco de León Hernández", desc: "Implementación de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos.", st: "Especialidades Técnicas", s1t: "Infraestructura TI y Operaciones", s1p: "Gestión proactiva de sistemas y entornos críticos.", s2t: "Redes y Telecomunicaciones", s2p: "Interconexión robusta basada en estándares de ingeniería.", s3t: "Soporte Nivel 2 y 3", s3p: "Resolución de incidentes complejos y logística técnica.", ct: "Formación Profesional y Habilidades", fh: "Inicie una Consulta Técnica", fp: "Disponible para proyectos de infraestructura o soporte especializado.", btn: "Enviar Solicitud", ok: "¡Mensaje enviado con éxito!" },
-    en: { badge: "IT Consulting & Business Continuity", title: "Edgar Francisco de Leon Hernandez", desc: "Implementation of technology solutions and high-level support designed to mitigate operational risks.", st: "Technical Specialties", s1t: "IT Infrastructure & Ops", s1p: "Proactive management of critical systems and environments.", s2t: "Networking & Telecoms", s2p: "Robust interconnection based on engineering standards.", s3t: "Tier 2 & 3 Support", s3p: "Complex incident resolution and technical logistics.", ct: "Professional Training & Skills", fh: "Start a Technical Inquiry", fp: "Available for infrastructure projects or specialized support.", btn: "Send Request", ok: "Message sent successfully!" }
+    es: { badge: "Consultoría y Continuidad Operativa TI", title: "Édgar Francisco de León Hernández", desc: "Implementación de soluciones tecnológicas y soporte de alto nivel diseñado para mitigar riesgos operativos.", st: "Especialidades Técnicas", s1t: "Infraestructura TI y Operaciones", s2t: "Redes y Telecomunicaciones", s3t: "Soporte Nivel 2 y 3", s3p: "Resolución de incidentes complejos y Movilidad Corporativa.", ct: "Formación Profesional y Habilidades", fh: "Inicie una Consulta Técnica", fp: "Disponible para proyectos de infraestructura o soporte especializado.", btn: "Enviar Solicitud", ok: "¡Mensaje enviado con éxito!" },
+    en: { badge: "IT Consulting & Business Continuity", title: "Edgar Francisco de Leon Hernandez", desc: "Technology solutions and high-level support designed to mitigate operational risks.", st: "Technical Specialties", s1t: "IT Infrastructure & Ops", s2t: "Networking & Telecoms", s3t: "Tier 2 & 3 Support", s3p: "Complex incident resolution and Security Driving Services.", ct: "Professional Training & Skills", fh: "Start a Technical Inquiry", fp: "Available for infrastructure projects or specialized support.", btn: "Send Request", ok: "Message sent successfully!" }
   };
 
   function setLanguage(lang) {
@@ -170,9 +186,10 @@
     document.getElementById('hero-title').innerText = t.title;
     document.getElementById('hero-desc').innerText = t.desc;
     document.getElementById('services-title').innerText = t.st;
-    document.getElementById('s1-t').innerText = t.s1t; document.getElementById('s1-p').innerText = t.s1p;
-    document.getElementById('s2-t').innerText = t.s2t; document.getElementById('s2-p').innerText = t.s2p;
-    document.getElementById('s3-t').innerText = t.s3t; document.getElementById('s3-p').innerText = t.s3p;
+    document.getElementById('s1-t').innerText = t.s1t;
+    document.getElementById('s2-t').innerText = t.s2t;
+    document.getElementById('s3-t').innerText = t.s3t;
+    document.getElementById('s3-p').innerText = t.s3p;
     document.getElementById('certs-title').innerText = t.ct;
     document.getElementById('form-h').innerText = t.fh;
     document.getElementById('form-p').innerText = t.fp;
