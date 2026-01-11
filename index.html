@@ -1,140 +1,90 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edgar Francisco de León Hernández | Continuidad Operativa y Movilidad TI</title>
-  <meta name="description" content="Especialista en Infraestructura, Redes y Logística Técnica segura en Guatemala.">
-  <link rel="canonical" href="https://deleonet.github.io/" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Edgar de León | Operaciones Críticas & Movilidad Estratégica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --primary: #2563eb; --secondary: #0f172a; --bg: #f8fafc; --text: #334155; }
-    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    .nav-lang { background: white; padding: 10px 0; border-bottom: 1px solid #e2e8f0; text-align: right; }
-    .btn-lang { background: none; border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 5px; cursor: pointer; font-weight: 600; margin-left: 10px; }
-    header { background: white; padding: 60px 0; text-align: center; border-bottom: 1px solid #e2e8f0; }
-    .badge-top { background: #dbeafe; color: var(--primary); padding: 6px 16px; border-radius: 50px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
-    h1 { font-size: 2.8rem; color: var(--secondary); margin: 20px 0 10px; }
-    .hero-p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; color: #64748b; }
-    .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
-    .card { background: white; padding: 35px; border-radius: 15px; border: 1px solid #e2e8f0; transition: 0.3s; }
-    .card h3 { color: var(--secondary); margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 10px; }
-    .card ul { padding: 0; list-style: none; font-size: 0.9rem; }
-    .card ul li { margin-bottom: 8px; position: relative; padding-left: 20px; }
-    .card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
-    .certs-bar { background: var(--secondary); color: white; padding: 40px 0; text-align: center; border-radius: 15px; margin: 40px 0; }
-    .certs-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-    .tag { background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 5px; font-size: 0.85rem; }
-    .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background: white; padding: 50px; border-radius: 20px; border: 1px solid #e2e8f0; margin-bottom: 60px; }
-    form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 10px; box-sizing: border-box; }
-    form button { background: var(--primary); color: white; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: 700; cursor: pointer; }
-    .hp-field { display: none !important; visibility: hidden; }
-    @media (max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; } }
+    :root { --gold: #c5a059; --white: #ffffff; --black: #000000; --gray: #1a1a1a; }
+    body { 
+      margin: 0; padding: 0; font-family: 'Inter', sans-serif; 
+      background: var(--black); color: var(--white);
+      display: flex; align-items: center; justify-content: center; min-height: 100vh;
+    }
+    .main-portal { width: 100%; max-width: 500px; padding: 40px 25px; }
+    
+    .identity { border-left: 4px solid var(--gold); padding-left: 20px; margin-bottom: 50px; }
+    .identity h1 { font-size: 2.5rem; margin: 0; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; line-height: 1; }
+    .identity p { font-size: 1.1rem; color: var(--gold); margin-top: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+
+    .pitch { font-size: 1.2rem; line-height: 1.5; margin-bottom: 40px; color: #a0a0a0; }
+    .pitch strong { color: var(--white); }
+
+    .options-stack { display: flex; flex-direction: column; gap: 15px; }
+    
+    .service-btn {
+      background: var(--gray); padding: 25px; border-radius: 4px;
+      text-decoration: none; color: var(--white);
+      border: 1px solid #333; transition: 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .service-btn:hover { 
+      background: #252525; border-color: var(--gold); transform: scale(1.02);
+    }
+    .service-btn b { font-size: 1.3rem; text-transform: uppercase; margin-bottom: 5px; color: var(--gold); }
+    .service-btn span { font-size: 0.95rem; color: #d1d1d1; font-weight: 400; }
+
+    .direct-action { 
+      margin-top: 50px; text-align: center; 
+    }
+    .btn-contact { 
+      display: inline-block; width: 100%; background: var(--gold); color: var(--black); 
+      padding: 20px; text-decoration: none; font-weight: 900; 
+      text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
+    }
+    .btn-contact:hover { background: var(--white); }
+
+    .footer { margin-top: 30px; font-size: 0.7rem; color: #444; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
 
-<div class="nav-lang">
-  <div class="container">
-    <button class="btn-lang" onclick="setLanguage('es')">Español</button>
-    <button class="btn-lang" onclick="setLanguage('en')">English</button>
-  </div>
-</div>
+  <div class="main-portal">
+    <header class="identity">
+      <h1>Edgar de León</h1>
+      <p>Operaciones & Resguardo</p>
+    </header>
 
-<header>
-  <div class="container">
-    <span class="badge-top" id="badge-text">Infraestructura Crítica y Continuidad 2026</span>
-    <h1 id="hero-title">Edgar Francisco de León Hernández</h1>
-    <p class="hero-p" id="hero-desc">Arquitecto de soluciones TI especializado en mitigar riesgos operativos, ciber-resiliencia y logística de movilidad técnica segura.</p>
-  </div>
-</header>
+    <section class="pitch">
+      Soluciono brechas críticas en <strong>Infraestructura TI</strong> y <strong>Movilidad Táctica</strong>. Si el riesgo es real, la solución debe ser absoluta.
+    </section>
 
-<main class="container">
-  <div class="grid-services">
-    <div class="card">
-      <h3 id="s1-t">Infraestructura y Cloud</h3>
-      <ul id="s1-list">
-        <li id="li1">Administración de identidades y Zero Trust.</li>
-        <li id="li2">Gestión de ambientes LMS y Virtualización.</li>
-        <li id="li3">Mantenimiento predictivo proactivo.</li>
-      </ul>
+    <nav class="options-stack">
+      <a href="https://wa.me/50200000000?text=Solicito%20protocolo%20de%20Continuidad%20Operativa" class="service-btn">
+        <b>Continuidad de Estado</b>
+        <span>Cero vulnerabilidades. Infraestructura blindada y operativa 24/7.</span>
+      </a>
+
+      <a href="https://wa.me/50200000000?text=Necesito%20Soporte%20Estratégico%20Nivel%203" class="service-btn">
+        <b>Soporte Élite Nivel 2 y 3</b>
+        <span>Resolución de fallos donde otros fallan. Big Data y diagnóstico avanzado.</span>
+      </a>
+
+      <a href="https://wa.me/50200000000?text=Solicito%20logística%20de%20Movilidad%20Técnica%20Segura" class="service-btn">
+        <b>Movilidad Técnica Segura</b>
+        <span>Conducción táctica y logística de resguardo para activos de alto valor.</span>
+      </a>
+    </nav>
+
+    <div class="direct-action">
+      <a href="https://wa.me/50200000000" class="btn-contact">Contactar Ahora</a>
     </div>
-    <div class="card">
-      <h3 id="s2-t">Redes y Conectividad</h3>
-      <ul id="s2-list">
-        <li id="li4">Configuración avanzada Cisco y SD-WAN.</li>
-        <li id="li5">Montaje de infraestructura física de red.</li>
-        <li id="li6">Monitoreo con herramientas de observabilidad.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3 id="s3-t">Soporte y Movilidad</h3>
-      <ul id="s3-list">
-        <li id="li7">Análisis de Big Data para diagnóstico.</li>
-        <li id="li8"><strong>Conducción de Seguridad y Movilidad Corporativa.</strong></li>
-        <li id="li9">Logística técnica para activos críticos.</li>
-      </ul>
-    </div>
+
+    <footer class="footer">
+      Suiza - Guatemala | 2026 Operaciones Globales
+    </footer>
   </div>
 
-  <div class="certs-bar">
-    <h3 id="certs-title">Stack Tecnológico</h3>
-    <div class="certs-grid">
-      <span class="tag">Cisco CCNA</span> <span class="tag">Google CM 360</span> <span class="tag">Cloud Computing</span> <span class="tag">Cyber-Security</span>
-    </div>
-  </div>
-
-  <div class="contact-wrapper">
-    <div>
-      <h2 id="form-h">Consulta Especializada</h2>
-      <p id="form-p">Disponible para proyectos de infraestructura o soporte crítico.</p>
-    </div>
-    <form id="contact-form">
-      <div class="hp-field">
-        <input type="text" name="honeypot" id="honeypot" tabindex="-1" autocomplete="off">
-      </div>
-      <input type="text" name="user_name" id="user_name" placeholder="Nombre completo" required>
-      <input type="email" name="user_email" id="user_email" placeholder="Correo corporativo" required>
-      <textarea name="message" id="user_message" rows="5" placeholder="Describa su requerimiento (mín. 10 caracteres)" required></textarea>
-      <button type="submit" id="button">Enviar Solicitud Profesional</button>
-    </form>
-  </div>
-</main>
-
-<script>
-  (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
-
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (document.getElementById('honeypot').value !== "") return;
-    
-    const msg = document.getElementById('user_message').value.trim();
-    if (msg.length < 10) {
-      alert("Por favor, detalle más su mensaje (mínimo 10 caracteres).");
-      return;
-    }
-
-    const btn = document.getElementById('button');
-    btn.innerText = 'Enviando...';
-    emailjs.sendForm('service_k6odtq8', 'template_53hovkj', this)
-      .then(() => { btn.innerText = '¡Enviado!'; this.reset(); }, () => { btn.innerText = 'Error'; });
-  });
-
-  const texts = {
-    es: { title: "Edgar Francisco de León Hernández", badge: "Infraestructura Crítica 2026", desc: "Arquitecto de soluciones TI especializado en riesgos y movilidad.", s3t: "Soporte y Movilidad", fbtn: "Enviar Solicitud Profesional" },
-    en: { title: "Edgar Francisco de Leon Hernandez", badge: "Critical Infrastructure 2026", desc: "IT Solution Architect specialized in risk and mobility.", s3t: "Support & Mobility", fbtn: "Send Professional Request" }
-  };
-
-  function setLanguage(lang) {
-    const t = texts[lang];
-    document.getElementById('hero-title').innerText = t.title;
-    document.getElementById('badge-text').innerText = t.badge;
-    document.getElementById('hero-desc').innerText = t.desc;
-    document.getElementById('s3-t').innerText = t.s3t;
-    document.getElementById('button').innerText = t.fbtn;
-  }
-</script>
 </body>
 </html>
