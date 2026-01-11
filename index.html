@@ -42,11 +42,11 @@
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
-    /* MODIFICACIÓN: WHATSAPP A LA IZQUIERDA PARA DAR ESPACIO A CRISP */
+    /* BOTÓN WHATSAPP A LA IZQUIERDA */
     .whatsapp-btn {
       position: fixed;
       bottom: 20px;
-      left: 20px; /* Posicionado a la izquierda */
+      left: 20px;
       background-color: #25d366;
       color: white;
       padding: 12px 24px;
@@ -61,13 +61,6 @@
       transition: 0.3s;
     }
     .whatsapp-btn:hover { transform: scale(1.05); background-color: #128c7e; }
-
-    /* ASEGURAR QUE CRISP NO SEA TAPADO POR OTROS ELEMENTOS */
-    #crisp-client {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
 
     /* ESTILOS DE COMPONENTES */
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
@@ -117,10 +110,16 @@
   </style>
 
   <script type="text/javascript">
-    window.$crisp=[];window.CRISP_WEBSITE_ID="10ea1931-441a-4402-a1cc-5edee9845e66";
-    (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69641846aae923197d507363/1jenftlcf';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
@@ -311,8 +310,8 @@
     btn.disabled = true;
 
     emailjs.send('service_k6odtq8', 'template_53hovkj', {
-      name: this.user_name.value,
-      email: this.user_email.value,
+      user_name: this.user_name.value,
+      user_email: this.user_email.value,
       message: this.message.value,
       project_name: "DeLeonNet | IT Professional Services"
     }).then(() => { 
