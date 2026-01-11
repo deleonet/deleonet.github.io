@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edgar Francisco de León Hernández | Arquitectura TI & Resiliencia</title>
-
+  <title>Edgar Francisco de León Hernández | Acompañamiento tecnológico empresarial</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <style>
@@ -21,6 +24,7 @@
       --border: #e2e8f0;
     }
 
+    /* MODO OSCURO AUTOMÁTICO */
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #0f172a; 
@@ -39,8 +43,30 @@
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
-    h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; }
+    /* BOTÓN WHATSAPP A LA IZQUIERDA (Para no chocar con Crisp) */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+    .whatsapp-btn:hover { transform: scale(1.05); background-color: #128c7e; }
 
+    /* FORZAR VISIBILIDAD DE CRISP */
+    #crisp-client { display: block !important; visibility: visible !important; }
+
+    /* ESTILOS DE ESTRUCTURA */
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
     .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
     .btn-lang:hover { background: var(--primary); color: white; }
@@ -60,56 +86,43 @@
 
     .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin: 50px 0; }
     .card { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    .border-green { border: 5px solid var(--green); }
-    .border-yellow { border: 5px solid var(--yellow); }
-    .border-red { border: 5px solid var(--red); }
-    .card h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; color: var(--secondary); line-height: 1.2; }
-    .ti-center { display: block; text-align: center; width: 100%; color: var(--green); margin-top: 5px; }
+    .border-green { border-top: 5px solid var(--green); }
+    .border-yellow { border-top: 5px solid var(--yellow); }
+    .border-red { border-top: 5px solid var(--red); }
+    .card h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; color: var(--secondary); }
     .card ul { padding: 0; list-style: none; }
-    .card ul li { margin-bottom: 12px; padding-left: 25px; position: relative; font-weight: 600; font-size: 1rem; }
+    .card ul li { margin-bottom: 12px; padding-left: 25px; position: relative; font-weight: 600; font-size: 0.95rem; }
     .card ul li::before { content: "✔"; position: absolute; left: 0; color: var(--primary); }
 
     .cert-section { background: linear-gradient(180deg, var(--bg) 0%, #0f172a 12%, #0f172a 100%); color: white; padding: 80px 0; }
     .section-title-light { text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 50px; color: white; }
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-    .cert-category { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.3s; }
-    .cert-category h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--green); margin-bottom: 20px; letter-spacing: 1.5px; font-weight: 800; }
-    .cert-item { margin-bottom: 12px; font-weight: 500; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; }
-    .cert-item span { color: var(--green); margin-right: 12px; }
+    .cert-category { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); }
+    .cert-category h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--green); margin-bottom: 20px; font-weight: 800; }
+    .cert-item { margin-bottom: 12px; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; }
 
     .contact-block { padding: 100px 0; background: var(--form-bg); }
-    form { max-width: 600px; margin: 0 auto; padding: 50px; background: #ffffff; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border: 1px solid var(--border); }
-    form h2 { text-align: center; margin-bottom: 30px; color: var(--secondary); font-weight: 800; font-size: 2rem; }
-    form input, form textarea { width: 100%; padding: 16px; margin-bottom: 20px; border: 2px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: all 0.3s ease; background: #fcfcfc; }
-    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 20px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 10px; font-size: 1.1rem; letter-spacing: 1px; transition: all 0.3s ease; }
+    form { max-width: 600px; margin: 0 auto; padding: 50px; background: #ffffff; border-radius: 16px; border: 1px solid var(--border); }
+    form input, form textarea { width: 100%; padding: 16px; margin-bottom: 20px; border: 2px solid var(--border); border-radius: 10px; box-sizing: border-box; }
+    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 20px; font-weight: 800; cursor: pointer; border-radius: 10px; font-size: 1.1rem; }
+    .btn-vcard { display: block; width: 100%; max-width: 600px; margin: 20px auto; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 15px; font-weight: 800; text-align: center; text-decoration: none; border-radius: 10px; }
     
-    .btn-vcard { display: block; width: 100%; max-width: 600px; margin: 20px auto; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 15px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 10px; font-size: 0.9rem; text-align: center; text-decoration: none; transition: all 0.3s ease; }
-    .hp-field { display: none !important; visibility: hidden; }
-
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      z-index: 1000;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-    .whatsapp-btn:hover { transform: scale(1.05); }
-
-    footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; background: #0f172a; }
+    .hp-field { display: none !important; }
+    footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; background: #0f172a; }
   </style>
+
+  <script type="text/javascript">
+    window.$crisp=[];window.CRISP_WEBSITE_ID="10ea1931-441a-4402-a1cc-5edee9845e66";
+    (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
+
+<a href="https://wa.me/50242131607" class="whatsapp-btn" target="_blank">
+  <span>WhatsApp Chat</span>
+</a>
 
 <div class="nav-lang">
   <div class="container">
@@ -120,28 +133,28 @@
 
 <header>
   <div class="container">
-    <span class="badge-top" id="badge-text">Infraestructura Crítica y Gestión de Continuidad de Alto Desempeño</span>
+    <span class="badge-top" id="badge-text">Infraestructura Crítica y Gestión de Continuidad</span>
     <h1 id="hero-title">Edgar Francisco de León Hernández</h1>
-    <p class="hero-p" id="hero-desc">Implementación de arquitecturas de red robustas, gestión de ciberresiliencia y optimización de recursos TI bajo estándares internacionales de protección de datos.</p>
+    <p class="hero-p" id="hero-desc">Arquitecturas de red seguras y optimización TI con soporte especializado en campo para el mercado 2026.</p>
   </div>
 </header>
 
 <section class="container">
   <div class="status-board">
     <div class="status-card">
-      <div class="status-info"><h4 id="stat-1-h">Resolución de Incidentes</h4><p id="stat-1-v">&lt; 2 Horas (Críticos)</p></div>
+      <div class="status-info"><h4 id="stat-1-h">Redes LAN/WAN</h4><p id="stat-1-v">Operativo</p></div>
       <div class="status-indicator"></div>
     </div>
     <div class="status-card">
-      <div class="status-info"><h4 id="stat-2-h">Disponibilidad Anual</h4><p id="stat-2-v">99.9% Garantizado</p></div>
+      <div class="status-info"><h4 id="stat-2-h">Servidores</h4><p id="stat-2-v">99.9% Uptime</p></div>
       <div class="status-indicator"></div>
     </div>
     <div class="status-card">
-      <div class="status-info"><h4 id="stat-3-h">Ciberresiliencia</h4><p id="stat-3-v">RPO &lt; 15 min</p></div>
+      <div class="status-info"><h4 id="stat-3-h">Ciberseguridad</h4><p id="stat-3-v">Protección Activa</p></div>
       <div class="status-indicator"></div>
     </div>
     <div class="status-card">
-      <div class="status-info"><h4 id="stat-4-h">Cobertura de Soporte</h4><p id="stat-4-v">Nacional (GT)</p></div>
+      <div class="status-info"><h4 id="stat-4-h">Continuidad</h4><p id="stat-4-v">Standby</p></div>
       <div class="status-indicator"></div>
     </div>
   </div>
@@ -150,63 +163,50 @@
 <main class="container">
   <div class="grid-services">
     <div class="card border-green">
-      <h2 id="s1-t">Infraestructura <span class="ti-center">TI</span></h2>
+      <h2 id="s1-t">Infraestructura TI</h2>
       <ul id="s1-list">
-        <li>Gestión de Incidentes de Misión Crítica (L2/L3).</li>
-        <li>Administración de Ecosistemas Cloud, SaaS y CRM.</li>
-        <li>Estrategias de Backup Inmutable contra Ransomware.</li>
-        <li>Soporte híbrido con enfoque en resiliencia de negocio.</li>
-        <li>Diagnóstico avanzado y optimización de rendimiento TI.</li>
-        <li>Cumplimiento de SLAs y Gestión de Proveedores.</li>
+        <li>Gestión de Incidentes Críticos (L2/L3).</li>
+        <li>Administración de Ecosistemas SaaS y CRM.</li>
+        <li>Soporte híbrido enfocado en resiliencia.</li>
+        <li>Diagnóstico avanzado misión crítica.</li>
+        <li>Gestión Estratégica de Proveedores y SLAs.</li>
       </ul>
     </div>
     <div class="card border-yellow">
       <h2 id="s2-t">Redes & Conectividad</h2>
       <ul id="s2-list">
-        <li>Diseño de Racks y Cableado Estructurado de alta densidad.</li>
-        <li>Certificación de Nodos y Telefonía IP Empresarial.</li>
-        <li>Implementación de Monitoreo Proactivo (AIOps).</li>
-        <li>Gestión de Redes LAN/WAN y Seguridad Perimetral.</li>
-        <li>Integración de conectividad híbrida (Local-Nube).</li>
+        <li>Diseño e instalación: Racks, Fibra y Cobre.</li>
+        <li>Certificación de nodos y Telefonía IP.</li>
+        <li>Monitoreo proactivo LAN/WAN.</li>
+        <li>Integración Cloud y redes escalables.</li>
       </ul>
     </div>
     <div class="card border-red">
-      <h2 id="s3-t">Movilidad y Despliegue</h2>
+      <h2 id="s3-t">Movilidad & Campo</h2>
       <ul id="s3-list">
-        <li>Logística técnica nacional (Licencia Tipo B).</li>
-        <li>Coordinación de despliegues en sucursales remotas.</li>
-        <li>Respuesta rápida en sitio para puntos de venta críticos.</li>
-        <li>Gestión de inventarios técnicos y repuestos en campo.</li>
+        <li>Movilidad corporativa (Licencia Tipo B).</li>
+        <li>Despliegues técnicos nacionales.</li>
+        <li>Soporte técnico inmediato en sitio.</li>
+        <li>Gestión de personal y herramientas en campo.</li>
       </ul>
     </div>
   </div>
 
   <section class="cert-section">
     <div class="container">
-      <h2 class="section-title-light" id="cert-title">Certificaciones y Tecnologías</h2>
+      <h2 class="section-title-light" id="cert-title">Certificaciones y Estándares</h2>
       <div class="cert-grid">
         <div class="cert-category">
-          <h3 id="c1-h">Marcos Profesionales</h3>
-          <div class="cert-item"><span>✔</span> Cisco CCNA – Routing & Switching</div>
-          <div class="cert-item"><span>✔</span> ITIL Foundation – Gestión de Servicios</div>
-          <div class="cert-item"><span>✔</span> ISO 22301 – Continuidad de Negocio</div>
+          <h3 id="c1-h">Especialización</h3>
+          <div class="cert-item">✔ Cisco CCNA - ITIL Foundation</div>
         </div>
         <div class="cert-category">
-          <h3 id="c2-h">Sistemas y Nube</h3>
-          <div class="cert-item"><span>✔</span> Windows Server & Linux Avanzado</div>
-          <div class="cert-item"><span>✔</span> Entornos de Virtualización (VMware/Hyper-V)</div>
-          <div class="cert-item"><span>✔</span> Google Cloud & Workspace Admin</div>
+          <h3 id="c2-h">Virtualización</h3>
+          <div class="cert-item">✔ VMware & Microsoft Hyper-V</div>
         </div>
         <div class="cert-category">
-          <h3 id="c3-h">Seguridad y Datos</h3>
-          <div class="cert-item"><span>✔</span> Monitoreo con PRTG & Zabbix</div>
-          <div class="cert-item"><span>✔</span> Firewalls y VPN de alta seguridad</div>
-          <div class="cert-item"><span>✔</span> Protección de Datos Personales</div>
-        </div>
-        <div class="cert-category">
-          <h3 id="c4-h">Operación Técnica</h3>
-          <div class="cert-item"><span>✔</span> Coordinación de Campo Nacional</div>
-          <div class="cert-item" style="color: #fca5a5;"><span>✔</span> Movilidad Profesional Certificada</div>
+          <h3 id="c3-h">Seguridad</h3>
+          <div class="cert-item">✔ PRTG & Gestión de Datos</div>
         </div>
       </div>
     </div>
@@ -218,20 +218,15 @@
       <div class="hp-field"><input type="text" name="honeypot" id="honeypot"></div>
       <input type="text" name="user_name" placeholder="Nombre completo" required>
       <input type="email" name="user_email" placeholder="Correo electrónico" required>
-      <textarea name="message" rows="4" placeholder="Describa su requerimiento técnico o logístico" required></textarea>
-      <button type="submit" id="btn-submit">Enviar Requerimiento</button>
+      <textarea name="message" rows="4" placeholder="Describa su requerimiento" required></textarea>
+      <button type="submit" id="btn-submit">Enviar Mensaje</button>
     </form>
-    <a href="#" class="btn-vcard" id="btn-vcard" onclick="downloadVCard(event)">Descargar Contacto de Edgar</a>
+    <a href="#" class="btn-vcard" id="btn-vcard" onclick="downloadVCard(event)">Descargar VCard</a>
   </section>
 </main>
 
-<a href="https://wa.me/502XXXXXXXX" class="whatsapp-btn" target="_blank" id="wa-btn">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 25px; margin-right: 10px;">
-  Soporte de Emergencia
-</a>
-
 <footer>
-  © 2026 Edgar Francisco de León Hernández | Especialista en Infraestructura Crítica
+  © 2026 Edgar Francisco de León Hernández | de León Net
 </footer>
 
 <script>
@@ -239,52 +234,42 @@
 
   const texts = {
     es: {
-      badge: "Infraestructura Crítica y Gestión de Continuidad de Alto Desempeño",
+      badge: "Infraestructura Crítica y Gestión de Continuidad",
       title: "Edgar Francisco de León Hernández",
-      desc: "Implementación de arquitecturas de red robustas, gestión de ciberresiliencia y optimización de recursos TI bajo estándares internacionales de protección de datos.",
-      stat1h: "Resolución de Incidentes", stat1v: "< 2 Horas (Críticos)",
-      stat2h: "Disponibilidad Anual", stat2v: "99.9% Garantizado",
-      stat3h: "Ciberresiliencia", stat3v: "RPO < 15 min",
-      stat4h: "Cobertura de Soporte", stat4v: "Nacional (GT)",
-      s1t: "Infraestructura <span class='ti-center'>TI</span>",
-      s1list: `<li>Gestión de Incidentes de Misión Crítica (L2/L3).</li><li>Administración de Ecosistemas Cloud, SaaS y CRM.</li><li>Estrategias de Backup Inmutable contra Ransomware.</li><li>Soporte híbrido con enfoque en resiliencia de negocio.</li><li>Diagnóstico avanzado y optimización de rendimiento TI.</li><li>Cumplimiento de SLAs y Gestión de Proveedores.</li>`,
+      desc: "Arquitecturas de red seguras y optimización TI con soporte especializado en campo para el mercado 2026.",
+      stat1h: "Redes LAN/WAN", stat1v: "Operativo",
+      stat2h: "Servidores", stat2v: "99.9% Uptime",
+      stat3h: "Ciberseguridad", stat3v: "Protección Activa",
+      stat4h: "Continuidad", stat4v: "Standby",
+      s1t: "Infraestructura TI",
       s2t: "Redes & Conectividad",
-      s2list: `<li>Diseño de Racks y Cableado Estructurado de alta densidad.</li><li>Certificación de Nodos y Telefonía IP Empresarial.</li><li>Implementación de Monitoreo Proactivo (AIOps).</li><li>Gestión de Redes LAN/WAN y Seguridad Perimetral.</li><li>Integración de conectividad híbrida (Local-Nube).</li>`,
-      s3t: "Movilidad y Despliegue",
-      s3list: `<li>Logística técnica nacional (Licencia Tipo B).</li><li>Coordinación de despliegues en sucursales remotas.</li><li>Respuesta rápida en sitio para puntos de venta críticos.</li><li>Gestión de inventarios técnicos y repuestos en campo.</li>`,
-      certTitle: "Certificaciones y Tecnologías",
-      c1h: "Marcos Profesionales",
-      c2h: "Sistemas y Nube",
-      c3h: "Monitoreo y Seguridad",
-      c4h: "Operación Técnica",
+      s3t: "Movilidad & Campo",
+      certTitle: "Certificaciones y Estándares",
+      c1h: "Especialización",
+      c2h: "Virtualización",
+      c3h: "Seguridad",
       fh: "Contacto Profesional",
-      btn: "Enviar Requerimiento",
-      vcard: "Descargar Contacto de Edgar",
-      wa: "Soporte de Emergencia"
+      btn: "Enviar Mensaje",
+      vcard: "Descargar VCard"
     },
     en: {
-      badge: "Critical Infrastructure & High Performance Continuity Management",
+      badge: "Critical Infrastructure & Continuity Management",
       title: "Edgar Francisco de Leon Hernandez",
-      desc: "Implementation of robust network architectures, cyber resilience management, and IT resource optimization under international data protection standards.",
-      stat1h: "Incident Resolution", stat1v: "< 2 Hours (Critical)",
-      stat2h: "Annual Availability", stat2v: "99.9% Guaranteed",
-      stat3h: "Cyber Resilience", stat3v: "RPO < 15 min",
-      stat4h: "Support Coverage", stat4v: "National (GT)",
-      s1t: "IT <span class='ti-center'>Infrastructure</span>",
-      s1list: `<li>Mission Critical Incident Management (L2/L3).</li><li>Cloud, SaaS, and CRM Ecosystem Administration.</li><li>Immutable Backup Strategies against Ransomware.</li><li>Hybrid support focused on business resilience.</li><li>Advanced diagnostics and IT performance optimization.</li><li>SLA Compliance and Vendor Management.</li>`,
+      desc: "Secure network architectures and IT optimization with specialized field support for the 2026 market.",
+      stat1h: "LAN/WAN Networks", stat1v: "Operational",
+      stat2h: "Servers", stat2v: "99.9% Uptime",
+      stat3h: "Cybersecurity", stat3v: "Active Protection",
+      stat4h: "Continuity", stat4v: "Standby",
+      s1t: "IT Infrastructure",
       s2t: "Networking & Connectivity",
-      s2list: `<li>High-density Rack Design and Structured Cabling.</li><li>Node Certification and Enterprise IP Telephony.</li><li>Proactive Monitoring Implementation (AIOps).</li><li>LAN/WAN Management and Perimeter Security.</li><li>Hybrid connectivity integration (On-prem to Cloud).</li>`,
-      s3t: "Mobility & Deployment",
-      s3list: `<li>National technical logistics (Type B License).</li><li>Coordination of deployments in remote branches.</li><li>Rapid on-site response for critical retail points.</li><li>Field inventory and technical spare parts management.</li>`,
-      certTitle: "Certifications & Technologies",
-      c1h: "Professional Frameworks",
-      c2h: "Systems & Cloud",
-      c3h: "Monitoring & Security",
-      c4h: "Technical Operations",
+      s3t: "Mobility & Field",
+      certTitle: "Certifications & Standards",
+      c1h: "Specialization",
+      c2h: "Virtualization",
+      c3h: "Security",
       fh: "Professional Contact",
-      btn: "Send Requirement",
-      vcard: "Download Edgar's Contact",
-      wa: "Emergency Support"
+      btn: "Send Message",
+      vcard: "Download VCard"
     }
   };
 
@@ -297,28 +282,19 @@
     document.getElementById('hero-title').innerText = t.title;
     document.getElementById('hero-desc').innerText = t.desc;
     document.getElementById('stat-1-h').innerText = t.stat1h;
-    document.getElementById('stat-1-v').innerText = t.stat1v;
     document.getElementById('stat-2-h').innerText = t.stat2h;
-    document.getElementById('stat-2-v').innerText = t.stat2v;
     document.getElementById('stat-3-h').innerText = t.stat3h;
-    document.getElementById('stat-3-v').innerText = t.stat3v;
     document.getElementById('stat-4-h').innerText = t.stat4h;
-    document.getElementById('stat-4-v').innerText = t.stat4v;
-    document.getElementById('s1-t').innerHTML = t.s1t;
-    document.getElementById('s1-list').innerHTML = t.s1list;
+    document.getElementById('s1-t').innerText = t.s1t;
     document.getElementById('s2-t').innerText = t.s2t;
-    document.getElementById('s2-list').innerHTML = t.s2list;
     document.getElementById('s3-t').innerText = t.s3t;
-    document.getElementById('s3-list').innerHTML = t.s3list;
     document.getElementById('cert-title').innerText = t.certTitle;
     document.getElementById('c1-h').innerText = t.c1h;
     document.getElementById('c2-h').innerText = t.c2h;
     document.getElementById('c3-h').innerText = t.c3h;
-    document.getElementById('c4-h').innerText = t.c4h;
     document.getElementById('f-h').innerText = t.fh;
     document.getElementById('btn-submit').innerText = t.btn;
     document.getElementById('btn-vcard').innerText = t.vcard;
-    document.getElementById('wa-btn').innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 25px; margin-right: 10px;"> ${t.wa}`;
   }
 
   document.getElementById('contact-form').addEventListener('submit', function(e) {
@@ -334,14 +310,14 @@
       message: this.message.value,
       project_name: "DeLeonNet | IT Professional Services"
     }).then(() => { 
-        btn.innerText = (currentLang === 'es') ? 'SOLICITUD ENVIADA' : 'REQUEST SENT'; 
+        btn.innerText = (currentLang === 'es') ? 'ENVIADO' : 'SENT'; 
         btn.style.background = 'var(--green)';
         this.reset(); 
         setTimeout(() => { 
           btn.innerText = texts[currentLang].btn; 
           btn.style.background = 'var(--primary)';
           btn.disabled = false;
-        }, 4000);
+        }, 3000);
       }, () => { 
         btn.innerText = 'ERROR'; 
         btn.style.background = 'var(--red)';
@@ -353,36 +329,18 @@
     e.preventDefault();
     const vcardContent = [
       "BEGIN:VCARD", "VERSION:3.0",
-      "FN;CHARSET=UTF-8:Edgar Francisco de León Hernández",
-      "N;CHARSET=UTF-8:de León Hernández;Edgar;Francisco;;",
-      "ORG;CHARSET=UTF-8:DeLeonNet | IT Professional Services",
-      "TITLE;CHARSET=UTF-8:Infrastructure & Continuity Expert",
+      "FN:Edgar Francisco de Leon Hernandez",
       "EMAIL:de.leonedgargt@gmail.com",
-      "URL:https://deleonet.github.io/",
-      "REV:" + new Date().toISOString(),
+      "TEL:+50242131607",
       "END:VCARD"
     ].join("\r\n");
-    const blob = new Blob([new TextEncoder().encode(vcardContent)], { type: "text/vcard;charset=utf-8" });
+    const blob = new Blob([vcardContent], { type: "text/vcard" });
     const url = window.URL.createObjectURL(blob);
-    const newLink = document.createElement("a");
-    newLink.download = "Edgar_DeLeon_DeLeonNet.vcf";
-    newLink.href = url;
-    newLink.click();
-    window.URL.revokeObjectURL(url);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Edgar_DeLeon.vcf";
+    a.click();
   }
 </script>
-
-<script type="text/javascript">
-  window.$crisp=[];
-  window.CRISP_WEBSITE_ID="10ea1931-441a-4402-a1cc-5edee9845e66";
-  (function(){
-    d=document;
-    s=d.createElement("script");
-    s.src="https://client.crisp.chat/l.js";
-    s.async=1;
-    d.getElementsByTagName("head")[0].appendChild(s);
-  })();
-</script>
-
 </body>
 </html>
