@@ -41,16 +41,14 @@
       .hero-p { color: #cbd5e1 !important; }
       .btn-vcard { background: transparent !important; color: white !important; border-color: white !important; }
       
-      /* Ajuste específico para visibilidad en modo oscuro */
       .news-bar { background: #000000 !important; color: #ffffff !important; }
-      .tawk-helper { background: var(--helper-bg) !important; color: var(--helper-text) !important; border-color: var(--primary) !important; }
+      .tawk-helper { background: var(--helper-bg) !important; color: var(--helper-text) !important; border-color: var(--primary) !important; box-shadow: 0 5px 20px rgba(0,0,0,0.5) !important; }
       .tawk-helper strong { color: var(--yellow) !important; }
     }
     
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding-top: 40px; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
-    /* BARRA DE NOTICIAS */
     .news-bar {
       position: fixed;
       top: 0;
@@ -64,11 +62,12 @@
       display: flex;
       align-items: center;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       border-bottom: 2px solid var(--primary);
+      text-transform: uppercase;
     }
     .news-title {
-      background: var(--primary);
+      background: var(--red);
       padding: 0 20px;
       height: 100%;
       display: flex;
@@ -76,11 +75,12 @@
       position: absolute;
       z-index: 2001;
       color: white !important;
+      letter-spacing: 1px;
     }
     .marquee-content {
       display: inline-block;
       white-space: nowrap;
-      animation: marquee 60s linear infinite;
+      animation: marquee 120s linear infinite;
       padding-left: 100%;
     }
     @keyframes marquee {
@@ -88,7 +88,6 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* BURBUJA DE AYUDA PERMANENTE */
     .tawk-helper {
       position: fixed;
       bottom: 90px;
@@ -98,7 +97,7 @@
       padding: 15px;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      max-width: 250px;
+      max-width: 280px;
       font-size: 0.85rem;
       z-index: 1000;
       border: 2px solid var(--primary);
@@ -124,7 +123,6 @@
       border: 1px dashed var(--primary);
     }
 
-    /* Resto de estilos base */
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
     .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
     .btn-lang:hover { background: var(--primary); color: white; }
@@ -190,14 +188,17 @@
 <body>
 
 <div class="news-bar">
-  <div class="news-title">TECH NEWS</div>
+  <div class="news-title">GLOBAL MONITOR</div>
   <div class="marquee-content" id="news-feed">
-    Sintonizando últimas tendencias tecnológicas...
+    SINTONIZANDO FUENTES GLOBALES: THE HACKER NEWS | WSJ | REUTERS | BBC | AL JAZEERA | AP...
   </div>
 </div>
 
 <div class="tawk-helper" id="chat-bubble">
-  Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.
+  Para comunicarte conmigo puedes usar el correo en <strong>Contacto Personal</strong> o el <strong>Chat</strong> en vivo.<br><br>
+  <strong>Horario de oficina (Guatemala):</strong><br>
+  Lunes a Viernes: 8 a 18 horas.<br>
+  Sábado y Domingo: 10 AM a 10 PM.
 </div>
 
 <div class="nav-lang">
@@ -326,19 +327,33 @@
 
   async function updateNews() {
     const newsFeedElement = document.getElementById('news-feed');
-    const rssUrl = 'https://www.wired.com/feed/category/science/latest/rss';
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+    const sources = [
+      'https://feeds.feedburner.com/TheHackersNews',
+      'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
+      'https://www.wired.com/feed/category/business/latest/rss',
+      'https://feeds.bbci.co.uk/news/world/rss.xml',
+      'https://www.aljazeera.com/xml/rss/all.xml',
+      'https://pwnews.org/feed/'
+    ];
+    
+    let combinedNews = [];
+    const fetchPromises = sources.map(url => 
+      fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`)
+      .then(res => res.json())
+      .catch(e => null)
+    );
 
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      if (data.status === 'ok') {
-        const newsTitles = data.items.map(item => item.title.toUpperCase());
-        newsFeedElement.innerText = newsTitles.join(" |  ---  | ");
+    const results = await Promise.all(fetchPromises);
+    results.forEach(data => {
+      if (data && data.status === 'ok') {
+        const titles = data.items.slice(0, 4).map(item => item.title.toUpperCase());
+        combinedNews = [...combinedNews, ...titles];
       }
-    } catch (error) {
-      console.error("Error al cargar noticias:", error);
-      newsFeedElement.innerText = "IA y Ciberseguridad: Tendencias 2026 | Evolución de Redes de Alta Disponibilidad | Resiliencia Operativa TI";
+    });
+
+    if (combinedNews.length > 0) {
+      const shuffled = combinedNews.sort(() => 0.5 - Math.random());
+      newsFeedElement.innerText = shuffled.join("  [---]  ");
     }
   }
 
@@ -350,7 +365,7 @@
       badge: "Infraestructura Crítica y Gestión de Continuidad de Alto Desempeño",
       title: "Edgar Francisco de León Hernández",
       desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.",
-      bubble: "Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.",
+      bubble: "Para comunicarte conmigo puedes usar el correo en <strong>Contacto Personal</strong> o el <strong>Chat</strong> en vivo.<br><br><strong>Horario de oficina (Guatemala):</strong><br>Lunes a Viernes: 8 a 18 horas.<br>Sábado y Domingo: 10 AM a 10 PM.",
       support: "Contamos con chat para atención en tiempo real y soporte técnico inmediato.",
       stat1h: "Redes LAN/WAN", stat1v: "Operativo",
       stat2h: "Servidores", stat2v: "99.9% Uptime",
@@ -375,7 +390,7 @@
       badge: "Critical Infrastructure & High Performance Continuity Management",
       title: "Edgar Francisco de Leon Hernandez",
       desc: "Implementation of robust and secure network architectures, proactive management of operational continuity under data protection standards, and IT resource optimization with specialized field support.",
-      bubble: "To communicate with me you can use the email option in <strong>Personal Contact</strong>, or for live conversations use the <strong>Chat</strong> for real-time inquiries.",
+      bubble: "To communicate with me you can use the email in <strong>Personal Contact</strong> or the live <strong>Chat</strong>.<br><br><strong>Office Hours (Guatemala):</strong><br>Monday to Friday: 8 AM to 6 PM.<br>Saturday and Sunday: 10 AM to 10 PM.",
       support: "We have chat for real-time support and immediate technical assistance.",
       stat1h: "LAN/WAN Networks", stat1v: "Operational",
       stat2h: "Servers", stat2v: "99.9% Uptime",
