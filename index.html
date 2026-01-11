@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -6,10 +6,23 @@
   <title>Edgar Francisco de León Hernández | Acompañamiento tecnológico empresarial</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --primary: #1e40af; --secondary: #0f172a; --bg: #f8fafc; --text: #1e293b; --green: #16a34a; --yellow: #facc15; --red: #dc2626; }
+    :root { 
+      --primary: #1e40af; 
+      --secondary: #0f172a; 
+      --bg: #f8fafc; 
+      --text: #1e293b; 
+      --green: #16a34a; 
+      --yellow: #facc15; 
+      --red: #dc2626; 
+      --form-bg: #f1f5f9;
+    }
+    
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
+    /* Tipografía y Títulos */
+    h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; }
+
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid #e2e8f0; }
     .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
     .btn-lang:hover { background: var(--primary); color: white; }
@@ -45,11 +58,38 @@
     .cert-item { margin-bottom: 12px; font-weight: 500; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; }
     .cert-item span { color: var(--green); margin-right: 12px; }
 
-    .contact-block { padding: 60px 0; background: white; }
-    form { max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #e2e8f0; background: var(--bg); border-radius: 8px; }
-    form h2 { text-align: center; margin-bottom: 25px; color: var(--secondary); font-weight: 800; }
-    form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit; font-size: 1rem; box-sizing: border-box; }
-    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 18px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 6px; font-size: 1rem; }
+    /* FORMULARIO CON CONTRASTE MEJORADO */
+    .contact-block { padding: 100px 0; background: var(--form-bg); }
+    form { 
+      max-width: 600px; 
+      margin: 0 auto; 
+      padding: 50px; 
+      background: #ffffff; 
+      border-radius: 16px; 
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0; 
+    }
+    form h2 { text-align: center; margin-bottom: 30px; color: var(--secondary); font-weight: 800; font-size: 2rem; }
+    form input, form textarea { 
+      width: 100%; padding: 16px; margin-bottom: 20px; 
+      border: 2px solid #e2e8f0; border-radius: 10px; 
+      font-family: inherit; font-size: 1rem; box-sizing: border-box;
+      transition: all 0.3s ease;
+      background: #fcfcfc;
+    }
+    form input:focus, form textarea:focus {
+      border-color: var(--primary);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+      outline: none;
+    }
+    form button { 
+      width: 100%; background: var(--primary); color: white; border: none; 
+      padding: 20px; font-weight: 800; cursor: pointer; text-transform: uppercase; 
+      border-radius: 10px; font-size: 1.1rem; letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    form button:hover { background: #1e3a8a; transform: translateY(-2px); }
     .hp-field { display: none !important; visibility: hidden; }
 
     footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; background: var(--secondary); }
@@ -210,7 +250,8 @@
     const templateParams = {
       name: this.user_name.value,
       email: this.user_email.value,
-      message: this.message.value
+      message: this.message.value,
+      project_name: "DeLeonNet | IT Professional Services"
     };
 
     emailjs.send('service_k6odtq8', 'template_53hovkj', templateParams)
