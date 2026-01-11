@@ -39,7 +39,6 @@
       }
       header, .nav-lang { background: #0f172a !important; border-bottom: 1px solid var(--border) !important; }
       
-      /* Botones de idioma en modo oscuro - Verde Ácido */
       .btn-lang { 
         color: var(--acid-green) !important; 
         border-color: var(--acid-green) !important; 
@@ -58,82 +57,28 @@
       .tawk-helper strong { color: var(--yellow) !important; }
     }
     
-    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding-top: 40px; }
+    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding-top: 70px; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
-    .news-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: var(--secondary);
-      color: white;
-      height: 40px;
-      z-index: 2000;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-bottom: 2px solid var(--primary);
-      text-transform: uppercase;
-    }
-    .news-title {
-      background: var(--red);
-      padding: 0 20px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      position: absolute;
-      z-index: 2001;
-      color: white !important;
-      letter-spacing: 1px;
-    }
-    .marquee-content {
-      display: inline-block;
-      white-space: nowrap;
-      animation: marquee 120s linear infinite;
-      padding-left: 100%;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
+    .news-bar { position: fixed; top: 0; left: 0; width: 100%; background: var(--secondary); color: white; height: 40px; z-index: 2000; overflow: hidden; display: flex; align-items: center; font-size: 0.85rem; font-weight: 700; border-bottom: 2px solid var(--primary); text-transform: uppercase; }
+    .news-title { background: var(--red); padding: 0 20px; height: 100%; display: flex; align-items: center; position: absolute; z-index: 2001; color: white !important; letter-spacing: 1px; }
+    .marquee-content { display: inline-block; white-space: nowrap; animation: marquee 120s linear infinite; padding-left: 100%; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-    .tawk-helper {
-      position: fixed;
-      bottom: 90px;
-      right: 25px;
-      background: var(--helper-bg);
-      color: var(--helper-text);
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      max-width: 280px;
-      font-size: 0.85rem;
-      z-index: 1000;
-      border: 2px solid var(--primary);
-    }
-    .tawk-helper::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      right: 20px;
-      border-width: 10px 10px 0;
-      border-style: solid;
-      border-color: var(--helper-bg) transparent transparent transparent;
-    }
+    /* DEFCON BAR STYLE */
+    .defcon-bar { position: fixed; top: 40px; left: 0; width: 100%; background: #000; color: #fff; height: 30px; z-index: 1999; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; border-bottom: 1px solid #333; letter-spacing: 1px; }
+    .defcon-status { margin-left: 10px; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; }
+    .def5 { background: var(--green); }
+    .def4 { background: #1e40af; }
+    .def3 { background: var(--yellow); color: #000; }
+    .def2 { background: #ea580c; }
+    .def1 { background: var(--red); animation: blink 1s infinite; }
+    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-    .support-notice {
-      text-align: center;
-      margin-bottom: 30px;
-      padding: 20px;
-      background: #dbeafe;
-      border-radius: 10px;
-      color: var(--primary);
-      font-weight: 700;
-      border: 1px dashed var(--primary);
-    }
+    .tawk-helper { position: fixed; bottom: 90px; right: 25px; background: var(--helper-bg); color: var(--helper-text); padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); max-width: 280px; font-size: 0.85rem; z-index: 1000; border: 2px solid var(--primary); }
+    .tawk-helper::after { content: ''; position: absolute; bottom: -10px; right: 20px; border-width: 10px 10px 0; border-style: solid; border-color: var(--helper-bg) transparent transparent transparent; }
+
+    .support-notice { text-align: center; margin-bottom: 30px; padding: 20px; background: #dbeafe; border-radius: 10px; color: var(--primary); font-weight: 700; border: 1px dashed var(--primary); }
 
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
     .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
@@ -204,6 +149,11 @@
   <div class="marquee-content" id="news-feed">
     SINTONIZANDO FUENTES GLOBALES: THE HACKER NEWS | WSJ | REUTERS | BBC | AL JAZEERA | AP...
   </div>
+</div>
+
+<div class="defcon-bar">
+  <span id="defcon-label">CYBER THREAT LEVEL:</span> 
+  <span id="defcon-lvl" class="defcon-status def5">DEFCON 5</span>
 </div>
 
 <div class="tawk-helper" id="chat-bubble">
@@ -337,6 +287,26 @@
 <script>
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
+  // LOGICA DEFCON
+  function updateDefcon() {
+    const el = document.getElementById('defcon-lvl');
+    const levels = [
+      { n: 5, c: 'def5', es: 'DEFCON 5: NORMAL', en: 'DEFCON 5: NORMAL' },
+      { n: 4, c: 'def4', es: 'DEFCON 4: VIGILANCIA', en: 'DEFCON 4: VIGILANCE' },
+      { n: 3, c: 'def3', es: 'DEFCON 3: MONITOREO 24/7', en: 'DEFCON 3: ROUND THE CLOCK' },
+      { n: 2, c: 'def2', es: 'DEFCON 2: ALERTA ALTA', en: 'DEFCON 2: HIGH ALERT' }
+    ];
+    // Probabilidad de estar en niveles seguros (5 y 4) es mayor
+    const rand = Math.random();
+    let pick;
+    if (rand > 0.4) pick = levels[0];
+    else if (rand > 0.1) pick = levels[1];
+    else pick = levels[Math.floor(Math.random() * 2) + 2];
+
+    el.innerText = pick[currentLang];
+    el.className = 'defcon-status ' + pick.c;
+  }
+
   async function updateNews() {
     const newsFeedElement = document.getElementById('news-feed');
     const sources = [
@@ -379,6 +349,7 @@
       desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.",
       bubble: "Para comunicarte conmigo puedes usar el correo en <strong>Contacto Personal</strong> o el <strong>Chat</strong> en vivo.<br><br><strong>Horario de oficina (Guatemala):</strong><br>Lunes a Viernes: 8 a 18 horas.<br>Sábado y Domingo: 10 AM a 10 PM.",
       support: "Contamos con chat para atención en tiempo real y soporte técnico inmediato.",
+      defcon: "NIVEL DE AMENAZA:",
       stat1h: "Redes LAN/WAN", stat1v: "Operativo",
       stat2h: "Servidores", stat2v: "99.9% Uptime",
       stat3h: "Ciberseguridad", stat3v: "Protección Activa",
@@ -404,6 +375,7 @@
       desc: "Implementation of robust and secure network architectures, proactive management of operational continuity under data protection standards, and IT resource optimization with specialized field support.",
       bubble: "To communicate with me you can use the email in <strong>Personal Contact</strong> or the live <strong>Chat</strong>.<br><br><strong>Office Hours (Guatemala):</strong><br>Monday to Friday: 8 AM to 6 PM.<br>Saturday and Sunday: 10 AM to 10 PM.",
       support: "We have chat for real-time support and immediate technical assistance.",
+      defcon: "CYBER THREAT LEVEL:",
       stat1h: "LAN/WAN Networks", stat1v: "Operational",
       stat2h: "Servers", stat2v: "99.9% Uptime",
       stat3h: "Cybersecurity", stat3v: "Active Protection",
@@ -414,7 +386,7 @@
       s2list: `<li>Infrastructure design and installation: racks, fiber, and structured cabling.</li><li>Node certification and IP Telephony under international standards.</li><li>LAN/WAN maintenance and proactive monitoring to ensure operability.</li><li>LAN/WAN management with proactive monitoring.</li><li>Scalable network planning and Cloud integration.</li>`,
       s3t: "Mobility",
       s3list: `<li>Secure and professional corporate mobility (Type B License).</li><li>Tactical coordination of nationwide technical deployments.</li><li>Immediate on-site technical support for branches and critical points.</li><li>Resource, tool, and field personnel management.</li>`,
-      certTitle: "Certificaciones, Tecnologías y Estándares de Industria",
+      certTitle: "Certifications, Technologies and Industry Standards",
       c1h: "Specialization & Frameworks",
       c2h: "Systems & Virtualization",
       c3h: "Monitoring & Security",
@@ -435,6 +407,7 @@
     document.getElementById('hero-desc').innerText = t.desc;
     document.getElementById('chat-bubble').innerHTML = t.bubble;
     document.getElementById('soporte-text').innerText = t.support;
+    document.getElementById('defcon-label').innerText = t.defcon;
     document.getElementById('stat-1-h').innerText = t.stat1h;
     document.getElementById('stat-2-h').innerText = t.stat2h;
     document.getElementById('stat-3-h').innerText = t.stat3h;
@@ -453,7 +426,12 @@
     document.getElementById('f-h').innerText = t.fh;
     document.getElementById('btn-submit').innerText = t.btn;
     document.getElementById('btn-vcard').innerText = t.vcard;
+    updateDefcon(); // Actualiza el texto del DEFCON al idioma elegido
   }
+
+  // Inicializar DEFCON
+  updateDefcon();
+  setInterval(updateDefcon, 60000); // Cambia cada minuto
 
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
