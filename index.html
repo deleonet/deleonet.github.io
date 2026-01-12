@@ -78,23 +78,25 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* BURBUJA DE AYUDA PERMANENTE - CORREGIDA */
-    .tawk-helper {
-      position: fixed;
-      bottom: 105px; /* Elevado para no ser tapado por el botón de chat */
-      right: 25px;
-      background: white;
-      color: #0f172a;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      max-width: 260px;
-      font-size: 0.85rem;
-      z-index: 999999 !important; /* Capa superior absoluta */
-      border: 2px solid var(--primary);
-      display: block !important; /* Forzar visibilidad */
+    /* BURBUJA DE ANUNCIO PERMANENTE - REFORZADA */
+    .anuncio-fijo-chat {
+      position: fixed !important;
+      bottom: 105px !important;
+      right: 25px !important;
+      background: white !important;
+      color: #0f172a !important;
+      padding: 15px !important;
+      border-radius: 12px !important;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3) !important;
+      max-width: 260px !important;
+      font-size: 0.85rem !important;
+      z-index: 2147483647 !important; /* Capa máxima para evitar que el chat la oculte */
+      border: 2px solid var(--primary) !important;
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
-    .tawk-helper::after {
+    .anuncio-fijo-chat::after {
       content: '';
       position: absolute;
       bottom: -10px;
@@ -102,18 +104,6 @@
       border-width: 10px 10px 0;
       border-style: solid;
       border-color: white transparent transparent transparent;
-    }
-
-    /* SECCIÓN DE SOPORTE ADICIONAL */
-    .support-notice {
-      text-align: center;
-      margin-bottom: 30px;
-      padding: 20px;
-      background: #dbeafe;
-      border-radius: 10px;
-      color: var(--primary);
-      font-weight: 700;
-      border: 1px dashed var(--primary);
     }
 
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
@@ -187,7 +177,7 @@
   </div>
 </div>
 
-<div class="tawk-helper" id="chat-bubble">
+<div class="anuncio-fijo-chat" id="chat-bubble">
   Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.
 </div>
 
