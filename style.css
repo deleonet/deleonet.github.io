@@ -1,109 +1,23 @@
- /* --------------------------
-   Variables de color y tipografía
---------------------------- */
-:root {
-  --primary: #1e40af;
-  --secondary: #0f172a;
-  --accent-green: #16a34a;
-  --accent-yellow: #facc15;
-  --accent-red: #dc2626;
-  --bg-light: #f8fafc;
-  --bg-dark: #0f172a;
-  --text-dark: #1e293b;
-  --text-light: #ffffff;
-  --font-sans: 'Inter', sans-serif;
+/* Tailwind se encarga de la mayor parte del estilo, aquí se pueden agregar extras */
+
+body {
+  font-family: 'Inter', sans-serif;
 }
 
-/* --------------------------
-   Reset básico
---------------------------- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--font-sans); line-height: 1.6; color: var(--text-dark); background: var(--bg-light); }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-
-/* --------------------------
-   Navegación
---------------------------- */
-nav { background: var(--text-light); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-nav .container { display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; }
-nav .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); }
-nav .menu { display: flex; gap: 20px; }
-nav .menu a { font-weight: 600; padding: 6px 12px; border-radius: 6px; transition: 0.3s; }
-nav .menu a:hover { background: var(--primary); color: var(--text-light); }
-
-/* --------------------------
-   Hero / Header
---------------------------- */
-header {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  color: var(--text-light);
-  text-align: center;
-  padding: 100px 20px 80px 20px;
-  position: relative;
+img {
+  max-width: 100%;
+  height: auto;
 }
-header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
-header p { font-size: 1.2rem; max-width: 900px; margin: 0 auto 30px; }
-header .btn-cta { background: var(--accent-green); color: white; padding: 15px 30px; font-weight: 700; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-header .btn-cta:hover { background: #13803d; transform: translateY(-2px); }
 
-/* --------------------------
-   Secciones
---------------------------- */
-section { padding: 80px 20px; }
-.container { max-width: 1200px; margin: 0 auto; }
-
-/* --------------------------
-   Cards
---------------------------- */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  transition: 0.3s;
+.animate-fade-in {
+  animation: fadeIn 2s ease forwards;
+  opacity: 0;
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(0,0,0,0.1); }
-.card h3 { font-size: 1.5rem; color: var(--secondary); margin-bottom: 15px; }
-.card p { font-size: 1rem; color: #475569; }
 
-/* --------------------------
-   Certificaciones
---------------------------- */
-.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 20px; }
-.cert-card { background: #f1f5f9; padding: 20px; border-radius: 10px; border-left: 5px solid var(--accent-green); }
-.cert-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
-.cert-card ul li { margin-bottom: 8px; }
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
 
-/* --------------------------
-   Testimonios
---------------------------- */
-.testimonial { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-.testimonial p { font-style: italic; color: #475569; margin-bottom: 10px; }
-.testimonial h5 { font-weight: 700; color: var(--secondary); }
-
-/* --------------------------
-   Formulario de contacto
---------------------------- */
-form { background: white; padding: 50px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto; }
-form h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; }
-form input, form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #e2e8f0; transition: 0.3s; }
-form input:focus, form textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(30,64,175,0.1); outline: none; }
-form button { background: var(--primary); color: white; width: 100%; padding: 15px; font-weight: 700; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-form button:hover { background: #1e3a8a; transform: translateY(-2px); }
-
-/* --------------------------
-   Footer
---------------------------- */
-footer { text-align: center; padding: 25px; background: var(--secondary); color: var(--text-light); font-size: 0.9rem; }
-
-/* --------------------------
-   Botones flotantes de chat / WhatsApp / Telegram
---------------------------- */
-.floating-buttons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
-.floating-buttons a { display: flex; align-items: center; justify-content: center; width: 55px; height: 55px; border-radius: 50%; color: white; font-size: 24px; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-.floating-buttons a:hover { transform: translateY(-3px); }
-.floating-buttons .whatsapp { background: #25d366; }
-.floating-buttons .telegram { background: #0088cc; }
-.floating-buttons .chat { background: var(--primary); }
+.counter {
+  font-weight: 800;
+}
