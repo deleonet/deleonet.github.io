@@ -3,81 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contadores Animados Loop</title>
 
-  <!-- Tailwind CSS -->
+  <title>DeLeonNet | Servicios TI Profesionales</title>
+  <meta name="description" content="Servicios profesionales de TI, redes, infraestructura crítica y continuidad operativa.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DeLeonNet | Servicios TI Profesionales">
+  <meta property="og:description" content="Infraestructura TI, redes, movilidad y continuidad operativa.">
+  <meta property="og:image" content="images/hero-bg.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.png" type="image/png">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 </head>
 
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100 text-gray-900 scroll-smooth font-sans">
 
-  <!-- CONTADORES -->
-  <section class="bg-gray-50 py-20">
-    <div class="container mx-auto grid md:grid-cols-4 gap-8 text-center">
-
-      <div data-aos="fade-up">
-        <h3 class="text-4xl font-bold text-blue-900 counter" data-target="120">0</h3>
-        <p>Proyectos Completados</p>
-      </div>
-
-      <div data-aos="fade-up" data-aos-delay="100">
-        <h3 class="text-4xl font-bold text-blue-900 counter" data-target="15">0</h3>
-        <p>Años de Experiencia</p>
-      </div>
-
-      <div data-aos="fade-up" data-aos-delay="200">
-        <h3 class="text-4xl font-bold text-blue-900 counter" data-target="98">0</h3>
-        <p>% Satisfacción del Cliente</p>
-      </div>
-
-      <div data-aos="fade-up" data-aos-delay="300">
-        <h3 class="text-4xl font-bold text-blue-900 counter" data-target="99">0</h3>
-        <p>% Disponibilidad de Sistemas</p>
-      </div>
-
+<!-- NAVBAR -->
+<nav class="bg-white shadow sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <div class="flex items-center space-x-3">
+      <img src="images/logo.png" class="h-10" alt="DeLeonNet">
+      <span class="text-xl font-bold text-blue-900">DeLeonNet</span>
     </div>
-  </section>
+    <div class="space-x-4 hidden md:block">
+      <a href="#services" class="hover:text-blue-700">Servicios</a>
+      <a href="#about" class="hover:text-blue-700">Sobre mí</a>
+      <a href="#projects" class="hover:text-blue-700">Proyectos</a>
+      <a href="#contact" class="hover:text-blue-700">Contacto</a>
+    </div>
+  </div>
+</nav>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- HERO -->
+<header class="relative text-white bg-cover bg-center"
+        style="background-image:url('images/hero-bg.png')">
+  <div class="bg-black/60">
+    <div class="container mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-right">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+          Edgar Francisco de León Hernández
+        </h1>
+        <p class="text-lg text-gray-200 mb-6">
+          Infraestructura TI, redes corporativas y continuidad operativa.
+        </p>
+        <a href="#contact"
+           class="inline-block bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg font-bold">
+          Solicitar Servicio
+        </a>
+      </div>
+      <div data-aos="fade-left" class="flex justify-center">
+        <img src="images/logo.png" class="w-64 rounded-xl shadow-xl" alt="Logo">
+      </div>
+    </div>
+  </div>
+</header>
 
-  <script>
-    AOS.init({ once: true, duration: 1000 });
+<!-- SERVICIOS -->
+<section id="services" class="container mx-auto px-6 py-20">
+  <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+    Servicios Profesionales
+  </h2>
 
-    const counters = document.querySelectorAll('.counter');
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition" data-aos="zoom-in">
+      <img src="images/service-ti.png" class="w-12 mb-4">
+      <h3 class="font-bold text-xl mb-2">Infraestructura TI</h3>
+      <p>Servidores, virtualización y soporte nivel 2/3.</p>
+    </div>
 
-    function runCounters() {
-      counters.forEach(counter => {
-        counter.innerText = '0';
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="150">
+      <img src="images/service-network.png" class="w-12 mb-4">
+      <h3 class="font-bold text-xl mb-2">Redes y Seguridad</h3>
+      <p>LAN, WAN, monitoreo y seguridad perimetral.</p>
+    </div>
 
-        const target = +counter.getAttribute('data-target');
-        const speed = 20;
-        const increment = target / 100;
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="300">
+      <img src="images/service-mobility.png" class="w-12 mb-4">
+      <h3 class="font-bold text-xl mb-2">Movilidad</h3>
+      <p>Soporte en sitio y despliegues nacionales.</p>
+    </div>
+  </div>
+</section>
 
-        const updateCounter = () => {
-          const current = +counter.innerText;
+<!-- CERTIFICACIONES -->
+<section class="bg-gray-50 py-20">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">Certificaciones</h2>
+    <img src="images/certifications.png" class="mx-auto" data-aos="zoom-in">
+  </div>
+</section>
 
-          if (current < target) {
-            counter.innerText = Math.ceil(current + increment);
-            setTimeout(updateCounter, speed);
-          } else {
-            counter.innerText = target;
-          }
-        };
+<!-- CONTADORES -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto grid md:grid-cols-4 gap-8 text-center">
+    <div>
+      <h3 class="text-4xl font-bold text-blue-900 counter" data-target="120">0</h3>
+      <p>Proyectos Completados</p>
+    </div>
+    <div>
+      <h3 class="text-4xl font-bold text-blue-900 counter" data-target="15">0</h3>
+      <p>Años de Experiencia</p>
+    </div>
+    <div>
+      <h3 class="text-4xl font-bold text-blue-900 counter" data-target="98">0</h3>
+      <p>% Satisfacción</p>
+    </div>
+    <div>
+      <h3 class="text-4xl font-bold text-blue-900 counter" data-target="99">0</h3>
+      <p>% Disponibilidad</p>
+    </div>
+  </div>
+</section>
 
-        updateCounter();
-      });
+<!-- PROYECTOS -->
+<section id="projects" class="container mx-auto px-6 py-20">
+  <h2 class="text-3xl font-bold text-center mb-12">Proyectos Destacados</h2>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="bg-white p-6 rounded-xl shadow">
+      <img src="images/service-ti.png" class="mb-4 rounded">
+      <h3 class="font-bold">Implementación LAN/WAN</h3>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <img src="images/service-network.png" class="mb-4 rounded">
+      <h3 class="font-bold">Seguridad Perimetral</h3>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <img src="images/service-mobility.png" class="mb-4 rounded">
+      <h3 class="font-bold">Movilidad Corporativa</h3>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contact" class="bg-blue-900 text-white py-20 px-6">
+  <div class="container mx-auto max-w-xl">
+    <h2 class="text-3xl font-bold text-center mb-8">Contacto</h2>
+    <form class="bg-white text-gray-900 p-8 rounded-xl space-y-4">
+      <input class="w-full p-3 border rounded" placeholder="Nombre" required>
+      <input type="email" class="w-full p-3 border rounded" placeholder="Email" required>
+      <textarea class="w-full p-3 border rounded" rows="4" placeholder="Mensaje"></textarea>
+      <button class="w-full bg-green-500 hover:bg-green-600 text-white font-bold p-3 rounded">
+        Enviar
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-gray-400 text-center py-6">
+  <p>© 2026 DeLeonNet</p>
+  <div class="flex justify-center gap-4 mt-3">
+    <img src="images/icon-whatsapp.png" class="w-6">
+    <img src="images/icon-telegram.png" class="w-6">
+    <img src="images/icon-tawk.png" class="w-6">
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+AOS.init({ once: true, duration: 1000 });
+
+function runCounters() {
+  document.querySelectorAll('.counter').forEach(counter => {
+    counter.innerText = '0';
+    const target = +counter.dataset.target;
+    const increment = target / 200;
+
+    function update() {
+      const value = +counter.innerText;
+      if (value < target) {
+        counter.innerText = Math.ceil(value + increment);
+        setTimeout(update, 20);
+      } else {
+        counter.innerText = target;
+      }
     }
+    update();
+  });
+}
 
-    // Ejecuta al cargar
-    runCounters();
-
-    // 🔁 Repite cada 60 segundos (60000 ms)
-    setInterval(runCounters, 60000);
-  </script>
+runCounters();
+setInterval(runCounters, 60000);
+</script>
 
 </body>
 </html>
