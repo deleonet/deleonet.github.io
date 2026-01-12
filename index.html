@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -70,7 +70,7 @@
     .marquee-content {
       display: inline-block;
       white-space: nowrap;
-      animation: marquee 60s linear infinite; /* Aumentado a 60s para que se lean mejor los titulares reales */
+      animation: marquee 90s linear infinite; /* Aumentado a 90s para acomodar múltiples fuentes */
       padding-left: 100%;
     }
     @keyframes marquee {
@@ -314,26 +314,44 @@
 <script>
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
-  // FUNCION DE NOTICIAS REALES (RSS de Wired Science/Tech)
+  // FUNCION DE NOTICIAS REALES MULTIFUENTE
   async function updateNews() {
     const newsFeedElement = document.getElementById('news-feed');
-    const rssUrl = 'https://www.wired.com/feed/category/science/latest/rss';
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+    
+    // Lista de fuentes estratégicas para el mercado 2026
+    const sources = [
+      'https://www.wired.com/feed/category/science/latest/rss',
+      'https://thehackernews.com/feeds/posts/default',
+      'https://techcrunch.com/feed/'
+    ];
 
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      if (data.status === 'ok') {
-        const newsTitles = data.items.map(item => item.title.toUpperCase());
-        newsFeedElement.innerText = newsTitles.join(" |  ---  | ");
+    let allTitles = [];
+
+    for (let rssUrl of sources) {
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        if (data.status === 'ok') {
+          const sourceTitles = data.items.map(item => item.title.toUpperCase());
+          allTitles = [...allTitles, ...sourceTitles];
+        }
+      } catch (error) {
+        console.error("Error cargando fuente:", rssUrl);
       }
-    } catch (error) {
-      console.error("Error al cargar noticias:", error);
-      newsFeedElement.innerText = "IA y Ciberseguridad: Tendencias 2026 | Evolución de Redes de Alta Disponibilidad | Resiliencia Operativa TI";
+    }
+
+    // Mezclar las noticias para dinamismo
+    allTitles.sort(() => Math.random() - 0.5);
+
+    if (allTitles.length > 0) {
+      newsFeedElement.innerText = allTitles.join(" |  ---  | ");
+    } else {
+      newsFeedElement.innerText = "IA Y CIBERSEGURIDAD: TENDENCIAS 2026 | EVOLUCIÓN DE REDES DE ALTA DISPONIBILIDAD | RESILIENCIA OPERATIVA TI";
     }
   }
 
-  // Inicializar y actualizar cada 5 minutos (300,000 ms)
+  // Inicializar y actualizar cada 5 minutos
   updateNews();
   setInterval(updateNews, 300000); 
 
@@ -342,7 +360,7 @@
       badge: "Infraestructura Crítica y Gestión de Continuidad de Alto Desempeño",
       title: "Edgar Francisco de León Hernández",
       desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.",
-      bubble: "Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.",
+      bubble: "Para comunicarte conmigo puedes usar la option de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.",
       support: "Contamos con chat para atención en tiempo real y soporte técnico inmediato.",
       stat1h: "Redes LAN/WAN", stat1v: "Operativo",
       stat2h: "Servidores", stat2v: "99.9% Uptime",
@@ -471,4 +489,4 @@
   }
 </script>
 </body>
-</html> 
+</html>
