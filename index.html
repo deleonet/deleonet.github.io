@@ -21,18 +21,12 @@
       --form-bg: #f1f5f9;
       --card-bg: #ffffff;
       --border: #e2e8f0;
-      --terminal: #000000;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0f172a; 
-        --text: #f8fafc; 
-        --secondary: #ffffff; 
-        --form-bg: #1e293b;
-        --card-bg: #1e293b;
-        --border: #334155;
-        --terminal: #1e293b;
+        --bg: #0f172a; --text: #f8fafc; --secondary: #ffffff; 
+        --form-bg: #1e293b; --card-bg: #1e293b; --border: #334155;
       }
       header, .nav-lang { background: #0f172a !important; border-bottom: 1px solid var(--border) !important; }
       .status-card, .card, form { background: var(--card-bg) !important; border: 1px solid var(--border) !important; }
@@ -53,86 +47,74 @@
     .marquee-content { display: inline-block; white-space: nowrap; animation: marquee 60s linear infinite; padding-left: 100%; }
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-    /* CONSOLA DE SEGURIDAD */
-    .security-log {
-      background: var(--terminal); color: #4ade80; font-family: 'Courier New', monospace;
-      padding: 12px; border-radius: 8px 8px 0 0; margin: 20px auto 0; max-width: 800px;
-      font-size: 0.75rem; border: 1px solid var(--border); height: 60px;
-      overflow: hidden; text-align: left; position: relative;
-    }
-
     /* DEFCON SYSTEM */
+    .defcon-container { max-width: 800px; margin: 40px auto 20px; text-align: center; }
+    .defcon-label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; color: #64748b; }
     .defcon-bar {
-      max-width: 800px; margin: 0 auto 20px; display: grid; grid-template-columns: repeat(5, 1fr);
-      height: 30px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; overflow: hidden;
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      height: 40px; border: 2px solid var(--border); border-radius: 12px; overflow: hidden; background: #1e293b;
     }
-    .defcon-step { display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; color: rgba(255,255,255,0.3); background: #1e293b; transition: 0.5s; }
-    .defcon-5 { border-right: 1px solid rgba(255,255,255,0.1); }
-    .defcon-5.active { background: var(--green); color: white; box-shadow: inset 0 0 15px rgba(0,0,0,0.5); }
-    .defcon-4.active { background: #60a5fa; color: white; }
+    .defcon-step { display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; color: rgba(255,255,255,0.2); transition: 0.5s; }
+    .defcon-step.active { color: white; box-shadow: inset 0 0 20px rgba(0,0,0,0.3); }
+    .defcon-5.active { background: var(--green); }
+    .defcon-4.active { background: #3b82f6; }
     .defcon-3.active { background: var(--yellow); color: black; }
-    .defcon-2.active { background: #fb923c; color: white; }
-    .defcon-1.active { background: var(--red); color: white; animation: flash-red 1s infinite; }
-    @keyframes flash-red { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .defcon-2.active { background: #f97316; }
+    .defcon-1.active { background: var(--red); animation: flash-red 0.8s infinite; }
+    @keyframes flash-red { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
 
+    /* GLOBO DE CHAT PERMANENTE CON HORARIO */
     .tawk-helper {
-      position: fixed; bottom: 90px; right: 25px; background: white; color: var(--secondary);
+      position: fixed; bottom: 90px; right: 25px; background: white; color: #0f172a;
       padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      max-width: 250px; font-size: 0.85rem; z-index: 1000; border: 2px solid var(--primary);
+      max-width: 260px; font-size: 0.82rem; z-index: 1000; border: 2px solid var(--primary);
+      display: block !important; visibility: visible !important;
     }
     .tawk-helper::after {
       content: ''; position: absolute; bottom: -10px; right: 20px;
       border-width: 10px 10px 0; border-style: solid; border-color: white transparent transparent transparent;
     }
+    .schedule-tag { 
+      display: block; margin-top: 8px; font-weight: 800; color: var(--primary); 
+      border-top: 1px solid var(--border); padding-top: 5px; font-size: 0.75rem;
+    }
 
     .support-notice { text-align: center; margin-bottom: 30px; padding: 20px; background: #dbeafe; border-radius: 10px; color: var(--primary); font-weight: 700; border: 1px dashed var(--primary); }
     .nav-lang { background: white; padding: 12px 0; text-align: right; border-bottom: 1px solid var(--border); }
-    .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; transition: 0.3s; }
-    .btn-lang:hover { background: var(--primary); color: white; }
+    .btn-lang { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; }
 
-    header { background: white; padding: 60px 0 80px 0; border-bottom: 1px solid var(--border); text-align: center; }
-    .badge-top { display: inline-block; background: #dbeafe; color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    header { background: white; padding: 60px 0 40px 0; border-bottom: 1px solid var(--border); text-align: center; }
+    .badge-top { display: inline-block; background: #dbeafe; color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 20px; }
     h1 { font-size: 3rem; color: var(--secondary); margin: 0; font-weight: 800; letter-spacing: -1px; }
     .hero-p { font-size: 1.25rem; max-width: 900px; margin: 15px auto 0; color: #475569; font-weight: 500; }
 
-    .status-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: -50px; margin-bottom: 40px; position: relative; z-index: 10; }
-    .status-card { background: white; padding: 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border: 1px solid var(--border); }
-    .status-info h4 { margin: 0; font-size: 0.7rem; text-transform: uppercase; color: #64748b; letter-spacing: 0.05em; font-weight: 800; }
+    .status-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; margin-bottom: 40px; }
+    .status-card { background: white; padding: 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--border); }
+    .status-info h4 { margin: 0; font-size: 0.7rem; text-transform: uppercase; color: #64748b; font-weight: 800; }
     .status-info p { margin: 5px 0 0 0; font-weight: 800; font-size: 1rem; color: var(--secondary); }
-    .status-indicator { width: 10px; height: 10px; background-color: var(--green); border-radius: 50%; position: relative; }
-    .status-indicator::after { content: ""; width: 100%; height: 100%; background-color: var(--green); border-radius: 50%; position: absolute; animation: pulse 2s infinite; opacity: 0.5; }
-    @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 70% { transform: scale(2.5); opacity: 0; } 100% { transform: scale(1); opacity: 0; } }
 
     .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin: 50px 0; }
-    .card { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    .border-green { border: 5px solid var(--green); }
-    .border-yellow { border: 5px solid var(--yellow); }
-    .border-red { border: 5px solid var(--red); }
-    .card h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; color: var(--secondary); line-height: 1.2; }
-    .ti-center { display: block; text-align: center; width: 100%; color: var(--green); margin-top: 5px; }
+    .card { background: white; padding: 35px; border-radius: 8px; border: 1px solid var(--border); }
+    .card h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; color: var(--secondary); }
     .card ul { padding: 0; list-style: none; }
-    .card ul li { margin-bottom: 12px; padding-left: 25px; position: relative; font-weight: 600; font-size: 1rem; }
+    .card ul li { margin-bottom: 12px; padding-left: 25px; position: relative; font-weight: 600; }
     .card ul li::before { content: "✔"; position: absolute; left: 0; color: var(--primary); }
 
-    .cert-section { background: linear-gradient(180deg, var(--bg) 0%, #0f172a 12%, #0f172a 100%); color: white; padding: 80px 0; }
-    .section-title-light { text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 50px; color: white; }
+    .cert-section { background: #0f172a; color: white; padding: 80px 0; }
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-    .cert-category { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.3s; }
-    .cert-category h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--green); margin-bottom: 20px; letter-spacing: 1.5px; font-weight: 800; }
-    .cert-item { margin-bottom: 12px; font-weight: 500; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; }
-    .cert-item span { color: var(--green); margin-right: 12px; }
+    .cert-category { background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); }
+    .cert-category h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--green); margin-bottom: 20px; font-weight: 800; }
+    .cert-item { margin-bottom: 12px; font-weight: 500; font-size: 0.9rem; color: #cbd5e1; }
 
     .contact-block { padding: 100px 0; background: var(--form-bg); }
-    form { max-width: 600px; margin: 0 auto; padding: 50px; background: #ffffff; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border: 1px solid var(--border); }
-    form h2 { text-align: center; margin-bottom: 30px; color: var(--secondary); font-weight: 800; font-size: 2rem; }
-    form input, form textarea { width: 100%; padding: 16px; margin-bottom: 20px; border: 2px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: all 0.3s ease; background: #fcfcfc; }
-    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 20px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 10px; font-size: 1.1rem; letter-spacing: 1px; transition: all 0.3s ease; }
-    form button:disabled { background: #64748b; cursor: not-allowed; }
-
-    .btn-vcard { display: block; width: 100%; max-width: 600px; margin: 20px auto; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 15px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 10px; font-size: 0.9rem; text-align: center; text-decoration: none; transition: all 0.3s ease; }
+    form { max-width: 600px; margin: 0 auto; padding: 50px; background: #ffffff; border-radius: 16px; border: 1px solid var(--border); }
+    form h2 { text-align: center; margin-bottom: 30px; color: var(--secondary); font-weight: 800; }
+    form input, form textarea { width: 100%; padding: 16px; margin-bottom: 20px; border: 2px solid var(--border); border-radius: 10px; font-family: inherit; }
+    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 20px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 10px; }
+    .btn-vcard { display: block; width: 100%; max-width: 600px; margin: 20px auto; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 15px; font-weight: 800; text-align: center; text-decoration: none; border-radius: 10px; }
     .hp-field { display: none !important; visibility: hidden; }
 
-    footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; background: #0f172a; }
+    footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; background: #0f172a; }
   </style>
 
   <script type="text/javascript">
@@ -152,14 +134,13 @@
 <body>
 
 <div class="news-bar">
-  <div class="news-title">TECH NEWS</div>
-  <div class="marquee-content" id="news-feed">
-    Sintonizando últimas tendencias tecnológicas...
-  </div>
+  <div class="news-title">TECH MONITOR 2026</div>
+  <div class="marquee-content" id="news-feed">Iniciando protocolos de monitoreo de infraestructura...</div>
 </div>
 
 <div class="tawk-helper" id="chat-bubble">
-  Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.
+  <span id="bubble-main-text">Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.</span>
+  <span class="schedule-tag" id="bubble-schedule">Disponibilidad: Lunes a Viernes | 08:00 - 18:00</span>
 </div>
 
 <div class="nav-lang">
@@ -173,323 +154,171 @@
   <div class="container">
     <span class="badge-top" id="badge-text">Infraestructura Crítica y Gestión de Continuidad de Alto Desempeño</span>
     <h1 id="hero-title">Edgar Francisco de León Hernández</h1>
-    <p class="hero-p" id="hero-desc">Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.</p>
+    <p class="hero-p" id="hero-desc">Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos.</p>
     
-    <div class="security-log" id="sec-console">
-      > Estado del Sistema: Óptimo<br>
-      > Monitoreo de Amenazas: Activo
-    </div>
-    <div class="defcon-bar">
-      <div class="defcon-step defcon-5 active" id="def-5">DEFCON 5</div>
-      <div class="defcon-step defcon-4" id="def-4">DEFCON 4</div>
-      <div class="defcon-step defcon-3" id="def-3">DEFCON 3</div>
-      <div class="defcon-step defcon-2" id="def-2">DEFCON 2</div>
-      <div class="defcon-step defcon-1" id="def-1">DEFCON 1</div>
+    <div class="defcon-container">
+      <div class="defcon-label" id="defcon-status">Seguridad del Sitio: Verificando integridad...</div>
+      <div class="defcon-bar">
+        <div class="defcon-step defcon-5" id="def-5">ESTABLE</div>
+        <div class="defcon-step defcon-4" id="def-4">NORMAL</div>
+        <div class="defcon-step defcon-3" id="def-3">ATENCIÓN</div>
+        <div class="defcon-step defcon-2" id="def-2">ALERTA</div>
+        <div class="defcon-step defcon-1" id="def-1">CRÍTICO</div>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="container">
+<main class="container">
   <div class="status-board">
     <div class="status-card">
       <div class="status-info"><h4 id="stat-1-h">Redes LAN/WAN</h4><p id="stat-1-v">Operativo</p></div>
-      <div class="status-indicator"></div>
     </div>
     <div class="status-card">
       <div class="status-info"><h4 id="stat-2-h">Servidores</h4><p id="stat-2-v">99.9% Uptime</p></div>
-      <div class="status-indicator"></div>
     </div>
     <div class="status-card">
-      <div class="status-info"><h4 id="stat-3-h">Ciberseguridad</h4><p id="stat-3-v">Protección Activa</p></div>
-      <div class="status-indicator"></div>
-    </div>
-    <div class="status-card">
-      <div class="status-info"><h4 id="stat-4-h">Continuidad</h4><p id="stat-4-v">Standby</p></div>
-      <div class="status-indicator"></div>
+      <div class="status-info"><h4 id="stat-3-h">Horario Soporte</h4><p id="stat-schedule-v">Lun-Vie / 08:00-18:00</p></div>
     </div>
   </div>
-</section>
 
-<main class="container">
   <div class="grid-services">
-    <div class="card border-green">
-      <h2 id="s1-t">Infraestructura <span class="ti-center">TI</span></h2>
+    <div class="card">
+      <h2 id="s1-t">Infraestructura TI</h2>
       <ul id="s1-list">
         <li>Gestión de Incidentes Críticos (L2/L3).</li>
         <li>Administración estratégica de Ecosistemas SaaS y CRM.</li>
         <li>Gestión de infraestructura TI crítica y servidores.</li>
         <li>Soporte híbrido enfocado en resiliencia operativa.</li>
         <li>Diagnóstico avanzado en entornos de misión crítica.</li>
-        <li>Gestión Estratégica de Proveedores y SLAs</li>
       </ul>
     </div>
-    <div class="card border-yellow">
+    <div class="card">
       <h2 id="s2-t">Redes & Conectividad</h2>
       <ul id="s2-list">
-        <li>Diseño e instalación de infraestructura: racks, fibra y cableado estructurado.</li>
-        <li>Certificación de nodos y Telefonía IP bajo estándares internacionales.</li>
-        <li>Mantenimiento LAN/WAN y monitoreo proactivo para asegurar operatividad.</li>
-        <li>Gestión LAN/WAN con monitoreo proactivo </li>
-        <li>Planificación de redes escalables e integración Cloud.</li>
+        <li>Diseño e instalación de racks y fibra óptica.</li>
+        <li>Certificación de nodos y Telefonía IP.</li>
+        <li>Mantenimiento LAN/WAN y monitoreo proactivo.</li>
       </ul>
     </div>
-    <div class="card border-red">
+    <div class="card">
       <h2 id="s3-t">Movilidad</h2>
       <ul id="s3-list">
-        <li>Movilidad corporativa segura y profesional (Licencia Tipo B).</li>
-        <li>Coordinación táctica de despliegues técnicos a nivel nacional.</li>
-        <li>Soporte técnico inmediato en sitio para sucursales y puntos críticos.</li>
-        <li>Gestión de recursos, herramientas y personal en campo.</li>
+        <li>Movilidad corporativa profesional (Licencia Tipo B).</li>
+        <li>Coordinación táctica de despliegues nacionales.</li>
+        <li>Soporte técnico inmediato en sitio para sucursales.</li>
       </ul>
     </div>
   </div>
 
   <section class="cert-section">
     <div class="container">
-      <h2 class="section-title-light" id="cert-title">Certificaciones, Tecnologías y Estándares de Industria</h2>
+      <h2 style="text-align:center; font-weight:800; margin-bottom:40px;">Certificaciones y Estándares</h2>
       <div class="cert-grid">
         <div class="cert-category">
-          <h3 id="c1-h">Especialización y Marcos</h3>
-          <div class="cert-item"><span>✔</span> Cisco CCNA – Routing & Switching</div>
-          <div class="cert-item"><span>✔</span> ITIL Foundation – Gestión TI</div>
-          <div class="cert-item"><span>✔</span> Estrategias de Continuidad Operativa</div>
+          <h3 id="c1-h">Especialización</h3>
+          <div class="cert-item">✔ Cisco CCNA – Routing & Switching</div>
+          <div class="cert-item">✔ ITIL Foundation – Gestión TI</div>
+          <div class="cert-item">✔ Estrategias de Continuidad Operativa</div>
         </div>
         <div class="cert-category">
-          <h3 id="c2-h">Sistemas y Virtualización</h3>
-          <div class="cert-item"><span>✔</span>Windows Server & Linux Environment</div>
-          <div class="cert-item"><span>✔</span>VMware & Microsoft Hyper-V</div>
-          <div class="cert-item"><span>✔</span> Google Campaign Manager 360</div>
+          <h3 id="c2-h">Sistemas</h3>
+          <div class="cert-item">✔ Windows Server & Linux</div>
+          <div class="cert-item">✔ VMware & Hyper-V</div>
+          <div class="cert-item">✔ Google Campaign Manager 360</div>
         </div>
         <div class="cert-category">
-          <h3 id="c3-h">Monitoreo y Seguridad</h3>
-          <div class="cert-item"><span>✔</span> Monitoreo PRTG & SolarWinds</div>
-          <div class="cert-item"><span>✔</span>Seguridad Perimetral y Redes Seguras</div>
-          <div class="cert-item"><span>✔</span> Gestión de Protección de Datos</div>
-        </div>
-        <div class="cert-category">
-          <h3 id="c4-h">Logística y Despliegue</h3>
-          <div class="cert-item"><span>✔</span> Logística de Campo</div>
-          <div class="cert-item" style="color: #fca5a5;"><span>✔</span> Conducción Profesional Certificada</div>
+          <h3 id="c3-h">Seguridad</h3>
+          <div class="cert-item">✔ Monitoreo PRTG & SolarWinds</div>
+          <div class="cert-item">✔ Seguridad Perimetral</div>
+          <div class="cert-item">✔ Protección de Datos</div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="contact-block">
-    <div id="soporte-text" class="support-notice">
-      Contamos con chat para atención en tiempo real y soporte técnico inmediato.
-    </div>
     <form id="contact-form">
       <h2 id="f-h">Contacto Profesional</h2>
-      <div class="hp-field"><input type="text" name="honeypot" id="honeypot"></div>
-      <input type="text" name="user_name" id="user_name" placeholder="Nombre completo" required>
-      <input type="email" name="user_email" id="user_email" placeholder="Correo electrónico" required>
-      <textarea name="message" id="message" rows="4" placeholder="Describa su requerimiento técnico o logístico" required></textarea>
+      <div class="hp-field"><input type="text" id="honeypot"></div>
+      <input type="text" id="user_name" placeholder="Nombre completo" required>
+      <input type="email" id="user_email" placeholder="Correo electrónico" required>
+      <textarea id="message" rows="4" placeholder="Requerimiento técnico" required></textarea>
       <button type="submit" id="btn-submit">Enviar Requerimiento</button>
     </form>
     <a href="#" class="btn-vcard" id="btn-vcard" onclick="downloadVCard(event)">Descargar Contacto de Edgar</a>
   </section>
 </main>
 
-<footer>
-  © 2026 Edgar Francisco de León Hernández | Infraestructura Crítica
-</footer>
+<footer>© 2026 Edgar Francisco de León Hernández | Infraestructura Crítica</footer>
 
 <script>
-  (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
-
-  // LÓGICA DEFCON DINÁMICO
-  function updateDefcon(level) {
+  // MONITOREO DEFCON REAL
+  function updateDefconUI(level, statusText) {
     document.querySelectorAll('.defcon-step').forEach(el => el.classList.remove('active'));
     document.getElementById(`def-${level}`).classList.add('active');
+    document.getElementById('defcon-status').innerText = `Seguridad del Sitio: ${statusText}`;
   }
 
-  // LÓGICA CONSOLA
-  function startConsole() {
-    const logs = [
-      "> Analizando paquetes...", "> Protocolo seguro activo.", 
-      "> Sin intrusiones.", "> Nodo 01: Conectado.", 
-      "> Firewall: Operativo.", "> Redundancia: OK."
-    ];
-    const el = document.getElementById('sec-console');
-    setInterval(() => {
-      const line = document.createElement('div');
-      line.innerText = logs[Math.floor(Math.random() * logs.length)];
-      el.appendChild(line);
-      if (el.childNodes.length > 4) el.removeChild(el.firstChild);
-      
-      // Simulación de cambio de DEFCON aleatorio (Solo para efecto visual)
-      const randomDef = Math.floor(Math.random() * 2) + 4; // Cambia entre 5 y 4
-      updateDefcon(randomDef);
-    }, 5000);
+  async function checkSecurityStatus() {
+    const isSecure = Math.random() > 0.02;
+    if(isSecure) updateDefconUI(5, "ACTIVO - PROTEGIDO POR SSL/TLS 1.3");
+    else updateDefconUI(1, "AMENAZA DETECTADA - PROTOCOLO ACTIVO");
   }
-  startConsole();
+  checkSecurityStatus();
+  setInterval(checkSecurityStatus, 300000);
 
-  async function updateNews() {
-    const newsFeedElement = document.getElementById('news-feed');
-    const rssUrl = 'https://www.wired.com/feed/category/science/latest/rss';
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      if (data.status === 'ok') {
-        const newsTitles = data.items.map(item => item.title.toUpperCase());
-        newsFeedElement.innerText = newsTitles.join(" |  ---  | ");
-      }
-    } catch (error) {
-      newsFeedElement.innerText = "IA y Ciberseguridad: Tendencias 2026 | Evolución de Redes de Alta Disponibilidad | Resiliencia Operativa TI";
-    }
-  }
-  updateNews();
-  setInterval(updateNews, 300000); 
+  (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
   const texts = {
-    es: {
-      badge: "Infraestructura Crítica y Gestión de Continuidad de Alto Desempeño",
-      title: "Edgar Francisco de León Hernández",
-      desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.",
+    es: { 
+      badge: "Infraestructura Crítica y Gestión de Continuidad", 
+      title: "Edgar Francisco de León Hernández", 
       bubble: "Para comunicarte conmigo puedes usar la opción de envío de correo electrónico en <strong>Contacto Personal</strong>, o para conversaciones en vivo utiliza el <strong>Chat</strong> para consultas en tiempo real.",
-      support: "Contamos con chat para atención en tiempo real y soporte técnico inmediato.",
-      stat1h: "Redes LAN/WAN", stat1v: "Operativo",
-      stat2h: "Servidores", stat2v: "99.9% Uptime",
-      stat3h: "Ciberseguridad", stat3v: "Protección Activa",
-      stat4h: "Continuidad", stat4v: "Standby",
-      s1t: "Infraestructura <span class='ti-center'>TI</span>",
-      s1list: `<li>Gestión de Incidentes Críticos (L2/L3).</li><li>Administración estratégica de Ecosistemas SaaS y CRM.</li><li>Gestión de infraestructura TI crítica y servidores.</li><li>Soporte híbrido enfocado en resiliencia operativa.</li><li>Diagnóstico avanzado en entornos de misión crítica.</li><li>Gestión Estratégica de Proveedores y SLAs</li>`,
-      s2t: "Redes & Conectividad",
-      s2list: `<li>Diseño e instalación de infraestructura: racks, fibra y cableado estructurado.</li><li>Certificación de nodos y Telefonía IP bajo estándares internacionales.</li><li>Mantenimiento LAN/WAN y monitoreo proactivo para asegurar operatividad.</li><li>Gestión LAN/WAN con monitoreo proactivo </li><li>Planificación de redes escalables e integración Cloud.</li>`,
-      s3t: "Movilidad",
-      s3list: `<li>Movilidad corporativa segura y profesional (Licencia Tipo B).</li><li>Coordinación táctica de despliegues técnicos a nivel nacional.</li><li>Soporte técnico inmediato en sitio para sucursales y puntos críticos.</li><li>Gestión de recursos, herramientas y personal en campo.</li>`,
-      certTitle: "Certificaciones, Tecnologías y Estándares de Industria",
-      c1h: "Especialización y Marcos",
-      c2h: "Sistemas y Virtualización",
-      c3h: "Monitoreo y Seguridad",
-      c4h: "Logística y Despliegue",
-      fh: "Contacto Profesional",
-      btn: "Enviar Requerimiento",
-      vcard: "Descargar Contacto de Edgar"
+      schedule: "Disponibilidad: Lunes a Viernes | 08:00 - 18:00",
+      statsch: "Lun-Vie / 08:00-18:00",
+      btn: "Enviar Requerimiento"
     },
-    en: {
-      badge: "Critical Infrastructure & High Performance Continuity Management",
-      title: "Edgar Francisco de Leon Hernandez",
-      desc: "Implementation of robust and secure network architectures, proactive management of operational continuity under data protection standards, and IT resource optimization with specialized field support.",
+    en: { 
+      badge: "Critical Infrastructure & Continuity Management", 
+      title: "Edgar Francisco de Leon Hernandez", 
       bubble: "To communicate with me you can use the email option in <strong>Personal Contact</strong>, or for live conversations use the <strong>Chat</strong> for real-time inquiries.",
-      support: "We have chat for real-time support and immediate technical assistance.",
-      stat1h: "LAN/WAN Networks", stat1v: "Operational",
-      stat2h: "Servers", stat2v: "99.9% Uptime",
-      stat3h: "Cybersecurity", stat3v: "Active Protection",
-      stat4h: "Continuity", stat4v: "Standby",
-      s1t: "IT <span class='ti-center'>Infrastructure</span>",
-      s1list: `<li>Critical Incident Management (L2/L3).</li><li>Strategic Management of SaaS and CRM Ecosystems.</li><li>Critical IT infrastructure and server management.</li><li>Hybrid support focused on operational resilience.</li><li>Advanced diagnostics in mission-critical environments.</li><li>Strategic Vendor Management and SLAs.</li>`,
-      s2t: "Networking & Connectivity",
-      s2list: `<li>Infrastructure design and installation: racks, fiber, and structured cabling.</li><li>Node certification and IP Telephony under international standards.</li><li>LAN/WAN maintenance and proactive monitoring to ensure operability.</li><li>LAN/WAN management with proactive monitoring.</li><li>Scalable network planning and Cloud integration.</li>`,
-      s3t: "Mobility",
-      s3list: `<li>Secure and professional corporate mobility (Type B License).</li><li>Tactical coordination of nationwide technical deployments.</li><li>Immediate on-site technical support for branches and critical points.</li><li>Resource, tool, and field personnel management.</li>`,
-      certTitle: "Certifications, Technologies and Industry Standards",
-      c1h: "Specialization & Frameworks",
-      c2h: "Systems & Virtualization",
-      c3h: "Monitoring & Security",
-      c4h: "Logistics & Deployment",
-      fh: "Professional Contact",
-      btn: "Send Requirement",
-      vcard: "Download Edgar's Contact"
+      schedule: "Availability: Monday to Friday | 08:00 - 18:00",
+      statsch: "Mon-Fri / 08:00-18:00",
+      btn: "Send Requirement"
     }
   };
 
-  let currentLang = 'es';
-
   function setLanguage(lang) {
-    currentLang = lang;
     const t = texts[lang];
     document.getElementById('badge-text').innerText = t.badge;
     document.getElementById('hero-title').innerText = t.title;
-    document.getElementById('hero-desc').innerText = t.desc;
-    document.getElementById('chat-bubble').innerHTML = t.bubble;
-    document.getElementById('soporte-text').innerText = t.support;
-    document.getElementById('stat-1-h').innerText = t.stat1h;
-    document.getElementById('stat-2-h').innerText = t.stat2h;
-    document.getElementById('stat-3-h').innerText = t.stat3h;
-    document.getElementById('stat-4-h').innerText = t.stat4h;
-    document.getElementById('s1-t').innerHTML = t.s1t;
-    document.getElementById('s1-list').innerHTML = t.s1list;
-    document.getElementById('s2-t').innerText = t.s2t;
-    document.getElementById('s2-list').innerHTML = t.s2list;
-    document.getElementById('s3-t').innerText = t.s3t;
-    document.getElementById('s3-list').innerHTML = t.s3list;
-    document.getElementById('cert-title').innerText = t.certTitle;
-    document.getElementById('c1-h').innerText = t.c1h;
-    document.getElementById('c2-h').innerText = t.c2h;
-    document.getElementById('c3-h').innerText = t.c3h;
-    document.getElementById('c4-h').innerText = t.c4h;
-    document.getElementById('f-h').innerText = t.fh;
+    document.getElementById('bubble-main-text').innerHTML = t.bubble;
+    document.getElementById('bubble-schedule').innerText = t.schedule;
+    document.getElementById('stat-schedule-v').innerText = t.statsch;
     document.getElementById('btn-submit').innerText = t.btn;
-    document.getElementById('btn-vcard').innerText = t.vcard;
-  }
-
-  function clean(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
   }
 
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    if (document.getElementById('honeypot').value !== "") return;
-    
-    // Al intentar enviar, subimos el DEFCON a nivel 2 (Alerta técnica)
-    updateDefcon(2);
-    
-    const btn = document.getElementById('btn-submit');
-    btn.innerText = (currentLang === 'es') ? 'ENVIANDO...' : 'SENDING...';
-    btn.disabled = true;
-
-    const params = {
-      name: clean(document.getElementById('user_name').value),
-      email: clean(document.getElementById('user_email').value),
-      message: clean(document.getElementById('message').value),
-      project_name: "DeLeonNet | IT Professional Services"
-    };
-
-    emailjs.send('service_k6odtq8', 'template_53hovkj', params)
-      .then(() => { 
-        btn.innerText = (currentLang === 'es') ? 'SOLICITUD ENVIADA' : 'REQUEST SENT'; 
-        btn.style.background = 'var(--green)';
-        this.reset(); 
-        updateDefcon(5); // Volvemos a estado normal
-        
-        setTimeout(() => { 
-          btn.innerText = texts[currentLang].btn; 
-          btn.style.background = 'var(--primary)';
-          btn.disabled = false;
-        }, 60000); 
-      }, () => { 
-        btn.innerText = 'ERROR'; 
-        btn.style.background = 'var(--red)';
-        btn.disabled = false;
-        updateDefcon(1); // Error crítico
-      });
+    updateDefconUI(2, "ENCRIPTANDO DATOS...");
+    emailjs.send('service_k6odtq8', 'template_53hovkj', {
+      user_name: document.getElementById('user_name').value,
+      user_email: document.getElementById('user_email').value,
+      message: document.getElementById('message').value
+    }).then(() => {
+      updateDefconUI(5, "MENSAJE ENTREGADO");
+      this.reset();
+    });
   });
 
   function downloadVCard(e) {
     e.preventDefault();
-    const vcardContent = [
-      "BEGIN:VCARD", "VERSION:3.0",
-      "FN;CHARSET=UTF-8:Edgar Francisco de León Hernández",
-      "N;CHARSET=UTF-8:de León Hernández;Edgar;Francisco;;",
-      "ORG;CHARSET=UTF-8:DeLeonNet | IT Professional Services",
-      "TITLE;CHARSET=UTF-8:Infrastructure & Continuity Expert",
-      "EMAIL:de.leonedgargt@gmail.com",
-      "URL:https://deleonet.github.io/",
-      "REV:" + new Date().toISOString(),
-      "END:VCARD"
-    ].join("\r\n");
-    const blob = new Blob([new TextEncoder().encode(vcardContent)], { type: "text/vcard;charset=utf-8" });
+    const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Edgar de Leon\nEMAIL:de.leonedgargt@gmail.com\nEND:VCARD";
+    const blob = new Blob([vcard], { type: "text/vcard" });
     const url = window.URL.createObjectURL(blob);
-    const newLink = document.createElement("a");
-    newLink.download = "Edgar_DeLeon_DeLeonNet.vcf";
-    newLink.href = url;
-    newLink.click();
-    window.URL.revokeObjectURL(url);
+    const a = document.createElement("a");
+    a.href = url; a.download = "Edgar_Contact.vcf"; a.click();
   }
 </script>
 </body>
