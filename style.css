@@ -1,23 +1,212 @@
-/* Tailwind se encarga de la mayor parte del estilo, aquí se pueden agregar extras */
+ /* =============================
+   DeLeonNet - Estilos Generales
+============================= */
 
+/* Tipografía y cuerpo */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f7fa;
+  color: #1A3668;
+  line-height: 1.6;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+/* Enlaces */
+a {
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: #39B54A;
 }
 
-.animate-fade-in {
-  animation: fadeIn 2s ease forwards;
-  opacity: 0;
+/* Contenedores generales */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
+/* =============================
+   Navbar
+============================= */
+nav {
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+nav a {
+  font-weight: 600;
+  color: #1A3668;
+}
+nav a:hover {
+  color: #39B54A;
 }
 
-.counter {
+/* =============================
+   Hero Section
+============================= */
+header {
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+header h1 {
+  font-size: 3rem;
   font-weight: 800;
+}
+header p {
+  font-size: 1.25rem;
+  color: #e0e7ff;
+}
+header a {
+  display: inline-block;
+  font-weight: 700;
+  background-color: #39B54A;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+header a:hover {
+  background-color: #1f9b3a;
+  transform: translateY(-2px);
+}
+
+/* =============================
+   Sección Servicios
+============================= */
+#services .grid div {
+  transition: all 0.3s ease;
+}
+#services .grid div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+#services img {
+  height: 60px;
+  width: auto;
+}
+
+/* =============================
+   Certificaciones
+============================= */
+#certifications img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+#certifications img:hover {
+  transform: scale(1.05);
+}
+
+/* =============================
+   Contadores
+============================= */
+.counter {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1A3668;
+}
+
+/* =============================
+   Sobre mí
+============================= */
+#about img {
+  border-radius: 50%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+#about h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+#about p {
+  font-size: 1rem;
+  color: #334155;
+}
+
+/* =============================
+   Proyectos
+============================= */
+#projects img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#projects div:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* =============================
+   Testimonios Swiper
+============================= */
+.swiper-slide {
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.swiper-slide:hover {
+  transform: translateY(-5px);
+}
+.swiper-pagination-bullet {
+  background-color: #1A3668;
+}
+.swiper-pagination-bullet-active {
+  background-color: #39B54A;
+}
+
+/* =============================
+   Formulario Contacto
+============================= */
+#contact form {
+  transition: all 0.3s ease;
+}
+#contact input, #contact textarea {
+  border: 1px solid #cbd5e1;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+#contact input:focus, #contact textarea:focus {
+  outline: none;
+  border-color: #39B54A;
+  box-shadow: 0 0 8px rgba(57,181,74,0.4);
+}
+#contact button {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+#contact button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* =============================
+   Footer
+============================= */
+footer {
+  background-color: #1A3668;
+  color: #f1f5f9;
+}
+footer a img {
+  transition: transform 0.3s ease;
+}
+footer a:hover img {
+  transform: scale(1.2);
+}
+
+/* =============================
+   Animaciones Personalizadas
+============================= */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.animate-fade-in {
+  animation: fade-in 1.5s ease forwards;
 }
