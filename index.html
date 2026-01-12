@@ -1,177 +1,167 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edgar Francisco De Leon Hernández | Servicios TI Críticos</title>
+  <title>Edgar Francisco de León Hernández | Servicios TI Críticos</title>
+  <meta name="description" content="Consultoría TI y soporte crítico. Redes, servidores, ciberseguridad y continuidad operativa para empresas que no pueden detenerse.">
+  <meta property="og:title" content="Edgar Francisco de León Hernández | Servicios TI Críticos">
+  <meta property="og:description" content="Soluciones de infraestructura crítica, redes y continuidad operativa. Atención directa y profesional.">
+  <meta property="og:image" content="images/hero-banner.jpg">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
 </head>
 <body>
 
-<!-- ===== Noticias DEFCON ===== -->
-<div class="news-bar">
-  <div class="news-title">DEFCON FEED</div>
-  <div class="marquee-content" id="news-feed">MONITOREO DE INFRAESTRUCTURA ACTIVO...</div>
-</div>
-
-<!-- ===== Idioma ===== -->
-<div class="nav-lang">
-  <div class="container">
-    <button class="btn-lang" onclick="setLanguage('es')">Español</button>
-    <button class="btn-lang" onclick="setLanguage('en')">English</button>
-  </div>
-</div>
-
-<!-- ===== Hero ===== -->
+<!-- NAVEGACIÓN -->
 <header>
-  <div class="container">
-    <span class="badge-top" id="badge-text">Infraestructura Crítica y Continuidad</span>
-    <h1 id="hero-title">Edgar Francisco De Leon Hernández</h1>
-    <p class="hero-p" id="hero-desc">
-      Soluciones TI críticas para empresas que no pueden detenerse. Redes, servidores y continuidad con atención directa.
-    </p>
-  </div>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#inicio" class="logo">DeLeonNet</a>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="https://wa.me/tu_numero" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/tu_usuario" target="_blank"><i class="fab fa-telegram"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / Banner -->
+  <section id="inicio" class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1>Edgar Francisco de León Hernández</h1>
+        <p>Soluciones de infraestructura crítica, redes, ciberseguridad y continuidad operativa para empresas que no pueden detenerse.</p>
+        <a href="#contacto" class="btn-primary">Solicitar Servicio</a>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero-banner.jpg" alt="Infraestructura TI y Redes" />
+      </div>
+    </div>
+  </section>
 </header>
 
-<!-- ===== Status Board ===== -->
-<section class="container">
-  <div class="status-board">
-    <div class="status-card">
-      <div class="status-info"><h4>Redes LAN/WAN</h4><p>Operativa 24/7</p></div>
-      <div class="status-indicator"></div>
-    </div>
-    <div class="status-card">
-      <div class="status-info"><h4>Servidores</h4><p>Disponibilidad crítica</p></div>
-      <div class="status-indicator"></div>
-    </div>
-    <div class="status-card">
-      <div class="status-info"><h4>Ciberseguridad</h4><p>Protección activa</p></div>
-      <div class="status-indicator"></div>
-    </div>
-    <div class="status-card">
-      <div class="status-info"><h4>Continuidad</h4><p>Plan de contingencia</p></div>
-      <div class="status-indicator"></div>
+<!-- SERVICIOS -->
+<section id="servicios" class="services">
+  <div class="container">
+    <h2>Servicios Profesionales</h2>
+    <div class="service-cards">
+      <div class="card">
+        <i class="fas fa-server fa-2x icon-card"></i>
+        <h3>Infraestructura TI</h3>
+        <p>Gestión de servidores, redes LAN/WAN, monitoreo proactivo y soporte híbrido de misión crítica.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-network-wired fa-2x icon-card"></i>
+        <h3>Redes & Conectividad</h3>
+        <p>Diseño, instalación y mantenimiento de redes seguras, integración Cloud y certificación de nodos.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-shield-alt fa-2x icon-card"></i>
+        <h3>Ciberseguridad</h3>
+        <p>Protección perimetral, gestión de datos sensibles y auditorías de seguridad TI proactivas.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-truck-moving fa-2x icon-card"></i>
+        <h3>Movilidad & Despliegue</h3>
+        <p>Soporte técnico en sitio, logística de campo, coordinación nacional y gestión de recursos.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Servicios ===== -->
-<main class="container">
-  <div class="grid-services">
-    <div class="card">
-      <h2>Infraestructura <span class="ti-center">TI</span></h2>
-      <ul>
-        <li>Gestión de incidentes críticos (L2/L3)</li>
-        <li>Administración de ecosistemas SaaS y CRM</li>
-        <li>Diagnóstico avanzado en entornos de misión crítica</li>
-        <li>Gestión de proveedores y SLA</li>
-      </ul>
+<!-- SOBRE MÍ -->
+<section id="sobre-mi" class="about">
+  <div class="container about-container">
+    <div class="about-image">
+      <img src="images/foto-profesional.jpg" alt="Edgar Francisco de León Hernández" />
     </div>
-    <div class="card">
-      <h2>Redes & Conectividad</h2>
+    <div class="about-content">
+      <h2>Sobre mí</h2>
+      <p>Profesional con experiencia en infraestructura crítica, continuidad operativa y gestión tecnológica. Certificado en Cisco CCNA, ITIL y VMware.</p>
       <ul>
-        <li>Diseño e instalación: racks, fibra y cableado estructurado</li>
-        <li>Certificación de nodos y telefonía IP</li>
-        <li>Mantenimiento LAN/WAN y monitoreo proactivo</li>
-        <li>Integración Cloud y planificación escalable</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h2>Movilidad & Logística</h2>
-      <ul>
-        <li>Soporte técnico inmediato en campo</li>
-        <li>Coordinación de despliegues tácticos</li>
-        <li>Conducción profesional certificada</li>
-        <li>Gestión de recursos y personal en sitio</li>
+        <li><i class="fas fa-check-circle"></i> Experiencia en soporte nivel 2 y 3</li>
+        <li><i class="fas fa-check-circle"></i> Administración de sistemas Windows y Linux</li>
+        <li><i class="fas fa-check-circle"></i> Mantenimiento de infraestructura crítica</li>
       </ul>
     </div>
   </div>
+</section>
 
-  <!-- ===== Certificaciones ===== -->
-  <section class="cert-section">
-    <div class="container">
-      <h2 class="section-title-light">Certificaciones & Tecnologías</h2>
-      <div class="cert-grid">
-        <div class="cert-category">
-          <h3>Infraestructura & Continuidad</h3>
-          <div class="cert-item"><span>✔</span>Cisco CCNA – Routing & Switching</div>
-          <div class="cert-item"><span>✔</span>ITIL Foundation</div>
-          <div class="cert-item"><span>✔</span>Estrategias de continuidad operativa</div>
-        </div>
-        <div class="cert-category">
-          <h3>Sistemas & Virtualización</h3>
-          <div class="cert-item"><span>✔</span>Windows Server & Linux</div>
-          <div class="cert-item"><span>✔</span>VMware & Hyper-V</div>
-          <div class="cert-item"><span>✔</span>Google Campaign Manager 360</div>
-        </div>
-        <div class="cert-category">
-          <h3>Seguridad & Monitoreo</h3>
-          <div class="cert-item"><span>✔</span>Monitoreo PRTG & SolarWinds</div>
-          <div class="cert-item"><span>✔</span>Seguridad perimetral y redes seguras</div>
-        </div>
+<!-- PROYECTOS / CASOS DE ESTUDIO -->
+<section id="proyectos" class="projects">
+  <div class="container">
+    <h2>Proyectos Destacados</h2>
+    <div class="project-cards">
+      <div class="project-card">
+        <img src="images/proyecto1.jpg" alt="Proyecto Redes" />
+        <h3>Implementación de Red WAN Corporativa</h3>
+        <p>Optimización de conectividad y monitoreo en tiempo real de más de 50 sucursales.</p>
+      </div>
+      <div class="project-card">
+        <img src="images/proyecto2.jpg" alt="Proyecto Servidores" />
+        <h3>Infraestructura Servidores Críticos</h3>
+        <p>Gestión de servidores y respaldo seguro de datos de misión crítica.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== Contacto & Chat ===== -->
-  <section class="contact-block">
-    <div class="direct-contact">
-      <button class="contact-trigger" onclick="abrirChat()">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>WhatsApp</span>
-      </button>
-      <button class="contact-trigger" onclick="abrirChat()">
-        <i class="fa-brands fa-telegram"></i>
-        <span>Telegram</span>
-      </button>
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="testimonials">
+  <div class="container">
+    <h2>Testimonios</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <p>"Edgar ha transformado nuestra infraestructura TI. Su soporte y experiencia son excepcionales."</p>
+        <span>- Juan Pérez, Banco XYZ</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"Gracias a Edgar nuestra continuidad operativa nunca se vio interrumpida durante incidentes críticos."</p>
+        <span>- Ana López, Telco ABC</span>
+      </div>
     </div>
-    <p>También puede contactarme directamente a través del chat seguro.</p>
-  </section>
-</main>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+  <div class="container">
+    <h2>Contacto Profesional</h2>
+    <p>Chatea con nosotros en tiempo real o envía tu solicitud de servicio.</p>
+    <div class="contact-buttons">
+      <a href="https://tawk.to/chat/TU_CHAT_ID" target="_blank" class="btn-primary"><i class="fas fa-comments"></i> Chat Seguro</a>
+      <a href="https://wa.me/tu_numero" target="_blank" class="btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://t.me/tu_usuario" target="_blank" class="btn-secondary"><i class="fab fa-telegram"></i> Telegram</a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  © 2026 Edgar Francisco De Leon Hernández | Servicios TI Críticos
+  <div class="container footer-container">
+    <p>© 2026 Edgar Francisco de León Hernández | Infraestructura Crítica y Servicios TI</p>
+  </div>
 </footer>
 
-<!-- ===== Tawk Chat ===== -->
+<!-- Tawk.to Chat -->
 <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69641846aae923197d507363/1jenftlcf';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-  })();
-
-  function abrirChat() {
-    if(typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-      Tawk_API.maximize();
-    }
-  }
-
-  // Demo de noticias DEFCON
-  document.addEventListener("DOMContentLoaded", function() {
-    const feed = document.getElementById('news-feed');
-    feed.textContent = "SISTEMA DEFCON: MONITOREO DE INFRAESTRUCTURA ACTIVO --- ALERTAS DE SEGURIDAD CRÍTICAS --- ESTADO DE RED: ÓPTIMO";
-  });
-
-  const texts = {
-    es: {
-      badge: "Infraestructura Crítica y Continuidad",
-      hero: "Soluciones TI críticas para empresas que no pueden detenerse",
-    },
-    en: {
-      badge: "Critical Infrastructure & Continuity",
-      hero: "Critical IT solutions for businesses that cannot stop"
-    }
-  };
-  function setLanguage(lang){
-    document.getElementById('badge-text').innerText = texts[lang].badge;
-    document.getElementById('hero-desc').innerText = texts[lang].hero;
-  }
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/TU_CHAT_ID/1abcdef';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 </script>
+
 </body>
 </html>
