@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /private/
 Allow: /
 
-Sitemap: https://deleonet.github.io/sitemap.xml
+Sitemap: https://tu-dominio.github.io/sitemap.xml
