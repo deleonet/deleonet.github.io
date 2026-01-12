@@ -4,134 +4,233 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edgar Francisco de León Hernández | Servicios TI Profesionales</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Servicios profesionales de TI: redes, infraestructura crítica, ciberseguridad y movilidad corporativa.">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Edgar Francisco de León Hernández | Servicios TI Profesionales">
+  <meta property="og:description" content="Servicios profesionales de TI: redes, infraestructura crítica, ciberseguridad y movilidad corporativa.">
+  <meta property="og:image" content="assets/images/hero-image.jpg">
+  <meta property="og:type" content="website">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Swiper Slider -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Servicios profesionales de infraestructura TI, redes, ciberseguridad y continuidad operativa por Edgar Francisco de León Hernández.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body class="font-sans bg-gray-100 text-gray-900 scroll-smooth">
 
-<!-- Navegación -->
-<nav>
-  <div class="container">
-    <div class="logo">DeLeonNet</div>
-    <div class="menu">
-      <a href="#services">Servicios</a>
-      <a href="#about">Sobre mí</a>
-      <a href="#certifications">Certificaciones</a>
-      <a href="#contact">Contacto</a>
-    </div>
-  </div>
-</nav>
-
-<!-- Hero -->
-<header>
-  <h1>Edgar Francisco de León Hernández</h1>
-  <p>Implementación de arquitecturas de red robustas y seguras, gestión de continuidad operativa y optimización de recursos TI con soporte especializado en campo.</p>
-  <button class="btn-cta" onclick="abrirChat()">Chatea con nosotros</button>
-</header>
-
-<!-- Servicios -->
-<section id="services">
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:50px;">Servicios Profesionales</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Infraestructura TI</h3>
-        <p>Gestión de servidores, soporte crítico L2/L3, administración de ecosistemas SaaS y CRM.</p>
-      </div>
-      <div class="card">
-        <h3>Redes & Conectividad</h3>
-        <p>Diseño e instalación de LAN/WAN, fibra óptica, cableado estructurado, y planificación de redes escalables.</p>
-      </div>
-      <div class="card">
-        <h3>Movilidad Corporativa</h3>
-        <p>Coordinación de despliegues técnicos, soporte en sitio y gestión de recursos en campo.</p>
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <a href="#" class="text-2xl font-bold text-blue-900">DeLeonNet</a>
+      <div class="space-x-4">
+        <a href="#services" class="text-gray-700 hover:text-blue-700 transition">Servicios</a>
+        <a href="#about" class="text-gray-700 hover:text-blue-700 transition">Sobre mí</a>
+        <a href="#projects" class="text-gray-700 hover:text-blue-700 transition">Proyectos</a>
+        <a href="#testimonials" class="text-gray-700 hover:text-blue-700 transition">Testimonios</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-700 transition">Contacto</a>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- Sobre mí -->
-<section id="about" style="background:#f1f5f9;">
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:50px;">Sobre mí</h2>
-    <p style="max-width:800px; margin:0 auto; text-align:center;">
-      Profesional de Tecnologías de la Información con experiencia en soporte técnico, infraestructura TI, redes corporativas y continuidad operativa. Especialista en administración de sistemas Windows y Linux, gestión de servidores y optimización de procesos tecnológicos.
-    </p>
-  </div>
-</section>
-
-<!-- Certificaciones -->
-<section id="certifications">
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:50px;">Certificaciones y Estándares</h2>
-    <div class="cert-grid">
-      <div class="cert-card">
-        <h4>Especialización y Marcos</h4>
-        <ul>
-          <li>Cisco CCNA – Routing & Switching</li>
-          <li>ITIL Foundation</li>
-          <li>Estrategias de Continuidad Operativa</li>
-        </ul>
+  <!-- HERO -->
+  <header class="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between py-20 px-6 md:px-0">
+      <div class="md:w-1/2 space-y-6" data-aos="fade-right">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Edgar Francisco de León Hernández</h1>
+        <p class="text-lg md:text-xl text-gray-200">Implementación de arquitecturas de red robustas, continuidad operativa y soporte especializado en TI.</p>
+        <a href="#contact" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-lg transition">Solicitar Servicio</a>
       </div>
-      <div class="cert-card">
-        <h4>Sistemas y Virtualización</h4>
-        <ul>
-          <li>Windows Server & Linux</li>
-          <li>VMware & Microsoft Hyper-V</li>
-          <li>Google Campaign Manager 360</li>
-        </ul>
-      </div>
-      <div class="cert-card">
-        <h4>Seguridad y Monitoreo</h4>
-        <ul>
-          <li>PRTG & SolarWinds</li>
-          <li>Seguridad Perimetral y Redes Seguras</li>
-          <li>Gestión de Protección de Datos</li>
-        </ul>
+      <div class="md:w-1/2 mt-10 md:mt-0" data-aos="fade-left">
+        <img src="assets/images/hero-image.jpg" alt="Servicios TI" class="rounded-xl shadow-xl animate-fade-in">
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- Contacto -->
-<section id="contact" style="background:#f8fafc;">
-  <div class="container">
-    <form>
-      <h2>Contacto Profesional</h2>
-      <input type="text" name="name" placeholder="Nombre completo" required>
-      <input type="email" name="email" placeholder="Correo electrónico" required>
-      <textarea name="message" rows="4" placeholder="Describa su requerimiento" required></textarea>
-      <button type="submit">Enviar Mensaje</button>
-    </form>
-  </div>
-</section>
+  <!-- SECCIÓN SERVICIOS -->
+  <section id="services" class="container mx-auto py-20 px-6">
+    <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Servicios Profesionales</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- CARD 1 -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="100">
+        <img src="assets/icons/network.svg" class="w-12 mb-4" alt="Redes">
+        <h3 class="font-bold text-xl mb-2">Infraestructura TI</h3>
+        <p>Gestión de servidores, SaaS, CRM y entornos críticos con soporte nivel 2/3.</p>
+      </div>
 
-<!-- Footer -->
-<footer>
-  © 2026 Edgar Francisco de León Hernández | Infraestructura Crítica y Continuidad
-</footer>
+      <!-- CARD 2 -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="200">
+        <img src="assets/icons/security.svg" class="w-12 mb-4" alt="Seguridad">
+        <h3 class="font-bold text-xl mb-2">Ciberseguridad</h3>
+        <p>Protección de datos, monitoreo de red, seguridad perimetral y respuesta ante incidentes.</p>
+      </div>
 
-<!-- Botones flotantes -->
-<div class="floating-buttons">
-  <a href="https://wa.me/1234567890" target="_blank" class="whatsapp" title="WhatsApp">📱</a>
-  <a href="https://t.me/usuario" target="_blank" class="telegram" title="Telegram">✈️</a>
-  <a href="javascript:abrirChat()" class="chat" title="Chat en línea">💬</a>
-</div>
+      <!-- CARD 3 -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="300">
+        <img src="assets/icons/mobility.svg" class="w-12 mb-4" alt="Movilidad">
+        <h3 class="font-bold text-xl mb-2">Movilidad Corporativa</h3>
+        <p>Coordinación de despliegues, soporte en sitio y gestión de recursos a nivel nacional.</p>
+      </div>
 
-<!-- Tawk Chat -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/YOUR_TAWK_ID/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-function abrirChat(){ if(typeof Tawk_API !== 'undefined') Tawk_API.maximize(); }
-</script>
+    </div>
+  </section>
+
+  <!-- CONTADORES -->
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto grid md:grid-cols-4 gap-8 text-center">
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-4xl font-bold text-blue-900 counter" data-target="120">0</h3>
+        <p>Proyectos Completados</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-4xl font-bold text-blue-900 counter" data-target="15">0</h3>
+        <p>Años de Experiencia</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300">
+        <h3 class="text-4xl font-bold text-blue-900 counter" data-target="98">0</h3>
+        <p>% Satisfacción del Cliente</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="400">
+        <h3 class="text-4xl font-bold text-blue-900 counter" data-target="99">0</h3>
+        <p>% Disponibilidad de Sistemas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="about" class="container mx-auto py-20 px-6">
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <img src="assets/images/profile.jpg" alt="Edgar Francisco de León" class="rounded-full w-64 shadow-lg" data-aos="fade-right">
+      <div class="md:w-1/2 space-y-4" data-aos="fade-left">
+        <h2 class="text-3xl font-bold">Sobre mí</h2>
+        <p>Profesional en TI con trayectoria en soporte técnico, infraestructura crítica, redes y continuidad operativa para empresas corporativas y financieras.</p>
+        <p>Certificaciones: Cisco CCNA, ITIL Foundation, VMware, Microsoft Hyper-V y estrategias de continuidad operativa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="projects" class="container mx-auto py-20 px-6">
+    <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Proyectos Destacados</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1" data-aos="flip-left" data-aos-delay="100">
+        <img src="assets/images/project1.jpg" alt="Proyecto 1" class="rounded mb-4">
+        <h3 class="font-bold text-xl mb-2">Implementación LAN/WAN</h3>
+        <p>Proyecto de infraestructura para empresa financiera con uptime superior al 99.9%.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1" data-aos="flip-left" data-aos-delay="200">
+        <img src="assets/images/project2.jpg" alt="Proyecto 2" class="rounded mb-4">
+        <h3 class="font-bold text-xl mb-2">Seguridad Perimetral</h3>
+        <p>Protección integral de red y gestión de incidentes críticos en entorno corporativo.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1" data-aos="flip-left" data-aos-delay="300">
+        <img src="assets/images/project3.jpg" alt="Proyecto 3" class="rounded mb-4">
+        <h3 class="font-bold text-xl mb-2">Movilidad Corporativa</h3>
+        <p>Coordinación de logística y soporte en sitio para sucursales en todo el país.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS (Swiper Slider) -->
+  <section id="testimonials" class="bg-blue-50 py-20 px-6">
+    <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Testimonios</h2>
+    <div class="swiper-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide bg-white p-6 rounded-xl shadow">
+          <p>"Servicio excelente y soporte profesional de alta calidad. Recomendado al 100%."</p>
+          <h3 class="mt-4 font-bold text-blue-900">Cliente Corporativo A</h3>
+        </div>
+        <div class="swiper-slide bg-white p-6 rounded-xl shadow">
+          <p>"Implementación de infraestructura crítica impecable y uptime garantizado."</p>
+          <h3 class="mt-4 font-bold text-blue-900">Cliente Financiero B</h3>
+        </div>
+        <div class="swiper-slide bg-white p-6 rounded-xl shadow">
+          <p>"Excelente coordinación de despliegues y soporte en sitio. Muy confiable."</p>
+          <h3 class="mt-4 font-bold text-blue-900">Cliente Telco C</h3>
+        </div>
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination mt-6"></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contact" class="bg-blue-900 py-20 px-6 text-white">
+    <div class="container mx-auto max-w-xl">
+      <h2 class="text-3xl font-bold text-center mb-8">Contacto Profesional</h2>
+      <form class="bg-white text-gray-900 p-8 rounded-xl shadow space-y-6">
+        <input type="text" name="user_name" placeholder="Nombre completo" class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700" required>
+        <input type="email" name="user_email" placeholder="Correo electrónico" class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700" required>
+        <textarea name="message" rows="4" placeholder="Describa su requerimiento técnico o logístico" class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700" required></textarea>
+        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold p-4 rounded-lg transition">Enviar Requerimiento</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 text-center py-6">
+    <p>© 2026 Edgar Francisco de León Hernández | Infraestructura Crítica</p>
+    <div class="mt-2 flex justify-center space-x-4">
+      <a href="https://wa.me/tu-numero" target="_blank" class="hover:text-green-500 transition"><img src="assets/icons/whatsapp.svg" class="w-6" alt="WhatsApp"></a>
+      <a href="#" class="hover:text-blue-500 transition"><img src="assets/icons/telegram.svg" class="w-6" alt="Telegram"></a>
+    </div>
+  </footer>
+
+  <!-- CHAT TAWK -->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/ID_DE_TAWK/default';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 1000 });
+
+    // Swiper Slider
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      autoplay: { delay: 5000 },
+    });
+
+    // Contadores
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      counter.innerText = '0';
+      const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200;
+        if(count < target){
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCounter, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCounter();
+    });
+  </script>
 
 </body>
 </html>
