@@ -56,11 +56,24 @@
     /* CONSOLA DE SEGURIDAD */
     .security-log {
       background: var(--terminal); color: #4ade80; font-family: 'Courier New', monospace;
-      padding: 12px; border-radius: 8px; margin: 20px auto; max-width: 800px;
-      font-size: 0.75rem; border: 1px solid var(--border); height: 80px;
+      padding: 12px; border-radius: 8px 8px 0 0; margin: 20px auto 0; max-width: 800px;
+      font-size: 0.75rem; border: 1px solid var(--border); height: 60px;
       overflow: hidden; text-align: left; position: relative;
     }
-    .security-log::after { content: "SECURE_MONITOR_ACTIVE"; position: absolute; top: 5px; right: 10px; color: #1e40af; font-size: 0.6rem; font-weight: 800; }
+
+    /* DEFCON SYSTEM */
+    .defcon-bar {
+      max-width: 800px; margin: 0 auto 20px; display: grid; grid-template-columns: repeat(5, 1fr);
+      height: 30px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; overflow: hidden;
+    }
+    .defcon-step { display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; color: rgba(255,255,255,0.3); background: #1e293b; transition: 0.5s; }
+    .defcon-5 { border-right: 1px solid rgba(255,255,255,0.1); }
+    .defcon-5.active { background: var(--green); color: white; box-shadow: inset 0 0 15px rgba(0,0,0,0.5); }
+    .defcon-4.active { background: #60a5fa; color: white; }
+    .defcon-3.active { background: var(--yellow); color: black; }
+    .defcon-2.active { background: #fb923c; color: white; }
+    .defcon-1.active { background: var(--red); color: white; animation: flash-red 1s infinite; }
+    @keyframes flash-red { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 
     .tawk-helper {
       position: fixed; bottom: 90px; right: 25px; background: white; color: var(--secondary);
@@ -163,8 +176,15 @@
     <p class="hero-p" id="hero-desc">Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa bajo estándares de protección de datos y optimización de recursos TI con soporte especializado en campo.</p>
     
     <div class="security-log" id="sec-console">
-      > Inicializando sistemas...<br>
-      > Monitoreo de integridad activo.<br>
+      > Estado del Sistema: Óptimo<br>
+      > Monitoreo de Amenazas: Activo
+    </div>
+    <div class="defcon-bar">
+      <div class="defcon-step defcon-5 active" id="def-5">DEFCON 5</div>
+      <div class="defcon-step defcon-4" id="def-4">DEFCON 4</div>
+      <div class="defcon-step defcon-3" id="def-3">DEFCON 3</div>
+      <div class="defcon-step defcon-2" id="def-2">DEFCON 2</div>
+      <div class="defcon-step defcon-1" id="def-1">DEFCON 1</div>
     </div>
   </div>
 </header>
@@ -278,23 +298,30 @@
 <script>
   (function() { emailjs.init("xI0INopTtsN4wsLEF"); })();
 
-  // LOGICA CONSOLA VISUAL
+  // LÓGICA DEFCON DINÁMICO
+  function updateDefcon(level) {
+    document.querySelectorAll('.defcon-step').forEach(el => el.classList.remove('active'));
+    document.getElementById(`def-${level}`).classList.add('active');
+  }
+
+  // LÓGICA CONSOLA
   function startConsole() {
     const logs = [
-      "> Verificando túneles VPN...",
-      "> Escaneo de red: 0 amenazas detectadas.",
-      "> Latencia: 15ms. Estado: Estable.",
-      "> Backup programado: OK.",
-      "> Firewall: Reglas actualizadas.",
-      "> Certificados SSL: Válidos."
+      "> Analizando paquetes...", "> Protocolo seguro activo.", 
+      "> Sin intrusiones.", "> Nodo 01: Conectado.", 
+      "> Firewall: Operativo.", "> Redundancia: OK."
     ];
     const el = document.getElementById('sec-console');
     setInterval(() => {
       const line = document.createElement('div');
       line.innerText = logs[Math.floor(Math.random() * logs.length)];
       el.appendChild(line);
-      if (el.childNodes.length > 5) el.removeChild(el.firstChild);
-    }, 4000);
+      if (el.childNodes.length > 4) el.removeChild(el.firstChild);
+      
+      // Simulación de cambio de DEFCON aleatorio (Solo para efecto visual)
+      const randomDef = Math.floor(Math.random() * 2) + 4; // Cambia entre 5 y 4
+      updateDefcon(randomDef);
+    }, 5000);
   }
   startConsole();
 
@@ -399,7 +426,6 @@
     document.getElementById('btn-vcard').innerText = t.vcard;
   }
 
-  // FUNCION DE LIMPIEZA DE TEXTO (SEGURIDAD)
   function clean(str) {
     const div = document.createElement('div');
     div.textContent = str;
@@ -409,6 +435,10 @@
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     if (document.getElementById('honeypot').value !== "") return;
+    
+    // Al intentar enviar, subimos el DEFCON a nivel 2 (Alerta técnica)
+    updateDefcon(2);
+    
     const btn = document.getElementById('btn-submit');
     btn.innerText = (currentLang === 'es') ? 'ENVIANDO...' : 'SENDING...';
     btn.disabled = true;
@@ -425,8 +455,8 @@
         btn.innerText = (currentLang === 'es') ? 'SOLICITUD ENVIADA' : 'REQUEST SENT'; 
         btn.style.background = 'var(--green)';
         this.reset(); 
+        updateDefcon(5); // Volvemos a estado normal
         
-        // BLOQUEO DE SEGURIDAD DE 60 SEGUNDOS (Rate Limiting)
         setTimeout(() => { 
           btn.innerText = texts[currentLang].btn; 
           btn.style.background = 'var(--primary)';
@@ -436,6 +466,7 @@
         btn.innerText = 'ERROR'; 
         btn.style.background = 'var(--red)';
         btn.disabled = false;
+        updateDefcon(1); // Error crítico
       });
   });
 
