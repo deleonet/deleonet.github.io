@@ -38,7 +38,7 @@
         --border: #334155;
       }
       header, .nav-lang { background: #0f172a !important; border-bottom: 1px solid var(--border) !important; }
-      .status-card, .card, form { background: var(--card-bg) !important; border: 1px solid var(--border) !important; }
+      .status-card, .card { background: var(--card-bg) !important; border: 1px solid var(--border) !important; }
       .hero-p { color: #cbd5e1 !important; }
       .btn-vcard { background: transparent !important; color: white !important; border-color: white !important; }
       .news-bar { background: #000000 !important; border-bottom: 2px solid var(--primary) !important; }
@@ -49,7 +49,6 @@
     body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding-top: 40px; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
     
-    /* Banner de Noticias DEFCON */
     .news-bar { position: fixed; top: 0; left: 0; width: 100%; background: #000; color: #fff; height: 40px; z-index: 2000; overflow: hidden; display: flex; align-items: center; font-size: 0.8rem; font-weight: 700; border-bottom: 2px solid var(--red); }
     .news-title { background: var(--red); padding: 0 15px; height: 100%; display: flex; align-items: center; position: absolute; z-index: 2001; letter-spacing: 1px; }
     .marquee-content { display: inline-block; white-space: nowrap; animation: marquee 100s linear infinite; padding-left: 100%; color: var(--acid-green); }
@@ -88,20 +87,11 @@
     .border-red { border: 5px solid var(--red); }
     .card h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; }
 
-    .cert-section { background: #0f172a; color: white; padding: 80px 0; }
-    .section-title-light { text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 50px; }
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-    .cert-category { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); }
-    .cert-category h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--green); margin-bottom: 20px; font-weight: 800; }
-
-    .contact-block { padding: 100px 0; background: var(--form-bg); }
-    form { max-width: 600px; margin: 0 auto; padding: 50px; background: #ffffff; border-radius: 16px; border: 1px solid var(--border); }
-    form h2 { text-align: center; margin-bottom: 30px; font-weight: 800; font-size: 2rem; }
-    form input, form textarea { width: 100%; padding: 16px; margin-bottom: 20px; border: 2px solid var(--border); border-radius: 10px; box-sizing: border-box; }
-    form button { width: 100%; background: var(--primary); color: white; border: none; padding: 20px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 10px; }
+    .contact-block { padding: 100px 0; background: var(--form-bg); text-align: center; }
+    .email-display { font-size: 2rem; font-weight: 800; color: var(--secondary); text-decoration: none; border-bottom: 3px solid var(--acid-green); transition: 0.3s; margin: 20px 0; display: inline-block; }
+    .email-display:hover { color: var(--primary); }
     
     .btn-vcard { display: block; width: 100%; max-width: 600px; margin: 20px auto; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 15px; font-weight: 800; border-radius: 10px; text-align: center; text-decoration: none; }
-    .hp-field { display: none !important; }
     footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; background: #0f172a; }
   </style>
 
@@ -212,13 +202,12 @@
       </button>
     </div>
 
-    <form id="contact-form">
-      <h2 id="f-h">Contacto Profesional</h2>
-      <input type="text" placeholder="Nombre completo" required>
-      <input type="email" placeholder="Correo electrónico" required>
-      <textarea rows="4" placeholder="Describa su requerimiento técnico" required></textarea>
-      <button type="submit" id="btn-submit">Enviar Requerimiento</button>
-    </form>
+    <div style="margin: 40px 0;">
+      <h2 id="f-h" style="font-weight: 800; font-size: 2rem; color: var(--secondary); margin-bottom: 10px;">Contacto Profesional</h2>
+      <p id="email-label" style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 5px;">Escríbanos directamente a:</p>
+      <a href="mailto:xxxx.gamail.com" class="email-display">xxxx.gamail.com</a>
+    </div>
+
     <a href="#" class="btn-vcard" id="btn-vcard">Descargar Contacto de Edgar</a>
   </section>
 </main>
@@ -226,7 +215,6 @@
 <footer>© 2026 Edgar Francisco De Leon Hernandez | Infraestructura Crítica</footer>
 
 <script>
-  // NOTICIAS REALES CONECTADAS A FUENTES DE SEGURIDAD
   async function cargarNoticiasDEFCON() {
     const feedDisplay = document.getElementById('news-feed');
     const fuentes = [
@@ -252,17 +240,16 @@
 
   window.addEventListener('load', cargarNoticiasDEFCON);
 
-  // Traducciones
   const texts = {
-    es: { badge: "Infraestructura Crítica y Gestión de Continuidad", desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa.", fh: "Contacto Profesional", btn: "Enviar Requerimiento" },
-    en: { badge: "Critical Infrastructure & Continuity Management", desc: "Implementation of robust and secure network architectures, proactive operational continuity management.", fh: "Professional Contact", btn: "Send Requirement" }
+    es: { badge: "Infraestructura Crítica y Gestión de Continuidad", desc: "Implementación de arquitecturas de red robustas y seguras, gestión proactiva de continuidad operativa.", fh: "Contacto Profesional", emailLabel: "Escríbanos directamente a:" },
+    en: { badge: "Critical Infrastructure & Continuity Management", desc: "Implementation of robust and secure network architectures, proactive operational continuity management.", fh: "Professional Contact", emailLabel: "Write to us directly at:" }
   };
 
   function setLanguage(lang) {
     document.getElementById('badge-text').innerText = texts[lang].badge;
     document.getElementById('hero-desc').innerText = texts[lang].desc;
     document.getElementById('f-h').innerText = texts[lang].fh;
-    document.getElementById('btn-submit').innerText = texts[lang].btn;
+    document.getElementById('email-label').innerText = texts[lang].emailLabel;
   }
 </script>
 </body>
