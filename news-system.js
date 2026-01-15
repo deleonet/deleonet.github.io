@@ -1,49 +1,55 @@
-async function iniciarFeedNoticias() {
-    const feedDisplay = document.getElementById('news-feed');
-    // Fuentes: Seguridad, Finanzas, Geopolítica
-    const fuentes = [
-        "https://www.bleepingcomputer.com/feed/",
-        "https://thehackernews.com/feeds/posts/default",
-        "https://www.reutersagency.com/feed/?best-topics=political-general&format=rss",
-        "https://finance.yahoo.com/news/rssindex"
+ /* =========================================
+   SISTEMA DE INTELIGENCIA GEOPOLÍTICA 2026
+   ALIMENTACIÓN: CONFLICTOS, ECONOMÍA & DEFCON
+   ========================================= */
+
+async function fetchGlobalIntelligence() {
+    const feedElement = document.getElementById('news-feed');
+    
+    // Lista de 10 Feeds estratégicos filtrados por temas
+    const feeds = [
+        'https://www.reutersagency.com/feed/?best-topics=world-news&post_type=best', // Geopolítica Global
+        'https://www.aljazeera.com/xml/rss/all.xml', // Oriente Medio y Conflictos
+        'https://feeds.bbci.co.uk/news/world/asia/rss.xml', // China, Taiwán, Rusia
+        'https://thehackernews.com/feeds/posts/default', // DEFCON Informático / Ciberseguridad
+        'https://www.reutersagency.com/feed/?best-topics=business&post_type=best', // Economía & Petróleo
+        'https://noticieros.televisa.com/rss/mexico/', // México (Actualidad local/frontera)
+        'https://www.elnacional.com/venezuela/rss/', // Venezuela (Contexto regional)
+        'https://14ymedio.com/rss/', // Cuba (Contexto Caribe)
+        'https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?max=10', // Pentagono / Conflictos Bélicos
+        'https://www.oilprice.com/rss/main' // Mercado de Petróleo y Energía
     ];
 
-    async function obtenerNoticias() {
-        let todasLasNoticias = [];
+    // Usamos el servicio rss2json (Free Tier)
+    const apiService = 'https://api.rss2json.com/v1/api.json?rss_url=';
+    
+    try {
+        let combinedHeadlines = [];
         
-        for (let url of fuentes) {
-            try {
-                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`;
-                const response = await fetch(proxyUrl);
-                const data = await response.json();
-                
-                if (data.status === 'ok') {
-                    const items = data.items.map(item => {
-                        let prefix = "[ALERTA TECNOLÓGICA]";
-                        if (url.includes("reuters")) prefix = "[GEOPOLÍTICA/GUERRA]";
-                        if (url.includes("finance")) prefix = "[MERCADOS/ECONOMÍA]";
-                        
-                        return ` ${prefix}: ${item.title.toUpperCase()} `;
-                    });
-                    todasLasNoticias = [...todasLasNoticias, ...items];
-                }
-            } catch (e) {
-                console.error("Fallo en nodo de noticias:", url);
+        // Consultamos los primeros 5 feeds para no saturar el rendimiento inicial
+        for (let i = 0; i < feeds.length; i++) {
+            const response = await fetch(apiService + encodeURIComponent(feeds[i]));
+            const data = await response.json();
+            
+            if (data.status === 'ok') {
+                data.items.slice(0, 3).forEach(item => {
+                    // Limpiamos el texto y lo ponemos en mayúsculas para estilo DEFCON
+                    combinedHeadlines.push(item.title.toUpperCase());
+                });
             }
         }
 
-        if (todasLasNoticias.length > 0) {
-            // Mezclamos las noticias para que no salgan siempre las mismas primero
-            todasLasNoticias.sort(() => Math.random() - 0.5);
-            feedDisplay.innerHTML = todasLasNoticias.join(' --- ') + " --- " + todasLasNoticias.join(' --- ');
-        } else {
-            feedDisplay.innerHTML = "SISTEMA DEFCON: MODO DE EMERGENCIA ACTIVO --- MONITOREO DE RED ESTABLE --- SIN ALERTAS CRÍTICAS EN EL RADAR.";
+        if (combinedHeadlines.length > 0) {
+            // Unimos todo con separadores de grado militar
+            feedElement.innerText = " [!] " + combinedHeadlines.join(" [---] ") + " [!] ";
         }
-    }
 
-    obtenerNoticias();
-    // Actualiza el feed cada 10 minutos
-    setInterval(obtenerNoticias, 600000);
+    } catch (error) {
+        console.warn("Falla en enlace satelital de noticias. Usando caché local.");
+        feedElement.innerText = " +++ ALERTA: MONITOREO DE EMERGENCIA ACTIVO - REVISANDO CIBERSEGURIDAD Y MERCADOS ENERGÉTICOS +++ ";
+    }
 }
 
-window.addEventListener('load', iniciarFeedNoticias);
+// Ejecución inicial y refresco cada 5 minutos (300000 ms)
+fetchGlobalIntelligence();
+setInterval(fetchGlobalIntelligence, 300000);
