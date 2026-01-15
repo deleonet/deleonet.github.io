@@ -1,1 +1,9 @@
+# Archivos de configuración sensible
 .env
+config.json
+node_modules/
+
+# Logs y temporales
+*.log
+.DS_Store
+dist/
