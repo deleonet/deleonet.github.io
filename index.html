@@ -6,9 +6,6 @@
   <title>Edgar Francisco De Leon Hernandez | Infraestructura Crítica</title>
   
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-src 'self' https://va.tawk.to https://embed.tawk.to https://cybermap.kaspersky.com; connect-src 'self' https: wss://*.tawk.to; frame-ancestors 'none'; upgrade-insecure-requests;">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -17,138 +14,171 @@
     :root { 
       --primary: #1e40af; --secondary: #0f172a; --bg: #f8fafc; --text: #1e293b; 
       --green: #16a34a; --yellow: #facc15; --red: #dc2626; --acid-green: #ccff00;
-      --form-bg: #f1f5f9; --card-bg: #ffffff; --border: #e2e8f0; --whatsapp: #25D366; --telegram: #0088cc;
-      --dash-bg: #0a0f1e;
+      --border: #e2e8f0; --card-bg: #ffffff;
     }
     @media (prefers-color-scheme: dark) {
-      :root { --bg: #0f172a; --text: #f8fafc; --secondary: #ffffff; --form-bg: #1e293b; --card-bg: #1e293b; --border: #334155; }
-      header { background: #0f172a !important; border-bottom: 1px solid var(--border) !important; }
-      .news-bar { background: #000000 !important; border-bottom: 2px solid var(--primary) !important; }
+      :root { --bg: #0f172a; --text: #f8fafc; --secondary: #ffffff; --card-bg: #1e293b; --border: #334155; }
     }
-    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding-top: 40px; }
+    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding-top: 40px; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
-    /* Barra de Noticias DEFCON */
-    .news-bar { position: fixed; top: 0; left: 0; width: 100%; background: #000; color: #fff; height: 40px; z-index: 2000; overflow: hidden; display: flex; align-items: center; font-size: 0.8rem; font-weight: 700; border-bottom: 2px solid var(--red); }
-    .news-title { background: var(--red); padding: 0 15px; height: 100%; display: flex; align-items: center; position: absolute; z-index: 2001; letter-spacing: 1px; }
-    .marquee-content { display: inline-block; white-space: nowrap; animation: marquee 100s linear infinite; padding-left: 100%; color: var(--acid-green); }
+    /* Barra DEFCON */
+    .news-bar { position: fixed; top: 0; left: 0; width: 100%; background: #000; color: #fff; height: 40px; z-index: 2000; overflow: hidden; display: flex; align-items: center; border-bottom: 2px solid var(--red); }
+    .news-title { background: var(--red); padding: 0 15px; height: 100%; display: flex; align-items: center; font-size: 0.8rem; font-weight: 800; position: absolute; z-index: 2001; }
+    .marquee { display: inline-block; white-space: nowrap; animation: marquee 60s linear infinite; padding-left: 100%; color: var(--acid-green); font-size: 0.8rem; font-weight: 700; }
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-    header { background: white; padding: 60px 0 100px 0; border-bottom: 1px solid var(--border); text-align: center; }
-    .badge-top { display: inline-block; background: #dbeafe; color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 20px; }
-    h1 { font-size: 3rem; color: var(--secondary); margin: 0; font-weight: 800; }
-    .hero-p { font-size: 1.25rem; max-width: 900px; margin: 15px auto 0; color: #475569; font-weight: 500; }
+    header { padding: 60px 0; text-align: center; border-bottom: 1px solid var(--border); }
+    .badge-top { background: #dbeafe; color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; }
+    h1 { font-size: 2.5rem; margin: 20px 0 10px; font-weight: 800; }
 
-    /* --- NUEVO DASHBOARD DE MONITOREO --- */
-    .cyber-dashboard { background: var(--dash-bg); color: #fff; border-radius: 12px; padding: 25px; margin: -50px auto 40px; border: 1px solid var(--primary); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4); position: relative; z-index: 100; }
-    .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .dash-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary); }
-    .dash-item h4 { margin: 0 0 15px 0; font-size: 0.7rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
-    
-    /* Netblocks Widget */
-    .status-live { display: flex; align-items: center; font-weight: 800; font-size: 0.9rem; color: var(--green); }
-    .pulse { width: 10px; height: 10px; background: var(--green); border-radius: 50%; margin-right: 10px; animation: pulse-anim 2s infinite; }
-    @keyframes pulse-anim { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
-    
-    /* Security Badge */
-    .s-badge { display: flex; align-items: center; gap: 15px; background: #052e16; border: 1px solid var(--green); padding: 10px; border-radius: 6px; }
-    .rank-a { font-size: 1.8rem; font-weight: 900; color: var(--acid-green); }
-    .rank-txt { font-size: 0.65rem; font-weight: 700; line-height: 1.2; }
+    /* Dashboard */
+    .dashboard { background: #0a0f1e; color: #fff; border-radius: 12px; padding: 20px; margin: 20px 0 40px; border: 1px solid var(--primary); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .dash-item { padding: 10px; border-left: 3px solid var(--primary); }
+    .status-up { color: var(--green); font-weight: 800; font-size: 0.9rem; }
 
-    /* Botón Mapa */
-    .btn-map { display: block; width: 100%; padding: 10px; background: var(--red); color: white; text-align: center; text-decoration: none; border-radius: 4px; font-weight: 800; font-size: 0.75rem; margin-top: 10px; }
+    /* SERVICIOS - ESTO ES LO QUE NECESITAS MOSTRAR */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+    .service-card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .service-card h2 { font-size: 1.3rem; text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+    .service-card ul { padding-left: 20px; margin: 0; }
+    .service-card li { margin-bottom: 8px; font-weight: 500; }
     
-    /* Estilos de servicios y otros (Igual que los anteriores) */
-    .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin: 50px 0; }
-    .card { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid var(--border); }
-    .border-green { border-top: 5px solid var(--green); }
-    /* ... (resto de tus estilos de tarjetas) ... */
+    .b-infra { border-top: 5px solid var(--green); }
+    .b-net { border-top: 5px solid var(--yellow); }
+    .b-mob { border-top: 5px solid var(--red); }
+
+    /* CERTIFICACIONES */
+    .cert-section { background: var(--secondary); color: white; padding: 60px 0; border-radius: 20px; margin-bottom: 50px; }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 20px; }
+    .cert-cat h3 { color: var(--acid-green); font-size: 0.9rem; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+    .cert-cat li { list-style: none; margin-bottom: 10px; font-size: 0.9rem; }
+
+    /* CONTACTO */
+    .contact-zone { text-align: center; padding: 60px 0; background: var(--form-bg); border-radius: 12px; }
+    .btn-chat { background: var(--primary); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; margin: 10px; }
+    .email-link { font-size: 1.8rem; font-weight: 800; color: var(--primary); text-decoration: none; word-break: break-all; }
   </style>
 
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true; s1.src='https://embed.tawk.to/69641846aae923197d507363/1jenftlcf';
-      s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
-    function abrirChat() { if(typeof Tawk_API !== 'undefined' && Tawk_API.maximize) { Tawk_API.maximize(); } }
-  </script>
 </head>
 <body>
 
 <div class="news-bar">
   <div class="news-title">DEFCON FEED</div>
-  <div class="marquee-content" id="news-feed">ESTABLECIENDO CONEXIÓN CON NODOS DE SEGURIDAD...</div>
+  <div class="marquee" id="news-feed">CARGANDO DATOS DE INFRAESTRUCTURA...</div>
 </div>
 
-<header>
-  <div class="container">
-    <span class="badge-top">Infraestructura Crítica & Continuidad TI</span>
-    <h1>Edgar Francisco De Leon Hernandez</h1>
-    <p class="hero-p">Gestión proactiva de sistemas y protección de activos digitales bajo estándares internacionales.</p>
-  </div>
+<header class="container">
+  <span class="badge-top">Infraestructura Crítica</span>
+  <h1>Edgar Francisco De Leon Hernandez</h1>
+  <p>Gestión de Continuidad y Soporte Técnico de Misión Crítica</p>
 </header>
 
-<section class="container">
-  <div class="cyber-dashboard">
-    <div class="dash-grid">
-      <div class="dash-item">
-        <h4><i class="fas fa-network-wired"></i> Global Network Health</h4>
-        <div class="status-live">
-          <div class="pulse"></div> 
-          <span>INTERNET STATUS: NOMINAL</span>
-        </div>
-        <p style="font-size: 0.65rem; color: #94a3b8; margin-top: 8px;">Nodos troncales operando al 98.4% de eficiencia global.</p>
-      </div>
-
-      <div class="dash-item">
-        <h4><i class="fas fa-user-shield"></i> Security Verification</h4>
-        <div class="s-badge">
-          <div class="rank-a">A+</div>
-          <div class="rank-txt">CSP v3 VERIFIED<br>ENCRYPTION: AES-256<br>HSTS: ENABLED</div>
-        </div>
-      </div>
-
-      <div class="dash-item">
-        <h4><i class="fas fa-biohazard"></i> Real-Time Threats</h4>
-        <p style="font-size: 0.7rem; margin-bottom: 10px;">Visualización de ciberataques detectados en las últimas 24h.</p>
-        <a href="https://cybermap.kaspersky.com/es" target="_blank" class="btn-map">
-          ABRIR MONITOR DE AMENAZAS <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <main class="container">
-  <div class="grid-services">
-    <div class="card border-green">
-      <h2>Infraestructura TI</h2>
+  
+  <section class="dashboard">
+    <div class="dash-item">
+      <small>ESTADO DE RED GLOBAL</small>
+      <div class="status-up">● INTERNET: NOMINAL</div>
+    </div>
+    <div class="dash-item">
+      <small>SEGURIDAD WEB</small>
+      <div class="status-up">● SSL/CSP: PROTEGIDO</div>
+    </div>
+    <div class="dash-item">
+      <small>MAPA DE AMENAZAS</small>
+      <a href="https://cybermap.kaspersky.com/es" target="_blank" style="color:var(--red); text-decoration:none; font-weight:800;">VER EN VIVO →</a>
+    </div>
+  </section>
+
+  <section class="services-grid">
+    <div class="service-card b-infra">
+      <h2><i class="fas fa-server"></i> Infraestructura TI</h2>
       <ul>
-        <li>Incidentes Críticos L2/L3.</li>
-        <li>Administración SaaS y CRM.</li>
-        <li>Soporte de misión crítica.</li>
+        <li>Gestión de Incidentes Críticos (L2/L3).</li>
+        <li>Administración de Ecosistemas SaaS y CRM.</li>
+        <li>Soporte híbrido enfocado en resiliencia.</li>
+        <li>Diagnóstico avanzado en entornos de misión crítica.</li>
       </ul>
     </div>
+    <div class="service-card b-net">
+      <h2><i class="fas fa-network-wired"></i> Redes & Conectividad</h2>
+      <ul>
+        <li>Diseño de infraestructura: racks y fibra.</li>
+        <li>Certificación de nodos y Telefonía IP.</li>
+        <li>Mantenimiento LAN/WAN y monitoreo proactivo.</li>
+        <li>Planificación de redes escalables.</li>
+      </ul>
     </div>
+    <div class="service-card b-mob">
+      <h2><i class="fas fa-car"></i> Movilidad</h2>
+      <ul>
+        <li>Movilidad corporativa profesional (Licencia B).</li>
+        <li>Coordinación de despliegues nacionales.</li>
+        <li>Soporte técnico inmediato en sitio.</li>
+        <li>Gestión de recursos y personal en campo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cert-section">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:40px;">Especializaciones & Certificaciones</h2>
+      <div class="cert-grid">
+        <div class="cert-cat">
+          <h3>Sistemas & Marketing</h3>
+          <ul>
+            <li>Google Campaign Manager 360</li>
+            <li>Gestión de Identidad y Acceso</li>
+            <li>Salesforce/HubSpot CRM</li>
+          </ul>
+        </div>
+        <div class="cert-cat">
+          <h3>Infraestructura & Redes</h3>
+          <ul>
+            <li>Cableado Estructurado</li>
+            <li>Cisco/Ubiquiti LAN/WAN</li>
+            <li>Configuración Telefonía IP</li>
+          </ul>
+        </div>
+        <div class="cert-cat">
+          <h3>Seguridad & Monitoreo</h3>
+          <ul>
+            <li>Sistemas SOC/NOC</li>
+            <li>Monitoreo PRTG / Zabbix</li>
+            <li>Ciberseguridad Perimetral</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-zone">
+    <p><strong>💬 Contamos con chat para atención en tiempo real y soporte técnico inmediato.</strong></p>
+    <a href="javascript:void(0)" onclick="Tawk_API.maximize()" class="btn-chat"><i class="fab fa-whatsapp"></i> WhatsApp Support</a>
+    <a href="javascript:void(0)" onclick="Tawk_API.maximize()" class="btn-chat"><i class="fab fa-telegram"></i> Telegram Support</a>
+    
+    <div style="margin-top:40px;">
+      <h3>Contacto Profesional</h3>
+      <p>Escríbanos directamente a:</p>
+      <a href="mailto:soportedeleonnet@gmail.com" class="email-link">soportedeleonnet@gmail.com</a>
+    </div>
+  </section>
+
 </main>
 
-<script>
-  // Script para el feed de noticias DEFCON
-  async function cargarNoticias() {
-    const feed = document.getElementById('news-feed');
-    try {
-      const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://thehackernews.com/feeds/posts/default`);
-      const data = await res.json();
-      const news = data.items.map(i => ` [ALERTA: ${i.title.toUpperCase()}] `).join(' --- ');
-      feed.innerHTML = news + " --- " + news;
-    } catch (e) {
-      feed.innerHTML = "SISTEMA DEFCON: MONITOREO ACTIVO --- ESTADO DE RED: ÓPTIMO --- SEGURIDAD PERIMETRAL: OK";
-    }
-  }
-  window.onload = cargarNoticias;
+<footer style="text-align:center; padding:40px; color:#94a3b8; font-size:0.8rem;">
+  © 2026 Edgar Francisco De Leon Hernandez | Infraestructura Crítica Profesional
+</footer>
+
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true; s1.src='https://embed.tawk.to/69641846aae923197d507363/1jenftlcf';
+s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 </script>
 
 </body>
