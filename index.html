@@ -4,18 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edgar Francisco De Leon Hernandez | Infraestructura Crítica</title>
-  
+  <meta name="description" content="Especialista en Infraestructura TI, Redes y Resiliencia. Consultoría experta por Edgar Francisco De Leon Hernandez.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-src 'self' https://va.tawk.to https://embed.tawk.to; connect-src 'self' https: wss://*.tawk.to; upgrade-insecure-requests;">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Michroma&family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="news-bar">
   <div class="news-title">DEFCON FEED</div>
-  <div class="marquee" id="news-feed">CARGANDO ÚLTIMA HORA: INTELIGENCIA GLOBAL, MERCADOS Y CIBERSEGURIDAD...</div>
+  <div class="marquee" id="news-feed">ESTABLECIENDO ENLACE CON SATÉLITES DE INTELIGENCIA GEOPOLÍTICA...</div>
 </div>
 
 <header class="container">
@@ -117,43 +116,58 @@
         <div class="terminal-controls"><span></span><span></span><span></span></div>
         <div class="terminal-title">PAN-CHISCO_V2.0_CORE_ADVISOR</div>
       </div>
-      <div class="terminal-body">
-        <div class="ai-intro">
-          <p class="typing">> Inicializando módulo de asesoría gratuita 2026...</p>
-          <h2>Habla con Panchisco (Asesoría Experta)</h2>
-          <p>Obtén diagnóstico inicial gratuito y materiales exclusivos. El registro es obligatorio para recibir tu kit técnico de certificaciones.</p>
+      <div class="terminal-body" id="panchisco-terminal">
+        <div id="gate-form-container">
+          <div class="ai-intro">
+            <p class="typing">> SISTEMA DE SOPORTE EN VIVO 24/7 ACTIVADO...</p>
+            <h2>Habla con Panchisco (Asesoría Experta)</h2>
+            <p>Contamos con expertos que le pueden asesorar gratuitamente para resolver sus problemas técnicos. El registro es obligatorio para activar el chat y recibir cursos/certificaciones gratis.</p>
+          </div>
+          <form id="expert-access-form" class="ai-form">
+            <div class="form-row">
+              <div class="input-field">
+                <label>NOMBRE / EMPRESA</label>
+                <input type="text" id="reg-name" required placeholder="Nombre completo">
+              </div>
+              <div class="input-field">
+                <label>CORREO CORPORATIVO</label>
+                <input type="email" id="reg-email" required placeholder="ejemplo@empresa.com">
+              </div>
+            </div>
+            <div class="input-field">
+              <label>ÁREA DE CONSULTORÍA REQUERIDA</label>
+              <select id="reg-topic" required>
+                <option value="" disabled selected>-- Seleccione especialidad --</option>
+                <option>Ciberseguridad y Seguridad Perimetral</option>
+                <option>Redes LAN/WAN y Inalámbrica</option>
+                <option>Ecosistemas Cloud (SaaS, PaaS, IaaS)</option>
+                <option>Infraestructura TI y Virtualización</option>
+                <option>Soporte Técnico L1/L2/L3</option>
+                <option>Bases de Datos y CRM</option>
+                <option>Telefonía IP y Comunicaciones</option>
+                <option>Respaldo de Datos y DRP</option>
+                <option>Monitorización y Observabilidad</option>
+                <option>Automatización e IA</option>
+                <option>Cableado Estructurado y Data Centers</option>
+                <option>Auditoría de Sistemas</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-ai-send">
+              <i class="fas fa-comments"></i> PRESIONE AQUÍ PARA HABLAR CON LOS EXPERTOS
+            </button>
+          </form>
         </div>
-        <form id="panchisco-lead-form" class="ai-form">
-          <div class="form-row">
-            <div class="input-field">
-              <label>NOMBRE O EMPRESA</label>
-              <input type="text" placeholder="Ej: TechCorp Logistics" required>
-            </div>
-            <div class="input-field">
-              <label>CORREO (Para envío de cursos gratis)</label>
-              <input type="email" placeholder="ingenieria@empresa.com" required>
-            </div>
+
+        <div id="active-live-chat" style="display:none;">
+          <div class="chat-header-status">
+            <span class="status-dot"></span> CONECTADO CON: <strong>ING. PANCHISCO (IA_ASSISTANT)</strong>
           </div>
-          <div class="input-field">
-            <label>ÁREA DE CONSULTORÍA ESPECIALIZADA</label>
-            <select required>
-              <option value="" disabled selected>-- Seleccione un área --</option>
-              <option>Ciberseguridad y Seguridad Perimetral</option>
-              <option>Redes LAN/WAN y Inalámbrica</option>
-              <option>Ecosistemas Cloud (SaaS, PaaS, IaaS)</option>
-              <option>Infraestructura TI y Virtualización</option>
-              <option>Soporte Técnico y Gestión de Incidentes</option>
-              <option>Administración de Bases de Datos y CRM</option>
-              <option>Telefonía IP y Comunicaciones</option>
-              <option>Respaldo de Datos y DRP</option>
-              <option>Monitorización y Observabilidad</option>
-              <option>Automatización e IA</option>
-              <option>Cableado Estructurado y Data Centers</option>
-              <option>Cumplimiento Normativo y Auditoría</option>
-            </select>
+          <div class="chat-log" id="expert-chat-log"></div>
+          <div class="chat-input-area">
+            <input type="text" id="chat-msg-input" placeholder="Escriba su consulta técnica...">
+            <button onclick="sendExpertMessage()" class="btn-chat-send">ENVIAR</button>
           </div>
-          <button type="submit" class="btn-ai-send">SOLICITAR ASESORÍA & RECIBIR CURSOS GRATIS</button>
-        </form>
+        </div>
       </div>
     </div>
   </section>
