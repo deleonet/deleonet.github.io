@@ -79,7 +79,7 @@ body {
     display: inline-block; 
     white-space: nowrap; 
     /* MODIFICACIÓN DE VELOCIDAD: 200s es ideal para lectura lenta */
-    animation: marquee 800s linear infinite; 
+    animation: marquee 1000s linear infinite; 
     color: var(--acid-green); 
     font-family: 'Courier New', monospace; 
     font-weight: bold; 
