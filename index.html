@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -114,14 +114,14 @@
     <div class="terminal-card">
       <div class="terminal-header">
         <div class="terminal-controls"><span></span><span></span><span></span></div>
-        <div class="terminal-title">PAN-CHISCO_V2.0_CORE_ADVISOR</div>
+        <div class="terminal-title">PAN-CHISCO_V2.0_EXPERT_SYSTEM</div>
       </div>
       <div class="terminal-body" id="panchisco-terminal">
         <div id="gate-form-container">
           <div class="ai-intro">
-            <p class="typing">> SISTEMA DE SOPORTE EN VIVO 24/7 ACTIVADO...</p>
-            <h2>Habla con Panchisco (Asesoría Experta)</h2>
-            <p>Contamos con expertos que le pueden asesorar gratuitamente para resolver sus problemas técnicos. El registro es obligatorio para activar el chat y recibir cursos/certificaciones gratis.</p>
+            <p class="typing">> SOPORTE TÉCNICO AVANZADO 24/7...</p>
+            <h2>Asesoría Técnica Inmediata</h2>
+            <p>Contamos con expertos y sistemas de IA para resolver sus problemas de infraestructura en tiempo real. Ingrese sus datos para activar la resolución de problemas.</p>
           </div>
           <form id="expert-access-form" class="ai-form">
             <div class="form-row">
@@ -138,34 +138,34 @@
               <label>ÁREA DE CONSULTORÍA REQUERIDA</label>
               <select id="reg-topic" required>
                 <option value="" disabled selected>-- Seleccione especialidad --</option>
-                <option>Ciberseguridad y Seguridad Perimetral</option>
-                <option>Redes LAN/WAN y Inalámbrica</option>
-                <option>Ecosistemas Cloud (SaaS, PaaS, IaaS)</option>
-                <option>Infraestructura TI y Virtualización</option>
-                <option>Soporte Técnico L1/L2/L3</option>
-                <option>Bases de Datos y CRM</option>
-                <option>Telefonía IP y Comunicaciones</option>
-                <option>Respaldo de Datos y DRP</option>
-                <option>Monitorización y Observabilidad</option>
-                <option>Automatización e IA</option>
-                <option>Cableado Estructurado y Data Centers</option>
-                <option>Auditoría de Sistemas</option>
+                <option value="ciberseguridad">Ciberseguridad y Seguridad Perimetral</option>
+                <option value="redes">Redes LAN/WAN e Inalámbrica</option>
+                <option value="cloud">Ecosistemas Cloud (SaaS, PaaS, IaaS)</option>
+                <option value="infra">Infraestructura TI y Virtualización</option>
+                <option value="soporte">Soporte Técnico y Gestión de Incidentes</option>
+                <option value="crm">Bases de Datos y CRM (Salesforce/HubSpot)</option>
+                <option value="telefonia">Telefonía IP y Comunicaciones</option>
+                <option value="drp">Respaldo de Datos y DRP</option>
+                <option value="monitoring">Monitorización (PRTG/Zabbix)</option>
+                <option value="ia">Automatización e IA</option>
+                <option value="cableado">Cableado Estructurado y Data Centers</option>
+                <option value="normativa">Auditoría y Cumplimiento</option>
               </select>
             </div>
             <button type="submit" class="btn-ai-send">
-              <i class="fas fa-comments"></i> PRESIONE AQUÍ PARA HABLAR CON LOS EXPERTOS
+              <i class="fas fa-terminal"></i> ACTIVAR RESOLUCIÓN TÉCNICA
             </button>
           </form>
         </div>
 
         <div id="active-live-chat" style="display:none;">
           <div class="chat-header-status">
-            <span class="status-dot"></span> CONECTADO CON: <strong>ING. PANCHISCO (IA_ASSISTANT)</strong>
+            <span class="status-dot"></span> MÓDULO RESOLUTIVO ACTIVO: <strong>PANCHISCO_IA</strong>
           </div>
           <div class="chat-log" id="expert-chat-log"></div>
           <div class="chat-input-area">
-            <input type="text" id="chat-msg-input" placeholder="Escriba su consulta técnica...">
-            <button onclick="sendExpertMessage()" class="btn-chat-send">ENVIAR</button>
+            <input type="text" id="chat-msg-input" placeholder="Describa su problema técnico detalladamente...">
+            <button onclick="sendExpertMessage()" class="btn-chat-send">RESOLVER</button>
           </div>
         </div>
       </div>
