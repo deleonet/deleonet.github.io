@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
-<body style="background:#0f172a; color:#ccff00; font-family:monospace; display:flex; justify-content:center; align-items:center; height:100vh;">
-  <div>
-    <h1>ERROR 404: NODE_NOT_FOUND</h1>
-    <p>> La ruta solicitada no existe en el servidor.</p>
-    <a href="/" style="color:#fff;">[ VOLVER AL ORIGEN ]</a>
-  </div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>404 - ACCESO DENEGADO</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { display: flex; align-items: center; justify-content: center; height: 100vh; text-align: center; }
+        .error-code { font-family: 'Michroma'; font-size: 8rem; color: var(--red); }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="error-code">404</div>
+        <p class="badge-top">ERROR DE ENRUTAMIENTO: RECURSO NO ENCONTRADO</p>
+        <p><a href="index.html" class="map-link">REGRESAR AL NODO CENTRAL</a></p>
+    </div>
 </body>
 </html>
