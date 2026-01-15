@@ -1,4 +1,4 @@
-:root { 
+ :root { 
     --primary: #1e40af; --bg: #0f172a; --text: #f8fafc; 
     --red: #dc2626; --acid-green: #ccff00; --card-bg: #111827; --border: #334155;
 }
@@ -26,7 +26,7 @@ body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color
 @keyframes blink { 50% { opacity: 0.3; } }
 .map-link { color: var(--acid-green) !important; text-decoration: none; font-size: 0.7rem; border: 1px solid; padding: 4px 8px; font-family: 'JetBrains Mono'; }
 
-/* TARJETAS SERVICIOS */
+/* SERVICIOS & CERTIFICACIONES */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
 .service-card-v2 { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border); transition: 0.3s; }
 .service-card-v2:hover { border-color: var(--primary); transform: translateY(-5px); }
@@ -35,7 +35,6 @@ body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color
 .service-card-v2 ul { list-style: none; padding: 0; }
 .service-card-v2 li { margin-bottom: 12px; color: #cbd5e1; font-size: 0.9rem; }
 
-/* CERTIFICACIONES */
 .cert-section { background: #0a0f1e; padding: 50px 20px; border-radius: 20px; border: 1px solid var(--primary); margin-bottom: 50px; }
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
 .cert-card { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border); text-align: center; }
@@ -48,7 +47,7 @@ body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color
 /* TERMINAL PANCHISCO AI */
 .ai-consulting-gate { margin: 60px 0; }
 .terminal-card { background: #050505; border: 2px solid var(--primary); border-radius: 10px; overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-.terminal-header { background: #1a1a1a; padding: 12px 20px; display: flex; align-items: center; border-bottom: 1px solid #333; }
+.terminal-header { background: #1a1a1a; padding: 12px 20px; display: flex; align-items: center; }
 .terminal-controls span { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; background: #ff5f56; }
 .terminal-controls span:nth-child(2) { background: #ffbd2e; }
 .terminal-controls span:nth-child(3) { background: #27c93f; }
