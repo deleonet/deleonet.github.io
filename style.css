@@ -1,7 +1,6 @@
  /* =========================================
    ESTILO MAESTRO DELEONNET - VERSIÓN 2026
    VELOCIDAD DE LECTURA OPTIMIZADA (200s)
-   COLOR: VERDE ÁCIDO CLARO (#ccff00)
    ========================================= */
 
 :root { 
@@ -12,140 +11,60 @@
     --green: #16a34a; 
     --yellow: #facc15; 
     --red: #dc2626; 
-    --acid-green: #ccff00; /* Verde ácido claro principal */
+    --acid-green: #ccff00; /* Verde Ácido Claro */
     --border: #e2e8f0; 
     --card-bg: #ffffff;
 }
 
-/* SOPORTE PARA MODO OSCURO AUTOMÁTICO */
 @media (prefers-color-scheme: dark) {
     :root { 
-        --bg: #0f172a; 
-        --text: #f8fafc; 
-        --secondary: #ffffff; 
-        --card-bg: #1e293b; 
-        --border: #334155; 
+        --bg: #0f172a; --text: #f8fafc; --secondary: #ffffff; 
+        --card-bg: #1e293b; --border: #334155; 
     }
     .service-card h2, .service-card li, .cert-section h2, .pro-contact h3, .cert-cat li { 
         color: #ffffff !important; 
     }
 }
 
-body { 
-    margin: 0; 
-    font-family: 'Inter', sans-serif; 
-    background: var(--bg); 
-    color: var(--text); 
-    padding-top: 40px; 
-}
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding-top: 40px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
-.container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 25px; 
-}
-
-/* =========================================
-   DEFCON FEED (VELOCIDAD LENTA)
-   ========================================= */
-.news-bar { 
-    position: fixed; 
-    top: 0; left: 0; width: 100%; 
-    background: #000; height: 40px; 
-    z-index: 2000; display: flex; 
-    align-items: center; border-bottom: 2px solid var(--red); 
-    overflow: hidden; 
-}
-
-.news-title { 
-    background: var(--red); color: white; 
-    padding: 0 15px; height: 100%; 
-    display: flex; align-items: center; 
-    font-weight: 900; font-size: 0.7rem; 
-    position: absolute; z-index: 2001; 
-}
-
-.marquee { 
-    display: inline-block; white-space: nowrap; 
-    animation: marquee 200s linear infinite; 
-    color: var(--acid-green); /* Verde en el feed */
-    font-family: 'Courier New', monospace; 
-    font-weight: bold; padding-left: 100%; 
-    font-size: 0.9rem;
-}
-
+/* NOTICIAS */
+.news-bar { position: fixed; top: 0; left: 0; width: 100%; background: #000; height: 40px; z-index: 2000; display: flex; align-items: center; border-bottom: 2px solid var(--red); overflow: hidden; }
+.news-title { background: var(--red); color: white; padding: 0 15px; height: 100%; display: flex; align-items: center; font-weight: 900; font-size: 0.7rem; position: absolute; z-index: 2001; }
+.marquee { display: inline-block; white-space: nowrap; animation: marquee 200s linear infinite; color: var(--acid-green); font-family: 'Courier New', monospace; font-weight: bold; padding-left: 100%; font-size: 0.9rem; }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-/* =========================================
-   DASHBOARD Y MAPAS (COLOR VERDE ÁCIDO)
-   ========================================= */
+/* DASHBOARD CON MAPA */
 .dashboard { 
-    background: #0a0f1e; border: 1px solid var(--primary); 
-    border-radius: 12px; padding: 20px; margin: -30px 0 40px; 
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; 
+    background: #0a0f1e; border: 1px solid var(--primary); border-radius: 12px; padding: 20px; 
+    margin: -30px 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;
 }
+@media (max-width: 768px) { .dashboard { grid-template-columns: 1fr; } }
 
-.map-link {
-    color: var(--acid-green) !important; /* VERDE ÁCIDO CLARO */
-    border: 1px solid var(--acid-green);
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 0.7rem;
-    font-family: 'Courier New', monospace;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: 0.3s;
-    text-transform: uppercase;
-}
+.dash-item { border-left: 3px solid var(--primary); padding-left: 15px; margin-bottom: 15px; }
+.dash-item small { color: #64748b; text-transform: uppercase; font-weight: 800; font-size: 0.6rem; display: block; }
+.map-link { color: var(--acid-green) !important; border: 1px solid var(--acid-green); text-decoration: none; font-weight: 800; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; font-family: monospace; }
+.map-link:hover { background: var(--acid-green); color: #000 !important; }
 
-.map-link:hover {
-    background: var(--acid-green);
-    color: #000 !important;
-}
+/* PULSO VERDE */
+.pulse { width: 10px; height: 10px; background-color: var(--acid-green); border-radius: 50%; box-shadow: 0 0 8px var(--acid-green); animation: blink 1.5s infinite; display: inline-block; margin-right: 5px; }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
 
-.dash-item { border-left: 3px solid var(--primary); padding-left: 15px; }
-.status-up { color: var(--green); font-weight: 800; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; margin-top: 5px; }
-
-/* =========================================
-   SERVICIOS
-   ========================================= */
+/* SERVICIOS */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
 .service-card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border); }
-.service-card h2 i { color: var(--acid-green); margin-right: 10px; } /* Iconos en verde */
-
 .b-infra { border-top: 5px solid var(--green); }
 .b-net { border-top: 5px solid var(--yellow); }
 .b-mob { border-top: 5px solid var(--red); }
+.service-card h2 i { color: var(--acid-green); margin-right: 10px; }
 
-/* =========================================
-   CERTIFICACIONES (ALTO CONTRASTE)
-   ========================================= */
-.cert-section { 
-    background: #111827 !important; color: white !important; 
-    padding: 60px 0; border-radius: 20px; 
-    border: 1px solid var(--primary); margin-bottom: 50px; 
-}
+/* CERTIFICACIONES */
+.cert-section { background: #111827 !important; color: white !important; padding: 60px 0; border-radius: 20px; border: 1px solid var(--primary); margin-bottom: 50px; }
 .cert-cat h3 { color: var(--acid-green) !important; border-bottom: 1px solid #374151; padding-bottom: 10px; margin-bottom: 15px; }
 .cert-cat li::before { content: "▶ "; color: var(--acid-green); font-weight: bold; }
 
-/* =========================================
-   CONTACTO Y EMAIL (VERDE ÁCIDO CLARO)
-   ========================================= */
-.contact-zone { text-align: center; padding: 60px 20px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; }
-
-.email-link { 
-    color: var(--acid-green) !important; /* CORREO EN VERDE ÁCIDO CLARO */
-    font-size: 1.6rem; 
-    font-weight: 900; 
-    text-decoration: none; 
-    border-bottom: 3px solid var(--acid-green); 
-    display: inline-block;
-    margin-top: 10px;
-    transition: 0.3s;
-}
-
-.email-link:hover { filter: brightness(1.2); }
-
-.btn-chat { background: var(--primary); color: white !important; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; margin: 10px; }
+/* EMAIL */
+.email-link { color: var(--acid-green) !important; font-size: 1.6rem; font-weight: 900; text-decoration: none; border-bottom: 3px solid var(--acid-green); display: inline-block; margin-top: 10px; }
 
 footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.8rem; background: #0a0f1e; }
