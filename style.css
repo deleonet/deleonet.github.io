@@ -1,78 +1,350 @@
- <style>
-  :root { 
-    --primary: #1e40af; --secondary: #0f172a; --bg: #f8fafc; --text: #1e293b; 
-    --green: #16a34a; --yellow: #facc15; --red: #dc2626; --acid-green: #ccff00;
-    --border: #e2e8f0; --card-bg: #ffffff;
-  }
+/* =========================================
+   ESTILOS MAESTROS - DELEONNET INFRASTRUCTURE
+   ========================================= */
 
-  /* --- CORRECCIÓN PARA MODO OSCURO --- */
-  @media (prefers-color-scheme: dark) {
+:root { 
+    /* Colores modo claro */
+    --primary: #1e40af; 
+    --secondary: #0f172a; 
+    --bg: #f8fafc; 
+    --text: #1e293b; 
+    --green: #16a34a; 
+    --yellow: #facc15; 
+    --red: #dc2626; 
+    --acid-green: #ccff00;
+    --border: #e2e8f0; 
+    --card-bg: #ffffff;
+    --dash-bg: #0a0f1e;
+    --footer-bg: #0f172a;
+}
+
+/* =========================================
+   SISTEMA DE MODO OSCURO (AUTOMÁTICO)
+   ========================================= */
+@media (prefers-color-scheme: dark) {
     :root { 
-      --bg: #0f172a; 
-      --text: #f8fafc; /* Texto principal en blanco */
-      --secondary: #ffffff; 
-      --card-bg: #1e293b; /* Fondo de tarjeta gris oscuro */
-      --border: #334155; 
+        --bg: #0f172a; 
+        --text: #f8fafc; 
+        --secondary: #ffffff; 
+        --card-bg: #1e293b; 
+        --border: #334155; 
+        --dash-bg: #000000;
     }
     
-    /* Forzar que los títulos y listas en las tarjetas sean blancos */
-    .service-card h2, .service-card li, .contact-zone h3, .contact-zone p {
-      color: #f8fafc !important;
+    /* Forzado de contraste para lectura crítica */
+    .service-card h2, 
+    .service-card li, 
+    .cert-section h2,
+    .contact-zone h3, 
+    .contact-zone p {
+        color: #ffffff !important;
     }
-    
-    header h1 {
-      color: #ffffff !important;
-    }
+}
 
-    header p {
-      color: #cbd5e1 !important;
-    }
-  }
+/* =========================================
+   ESTRUCTURA BASE
+   ========================================= */
+body { 
+    margin: 0; 
+    font-family: 'Inter', sans-serif; 
+    background: var(--bg); 
+    color: var(--text); 
+    line-height: 1.6; 
+    padding-top: 40px; 
+}
 
-  body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding-top: 40px; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 25px; 
+}
 
-  /* Barra DEFCON */
-  .news-bar { position: fixed; top: 0; left: 0; width: 100%; background: #000; color: #fff; height: 40px; z-index: 2000; overflow: hidden; display: flex; align-items: center; border-bottom: 2px solid var(--red); }
-  .news-title { background: var(--red); padding: 0 15px; height: 100%; display: flex; align-items: center; font-size: 0.8rem; font-weight: 800; position: absolute; z-index: 2001; }
-  .marquee { display: inline-block; white-space: nowrap; animation: marquee 60s linear infinite; padding-left: 100%; color: var(--acid-green); font-size: 0.8rem; font-weight: 700; }
-  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+/* =========================================
+   COMPONENTE: BARRA DEFCON (NOTICIAS)
+   ========================================= */
+.news-bar { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    background: #000; 
+    color: #fff; 
+    height: 40px; 
+    z-index: 2000; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    border-bottom: 2px solid var(--red); 
+}
 
-  header { padding: 60px 0; text-align: center; border-bottom: 1px solid var(--border); }
-  .badge-top { display: inline-block; background: #dbeafe; color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; }
-  h1 { font-size: 2.5rem; margin: 20px 0 10px; font-weight: 800; color: var(--secondary); }
+.news-title { 
+    background: var(--red); 
+    padding: 0 15px; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    font-size: 0.75rem; 
+    font-weight: 900; 
+    position: absolute; 
+    z-index: 2001; 
+    letter-spacing: 1px;
+}
 
-  /* Dashboard de Monitoreo */
-  .dashboard { background: #0a0f1e; color: #fff; border-radius: 12px; padding: 20px; margin: 20px 0 40px; border: 1px solid var(--primary); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left; }
-  .dash-item { padding: 10px; border-left: 3px solid var(--primary); }
-  .dash-item small { color: #94a3b8; font-weight: 700; display: block; margin-bottom: 5px; }
-  .status-up { color: var(--green); font-weight: 800; font-size: 0.9rem; }
+.marquee { 
+    display: inline-block; 
+    white-space: nowrap; 
+    animation: marquee 60s linear infinite; 
+    padding-left: 100%; 
+    color: var(--acid-green); 
+    font-size: 0.85rem; 
+    font-weight: 700;
+    font-family: monospace;
+}
 
-  /* Servicios */
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
-  .service-card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; }
-  .service-card:hover { transform: translateY(-5px); }
-  .service-card h2 { font-size: 1.3rem; text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: var(--secondary); }
-  .service-card ul { padding-left: 20px; margin: 0; }
-  .service-card li { margin-bottom: 10px; font-weight: 500; }
-  
-  .b-infra { border-top: 5px solid var(--green); }
-  .b-net { border-top: 5px solid var(--yellow); }
-  .b-mob { border-top: 5px solid var(--red); }
+@keyframes marquee { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-100%); } 
+}
 
-  /* Especializaciones */
-  .cert-section { background: #0f172a; color: white; padding: 60px 0; border-radius: 20px; margin-bottom: 50px; border: 1px solid #1e40af; }
-  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-  .cert-cat h3 { color: var(--acid-green); font-size: 0.85rem; border-bottom: 1px solid #334155; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-  .cert-cat ul { list-style: none; padding: 0; }
-  .cert-cat li { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
-  .cert-cat li::before { content: "✓"; color: var(--acid-green); font-weight: bold; }
+/* =========================================
+   COMPONENTE: HEADER & HERO
+   ========================================= */
+header { 
+    padding: 80px 0 60px 0; 
+    text-align: center; 
+    border-bottom: 1px solid var(--border); 
+}
 
-  /* Contacto */
-  .contact-zone { text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border); }
-  .btn-chat { background: var(--primary); color: white !important; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; margin: 10px; transition: 0.3s; }
-  .btn-chat:hover { opacity: 0.9; transform: scale(1.05); }
-  .email-link { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; border-bottom: 2px solid var(--acid-green); transition: 0.3s; }
-  
-  footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.8rem; }
-</style>
+.badge-top { 
+    display: inline-block; 
+    background: #dbeafe; 
+    color: var(--primary); 
+    padding: 8px 24px; 
+    border-radius: 50px; 
+    font-weight: 800; 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
+}
+
+h1 { 
+    font-size: 3rem; 
+    margin: 20px 0; 
+    font-weight: 800; 
+    color: var(--secondary); 
+}
+
+.hero-p { 
+    font-size: 1.1rem; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    opacity: 0.9;
+}
+
+/* =========================================
+   COMPONENTE: CYBER-DASHBOARD (WIDGETS)
+   ========================================= */
+.dashboard { 
+    background: var(--dash-bg); 
+    color: #fff; 
+    border-radius: 12px; 
+    padding: 25px; 
+    margin: -30px auto 50px auto; 
+    border: 1px solid var(--primary); 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px; 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.dash-item { 
+    padding: 10px; 
+    border-left: 3px solid var(--primary); 
+}
+
+.dash-item small { 
+    color: #64748b; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    font-size: 0.65rem; 
+    display: block;
+    margin-bottom: 5px;
+}
+
+.status-up { 
+    color: var(--green); 
+    font-weight: 800; 
+    font-size: 0.95rem; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* =========================================
+   SECCIÓN: SERVICIOS TI
+   ========================================= */
+.services-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 25px; 
+    margin-bottom: 60px; 
+}
+
+.service-card { 
+    background: var(--card-bg); 
+    padding: 40px; 
+    border-radius: 12px; 
+    border: 1px solid var(--border); 
+    transition: all 0.3s ease;
+}
+
+.service-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+}
+
+.service-card h2 { 
+    font-size: 1.4rem; 
+    text-transform: uppercase; 
+    margin-bottom: 20px; 
+    color: var(--secondary); 
+    font-weight: 800;
+}
+
+.service-card ul { 
+    padding-left: 0; 
+    list-style: none; 
+}
+
+.service-card li { 
+    margin-bottom: 12px; 
+    font-weight: 500; 
+    font-size: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.service-card li::before { 
+    content: "•"; 
+    color: var(--primary); 
+    font-weight: bold; 
+}
+
+.b-infra { border-top: 6px solid var(--green); }
+.b-net { border-top: 6px solid var(--yellow); }
+.b-mob { border-top: 6px solid var(--red); }
+
+/* =========================================
+   SECCIÓN: ESPECIALIZACIONES (ALTO CONTRASTE)
+   ========================================= */
+.cert-section { 
+    background: #0f172a !important; 
+    color: #ffffff !important; 
+    padding: 80px 0; 
+    border-radius: 24px; 
+    margin-bottom: 60px; 
+    border: 2px solid var(--primary);
+}
+
+.cert-section h2 { 
+    color: #ffffff !important; 
+    text-align: center; 
+    font-size: 2.2rem; 
+    margin-bottom: 50px; 
+    font-weight: 800;
+}
+
+.cert-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+}
+
+.cert-cat { 
+    padding: 20px; 
+}
+
+.cert-cat h3 { 
+    color: var(--acid-green) !important; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
+    border-bottom: 1px solid rgba(204, 255, 0, 0.3); 
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.cert-cat ul { 
+    list-style: none; 
+    padding: 0; 
+}
+
+.cert-cat li { 
+    color: #f8fafc !important; 
+    margin-bottom: 15px; 
+    font-size: 0.95rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    font-weight: 500;
+}
+
+.cert-cat li::before { 
+    content: "✓"; 
+    color: var(--acid-green); 
+    font-weight: 900; 
+}
+
+/* =========================================
+   SECCIÓN: CONTACTO & CHAT
+   ========================================= */
+.contact-zone { 
+    text-align: center; 
+    padding: 80px 20px; 
+    background: var(--card-bg); 
+    border-radius: 12px; 
+    border: 1px solid var(--border);
+    margin-bottom: 60px;
+}
+
+.btn-chat { 
+    background: var(--primary); 
+    color: #ffffff !important; 
+    padding: 18px 35px; 
+    border-radius: 10px; 
+    text-decoration: none; 
+    font-weight: 800; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 12px; 
+    margin: 10px; 
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn-chat:hover { 
+    transform: scale(1.05); 
+    filter: brightness(1.2); 
+}
+
+.email-link { 
+    font-size: 1.8rem; 
+    font-weight: 900; 
+    color: var(--primary); 
+    text-decoration: none; 
+    border-bottom: 3px solid var(--acid-green); 
+    transition: 0.3s; 
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer { 
+    text-align: center; 
+    padding: 60px; 
+    background: var(--footer-bg); 
+    color: #64748b; 
+    font-size: 0.85rem; 
+}
