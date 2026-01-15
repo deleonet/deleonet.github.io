@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edgar Francisco De Leon Hernandez | Infraestructura Crítica</title>
   <meta name="description" content="Especialista en Infraestructura TI, Redes y Resiliencia. Consultoría experta por Edgar Francisco De Leon Hernandez.">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-src 'self' https://va.tawk.to https://embed.tawk.to; connect-src 'self' https: wss://*.tawk.to; upgrade-insecure-requests;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-src 'self' https://va.tawk.to https://embed.tawk.to; connect-src 'self' https: wss://*.tawk.to https://generativelanguage.googleapis.com; upgrade-insecure-requests;">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Michroma&family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -114,58 +114,52 @@
     <div class="terminal-card">
       <div class="terminal-header">
         <div class="terminal-controls"><span></span><span></span><span></span></div>
-        <div class="terminal-title">PAN-CHISCO_V2.0_EXPERT_SYSTEM</div>
+        <div class="terminal-title">PAN-CHISCO_AI_CORE_2026</div>
       </div>
       <div class="terminal-body" id="panchisco-terminal">
         <div id="gate-form-container">
           <div class="ai-intro">
-            <p class="typing">> SOPORTE TÉCNICO AVANZADO 24/7...</p>
-            <h2>Asesoría Técnica Inmediata</h2>
-            <p>Contamos con expertos y sistemas de IA para resolver sus problemas de infraestructura en tiempo real. Ingrese sus datos para activar la resolución de problemas.</p>
+            <p class="typing">> CONEXIÓN TÉCNICA NIVEL L3...</p>
+            <h2>Asesoría Técnica Inmediata <span style="color:var(--acid-green); font-weight: 800;">GRATIS 24/7</span></h2>
+            <p>Resuelva sus problemas técnicos ahora mismo con nuestra IA de soporte y expertos de guardia. El registro es obligatorio para habilitar el chat.</p>
           </div>
           <form id="expert-access-form" class="ai-form">
             <div class="form-row">
               <div class="input-field">
-                <label>NOMBRE / EMPRESA</label>
-                <input type="text" id="reg-name" required placeholder="Nombre completo">
+                <label>NOMBRE COMPLETO</label>
+                <input type="text" id="reg-name" required placeholder="Su nombre aquí">
               </div>
               <div class="input-field">
-                <label>CORREO CORPORATIVO</label>
-                <input type="email" id="reg-email" required placeholder="ejemplo@empresa.com">
+                <label>CORREO ELECTRÓNICO</label>
+                <input type="email" id="reg-email" required placeholder="ejemplo@correo.com">
               </div>
             </div>
             <div class="input-field">
               <label>ÁREA DE CONSULTORÍA REQUERIDA</label>
               <select id="reg-topic" required>
                 <option value="" disabled selected>-- Seleccione especialidad --</option>
-                <option value="ciberseguridad">Ciberseguridad y Seguridad Perimetral</option>
-                <option value="redes">Redes LAN/WAN e Inalámbrica</option>
-                <option value="cloud">Ecosistemas Cloud (SaaS, PaaS, IaaS)</option>
-                <option value="infra">Infraestructura TI y Virtualización</option>
-                <option value="soporte">Soporte Técnico y Gestión de Incidentes</option>
-                <option value="crm">Bases de Datos y CRM (Salesforce/HubSpot)</option>
-                <option value="telefonia">Telefonía IP y Comunicaciones</option>
-                <option value="drp">Respaldo de Datos y DRP</option>
-                <option value="monitoring">Monitorización (PRTG/Zabbix)</option>
-                <option value="ia">Automatización e IA</option>
-                <option value="cableado">Cableado Estructurado y Data Centers</option>
-                <option value="normativa">Auditoría y Cumplimiento</option>
+                <option value="Ciberseguridad y Seguridad Perimetral">Ciberseguridad y Seguridad Perimetral</option>
+                <option value="Redes LAN/WAN e Inalámbrica">Redes LAN/WAN e Inalámbrica</option>
+                <option value="Ecosistemas Cloud e Infraestructura">Ecosistemas Cloud e Infraestructura</option>
+                <option value="Soporte Técnico L1/L2/L3">Soporte Técnico y Gestión de Incidentes</option>
+                <option value="Telefonía IP y Comunicaciones">Telefonía IP y Comunicaciones</option>
+                <option value="Bases de Datos y CRM">Bases de Datos y CRM (Salesforce/HubSpot)</option>
               </select>
             </div>
             <button type="submit" class="btn-ai-send">
-              <i class="fas fa-terminal"></i> ACTIVAR RESOLUCIÓN TÉCNICA
+              <i class="fas fa-user-tie"></i> PRESIONE AQUÍ PARA HABLAR CON EL EXPERTO
             </button>
           </form>
         </div>
 
         <div id="active-live-chat" style="display:none;">
           <div class="chat-header-status">
-            <span class="status-dot"></span> MÓDULO RESOLUTIVO ACTIVO: <strong>PANCHISCO_IA</strong>
+            <span class="status-dot"></span> ESTAMOS HABLANDO DE: <strong id="current-topic-display" style="color:var(--acid-green)"></strong>
           </div>
           <div class="chat-log" id="expert-chat-log"></div>
           <div class="chat-input-area">
             <input type="text" id="chat-msg-input" placeholder="Describa su problema técnico detalladamente...">
-            <button onclick="sendExpertMessage()" class="btn-chat-send">RESOLVER</button>
+            <button id="send-btn" onclick="sendExpertMessage()" class="btn-chat-send">RESOLVER</button>
           </div>
         </div>
       </div>
