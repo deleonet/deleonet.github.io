@@ -5,22 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edgar Francisco De Leon Hernandez | Infraestructura Crítica</title>
   
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'none'; upgrade-insecure-requests; block-all-mixed-content;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-src 'self' https://va.tawk.to https://embed.tawk.to; connect-src 'self' https: wss://*.tawk.to; frame-ancestors 'none'; upgrade-insecure-requests;">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
   
   <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-  <meta http-equiv="Cross-Origin-Resource-Policy" content="same-origin">
-  <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
+  <meta http-equiv="Cross-Origin-Resource-Policy" content="cross-origin"> 
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <style>
-    /* TU DISEÑO ORIGINAL INTACTO */
     :root { 
       --primary: #1e40af; --secondary: #0f172a; --bg: #f8fafc; --text: #1e293b; 
       --green: #16a34a; --yellow: #facc15; --red: #dc2626; --acid-green: #ccff00;
@@ -81,8 +79,6 @@
     .email-display { font-size: 2rem; font-weight: 800; color: var(--secondary); text-decoration: none; border-bottom: 3px solid var(--acid-green); transition: 0.3s; margin: 20px 0; display: inline-block; }
     .btn-vcard { display: block; width: 100%; max-width: 600px; margin: 20px auto; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 15px; font-weight: 800; border-radius: 10px; text-align: center; text-decoration: none; }
     footer { padding: 30px 0; text-align: center; font-size: 0.8rem; color: #94a3b8; background: #0f172a; }
-
-    /* CAPA 23: Ofuscación de email anti-scraping */
     .email-display { unicode-bidi: bidi-override; }
   </style>
 
@@ -91,10 +87,12 @@
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true; s1.src='https://embed.tawk.to/69641846aae923197d507363/1jenftlcf';
-    s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true; 
+      s1.src='https://embed.tawk.to/69641846aae923197d507363/1jenftlcf';
+      s1.charset='UTF-8'; 
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
     })();
     function abrirChat() { if(typeof Tawk_API !== 'undefined' && Tawk_API.maximize) { Tawk_API.maximize(); } }
   </script>
@@ -241,7 +239,6 @@
 <footer>© 2026 Edgar Francisco De Leon Hernandez | Infraestructura Crítica</footer>
 
 <script>
-  /* CAPA 9: Sanitización de DOM para evitar XSS vía RSS */
   async function cargarNoticiasDEFCON() {
     const feedDisplay = document.getElementById('news-feed');
     try {
@@ -251,7 +248,7 @@
       if (data.status === 'ok' && data.items.length > 0) {
         const noticias = data.items.map(item => {
             const tempDiv = document.createElement('div');
-            tempDiv.textContent = item.title.toUpperCase(); // Sanitización activa
+            tempDiv.textContent = item.title.toUpperCase();
             return ` [ALERTA: ${tempDiv.innerHTML}] `;
         }).join(' --- ');
         feedDisplay.innerHTML = noticias + " --- " + noticias;
@@ -268,8 +265,8 @@
   };
 
   function setLanguage(lang) {
-    document.getElementById('badge-text').innerText = texts[lang].badge;
-    document.getElementById('hero-desc').innerText = texts[lang].desc;
+    if(document.getElementById('badge-text')) document.getElementById('badge-text').innerText = texts[lang].badge;
+    if(document.getElementById('hero-desc')) document.getElementById('hero-desc').innerText = texts[lang].desc;
     document.getElementById('f-h').innerText = texts[lang].fh;
     document.getElementById('email-label').innerText = texts[lang].emailLabel;
     document.getElementById('cert-title').innerText = texts[lang].certTitle;
