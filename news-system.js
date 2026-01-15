@@ -1,68 +1,70 @@
 /* =========================================
-   CORE DE INTELIGENCIA DELEONNET V3.5
-   INTEGRACIÓN GEMINI + SEGURIDAD .ENV
+   CORE DE INTELIGENCIA DELEONNET V4.0
+   GEMINI INTEGRACIÓN TOTAL + FEED VELOZ
    ========================================= */
 
-// 1. CONFIGURACIÓN
-// Si usas un servidor local, puedes cargar process.env. Si es estático, 
-// pega tu clave aquí sabiendo que el .gitignore la protege de subidas a la nube.
-const GEMINI_API_KEY = "TU_API_KEY_AQUÍ"; 
+// CONFIGURACIÓN DE ACCESO
+const GEMINI_API_KEY = "TU_API_KEY_AQUÍ"; // <--- ASEGÚRATE DE PEGAR TU CLAVE AQUÍ
 
-// 2. GESTIÓN DEL DEFCON FEED GEOPOLÍTICO
+// 1. GESTIÓN DEL DEFCON FEED (VELOCIDAD CORREGIDA)
 async function fetchGlobalIntelligence() {
     const feedElement = document.getElementById('news-feed');
     const sources = [
         'https://thehackernews.com/feeds/posts/default',
         'https://www.bleepingcomputer.com/feed/',
-        'https://www.aljazeera.com/xml/rss/all.xml',
-        'https://feeds.bbci.co.uk/news/world/asia/rss.xml',
-        'https://www.oilprice.com/rss/main'
+        'https://www.aljazeera.com/xml/rss/all.xml'
     ];
     
     const apiService = 'https://api.rss2json.com/v1/api.json?rss_url=';
     
     try {
         let headlines = [];
-        for (let i = 0; i < sources.length; i++) {
-            const response = await fetch(apiService + encodeURIComponent(sources[i]));
+        for (let source of sources) {
+            const response = await fetch(apiService + encodeURIComponent(source));
             const data = await response.json();
             if (data.status === 'ok') {
                 data.items.slice(0, 2).forEach(item => headlines.push(item.title.toUpperCase()));
             }
         }
-        feedElement.innerText = " [!] INTELIGENCIA EN VIVO: " + headlines.join(" [---] ") + " [!] ";
+        feedElement.innerText = " [!] ALERTA: " + headlines.join(" [+++] ") + " [!] ";
     } catch (e) {
-        feedElement.innerText = " +++ MONITOREO DE EMERGENCIA ACTIVO - CONEXIÓN SATELITAL ESTABLE +++ ";
+        feedElement.innerText = " +++ CONEXIÓN SATELITAL ACTIVA - MONITOREO DE AMENAZAS EN TIEMPO REAL +++ ";
     }
 }
 
-// 3. CONEXIÓN REAL CON GEMINI AI (RESOLUCIÓN TÉCNICA)
+// 2. MOTOR DE RESOLUCIÓN TÉCNICA (CONEXIÓN PURA A GEMINI)
 async function callGemini(prompt, topic) {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
     
-    const contextPrompt = `Eres Panchisco, ingeniero experto en infraestructura trabajando para Edgar De Leon. 
-    Estamos hablando de: ${topic}. 
-    INSTRUCCIÓN: Resuelve el problema del usuario de forma técnica y directa. 
-    Usa un tono profesional de ingeniero de campo. 
-    Usuario pregunta: ${prompt}`;
+    // Instrucción estricta para la IA
+    const systemInstruction = `Instrucción: Eres un Ingeniero de Infraestructura Senior. 
+    Tu tema es: ${topic}. 
+    Resuelve el siguiente problema técnico de forma específica, real y profesional. 
+    No uses saludos genéricos largos ni menciones que eres una IA. 
+    Ve directo a la solución técnica.`;
 
     try {
         const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                contents: [{ parts: [{ text: contextPrompt }] }]
+                contents: [{ parts: [{ text: systemInstruction + " Pregunta del usuario: " + prompt }] }]
             })
         });
+        
         const data = await response.json();
+        
+        if (data.error) {
+            return "ERROR DE API: " + data.error.message;
+        }
+        
         return data.candidates[0].content.parts[0].text;
     } catch (error) {
-        console.error("Falla en el núcleo de IA:", error);
-        return "ERROR DE ENLACE: No se pudo conectar con el motor de resolución. Por favor, contacte directamente a soportedeleonnet@gmail.com";
+        return "FALLO CRÍTICO: No hay respuesta del motor Gemini. Verifique la API KEY y la conexión de red.";
     }
 }
 
-// 4. LÓGICA DEL INTERFAZ DE CHAT
+// 3. INTERFAZ DINÁMICA
 document.getElementById('expert-access-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('reg-name').value;
@@ -73,8 +75,8 @@ document.getElementById('expert-access-form').addEventListener('submit', functio
     document.getElementById('active-live-chat').style.display = 'block';
 
     const log = document.getElementById('expert-chat-log');
-    log.innerHTML += `<p class="bot-msg">> Bienvenido al sistema de asesoría técnica 24/7 de Edgar De Leon.</p>`;
-    log.innerHTML += `<p class="bot-msg">> [IA] Hola ${name}. Estoy listo en el área de <strong>${topic}</strong>. ¿Qué problema vamos a resolver hoy?</p>`;
+    log.innerHTML = `<p class="bot-msg">> Bienvenido al sistema de asesoría técnica 24/7.</p>`;
+    log.innerHTML += `<p class="bot-msg">> [SISTEMA] Conexión establecida. Área: <strong>${topic}</strong>. Hola ${name}, describa su requerimiento técnico.</p>`;
 });
 
 async function sendExpertMessage() {
@@ -88,26 +90,21 @@ async function sendExpertMessage() {
         log.innerHTML += `<p class="user-msg">> ${userQuery}</p>`;
         input.value = "";
         
-        // Efecto visual de carga
+        // Estado de carga
         sendBtn.disabled = true;
-        sendBtn.innerText = "...";
-        const loadingMsg = document.createElement("p");
-        loadingMsg.className = "bot-msg";
-        loadingMsg.innerText = "> [IA] Procesando resolución técnica...";
-        log.appendChild(loadingMsg);
+        const loadingId = "loading-" + Date.now();
+        log.innerHTML += `<p class="bot-msg" id="${loadingId}">> [IA] Generando resolución técnica real...</p>`;
         log.scrollTop = log.scrollHeight;
 
-        // Llamada a Gemini
+        // Respuesta real de Gemini
         const aiResponse = await callGemini(userQuery, topic);
         
-        log.removeChild(loadingMsg);
-        log.innerHTML += `<p class="bot-msg">> [IA] RESOLUCIÓN: ${aiResponse}</p>`;
+        document.getElementById(loadingId).remove();
+        log.innerHTML += `<p class="bot-msg">> [RESOLUCIÓN] ${aiResponse}</p>`;
         log.scrollTop = log.scrollHeight;
         sendBtn.disabled = false;
-        sendBtn.innerText = "RESOLVER";
     }
 }
 
-// Inicialización de sistemas
 fetchGlobalIntelligence();
-setInterval(fetchGlobalIntelligence, 600000); 
+setInterval(fetchGlobalIntelligence, 300000); // Actualiza cada 5 min
