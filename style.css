@@ -1,4 +1,4 @@
- /* =========================================
+/* =========================================
    ESTILO MAESTRO DELEONNET - VERSIÓN 2026
    OPTIMIZADO PARA INFRAESTRUCTURA CRÍTICA
    ========================================= */
@@ -45,130 +45,131 @@ body {
 }
 
 /* =========================================
-   DEFCON FEED - VELOCIDAD HUMANA (800s)
+   TIPOGRAFÍA Y EFECTOS DEL TÍTULO (NUEVO)
+   ========================================= */
+.brand-box {
+    position: relative;
+    padding: 40px 0;
+    overflow: hidden; /* Para contener la línea de escaneo */
+}
+
+.main-title {
+    font-family: 'Michroma', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin: 10px 0;
+    line-height: 1.1;
+}
+
+.badge-top {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--acid-green);
+    background: #000;
+    padding: 5px 15px;
+    border: 1px solid var(--acid-green);
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-size: 0.8rem;
+    animation: terminal-flicker 4s infinite;
+}
+
+/* Línea de escaneo láser */
+.brand-box::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: rgba(204, 255, 0, 0.3);
+    box-shadow: 0 0 10px var(--acid-green);
+    animation: scanline 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scanline {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+@keyframes terminal-flicker {
+    0%, 100%, 30%, 35%, 50%, 80%, 85% { opacity: 1; }
+    32%, 82% { opacity: 0.5; }
+}
+
+/* =========================================
+   DEFCON FEED - VELOCIDAD 800s
    ========================================= */
 .news-bar { 
     position: fixed; 
-    top: 0; left: 0; 
-    width: 100%; 
-    background: #000; 
-    height: 45px; 
-    z-index: 2000; 
-    display: flex; 
-    align-items: center; 
-    border-bottom: 2px solid var(--red); 
-    overflow: hidden; 
+    top: 0; left: 0; width: 100%; 
+    background: #000; height: 45px; z-index: 2000; 
+    display: flex; align-items: center; 
+    border-bottom: 2px solid var(--red); overflow: hidden; 
 }
 
 .news-title { 
-    background: var(--red); 
-    color: white; 
-    padding: 0 20px; 
-    height: 100%; 
-    display: flex; 
-    align-items: center; 
-    font-weight: 900; 
-    font-size: 0.75rem; 
-    position: absolute; 
-    z-index: 2001; 
-    box-shadow: 10px 0 15px rgba(0,0,0,0.5);
+    background: var(--red); color: white; padding: 0 20px; 
+    height: 100%; display: flex; align-items: center; 
+    font-weight: 900; font-size: 0.75rem; position: absolute; z-index: 2001; 
 }
 
 .marquee { 
-    display: inline-block; 
-    white-space: nowrap; 
-    /* 800 segundos asegura una lectura muy pausada de noticias globales */
+    display: inline-block; white-space: nowrap; 
     animation: marquee-final 800s linear infinite; 
-    color: var(--acid-green); 
-    font-family: 'Courier New', monospace; 
-    font-weight: bold; 
-    font-size: 1rem;
-    padding-left: 100%;
+    color: var(--acid-green); font-family: 'Courier New', monospace; 
+    font-weight: bold; font-size: 1rem; padding-left: 100%; 
 }
 
-@keyframes marquee-final { 
-    0% { transform: translateX(0); } 
-    100% { transform: translateX(-100%); } 
-}
+@keyframes marquee-final { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
 /* =========================================
    DASHBOARD TÉCNICO
    ========================================= */
 .dashboard { 
-    background: #0a0f1e; 
-    border: 1px solid var(--primary); 
-    border-radius: 12px; 
-    padding: 25px; 
-    margin: -30px 0 40px; 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 20px; 
+    background: #0a0f1e; border: 1px solid var(--primary); 
+    border-radius: 12px; padding: 25px; margin: 20px 0 40px; 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; 
 }
 
 .dash-item { border-left: 3px solid var(--primary); padding-left: 15px; }
 .dash-item small { color: #64748b; text-transform: uppercase; font-weight: 800; font-size: 0.65rem; display: block; }
-
-.status-up { 
-    color: var(--green); 
-    font-weight: 800; 
-    display: flex; 
-    align-items: center; 
-    gap: 8px; 
-    font-size: 0.95rem; 
-    margin-top: 5px; 
-}
-
-.pulse { 
-    width: 10px; height: 10px; 
-    background-color: var(--acid-green); 
-    border-radius: 50%; 
-    box-shadow: 0 0 10px var(--acid-green); 
-    animation: blink 1.5s infinite; 
-}
-
+.status-up { color: var(--green); font-weight: 800; display: flex; align-items: center; gap: 8px; font-size: 0.95rem; margin-top: 5px; }
+.pulse { width: 10px; height: 10px; background-color: var(--acid-green); border-radius: 50%; box-shadow: 0 0 10px var(--acid-green); animation: blink 1.5s infinite; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
 .map-link { 
-    color: var(--acid-green) !important; 
-    border: 1px solid var(--acid-green); 
-    text-decoration: none; 
-    font-weight: 800; 
-    font-size: 0.7rem; 
-    padding: 5px 12px; 
-    border-radius: 4px; 
-    font-family: 'Courier New', monospace;
-    transition: 0.3s;
+    color: var(--acid-green) !important; border: 1px solid var(--acid-green); 
+    text-decoration: none; font-weight: 800; font-size: 0.7rem; 
+    padding: 5px 12px; border-radius: 4px; font-family: 'Courier New', monospace; transition: 0.3s;
 }
-
 .map-link:hover { background: var(--acid-green); color: #000 !important; }
 
 /* =========================================
-   CERTIFICACIONES - DISEÑO DE TARJETAS
+   CERTIFICACIONES - TARJETAS TÉCNICAS
    ========================================= */
-.cert-section { 
-    background: #111827 !important; 
-    padding: 60px 0; 
-    border-radius: 20px; 
-    border: 1px solid var(--primary); 
-    margin: 50px 0;
+.cert-section { background: #111827 !important; padding: 60px 0; border-radius: 20px; border: 1px solid var(--primary); margin: 50px 0; }
+.tech-label { color: var(--acid-green); font-family: 'JetBrains Mono', monospace; letter-spacing: 3px; font-size: 0.8rem; display: block; margin-bottom: 10px; text-align: center;}
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 0 20px; }
+.cert-card { background: rgba(255, 255, 255, 0.03); border: 1px solid #334155; padding: 35px 25px; border-radius: 15px; transition: 0.4s; }
+.cert-card:hover { border-color: var(--acid-green); transform: translateY(-8px); }
+.active-card { border-color: var(--primary); box-shadow: 0 0 20px rgba(30, 64, 175, 0.2); }
+.card-icon { color: var(--acid-green); font-size: 2.5rem; margin-bottom: 15px; text-align: center; }
+.cert-card h3 { color: #ffffff !important; text-align: center; font-size: 1.1rem; margin-bottom: 25px; border-bottom: 1px solid #334155; padding-bottom: 10px; font-family: 'Michroma', sans-serif; }
+.cert-list { list-style: none; padding: 0; }
+.cert-list li { color: #cbd5e1 !important; margin-bottom: 15px; font-size: 0.9rem; display: flex; align-items: center; gap: 12px; }
+.cert-list li::before { content: "▶"; color: var(--acid-green); font-size: 0.7rem; }
+
+/* =========================================
+   CONTACTO Y EMAIL
+   ========================================= */
+.email-link { 
+    color: var(--acid-green) !important; font-size: 1.8rem; font-weight: 900; 
+    text-decoration: none; border-bottom: 4px solid var(--acid-green); 
+    display: inline-block; margin-top: 15px; font-family: 'JetBrains Mono', monospace;
 }
 
-.section-header { text-align: center; margin-bottom: 40px; }
-.tech-label { color: var(--acid-green); font-family: monospace; letter-spacing: 3px; font-size: 0.8rem; }
-
-.cert-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px; 
-    padding: 0 20px; 
-}
-
-.cert-card { 
-    background: rgba(255, 255, 255, 0.03); 
-    border: 1px solid #334155; 
-    padding: 35px 25px; 
-    border-radius: 15px; 
-    transition: 0.4s; 
-}
-
-.cert-card:
+footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.85rem; background: #0a0f1e; margin-top: 60px; } 
