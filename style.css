@@ -1,6 +1,6 @@
  /* =========================================
-   SISTEMA DE DISEÑO DELEONNET V4.5
-   EFECTOS DE ESCANEO RE-ACTIVADOS
+   SISTEMA DE DISEÑO DELEONNET V5.0
+   EFECTO SCANNER DE PRECISIÓN ACTIVO
    ========================================= */
 
 :root { 
@@ -48,7 +48,7 @@ body {
 }
 @keyframes marquee-fast { 0% { transform: translateX(0); } 100% { transform: translateX(-200%); } }
 
-/* CABECERA Y EFECTO DE LÍNEA EN NOMBRE */
+/* CABECERA Y EFECTO SCANNER LÁSER */
 .brand-box { position: relative; padding: 60px 0; text-align: center; }
 
 .main-title { 
@@ -60,25 +60,32 @@ body {
     letter-spacing: 4px;
     position: relative;
     display: inline-block;
+    padding: 10px 0; /* Espacio para que el escáner recorra */
 }
 
-/* LA LÍNEA QUE ATRAVIESA EL NOMBRE */
+/* LA LÍNEA DE ESCÁNER (MOVIMIENTO DE ARRIBA A ABAJO) */
 .main-title::after {
     content: "";
     position: absolute;
-    top: 50%;
-    left: -5%;
-    width: 110%;
-    height: 2px;
-    background: var(--primary-light);
-    box-shadow: 0 0 15px var(--primary-light), 0 0 5px #fff;
-    animation: scan-line 4s ease-in-out infinite;
+    left: -10%;
+    width: 120%;
+    height: 3px;
+    background: var(--acid-green); /* Verde ácido para que resalte más */
+    box-shadow: 
+        0 0 15px var(--acid-green), 
+        0 0 30px rgba(204, 255, 0, 0.5),
+        0 0 5px #fff;
+    z-index: 10;
+    /* Animación corregida: empieza arriba (top: 0) y termina abajo (top: 100%) */
+    animation: real-scanner 3s ease-in-out infinite;
     pointer-events: none;
 }
 
-@keyframes scan-line {
-    0%, 100% { transform: translateY(-15px); opacity: 0; }
-    50% { transform: translateY(15px); opacity: 1; }
+@keyframes real-scanner {
+    0% { top: -10%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 110%; opacity: 0; }
 }
 
 .badge-top { 
@@ -152,38 +159,4 @@ body {
 
 .ai-form { display: grid; gap: 25px; margin-top: 30px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.input-field label { display: block; font-family: 'JetBrains Mono'; color: var(--primary-light); font-size: 0.65rem; margin-bottom: 10px; }
-.input-field input, .input-field select { width: 100%; background: #0a0a0a; border: 1px solid #222; padding: 15px; color: #fff; border-radius: 6px; }
-
-.btn-ai-send { 
-    background: var(--acid-green); color: #000; border: none; padding: 22px; 
-    font-family: 'Michroma'; font-weight: 900; cursor: pointer; border-radius: 6px; 
-    transition: 0.3s; width: 100%; font-size: 0.75rem; 
-}
-.btn-ai-send:hover { box-shadow: 0 0 25px rgba(204, 255, 0, 0.4); transform: translateY(-2px); }
-
-/* CHAT LOG */
-.chat-header-status { font-family: 'JetBrains Mono'; font-size: 0.8rem; color: #64748b; margin-bottom: 20px; border-bottom: 1px solid #1e293b; padding-bottom: 15px; }
-.chat-log { 
-    height: 400px; overflow-y: auto; background: rgba(0,0,0,0.5); 
-    padding: 25px; border-radius: 8px; border: 1px solid #1e293b; 
-    margin-bottom: 25px; display: flex; flex-direction: column; gap: 15px; 
-}
-.bot-msg { color: var(--acid-green); font-family: 'JetBrains Mono'; font-size: 0.85rem; padding: 12px; border-left: 2px solid var(--acid-green); align-self: flex-start; background: rgba(204, 255, 0, 0.03); }
-.user-msg { color: #fff; font-family: 'JetBrains Mono'; font-size: 0.85rem; padding: 12px; border-right: 2px solid var(--primary-light); align-self: flex-end; background: rgba(59, 130, 246, 0.03); }
-
-.chat-input-area { display: flex; gap: 12px; }
-.chat-input-area input { flex-grow: 1; background: #0a0a0a; border: 1px solid var(--primary); color: #fff; padding: 18px; border-radius: 6px; }
-.btn-chat-send { background: var(--primary); color: white; border: none; padding: 0 35px; font-family: 'Michroma'; font-size: 0.75rem; cursor: pointer; border-radius: 6px; }
-
-/* CONTACTO */
-.contact-tech-card { background: #0a0f1e; border: 1px solid var(--primary); border-radius: 20px; padding: 50px; text-align: center; margin-bottom: 80px; }
-.btn-group-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
-.btn-tech { padding: 30px; border-radius: 12px; text-decoration: none; font-family: 'Michroma'; font-size: 0.75rem; display: flex; flex-direction: column; align-items: center; gap: 15px; border: 1px solid rgba(255,255,255,0.05); }
-.whatsapp { color: #22c55e !important; }
-.telegram { color: #3b82f6 !important; }
-.email-link-v2 { font-family: 'JetBrains Mono'; font-size: clamp(1rem, 4vw, 1.8rem); color: var(--acid-green) !important; text-decoration: none; font-weight: 800; }
-
-footer { text-align: center; padding: 60px; opacity: 0.4; font-size: 0.75rem; }
-
-@media (max-width: 768px) { .form-row, .btn-group-grid { grid-template-columns: 1fr; } .terminal-body { padding: 25px; } }
+.input-field label { display: block; font-family: 'JetBrains Mono'; color: var(--primary-light);
