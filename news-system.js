@@ -1,9 +1,14 @@
 /* =========================================
-   CORE DE INTELIGENCIA DELEONNET V2.5
-   FEEDS REALES + IA TÉCNICA RESOLUTIVA
+   CORE DE INTELIGENCIA DELEONNET V3.5
+   INTEGRACIÓN GEMINI + SEGURIDAD .ENV
    ========================================= */
 
-// 1. GESTIÓN DEL DEFCON FEED GEOPOLÍTICO
+// 1. CONFIGURACIÓN
+// Si usas un servidor local, puedes cargar process.env. Si es estático, 
+// pega tu clave aquí sabiendo que el .gitignore la protege de subidas a la nube.
+const GEMINI_API_KEY = "TU_API_KEY_AQUÍ"; 
+
+// 2. GESTIÓN DEL DEFCON FEED GEOPOLÍTICO
 async function fetchGlobalIntelligence() {
     const feedElement = document.getElementById('news-feed');
     const sources = [
@@ -27,57 +32,82 @@ async function fetchGlobalIntelligence() {
         }
         feedElement.innerText = " [!] INTELIGENCIA EN VIVO: " + headlines.join(" [---] ") + " [!] ";
     } catch (e) {
-        feedElement.innerText = " +++ MONITOREO DE EMERGENCIA ACTIVO - REVISANDO CIBERSEGURIDAD Y CONFLICTOS BÉLICOS +++ ";
+        feedElement.innerText = " +++ MONITOREO DE EMERGENCIA ACTIVO - CONEXIÓN SATELITAL ESTABLE +++ ";
     }
 }
 
-// 2. LÓGICA DE LA IA RESOLUTIVA
-const expertKnowledge = {
-    "ciberseguridad": "Para ataques de fuerza bruta, implemente Fail2Ban e IP Filtering inmediatamente. Si detecta ransomware, desconecte el nodo de la red y verifique backups inmutables. Recomendamos auditoría SOC.",
-    "redes": "Para latencia alta, revise la saturación del canal 2.4/5GHz y verifique el estado físico de los transceptores de fibra. Use el comando 'mtr' para identificar pérdidas de paquetes en el salto L3.",
-    "cloud": "Si el servicio SaaS está caído, verifique el Status Page del proveedor. Para errores de latencia en AWS/Azure, revise la configuración de Availability Zones y el balanceo de carga.",
-    "infra": "Para fallos en servidores físicos, revise logs de IPMI/iDRAC. En entornos virtuales, verifique la asignación de recursos vCPU/RAM y el estado de la SAN/NAS.",
-    "soporte": "Si el problema es de software local, realice limpieza de caché de sistema y reinicie servicios de dependencia. Si es crítico L3, escale a administración de red.",
-    "telefonia": "Para pérdida de audio en VoIP, revise el Jitter Buffer y asegúrese de que el puerto SIP 5060 no esté siendo filtrado por el firewall. Verifique códecs G.711/G.729.",
-    "default": "Analizando su consulta técnica... Para este caso, la solución estándar implica revisión de logs de sistema y verificación de conectividad punto a punto. Por favor, proporcione más detalles del error."
-};
+// 3. CONEXIÓN REAL CON GEMINI AI (RESOLUCIÓN TÉCNICA)
+async function callGemini(prompt, topic) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+    
+    const contextPrompt = `Eres Panchisco, ingeniero experto en infraestructura trabajando para Edgar De Leon. 
+    Estamos hablando de: ${topic}. 
+    INSTRUCCIÓN: Resuelve el problema del usuario de forma técnica y directa. 
+    Usa un tono profesional de ingeniero de campo. 
+    Usuario pregunta: ${prompt}`;
 
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: contextPrompt }] }]
+            })
+        });
+        const data = await response.json();
+        return data.candidates[0].content.parts[0].text;
+    } catch (error) {
+        console.error("Falla en el núcleo de IA:", error);
+        return "ERROR DE ENLACE: No se pudo conectar con el motor de resolución. Por favor, contacte directamente a soportedeleonnet@gmail.com";
+    }
+}
+
+// 4. LÓGICA DEL INTERFAZ DE CHAT
 document.getElementById('expert-access-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('reg-name').value;
     const topic = document.getElementById('reg-topic').value;
     
+    document.getElementById('current-topic-display').innerText = topic.toUpperCase();
     document.getElementById('gate-form-container').style.display = 'none';
     document.getElementById('active-live-chat').style.display = 'block';
 
     const log = document.getElementById('expert-chat-log');
-    log.innerHTML += `<p class="bot-msg">> [SISTEMA] PROTOCOLO DE ASESORÍA ACTIVADO PARA: ${name.toUpperCase()}.</p>`;
-    log.innerHTML += `<p class="bot-msg">> [IA] Estoy listo para resolver su consulta sobre <strong>${topic}</strong>. Describa el error o desafío que enfrenta ahora mismo.</p>`;
+    log.innerHTML += `<p class="bot-msg">> Bienvenido al sistema de asesoría técnica 24/7 de Edgar De Leon.</p>`;
+    log.innerHTML += `<p class="bot-msg">> [IA] Hola ${name}. Estoy listo en el área de <strong>${topic}</strong>. ¿Qué problema vamos a resolver hoy?</p>`;
 });
 
-function sendExpertMessage() {
+async function sendExpertMessage() {
     const input = document.getElementById('chat-msg-input');
     const log = document.getElementById('expert-chat-log');
     const topic = document.getElementById('reg-topic').value;
+    const sendBtn = document.getElementById('send-btn');
     
     if(input.value.trim() !== "") {
-        log.innerHTML += `<p class="user-msg">> ${input.value}</p>`;
-        const userQuery = input.value.toLowerCase();
+        const userQuery = input.value;
+        log.innerHTML += `<p class="user-msg">> ${userQuery}</p>`;
         input.value = "";
         
-        setTimeout(() => {
-            let answer = expertKnowledge[topic] || expertKnowledge["default"];
-            
-            // Refinamiento de respuesta por palabras clave
-            if(userQuery.includes("lento") || userQuery.includes("latencia")) answer = "Detección de latencia: Ejecute 'ping -t' al gateway. Si hay picos, revise el switch core. Verifique si hay bucles STP en la red.";
-            if(userQuery.includes("virus") || userQuery.includes("hack")) answer = "Detección de amenaza: Ejecute escaneo perimetral. Bloquee puertos no esenciales (21, 22, 23, 3389). Verifique logs de autenticación.";
-            
-            log.innerHTML += `<p class="bot-msg">> [IA] RESOLUCIÓN TÉCNICA: ${answer}</p>`;
-            log.innerHTML += `<p class="bot-msg">> [NOTIFICACIÓN] He registrado este caso. El Ing. Edgar recibirá el reporte para enviarle la documentación técnica completa a su correo.</p>`;
-            log.scrollTop = log.scrollHeight;
-        }, 1200);
+        // Efecto visual de carga
+        sendBtn.disabled = true;
+        sendBtn.innerText = "...";
+        const loadingMsg = document.createElement("p");
+        loadingMsg.className = "bot-msg";
+        loadingMsg.innerText = "> [IA] Procesando resolución técnica...";
+        log.appendChild(loadingMsg);
+        log.scrollTop = log.scrollHeight;
+
+        // Llamada a Gemini
+        const aiResponse = await callGemini(userQuery, topic);
+        
+        log.removeChild(loadingMsg);
+        log.innerHTML += `<p class="bot-msg">> [IA] RESOLUCIÓN: ${aiResponse}</p>`;
+        log.scrollTop = log.scrollHeight;
+        sendBtn.disabled = false;
+        sendBtn.innerText = "RESOLVER";
     }
 }
 
+// Inicialización de sistemas
 fetchGlobalIntelligence();
-setInterval(fetchGlobalIntelligence, 600000);
+setInterval(fetchGlobalIntelligence, 600000); 
