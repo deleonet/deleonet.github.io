@@ -1,68 +1,45 @@
- /* =========================================
-   SISTEMA DE INTELIGENCIA DELEONNET V3.0
-   PROCESADOR DE FEEDS CON METADATOS 24/7
-   ========================================= */
-
-async function fetchGlobalIntelligence() {
-    const feedElement = document.getElementById('news-feed');
-    const now = new Date();
-    const timeStamp = `${now.toLocaleDateString()} ${now.getHours()}:${now.getMinutes()}`;
-
-    // BASE DE DATOS LOCAL MASIVA (20 FUENTES REALES)
-    const masterFeeds = [
-        { cat: "GUERRA/CIBER", txt: "Ataque distribuido detectado contra nodos de comunicación en Europa del Este.", type: "URGENTE" },
-        { cat: "DINERO", txt: "Volatilidad en mercados de semiconductores tras anuncio de restricciones de exportación.", type: "FINANZAS" },
-        { cat: "INFRAESTRUCTURA", txt: "Corte masivo de fibra óptica en el Atlántico Norte; tráfico desviado a satélites.", type: "ALERTA" },
-        { cat: "CRM/SAAS", txt: "Salesforce integra protocolos de seguridad post-cuántica en sus nubes de marketing.", type: "SISTEMAS" },
-        { cat: "GUERRA/CIBER", txt: "Infiltración de malware en sistemas de control de tráfico aéreo. Protocolo L3 activo.", type: "CRÍTICO" },
-        { cat: "DINERO", txt: "Inversión récord en centros de datos refrigerados por líquido en regiones árticas.", type: "MERCADOS" },
-        { cat: "TECH", txt: "Lanzamiento de procesadores de 1nm establece nuevo estándar de eficiencia energética.", type: "HARDWARE" },
-        { cat: "CIBERSEGURIDAD", txt: "Vulnerabilidad Zero-Day encontrada en kernels de virtualización corporativa.", type: "PATCH-NOW" },
-        { cat: "REDES", txt: "Certificación de nodos 6G finalizada en ciudades principales; latencia < 1ms.", type: "CONECTIVIDAD" },
-        { cat: "CRM/MARKETING", txt: "Google Campaign Manager 360 implementa rastreo sin cookies basado en IA.", type: "DIGITAL" },
-        { cat: "GUERRA", txt: "Despliegue de patrullas autónomas para protección de racks en zonas de conflicto.", type: "SEGURIDAD" },
-        { cat: "DINERO", txt: "NVIDIA reporta crecimiento del 200% por demanda de hardware de inferencia local.", type: "ACCIONES" },
-        { cat: "INFRAESTRUCTURA", txt: "Nueva red de racks modulares permite despliegue de TI en menos de 24 horas.", type: "LOGÍSTICA" },
-        { cat: "SaaS", txt: "HubSpot lanza motor de automatización predictiva para ecosistemas CRM B2B.", type: "SOFTWARE" },
-        { cat: "CIBER", txt: "Brecha de datos masiva en proveedores de identidad en la nube; reset de MFA sugerido.", type: "SEGURIDAD" },
-        { cat: "DINERO", txt: "Bitcoin alcanza nueva estabilidad como reserva de valor para tesorerías TI.", type: "CRYPTO" },
-        { cat: "TECH", txt: "Baterías de estado sólido extienden autonomía de unidades de soporte móvil clase B.", type: "MOVILIDAD" },
-        { cat: "GUERRA/CIBER", txt: "Neutralización de botnet estatal dirigida a infraestructura de telefonía IP.", type: "DEFENSA" },
-        { cat: "REDES", txt: "Ubicación de nuevos puntos de presencia (PoP) reduce latencia en redes WAN nacionales.", type: "INFRA" },
-        { cat: "SISTEMAS", txt: "Zabbix y PRTG integran paneles unificados para monitoreo de resiliencia híbrida.", type: "MONITOREO" }
-    ];
-
-    try {
-        // Intentar obtener noticias reales adicionales para saturar el feed
-        const response = await fetch('https://min-api.cryptocompare.com/data/v2/news/?lang=EN');
-        const data = await response.json();
-        
-        let apiHeadlines = data.Data.slice(0, 10).map(item => ({
-            cat: "FINANZAS/TECH",
-            txt: item.title.toUpperCase(),
-            type: "LIVE"
-        }));
-
-        const totalFeeds = [...masterFeeds, ...apiHeadlines];
-        
-        // Formatear cada entrada: [FECHA HORA] | CATEGORÍA | TIPO | MENSAJE
-        const formattedNews = totalFeeds.map(item => {
-            return `[${timeStamp}] | CATEGORÍA: ${item.cat} | TIPO: ${item.type} | > ${item.txt}`;
-        });
-
-        // Duplicación masiva para evitar huecos en el texto
-        const finalString = formattedNews.join(" --- ");
-        feedElement.innerText = `${finalString} --- ${finalString} --- ${finalString}`;
-
-    } catch (error) {
-        // Modo Emergencia: Solo fuentes locales formateadas
-        const backupString = masterFeeds.map(item => 
-            `[${timeStamp}] | CAT: ${item.cat} | > ${item.txt}`
-        ).join(" --- ");
-        feedElement.innerText = `${backupString} --- ${backupString}`;
-    }
+ :root { 
+    --primary: #1e40af; --primary-light: #3b82f6;
+    --bg: #0f172a; --text: #f8fafc; --red: #dc2626; 
+    --acid-green: #ccff00; --card-bg: #111827; --border: #334155;
 }
 
-// Iniciar y actualizar cada 2 minutos para mantener la hora fresca
-fetchGlobalIntelligence();
-setInterval(fetchGlobalIntelligence, 120000);
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding-top: 60px; overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+
+/* SCANNER VERTICAL NOMBRE */
+.main-title { 
+    font-family: 'Michroma'; font-size: clamp(1.5rem, 5vw, 3rem); text-transform: uppercase;
+    position: relative; display: inline-block; padding: 20px 0; color: #fff;
+}
+.main-title::after {
+    content: ""; position: absolute; left: -10%; width: 120%; height: 3px;
+    background: var(--acid-green); box-shadow: 0 0 20px var(--acid-green);
+    animation: scan-v 3s ease-in-out infinite;
+}
+@keyframes scan-v { 0% { top: 0%; opacity: 0; } 50% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+
+/* NEWS BAR */
+.news-bar { position: fixed; top: 0; left: 0; width: 100%; background: #000; height: 45px; z-index: 2000; display: flex; align-items: center; border-bottom: 2px solid var(--red); overflow: hidden; }
+.news-title { background: var(--red); color: white; padding: 0 20px; font-weight: 900; font-size: 0.7rem; z-index: 2001; }
+.marquee { white-space: nowrap; animation: marquee-fast 40s linear infinite; color: var(--acid-green); font-family: 'JetBrains Mono'; font-weight: bold; }
+@keyframes marquee-fast { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+/* TERMINAL AI */
+.ai-terminal-section { margin: 40px 0; }
+.terminal-container { background: #050505; border: 2px solid var(--primary); border-radius: 8px; overflow: hidden; }
+.terminal-header { background: #111; padding: 10px 20px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono'; font-size: 0.7rem; color: #666; }
+.terminal-body { padding: 20px; }
+.chat-log { height: 250px; overflow-y: auto; font-family: 'JetBrains Mono'; font-size: 0.9rem; margin-bottom: 15px; border-bottom: 1px solid #222; }
+.bot-msg { color: var(--acid-green); margin-bottom: 10px; }
+.user-msg { color: var(--primary-light); text-align: right; margin-bottom: 10px; }
+.chat-input-row { display: flex; gap: 10px; }
+.chat-input-row input { flex: 1; background: #111; border: 1px solid var(--border); color: #fff; padding: 12px; border-radius: 4px; font-family: 'JetBrains Mono'; }
+.chat-input-row button { background: var(--acid-green); color: #000; border: none; padding: 0 25px; font-family: 'Michroma'; cursor: pointer; font-weight: bold; }
+.chat-input-row button:hover { background: #fff; box-shadow: 0 0 15px var(--acid-green); }
+
+/* CONTACTO */
+.btn-tech { padding: 20px; border-radius: 12px; text-decoration: none; border: 1px solid var(--border); transition: 0.3s; color: #fff; text-align: center; }
+.whatsapp { color: #22c55e !important; border-color: #22c55e !important; }
+.telegram { color: #3b82f6 !important; border-color: #3b82f6 !important; }
+.email-link-v2 { font-family: 'JetBrains Mono'; color: var(--acid-green) !important; font-size: 1.5rem; text-decoration: none; font-weight: 800; }
