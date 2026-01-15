@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edgar Francisco De Leon Hernandez | Infraestructura Crítica</title>
-  <meta name="description" content="Especialista en Infraestructura TI, Redes y Resiliencia. Consultoría experta por Edgar Francisco De Leon Hernandez.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-src 'self' https://va.tawk.to https://embed.tawk.to; connect-src 'self' https: wss://*.tawk.to https://generativelanguage.googleapis.com; upgrade-insecure-requests;">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Michroma&family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -26,7 +25,6 @@
 </header>
 
 <main class="container">
-  
   <section class="dashboard">
     <div class="dash-item">
       <small>Estado de Red Global</small>
@@ -37,11 +35,11 @@
       <div class="status-up" style="color:var(--acid-green)">● SISTEMAS: ESTABLES</div>
     </div>
     <div class="dash-item">
-      <small>Inteligencia en Vivo</small>
-      <div style="margin-top:5px;">
-        <a href="https://threatmap.checkpoint.com/" target="_blank" class="map-link">[ ACCEDER A CHECKPOINT THREAT MAP ]</a>
+        <small>Inteligencia en Vivo</small>
+        <div style="margin-top:5px;">
+          <a href="https://threatmap.checkpoint.com/" target="_blank" class="map-link">[ VER MAPA DE CIBERATAQUES ]</a>
+        </div>
       </div>
-    </div>
   </section>
 
   <section class="services-grid">
@@ -114,40 +112,38 @@
     <div class="terminal-card">
       <div class="terminal-header">
         <div class="terminal-controls"><span></span><span></span><span></span></div>
-        <div class="terminal-title">PAN-CHISCO_AI_CORE_2026</div>
+        <div class="terminal-title">PAN-CHISCO_AI_CORE_V4</div>
       </div>
-      <div class="terminal-body" id="panchisco-terminal">
+      <div class="terminal-body">
         <div id="gate-form-container">
           <div class="ai-intro">
             <p class="typing">> CONEXIÓN TÉCNICA NIVEL L3...</p>
             <h2>Asesoría Técnica Inmediata <span style="color:var(--acid-green); font-weight: 800;">GRATIS 24/7</span></h2>
-            <p>Resuelva sus problemas técnicos ahora mismo con nuestra IA de soporte y expertos de guardia. El registro es obligatorio para habilitar el chat.</p>
+            <p>Resuelva problemas de infraestructura en tiempo real. Ingrese sus datos para hablar con el experto.</p>
           </div>
           <form id="expert-access-form" class="ai-form">
             <div class="form-row">
               <div class="input-field">
                 <label>NOMBRE COMPLETO</label>
-                <input type="text" id="reg-name" required placeholder="Su nombre aquí">
+                <input type="text" id="reg-name" required placeholder="Nombre">
               </div>
               <div class="input-field">
                 <label>CORREO ELECTRÓNICO</label>
-                <input type="email" id="reg-email" required placeholder="ejemplo@correo.com">
+                <input type="email" id="reg-email" required placeholder="email@empresa.com">
               </div>
             </div>
             <div class="input-field">
-              <label>ÁREA DE CONSULTORÍA REQUERIDA</label>
+              <label>ÁREA DE CONSULTORÍA</label>
               <select id="reg-topic" required>
                 <option value="" disabled selected>-- Seleccione especialidad --</option>
-                <option value="Ciberseguridad y Seguridad Perimetral">Ciberseguridad y Seguridad Perimetral</option>
-                <option value="Redes LAN/WAN e Inalámbrica">Redes LAN/WAN e Inalámbrica</option>
-                <option value="Ecosistemas Cloud e Infraestructura">Ecosistemas Cloud e Infraestructura</option>
-                <option value="Soporte Técnico L1/L2/L3">Soporte Técnico y Gestión de Incidentes</option>
-                <option value="Telefonía IP y Comunicaciones">Telefonía IP y Comunicaciones</option>
-                <option value="Bases de Datos y CRM">Bases de Datos y CRM (Salesforce/HubSpot)</option>
+                <option value="Ciberseguridad">Ciberseguridad</option>
+                <option value="Redes y Conectividad">Redes y Conectividad</option>
+                <option value="Servidores e Infraestructura">Servidores e Infraestructura</option>
+                <option value="SaaS y CRM">SaaS y CRM</option>
               </select>
             </div>
             <button type="submit" class="btn-ai-send">
-              <i class="fas fa-user-tie"></i> PRESIONE AQUÍ PARA HABLAR CON EL EXPERTO
+                <i class="fas fa-user-tie"></i> PRESIONE AQUÍ PARA HABLAR CON EL EXPERTO
             </button>
           </form>
         </div>
@@ -158,7 +154,7 @@
           </div>
           <div class="chat-log" id="expert-chat-log"></div>
           <div class="chat-input-area">
-            <input type="text" id="chat-msg-input" placeholder="Describa su problema técnico detalladamente...">
+            <input type="text" id="chat-msg-input" placeholder="¿Cuál es la falla técnica?">
             <button id="send-btn" onclick="sendExpertMessage()" class="btn-chat-send">RESOLVER</button>
           </div>
         </div>
@@ -172,36 +168,26 @@
       <h2>Canales de Atención Inmediata</h2>
     </div>
     <div class="btn-group-grid">
-      <a href="javascript:void(0)" onclick="Tawk_API.maximize()" class="btn-tech whatsapp">
+      <a href="#" class="btn-tech whatsapp">
         <i class="fab fa-whatsapp"></i>
         <span>WhatsApp Support</span>
       </a>
-      <a href="javascript:void(0)" onclick="Tawk_API.maximize()" class="btn-tech telegram">
+      <a href="#" class="btn-tech telegram">
         <i class="fab fa-telegram"></i>
         <span>Telegram Support</span>
       </a>
     </div>
-    <div class="email-tech-box">
-      <small>Enviar consulta formal</small>
+    <div class="email-tech-box" style="text-align: center;">
+      <small>Enviar consulta formal</small><br>
       <a href="mailto:soportedeleonnet@gmail.com" class="email-link-v2">soportedeleonnet@gmail.com</a>
     </div>
   </section>
 </main>
 
 <footer>
-  <p>© 2026 Edgar Francisco De Leon Hernandez | Especialista en Infraestructura Crítica</p>
+  <p>© 2026 Edgar Francisco De Leon Hernandez</p>
 </footer>
 
 <script src="news-system.js"></script>
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true; s1.src='https://embed.tawk.to/69641846aae923197d507363/1jenftlcf';
-    s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-
 </body>
 </html>
