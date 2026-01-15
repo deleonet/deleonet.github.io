@@ -32,7 +32,7 @@ body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color
 /* NOTICIAS */
 .news-bar { position: fixed; top: 0; left: 0; width: 100%; background: #000; height: 40px; z-index: 2000; display: flex; align-items: center; border-bottom: 2px solid var(--red); overflow: hidden; }
 .news-title { background: var(--red); color: white; padding: 0 15px; height: 100%; display: flex; align-items: center; font-weight: 900; font-size: 0.7rem; position: absolute; z-index: 2001; }
-.marquee { display: inline-block; white-space: nowrap; animation: marquee 1000s linear infinite; color: var(--acid-green); font-family: 'Courier New', monospace; font-weight: bold; padding-left: 100%; font-size: 0.9rem; }
+.marquee { display: inline-block; white-space: nowrap; animation: marquee 1100s linear infinite; color: var(--acid-green); font-family: 'Courier New', monospace; font-weight: bold; padding-left: 100%; font-size: 0.9rem; }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
 /* DASHBOARD CON MAPA */
