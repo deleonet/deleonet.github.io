@@ -1,6 +1,7 @@
-/* =========================================
+ /* =========================================
    ESTILO MAESTRO DELEONNET - VERSIÓN 2026
    VELOCIDAD DE LECTURA OPTIMIZADA (200s)
+   COLOR: VERDE ÁCIDO CLARO (#ccff00)
    ========================================= */
 
 :root { 
@@ -11,7 +12,7 @@
     --green: #16a34a; 
     --yellow: #facc15; 
     --red: #dc2626; 
-    --acid-green: #ccff00;
+    --acid-green: #ccff00; /* Verde ácido claro principal */
     --border: #e2e8f0; 
     --card-bg: #ffffff;
 }
@@ -25,7 +26,6 @@
         --card-bg: #1e293b; 
         --border: #334155; 
     }
-    /* Forzado de visibilidad para títulos y listas */
     .service-card h2, .service-card li, .cert-section h2, .pro-contact h3, .cert-cat li { 
         color: #ffffff !important; 
     }
@@ -46,108 +46,106 @@ body {
 }
 
 /* =========================================
-   DEFCON FEED (CONFIGURACIÓN DE VELOCIDAD)
+   DEFCON FEED (VELOCIDAD LENTA)
    ========================================= */
 .news-bar { 
     position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    background: #000; 
-    height: 40px; 
-    z-index: 2000; 
-    display: flex; 
-    align-items: center; 
-    border-bottom: 2px solid var(--red); 
+    top: 0; left: 0; width: 100%; 
+    background: #000; height: 40px; 
+    z-index: 2000; display: flex; 
+    align-items: center; border-bottom: 2px solid var(--red); 
     overflow: hidden; 
 }
 
 .news-title { 
-    background: var(--red); 
-    color: white; 
-    padding: 0 15px; 
-    height: 100%; 
-    display: flex; 
-    align-items: center; 
-    font-weight: 900; 
-    font-size: 0.7rem; 
-    position: absolute; 
-    z-index: 2001; 
+    background: var(--red); color: white; 
+    padding: 0 15px; height: 100%; 
+    display: flex; align-items: center; 
+    font-weight: 900; font-size: 0.7rem; 
+    position: absolute; z-index: 2001; 
 }
 
 .marquee { 
-    display: inline-block; 
-    white-space: nowrap; 
-    /* MODIFICACIÓN DE VELOCIDAD: 200s es ideal para lectura lenta */
-    animation: marquee 1000s linear infinite; 
-    color: var(--acid-green); 
+    display: inline-block; white-space: nowrap; 
+    animation: marquee 200s linear infinite; 
+    color: var(--acid-green); /* Verde en el feed */
     font-family: 'Courier New', monospace; 
-    font-weight: bold; 
-    padding-left: 100%; 
+    font-weight: bold; padding-left: 100%; 
     font-size: 0.9rem;
 }
 
-@keyframes marquee { 
-    0% { transform: translateX(0); } 
-    100% { transform: translateX(-100%); } 
-}
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
 /* =========================================
-   HEADER Y DASHBOARD
+   DASHBOARD Y MAPAS (COLOR VERDE ÁCIDO)
    ========================================= */
-header { padding: 60px 0; text-align: center; border-bottom: 1px solid var(--border); }
-.badge-top { background: #dbeafe; color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; }
-h1 { font-size: 2.8rem; margin: 20px 0; font-weight: 800; }
-
 .dashboard { 
-    background: #0a0f1e; 
-    border: 1px solid var(--primary); 
-    border-radius: 12px; 
-    padding: 20px; 
-    margin: -30px 0 40px; 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 20px; 
+    background: #0a0f1e; border: 1px solid var(--primary); 
+    border-radius: 12px; padding: 20px; margin: -30px 0 40px; 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; 
 }
+
+.map-link {
+    color: var(--acid-green) !important; /* VERDE ÁCIDO CLARO */
+    border: 1px solid var(--acid-green);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.7rem;
+    font-family: 'Courier New', monospace;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.map-link:hover {
+    background: var(--acid-green);
+    color: #000 !important;
+}
+
 .dash-item { border-left: 3px solid var(--primary); padding-left: 15px; }
-.dash-item small { color: #64748b; text-transform: uppercase; font-weight: 800; font-size: 0.6rem; display: block; }
 .status-up { color: var(--green); font-weight: 800; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; margin-top: 5px; }
 
 /* =========================================
-   SERVICIOS TI
+   SERVICIOS
    ========================================= */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
 .service-card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border); }
+.service-card h2 i { color: var(--acid-green); margin-right: 10px; } /* Iconos en verde */
+
 .b-infra { border-top: 5px solid var(--green); }
 .b-net { border-top: 5px solid var(--yellow); }
 .b-mob { border-top: 5px solid var(--red); }
-.service-card h2 { font-size: 1.3rem; margin-bottom: 15px; font-weight: 800; }
-.service-card ul { padding-left: 20px; }
-.service-card li { margin-bottom: 10px; font-weight: 500; }
 
 /* =========================================
    CERTIFICACIONES (ALTO CONTRASTE)
    ========================================= */
 .cert-section { 
-    background: #111827 !important; 
-    color: white !important; 
-    padding: 60px 0; 
-    border-radius: 20px; 
-    border: 1px solid var(--primary); 
-    margin-bottom: 50px; 
+    background: #111827 !important; color: white !important; 
+    padding: 60px 0; border-radius: 20px; 
+    border: 1px solid var(--primary); margin-bottom: 50px; 
 }
-.cert-section h2 { text-align: center; margin-bottom: 40px; font-weight: 800; font-size: 2rem; color: #ffffff !important; }
-.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 20px; }
-.cert-cat h3 { color: var(--acid-green) !important; font-size: 0.9rem; border-bottom: 1px solid #374151; padding-bottom: 10px; margin-bottom: 15px; text-transform: uppercase; }
-.cert-cat li { list-style: none; margin-bottom: 12px; font-size: 0.95rem; color: #f3f4f6 !important; }
+.cert-cat h3 { color: var(--acid-green) !important; border-bottom: 1px solid #374151; padding-bottom: 10px; margin-bottom: 15px; }
 .cert-cat li::before { content: "▶ "; color: var(--acid-green); font-weight: bold; }
 
 /* =========================================
-   CONTACTO
+   CONTACTO Y EMAIL (VERDE ÁCIDO CLARO)
    ========================================= */
 .contact-zone { text-align: center; padding: 60px 20px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; }
-.btn-chat { background: var(--primary); color: white !important; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; margin: 10px; transition: 0.2s; }
-.btn-chat:hover { transform: scale(1.03); }
-.email-link { font-size: 1.6rem; color: var(--primary); font-weight: 900; text-decoration: none; border-bottom: 3px solid var(--acid-green); display: inline-block; margin-top: 10px; }
 
-footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.8rem; background: #0a0f1e; margin-top: 50px; }
+.email-link { 
+    color: var(--acid-green) !important; /* CORREO EN VERDE ÁCIDO CLARO */
+    font-size: 1.6rem; 
+    font-weight: 900; 
+    text-decoration: none; 
+    border-bottom: 3px solid var(--acid-green); 
+    display: inline-block;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.email-link:hover { filter: brightness(1.2); }
+
+.btn-chat { background: var(--primary); color: white !important; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; margin: 10px; }
+
+footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.8rem; background: #0a0f1e; }
