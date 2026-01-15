@@ -1,212 +1,30 @@
- /* =============================
-   DeLeonNet - Estilos Generales
-============================= */
-
-/* Tipografía y cuerpo */
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f5f7fa;
-  color: #1A3668;
-  line-height: 1.6;
+ :root { 
+  --primary: #1e40af; --secondary: #0f172a; --bg: #f8fafc; --text: #1e293b; 
+  --green: #16a34a; --acid-green: #ccff00; --red: #dc2626; --border: #e2e8f0; 
 }
 
-/* Enlaces */
-a {
-  transition: all 0.3s ease;
-}
-a:hover {
-  color: #39B54A;
-}
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding-top: 40px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
-/* Contenedores generales */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Estilos Dashboard */
+.cyber-dashboard {
+  background: #000; color: #fff; border-radius: 12px; padding: 20px;
+  margin: -40px 0 40px; border: 1px solid var(--primary);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
+.dashboard-header { font-weight: 800; font-size: 0.8rem; color: var(--primary); letter-spacing: 2px; margin-bottom: 20px; }
+.dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.dash-item { background: #111; padding: 15px; border-radius: 8px; border-left: 3px solid var(--primary); }
+.dash-item h4 { margin: 0 0 10px 0; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; }
 
-/* =============================
-   Navbar
-============================= */
-nav {
-  background-color: #ffffff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-nav a {
-  font-weight: 600;
-  color: #1A3668;
-}
-nav a:hover {
-  color: #39B54A;
-}
+/* Badge A+ */
+.security-badge { display: flex; align-items: center; gap: 15px; background: #052e16; padding: 10px; border-radius: 6px; border: 1px solid var(--green); }
+.rank { font-size: 1.5rem; font-weight: 900; color: var(--acid-green); }
+.rank-info { font-size: 0.6rem; font-weight: 700; line-height: 1.2; }
 
-/* =============================
-   Hero Section
-============================= */
-header {
-  min-height: 80vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-header h1 {
-  font-size: 3rem;
-  font-weight: 800;
-}
-header p {
-  font-size: 1.25rem;
-  color: #e0e7ff;
-}
-header a {
-  display: inline-block;
-  font-weight: 700;
-  background-color: #39B54A;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-header a:hover {
-  background-color: #1f9b3a;
-  transform: translateY(-2px);
-}
+/* Animaciones */
+.pulse-green { display: inline-block; width: 8px; height: 8px; background: var(--green); border-radius: 50%; margin-right: 8px; box-shadow: 0 0 8px var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-/* =============================
-   Sección Servicios
-============================= */
-#services .grid div {
-  transition: all 0.3s ease;
-}
-#services .grid div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-#services img {
-  height: 60px;
-  width: auto;
-}
-
-/* =============================
-   Certificaciones
-============================= */
-#certifications img {
-  max-width: 80%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-#certifications img:hover {
-  transform: scale(1.05);
-}
-
-/* =============================
-   Contadores
-============================= */
-.counter {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #1A3668;
-}
-
-/* =============================
-   Sobre mí
-============================= */
-#about img {
-  border-radius: 50%;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-#about h2 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-#about p {
-  font-size: 1rem;
-  color: #334155;
-}
-
-/* =============================
-   Proyectos
-============================= */
-#projects img {
-  width: 100%;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-#projects div:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-/* =============================
-   Testimonios Swiper
-============================= */
-.swiper-slide {
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-.swiper-slide:hover {
-  transform: translateY(-5px);
-}
-.swiper-pagination-bullet {
-  background-color: #1A3668;
-}
-.swiper-pagination-bullet-active {
-  background-color: #39B54A;
-}
-
-/* =============================
-   Formulario Contacto
-============================= */
-#contact form {
-  transition: all 0.3s ease;
-}
-#contact input, #contact textarea {
-  border: 1px solid #cbd5e1;
-  padding: 1rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-#contact input:focus, #contact textarea:focus {
-  outline: none;
-  border-color: #39B54A;
-  box-shadow: 0 0 8px rgba(57,181,74,0.4);
-}
-#contact button {
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-#contact button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* =============================
-   Footer
-============================= */
-footer {
-  background-color: #1A3668;
-  color: #f1f5f9;
-}
-footer a img {
-  transition: transform 0.3s ease;
-}
-footer a:hover img {
-  transform: scale(1.2);
-}
-
-/* =============================
-   Animaciones Personalizadas
-============================= */
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-.animate-fade-in {
-  animation: fade-in 1.5s ease forwards;
-}
+.threat-btn { display: block; text-align: center; background: var(--red); color: white; text-decoration: none; padding: 8px; border-radius: 4px; font-weight: 800; font-size: 0.7rem; transition: 0.3s; }
+.threat-btn:hover { background: #991b1b; }
