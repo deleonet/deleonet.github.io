@@ -1,24 +1,48 @@
  /* =========================================
-   SEO & PERFORMANCE OPTIMIZATION (INVISIBLES)
+   ESTILO FINAL CONSOLIDADO DELEONNET
    ========================================= */
-:root {
-    /* Mantenemos tus variables (asegúrate de que estén en tu :root original) */
-    --primary: #1e40af;
-    --acid-green: #22c55e;
-    --card-bg: #0f172a;
-    --border: #1e293b;
+
+:root { 
+    --primary: #1e40af; 
+    --bg: #0f172a; 
+    --text: #f8fafc; 
+    --red: #dc2626; 
+    --acid-green: #ccff00; 
+    --card-bg: #111827;
+    --border: #334155;
 }
 
-html {
-    scroll-behavior: smooth;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    font-display: swap; /* Carga de fuentes rápida para Google */
+body { 
+    margin: 0; 
+    font-family: 'Inter', sans-serif; 
+    background: var(--bg); 
+    color: var(--text); 
+    padding-top: 60px; 
 }
 
-/* =========================================
-   BRANDING & HEADER (TU DISEÑO ORIGINAL)
-   ========================================= */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+
+/* --- MARQUEE ULTRA LENTO (800s) --- */
+.news-bar { 
+    position: fixed; top: 0; left: 0; width: 100%; 
+    background: #000; height: 45px; z-index: 2000; 
+    display: flex; align-items: center; border-bottom: 2px solid var(--red); 
+    overflow: hidden; 
+}
+.news-title { 
+    background: var(--red); color: white; padding: 0 20px; 
+    height: 100%; display: flex; align-items: center; 
+    font-weight: 900; font-size: 0.75rem; z-index: 2001; 
+}
+.marquee { 
+    display: inline-block; white-space: nowrap; 
+    animation: marquee-slow 800s linear infinite; 
+    color: var(--acid-green); font-family: 'Courier New', monospace; 
+    font-weight: bold; font-size: 1rem; padding-left: 100%; 
+}
+@keyframes marquee-slow { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+/* --- CABECERA Y EFECTOS --- */
 .brand-box { position: relative; padding: 60px 0; text-align: center; overflow: hidden; }
 .main-title { 
     font-family: 'Michroma', sans-serif; font-size: clamp(1.5rem, 5vw, 3.5rem); 
@@ -89,3 +113,4 @@ html {
 }
 
 footer { text-align: center; padding: 40px; opacity: 0.5; font-size: 0.8rem; }
+
