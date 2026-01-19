@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /config/
+
+Sitemap: https://deleonet.github.io/sitemap.xml
