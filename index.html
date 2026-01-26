@@ -6,243 +6,266 @@
     
     <title>Edgar Francisco De Leon Hernandez | Infraestructura Crítica & Resiliencia TI</title>
     <meta name="description" content="Especialista en Gestión de Incidentes Críticos (L2/L3), administración de ecosistemas de misión crítica y seguridad perimetral.">
-    
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-src 'self' https://va.tawk.to https://embed.tawk.to; connect-src 'self' https: wss://*.tawk.to https://api.ipify.org https://api.rss2json.com; img-src 'self' https: data:;">
+    <meta name="keywords" content="Infraestructura Crítica, Ciberseguridad, Redes, Resiliencia TI, Gestión de Incidentes, Edgar De Leon">
+    <link rel="canonical" href="https://deleonet.github.io/">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta property="og:title" content="Edgar Francisco De Leon Hernandez | Infraestructura Crítica">
+    <meta property="og:description" content="Gestión avanzada de incidentes y resiliencia en ecosistemas TI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deleonet.github.io/">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; frame-src 'self' https://va.tawk.to https://embed.tawk.to; connect-src 'self' https: wss://*.tawk.to; img-src 'self' https: data:; upgrade-insecure-requests;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Michroma&family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* === CORE STYLES RESTAURADOS === */
         :root { 
             --primary: #1e40af; --bg: #0f172a; --text: #f8fafc; 
             --red: #dc2626; --acid-green: #ccff00; --card-bg: #111827; --border: #334155; 
         }
         body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding-top: 60px; overflow-x: hidden; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; position: relative; z-index: 10; }
-
-        /* === EFECTO SCANLINE ORIGINAL RESTAURADO === */
-        .scanline {
-            width: 100%;
-            height: 100px;
-            z-index: 5000;
-            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(204, 255, 0, 0.1) 50%, rgba(0,0,0,0) 100%);
-            opacity: 0.5;
-            position: fixed;
-            top: -100px;
-            left: 0;
-            pointer-events: none;
-            animation: scanlineAnim 8s linear infinite;
-        }
-        @keyframes scanlineAnim {
-            0% { top: -100px; }
-            100% { top: 100%; }
-        }
-
-        /* OVERLAY DE SUSTO */
-        #panic-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.98); z-index: 9999; display: none;
-            flex-direction: column; align-items: center; justify-content: center;
-            color: var(--red); font-family: 'JetBrains Mono', monospace; text-align: center;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
         /* MARQUEE */
-        .news-bar { position: fixed; top: 0; left: 0; width: 100%; background: #000; height: 45px; z-index: 6000; display: flex; align-items: center; border-bottom: 2px solid var(--red); overflow: hidden; }
-        .news-title { background: var(--red); color: white; padding: 0 20px; height: 100%; display: flex; align-items: center; font-weight: 900; font-size: 0.75rem; z-index: 6001; }
-        .marquee { display: inline-block; white-space: nowrap; animation: marquee-slow 120s linear infinite; color: var(--acid-green); font-family: 'Courier New', monospace; font-weight: bold; font-size: 1rem; padding-left: 100%; }
+        .news-bar { position: fixed; top: 0; left: 0; width: 100%; background: #000; height: 45px; z-index: 2000; display: flex; align-items: center; border-bottom: 2px solid var(--red); overflow: hidden; }
+        .news-title { background: var(--red); color: white; padding: 0 20px; height: 100%; display: flex; align-items: center; font-weight: 900; font-size: 0.75rem; z-index: 2001; }
+        .marquee { display: inline-block; white-space: nowrap; animation: marquee-slow 500s linear infinite; color: var(--acid-green); font-family: 'Courier New', monospace; font-weight: bold; font-size: 1rem; padding-left: 100%; }
         @keyframes marquee-slow { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-        /* SOC MONITOR */
-        .soc-panel { background: #000; border: 1px solid var(--primary); border-radius: 8px; padding: 15px; margin: 20px auto; max-width: 800px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; height: 100px; overflow-y: auto; color: var(--acid-green); box-shadow: inset 0 0 10px #000; }
-
-        /* CONTENIDO */
-        .brand-box { padding: 40px 0; text-align: center; }
+        /* HEADER & EFECTO SCANLINE RESTAURADO */
+        .brand-box { position: relative; padding: 60px 0; text-align: center; overflow: hidden; }
         .main-title { font-family: 'Michroma', sans-serif; font-size: clamp(1.5rem, 5vw, 3.5rem); color: #fff; text-transform: uppercase; margin: 15px 0; }
         .badge-top { font-family: 'JetBrains Mono', monospace; color: var(--acid-green); border: 1px solid var(--acid-green); padding: 5px 15px; border-radius: 4px; text-transform: uppercase; font-size: 0.8rem; animation: flicker 4s infinite; }
+        .hero-p { color: #cbd5e1; font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+        
+        .brand-box::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--acid-green); opacity: 0.3; box-shadow: 0 0 10px var(--acid-green);
+            animation: scanline 8s linear infinite;
+        }
+        @keyframes scanline { 0% { top: 0%; } 100% { top: 100%; } }
         @keyframes flicker { 0%, 100%, 30% { opacity: 1; } 31%, 33% { opacity: 0.4; } }
 
+        /* DASHBOARD */
         .dashboard { background: #0a0f1e; border: 1px solid var(--primary); border-radius: 12px; padding: 25px; margin-bottom: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .dash-item { border-left: 3px solid var(--primary); padding-left: 15px; }
         .status-up { color: #16a34a; font-weight: 800; display: flex; align-items: center; gap: 8px; }
         .pulse { width: 10px; height: 10px; background: var(--acid-green); border-radius: 50%; box-shadow: 0 0 8px var(--acid-green); animation: blink 1.5s infinite; }
         @keyframes blink { 50% { opacity: 0.3; } }
+        .map-link { color: var(--acid-green) !important; text-decoration: none; font-family: monospace; font-size: 0.7rem; border: 1px solid; padding: 4px 8px; transition: 0.3s; }
+        .map-link:hover { background: var(--acid-green); color: #000 !important; }
 
+        /* SERVICIOS RESTAURADOS */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .service-card-v2 { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border); transition: 0.3s; position: relative; }
-        .service-card-v2:hover { border-color: var(--acid-green); transform: translateY(-5px); }
+        .service-card-v2 { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border); transition: 0.3s; }
+        .service-card-v2:hover { border-color: var(--acid-green); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(204, 255, 0, 0.1); }
         .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; color: var(--acid-green); }
         .service-card-v2 h2 { font-size: 1.2rem; margin: 0; color: #fff; font-family: 'Michroma'; }
         .service-card-v2 ul { list-style: none; padding: 0; }
         .service-card-v2 li { margin-bottom: 12px; color: #cbd5e1; font-size: 0.95rem; display: flex; align-items: flex-start; }
         .service-card-v2 li::before { content: "•"; color: var(--primary); margin-right: 10px; font-weight: bold; }
 
-        /* HONEYPOT */
-        .honey-trap { position: absolute; bottom: 0; right: 0; width: 15px; height: 15px; opacity: 0.05; cursor: default; background: var(--acid-green); }
-
-        /* CERTIFICACIONES */
+        /* CERTIFICACIONES RESTAURADAS */
         .cert-section { background: #0a0f1e; padding: 60px 20px; border-radius: 20px; border: 1px solid var(--primary); margin-bottom: 50px; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .tech-label { color: var(--acid-green); font-family: 'JetBrains Mono'; letter-spacing: 3px; display: block; margin-bottom: 10px; font-size: 0.8rem; text-transform: uppercase; }
         .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .cert-card { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border); transition: 0.3s; }
         .active-card { border-color: var(--primary); box-shadow: 0 0 15px rgba(30, 64, 175, 0.3); }
+        .card-icon { font-size: 2.5rem; color: var(--acid-green); margin-bottom: 15px; display: block; text-align: center; }
+        .cert-card h3 { font-family: 'Michroma'; font-size: 0.9rem; margin-bottom: 20px; color: #fff; text-align: center; }
+        .cert-list { list-style: none; padding: 0; }
+        .cert-list li { font-size: 0.85rem; margin-bottom: 10px; color: #94a3b8; display: flex; align-items: center; }
+        .cert-list li::before { content: "▶"; color: var(--acid-green); margin-right: 8px; font-size: 0.7rem; }
 
         /* CONTACTO */
         .contact-tech-card { background: var(--card-bg); border: 1px solid var(--primary); border-radius: 20px; padding: 40px; text-align: center; margin-bottom: 60px; }
-        .btn-tech { padding: 20px; border-radius: 12px; text-decoration: none; font-family: 'Michroma'; font-size: 0.7rem; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: 0.3s; border: 1px solid var(--border); color: white; }
-        .btn-tech:hover { background: var(--acid-green); color: #000; }
+        .btn-group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
+        .btn-tech { padding: 20px; border-radius: 12px; text-decoration: none; font-family: 'Michroma'; font-size: 0.7rem; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: 0.3s; }
+        .whatsapp { background: rgba(34, 197, 94, 0.1); color: #22c55e !important; border: 1px solid #22c55e; }
+        .telegram { background: rgba(59, 130, 246, 0.1); color: #3b82f6 !important; border: 1px solid #3b82f6; }
+        .btn-tech i { font-size: 2rem; }
+        .btn-tech:hover { background: var(--acid-green); color: #000 !important; }
+        .email-tech-box { border-top: 1px solid var(--border); padding-top: 30px; margin-top: 20px; }
+        .email-link-v2 { font-family: 'JetBrains Mono'; font-size: clamp(1rem, 4vw, 1.5rem); color: var(--acid-green) !important; text-decoration: none; font-weight: 800; cursor: pointer; }
 
         footer { text-align: center; padding: 40px; opacity: 0.5; font-size: 0.8rem; border-top: 1px solid var(--border); }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Edgar Francisco De Leon Hernandez",
+      "jobTitle": "Especialista en Infraestructura Crítica",
+      "url": "https://deleonet.github.io/",
+      "knowsAbout": ["Infraestructura TI", "Ciberseguridad", "Redes"],
+      "description": "Especialista en resiliencia de sistemas y gestión de incidentes críticos."
+    }
+    </script>
 </head>
-<body oncontextmenu="picarAbeja('Click Derecho Detectado'); return false;">
+<body>
 
-    <div class="scanline"></div>
+<div class="news-bar">
+    <div class="news-title">DEFCON FEED</div>
+    <div class="marquee" id="news-feed">ESTABLECIENDO CONEXIÓN SEGURA... CARGANDO INTELIGENCIA DE RED...</div>
+</div>
 
-    <div id="panic-overlay">
-        <h1 style="font-size: 3rem;">ALERTA DE SEGURIDAD</h1>
-        <p>ACTIVIDAD NO AUTORIZADA DETECTADA</p>
+<header class="container">
+    <div class="brand-box">
+        <span class="badge-top">Infraestructura Crítica & Resiliencia TI</span>
+        <h1 class="main-title">Edgar Francisco De Leon Hernandez</h1>
+        <p class="hero-p">Gestión avanzada de incidentes y administración de ecosistemas de misión crítica.</p>
     </div>
+</header>
 
-    <div class="news-bar">
-        <div class="news-title">DEFCON FEED</div>
-        <div class="marquee" id="news-feed">ESTABLECIENDO CONEXIÓN SEGURA... CARGANDO INTELIGENCIA...</div>
-    </div>
-
-    <header class="container">
-        <div class="brand-box">
-            <span class="badge-top">Infraestructura Crítica & Resiliencia TI</span>
-            <h1 class="main-title">Edgar Francisco De Leon Hernandez</h1>
-            <p class="hero-p">Gestión avanzada de incidentes y administración de ecosistemas de misión crítica.</p>
-            <div id="soc-monitor" class="soc-panel">
-                <div>[INFO] Vigilancia de Red iniciada. Esperando paquetes...</div>
+<main class="container">
+    <section class="dashboard">
+        <div class="dash-item">
+            <small>Estado de Red Global</small>
+            <div class="status-up"><div class="pulse"></div> NODOS: OPERATIVOS</div>
+        </div>
+        <div class="dash-item">
+            <small>Nivel de Amenaza</small>
+            <div class="status-up" style="color:var(--acid-green)">● SISTEMAS: ESTABLES</div>
+        </div>
+        <div class="dash-item">
+            <small>Inteligencia en Vivo</small>
+            <div style="margin-top:5px;">
+                <a href="https://threatmap.checkpoint.com/" target="_blank" rel="noopener noreferrer" class="map-link">[ ACCEDER A CHECKPOINT THREAT MAP ]</a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main class="container">
-        <section class="dashboard">
-            <div class="dash-item">
-                <small>Estado de Red Global</small>
-                <div class="status-up"><div class="pulse"></div> NODOS: OPERATIVOS</div>
-            </div>
-            <div class="dash-item">
-                <small>Identificación de Sesión</small>
-                <div class="status-up" id="session-ip" style="color:var(--acid-green)">CARGANDO IP...</div>
-            </div>
-            <div class="dash-item">
-                <small>Honeypot L3</small>
-                <div class="status-up" style="color:var(--acid-green)">● VIGILANTE</div>
-            </div>
-        </section>
+    <section class="services-grid">
+        <article class="service-card-v2">
+            <div class="card-header"><i class="fas fa-server"></i> <h2>Infraestructura TI</h2></div>
+            <ul>
+                <li>Gestión de Incidentes Críticos (L2/L3).</li>
+                <li>Administración de Ecosistemas SaaS y CRM.</li>
+                <li>Soporte híbrido enfocado en resiliencia.</li>
+                <li>Diagnóstico avanzado en entornos de misión crítica.</li>
+            </ul>
+        </article>
+        <article class="service-card-v2">
+            <div class="card-header"><i class="fas fa-network-wired"></i> <h2>Redes & Conectividad</h2></div>
+            <ul>
+                <li>Diseño de infraestructura: racks y fibra.</li>
+                <li>Certificación de nodos y Telefonía IP.</li>
+                <li>Mantenimiento LAN/WAN y monitoreo proactivo.</li>
+                <li>Planificación de redes escalables.</li>
+            </ul>
+        </article>
+        <article class="service-card-v2">
+            <div class="card-header"><i class="fas fa-car"></i> <h2>Movilidad</h2></div>
+            <ul>
+                <li>Movilidad corporativa profesional (Licencia B).</li>
+                <li>Coordinación de despliegues nacionales.</li>
+                <li>Soporte técnico inmediato en sitio.</li>
+                <li>Gestión de recursos y personal en campo.</li>
+            </ul>
+        </article>
+    </section>
 
-        <section class="services-grid">
-            <article class="service-card-v2">
-                <div class="card-header"><i class="fas fa-server"></i> <h2>Infraestructura TI</h2></div>
-                <ul>
-                    <li>Gestión de Incidentes Críticos (L2/L3).</li>
-                    <li>Administración de Ecosistemas SaaS y CRM.</li>
-                    <li>Soporte híbrido enfocado en resiliencia.</li>
-                    <li>Diagnóstico avanzado en entornos de misión crítica.</li>
+    <section class="cert-section">
+        <div class="section-header">
+            <span class="tech-label">CORE COMPETENCIES 2026</span>
+            <h2 style="color:white; font-family:'Michroma'; font-size: 1.5rem;">Especializaciones & Certificaciones</h2>
+        </div>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <i class="fas fa-microchip card-icon"></i>
+                <h3>Sistemas & Marketing Digital</h3>
+                <ul class="cert-list">
+                    <li>Google Campaign Manager 360</li>
+                    <li>Gestión de Identidad y Acceso</li>
+                    <li>Administración de CRM (Salesforce/HubSpot)</li>
                 </ul>
-                <div class="honey-trap" onclick="picarAbeja('Intento de Acceso a DB')"></div>
-            </article>
-            <article class="service-card-v2">
-                <div class="card-header"><i class="fas fa-network-wired"></i> <h2>Redes & Conectividad</h2></div>
-                <ul>
-                    <li>Diseño de infraestructura: racks y fibra.</li>
-                    <li>Certificación de nodos y Telefonía IP.</li>
-                    <li>Mantenimiento LAN/WAN y monitoreo proactivo.</li>
-                    <li>Planificación de redes escalables.</li>
-                </ul>
-            </article>
-            <article class="service-card-v2">
-                <div class="card-header"><i class="fas fa-car"></i> <h2>Movilidad</h2></div>
-                <ul>
-                    <li>Movilidad corporativa profesional (Licencia B).</li>
-                    <li>Coordinación de despliegues nacionales.</li>
-                    <li>Soporte técnico inmediato en sitio.</li>
-                    <li>Gestión de recursos y personal en campo.</li>
-                </ul>
-            </article>
-        </section>
-
-        <section class="cert-section">
-            <h2 style="text-align:center; font-family:'Michroma'; color:white; margin-bottom:40px;">Especializaciones & Certificaciones</h2>
-            <div class="cert-grid">
-                <div class="cert-card"><h3>Sistemas & Marketing Digital</h3></div>
-                <div class="cert-card active-card"><h3>Infraestructura & Redes</h3></div>
-                <div class="cert-card"><h3>Seguridad & Monitoreo</h3></div>
             </div>
-        </section>
-
-        <section class="contact-tech-card">
-            <h2>Contacto Profesional</h2>
-            <div class="btn-group-grid">
-                <a href="javascript:void(0)" onclick="Tawk_API.maximize()" class="btn-tech" style="border-color:#22c55e; color:#22c55e;"><i class="fab fa-whatsapp"></i> WhatsApp Support</a>
-                <a href="javascript:void(0)" onclick="Tawk_API.maximize()" class="btn-tech" style="border-color:#3b82f6; color:#3b82f6;"><i class="fab fa-telegram"></i> Telegram Support</a>
+            <div class="cert-card active-card">
+                <i class="fas fa-network-wired card-icon"></i>
+                <h3>Infraestructura & Redes</h3>
+                <ul class="cert-list">
+                    <li>Certificación en Cableado Estructurado</li>
+                    <li>Gestión de Redes LAN/WAN (Cisco/Ubiquiti)</li>
+                    <li>Configuración de Telefonía IP</li>
+                </ul>
             </div>
-            <p style="font-family:'JetBrains Mono'; color:var(--acid-green);">soportedeleonnet@gmail.com</p>
-        </section>
-    </main>
+            <div class="cert-card">
+                <i class="fas fa-user-shield card-icon"></i>
+                <h3>Seguridad & Monitoreo</h3>
+                <ul class="cert-list">
+                    <li>Implementación de Sistemas SOC/NOC</li>
+                    <li>Monitoreo Proactivo (PRTG / Zabbix)</li>
+                    <li>Ciberseguridad Perimetral</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>© 2026 Edgar Francisco De Leon Hernandez | Especialista en Infraestructura Crítica</p>
-    </footer>
+    <section class="contact-tech-card">
+        <span class="tech-label">CONTACTO PROFESIONAL</span>
+        <h2>Canales de Atención Inmediata</h2>
+        <div class="btn-group-grid">
+            <a href="javascript:void(0)" onclick="Tawk_API.maximize()" class="btn-tech whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp Support</span></a>
+            <a href="javascript:void(0)" onclick="Tawk_API.maximize()" class="btn-tech telegram"><i class="fab fa-telegram"></i><span>Telegram Support</span></a>
+        </div>
+        <div class="email-tech-box">
+            <small style="display:block; margin-bottom:10px; color:#94a3b8;">Enviar consulta formal</small>
+            <span id="email-secure" class="email-link-v2" onclick="revelarEmail()">[ MOSTRAR EMAIL DE SOPORTE ]</span>
+        </div>
+    </section>
+</main>
 
-    <script>
-        const soc = document.getElementById('soc-monitor');
-        const panic = document.getElementById('panic-overlay');
+<footer>
+    <p>© 2026 Edgar Francisco De Leon Hernandez | Especialista en Infraestructura Crítica</p>
+</footer>
 
-        function registrarLog(msg, color = '#ccff00') {
-            const div = document.createElement('div');
-            div.style.color = color;
-            div.innerText = `[${new Date().toLocaleTimeString()}] ${msg}`;
-            soc.prepend(div);
-        }
-
-        function picarAbeja(motivo) {
-            registrarLog(`ALERTA: ${motivo}`, '#ff0000');
-            panic.style.display = 'flex';
-            setTimeout(() => { panic.style.display = 'none'; }, 4000);
-        }
-
-        // IP Tracking
-        fetch('https://api.ipify.org?format=json')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('session-ip').innerText = `IP: ${data.ip}`;
-                registrarLog(`Nodo identificado: ${data.ip}`);
-            });
-
-        // Feed Noticias
-        async function cargarFeed() {
+<script>
+async function iniciarFeedNoticias() {
+    const feedDisplay = document.getElementById('news-feed');
+    const fuentes = ["https://www.bleepingcomputer.com/feed/","https://thehackernews.com/feeds/posts/default"];
+    async function obtenerNoticias() {
+        let todas = [];
+        for (let url of fuentes) {
             try {
-                const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.bleepingcomputer.com%2Ffeed%2F');
+                const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`);
                 const data = await res.json();
-                if(data.status === 'ok') {
-                    document.getElementById('news-feed').innerText = data.items.map(i => ` [NOTICIA]: ${i.title.toUpperCase()} `).join(' --- ');
+                if (data.status === 'ok') {
+                    const items = data.items.map(i => ` [ALERTA]: ${i.title.replace(/<[^>]*>?/gm, '').toUpperCase()} `);
+                    todas = [...todas, ...items];
                 }
-            } catch(e) { console.log("Feed offline"); }
+            } catch (e) { console.warn("Nodo offline"); }
         }
-        window.onload = cargarFeed;
+        if (todas.length > 0) feedDisplay.innerText = todas.join(' --- ');
+    }
+    obtenerNoticias();
+}
 
-        // Vigilancia DOM (Retrasada)
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const observer = new MutationObserver(() => { picarAbeja('Cambio en el código detectado'); });
-                observer.observe(document.body, { childList: true, subtree: true });
-                registrarLog("Vigilancia de Integridad activa.");
-            }, 3000);
-        });
-    </script>
+function revelarEmail() {
+    const user = "soportedeleonnet";
+    const domain = "gmail.com";
+    const el = document.getElementById('email-secure');
+    el.innerHTML = `<a href="mailto:${user}@${domain}" style="color:inherit;text-decoration:none;">${user}@${domain}</a>`;
+    el.onclick = null;
+}
 
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{};
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true; s1.src='https://embed.tawk.to/69641846aae923197d507363/1jenftlcf';
-            s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
+window.onload = iniciarFeedNoticias;
+</script>
+
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{};
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true; s1.src='https://embed.tawk.to/69641846aae923197d507363/1jenftlcf';
+        s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+
 </body>
 </html>
